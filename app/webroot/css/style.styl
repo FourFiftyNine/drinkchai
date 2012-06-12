@@ -1,0 +1,535 @@
+/*
+## DrinkChai.com ##
+ - Anthony Sessa - sessa.com
+ 
+  444       444        555555555555555
+ 44444     44444        555555555555555
+ 44444     44444        555555555555555
+ 44444     44444  [][]  55555
+ 444444444444444  [][]  55555
+ 444444444444444        55555
+ 444444444444444  [][]  555555555555555
+           44444  [][]  555555555555555
+           44444                  55555
+           44444                  55555
+           44444                  55555
+           44444                  55555
+
+*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Begin FourFiftyNine.com
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+/*~~ Colors ~~*/
+$brown = #422A11
+$lightBrown = #D9C6A8
+$green = #9FD6C2
+
+gradientGreen()
+  background: #79c5a9
+  background: rgb(146,208,184) /* Old browsers */
+  background: linear-gradient(top, rgba(146,208,184,1) 0%,rgba(121,197,169,1) 100%)
+@import 'import/nib'
+@import 'import/_h5bp'
+// @import 'import/_custom_chosen'
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** General Styles
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html, button, input, select, textarea
+  font-family: 'museo-slab', serif
+body
+  smooth()
+  overflow-y: scroll
+
+::-moz-selection
+  background: #914c5a
+  color: #fff
+  text-shadow: none
+
+::selection
+  background: #914c5a
+  color: #fff
+  text-shadow: none
+
+#spinner
+  position: absolute !important
+  left: 50% !important
+  // top: 230px !important
+  top: 50% !important
+
+ul
+  list-style-position: outside
+  margin-top: 0
+  padding-left: 20px
+  list-style-image: url(/images/bullet.png)
+  li
+    font-size: 17px
+.lt-ie9
+  ul
+    list-style-image: none
+/*~~ Links ~~*/
+a,
+a:visited
+  text-decoration: none
+a:active
+  position: relative
+  top: 1px
+
+a, a:hover, a:active, :focus
+  outline: 0
+
+transparentPng()
+  background: transparent
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)" /* IE8 */   
+  zoom: 1
+
+/*~~ General - Green Tag ~~*/
+
+.green-tag
+  display: block
+  background: url(/img/tag.png) no-repeat
+  cursor: pointer
+  height: 169px
+  width: 74px
+  position: absolute
+  right: -90px
+  top: -5px
+
+  &:hover
+    top: 2px
+  .facebook, .twitter
+    cursor: pointer
+    &:hover
+      opacity: .5
+    img
+      opacity: 1
+      position: relative
+      left: -5
+  .facebook img
+    top: 76px
+
+#launch .green-tag
+  right: 20px
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Links
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Backgrounds
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body
+  /*background: url('/img/middle_bg.jpg') repeat*/
+  color: #000000
+  background: url(/img/tea_leaves.jpg) no-repeat center center fixed
+  background-repeat: no-repeat
+  background-position: center center
+  background-attachment: fixed
+  background-size: cover
+  behavior: url(/js/libs/pie/PIE.htc)
+
+.no-backgroundsize
+  background: url(/img/tea_leaves.jpg) repeat-x center center fixed
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Inputs
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.text input,
+textarea
+  background: white
+  border: 3px solid $lightBrown
+  box-sizing: border-box
+  color: #422A11
+  display: block
+  font-family: 'News Cycle', arial, sans-serif
+  padding: 5px 10px
+  text-shadow: 0 0 3px black
+  text-shadow: 0 0 3px rgba(0, 0, 0, .55)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.610) inset
+  border-radius: 5px
+  behavior: url(/js/libs/pie/PIE.htc)
+  &:focus
+    border-color: $green
+
+
+div.required input
+  background-image: url(/img/asterisk.png)
+  background-repeat: no-repeat
+  background-position: 97%
+
+/** ERROR MESSAGES **/
+span.error-message
+  background: #fff
+  color: #D96F50
+  font-family: Arimo, arial
+  font-size: 18px
+  font-weight: bold
+  padding: 15px 10px 10px
+  margin: 0 auto
+  width: 300px
+  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.5)
+     -moz-box-shadow: 0 0 7px rgba(0,0,0,0.5)
+      -ms-box-shadow: 0 0 7px rgba(0,0,0,0.5)
+       -o-box-shadow: 0 0 7px rgba(0,0,0,0.5)
+          box-shadow: 0 0 7px rgba(0,0,0,0.5)
+  text-shadow: 1px 1px 0px #000
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.3)
+  z-index: 9
+  position: absolute
+  bottom: -55px
+  left:20px
+  -webkit-border-radius: 5px
+     -moz-border-radius: 5px
+      -ms-border-radius: 5px
+       -o-border-radius: 5px
+          border-radius: 5px
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Typography
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Launch Page
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#launch
+  h2,h3
+    color: white
+    font-family: 'Arimo', arial, sans-serif
+    text-shadow: 1px 1px 2px rgba(0,0,0,.55)
+    font-weight: 300
+  h2
+    font-size: 48px
+    
+    position: relative
+    top: 10px
+    margin: 0 auto
+    strong
+      color: $brown
+      font-family: 'ChunkFiveRegular'
+      text-transform: uppercase
+      text-shadow: 0 0 5px white
+      text-shadow: 0 0 5px rgba(255, 255, 255, .8)
+    img
+      padding: 0 8px
+      position: relative
+      top: -5px
+  h3
+    font-size: 30px
+    margin: 10px 0 20px
+  .container
+    text-align: center
+    margin: 0 auto
+    width: 800px
+    .ajax-content
+      display: none
+      margin: 200px auto 0
+      width: 700px
+      padding: 0
+    #home-content
+      display: block
+      width: 800px
+      h1 
+        margin: 0
+        .logo img
+          height: 110px
+          width: 495px
+      form#UserLaunchSubmitForm
+        // margin: 0 auto
+        // position: relative
+        // right: 15px
+        // width: 365px
+        #UserEmail
+          background-image: none
+          background-color: rgba(255,255,255, .55)
+          font-size: 24px
+          padding: 10px
+          position: relative
+          margin: 0 auto
+          right: 0
+          width: 355px
+          z-index: 30
+          transition: width .75s 0s ease-in-out
+          &:focus
+            transition: width .75s 0s ease-in-out
+            width: 440px
+      section.thankyou
+        display: none;
+
+
+/*~~ Shadow Inset Boxes ~~*/
+.shadow-inset
+  border: 1px solid rgba(255,255,255,.15)
+  background: #333
+  background: url(/img/50_black.png) repeat
+  background: rgba(0,0,0,.1)
+  font-family: Helvetica, Arial
+  margin: 20px 0 30px
+  padding: 10px
+  box-shadow: 0 0 5px rgba(0,0,0,.9) inset
+  border-radius: 5px
+  transition: all .3s 0s ease-in
+  &:hover
+    background: rgba(0,0,0,.4)
+    transition: all .3s 0s ease-in
+  a,a:visited
+    border: 1px solid rgba(255,255,255,0)
+    color: #FFFFFF
+    /*color: rgba(255,255,255, .1)*/
+    font-weight: bold
+    padding: 0 10px
+    margin: 0 5px
+    height: 30px
+    line-height: 30px
+    display: inline-block
+    text-shadow: 0 0 5px #000
+    text-shadow: 0 0 5px rgba(0,0,0,0.9)
+    border-radius: 10px
+
+    &:hover, &.active
+      border: 1px solid rgba(255,255,255,.3)
+      color: #fff
+      text-align: center
+      text-shadow: 0 0 2px #000
+      text-shadow: 0 0 2px rgba(0,0,0,0.7)
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.24) inset
+      gradientGreen()
+      border-radius: 15px
+      box-shadow: 0 0 5px rgba(0,0,0,.8)
+
+/*~~ Launch Page - Main Launch Navigation ~~*/
+#launch nav#main
+  position: fixed
+  right: 100px
+  top: 0px
+  ul li
+    display: inline
+    a
+      font-size: 13px
+/*~~ Launch Page -AddThis ~~*/
+/*~~~~ Navigation ~~~~*/
+#launch
+  .addthis nav
+    position: fixed
+    top:20px
+    left: 20px
+    margin:0 auto
+    height: 66px
+    width: 186px
+    a
+      margin-left: 5px
+    .fb-link
+      margin-left: 0
+      display: inline
+    .twitter-share-button
+      position: relative
+      top: 3px
+      margin-left: -3px
+      margin-right: 5px
+    #plusone
+      position: relative
+      display: inline-block
+      top: 3px
+
+
+// .at300b
+//   opacity: .8 !important
+
+// .at300b:hover
+//   opacity: 1 !important
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** How it Works
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#how-it-works .container
+  text-align: center
+
+#how-it-works .divider
+  height: 2px
+  background: url(/img/hiw-divider.jpg) repeat-x
+
+#how-it-works header
+  background: url(/img/middle_bg_dark.jpg) repeat
+  padding-top: 1px
+  height: 285px
+  -webkit-border-top-left-radius: 3px
+  -webkit-border-top-right-radius: 3px
+  -moz-border-radius-topleft: 3px
+  -moz-border-radius-topright: 3px
+  border-top-left-radius: 3px
+  border-top-right-radius: 3px
+
+#how-it-works header h2
+  background: url(/img/ribbon-hiw.png) no-repeat
+  color: #FFFFFF
+  font-size: 58px
+  font-family: 'News Cycle'
+  margin: 60px auto 20px
+  line-height: 60px
+  height: 89px
+  text-align: center
+  text-shadow: 2px 2px 0 #ad591b
+  width: 552px
+
+#how-it-works header p
+  font-size: 27px
+  line-height: 34px
+  color: #422b15
+  text-shadow: 1px 1px 0 #FFFFFF
+  text-align: center
+  width: 765px
+  margin: 0 auto
+
+#how-it-works.users header p
+  font-size: 31px
+  padding-top: 10px
+
+#how-it-works .step
+  height: 350px
+  background: url(/img/middle_bg.jpg) repeat
+
+#how-it-works .step.three
+  padding-bottom: 20px
+  -webkit-border-bottom-right-radius: 3px
+  -webkit-border-bottom-left-radius: 3px
+  -moz-border-radius-bottomright: 3px
+  -moz-border-radius-bottomleft: 3px
+  border-bottom-right-radius: 3px
+  border-bottom-left-radius: 3px
+
+#how-it-works .step .number
+  float: left
+  font-size: 432px
+  color: rgba(201, 191, 160, .5)
+  position: relative
+  bottom: 90px
+  left: 40px
+  margin-right: 50px
+  height: 330px
+  width: 170px
+
+.ie7 #how-it-works .step .number
+  color: #C9C3A2
+
+#how-it-works .step .right
+  width: 520px
+  position: relative
+  right: 60px
+  top: 10px
+
+#how-it-works .step .badge
+  display: block
+  margin: 20px auto
+
+#how-it-works .step .description
+  font-family: Arimo, 'News Cycle', arial
+  color: #422b15
+  text-shadow: 1px 1px 0 #FFFFFF
+  font-size: 19px
+  line-height: 22px
+  margin: 20px auto 0
+  text-align: center
+
+#how-it-works.users .step .description
+  font-size: 25px
+  line-height: 30px
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Utility
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.ir
+  display: block
+  border: 0
+  text-indent: -999em
+  overflow: hidden
+  background-color: transparent
+  background-repeat: no-repeat
+  text-align: left
+  direction: ltr
+  *line-height: 0
+
+.ir br
+  display: none
+
+.hidden
+  display: none
+  visibility: hidden
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus
+  clip: auto
+  height: auto
+  margin: 0
+  overflow: visible
+  position: static
+  width: auto
+
+.invisible
+  visibility: hidden
+
+.clearfix:before, .clearfix:after
+  content: ""
+  display: table
+
+.clearfix:after
+  clear: both
+
+.clearfix
+  *zoom: 1
+
+@media print
+  *
+    background: transparent
+    color: black
+    box-shadow: none
+    text-shadow: none
+    filter: none
+    -ms-filter: none
+
+  a, a:visited
+    text-decoration: underline
+
+  a[href]:after
+    content: " (" attr(href) ")"
+
+  abbr[title]:after
+    content: " (" attr(title) ")"
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after
+    content: ""
+
+  pre, blockquote
+    border: 1px solid #999
+    page-break-inside: avoid
+
+  thead
+    display: table-header-group
+
+  tr, img
+    page-break-inside: avoid
+
+  img
+    max-width: 100%
+
+  @page
+    margin: 0.5cm
+
+  p, h2, h3
+    orphans: 3
+    widows: 3
+
+  h2, h3
+    page-break-after: avoid
