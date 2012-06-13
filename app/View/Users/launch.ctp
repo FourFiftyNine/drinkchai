@@ -74,6 +74,7 @@
         </div>
     </section>
 </section>
+<?php /* ?>
 <section class="ajax-content col clearfix" id="businesses-content">
     <h2 class="tag"><span>Do you sell tea?</span></h2>
     <p class="intro">
@@ -118,3 +119,4 @@
     At DrinkChai, our goal is to introduce people to teas they’ve never tried while making the process as easy as possible. We look forward to growing as a site and as a community and sharing new and different kinds of tea with our users.
     </p> 
 </section>
+*/ ?>
