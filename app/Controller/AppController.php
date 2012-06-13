@@ -65,7 +65,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
-        $this->layout = 'generic';
+        // $this->layout = 'generic';
         // $this->Auth->allow('display');
         if (stristr(env('HTTP_HOST'), '.dev')) { 
             $this->facebook = new Facebook(array(

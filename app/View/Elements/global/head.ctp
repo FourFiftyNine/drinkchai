@@ -38,9 +38,11 @@
 
     echo $this->Html->css('http://fonts.googleapis.com/css?family=News+Cycle&v1|Arimo&v1');
     echo $this->Html->css(array('fonts/chunkfive/stylesheet.css'));
+
     
     echo $scripts_for_layout; 
     ?>
+
     
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

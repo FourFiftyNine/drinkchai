@@ -29,16 +29,19 @@ gradientGreen()
   background: #79c5a9
   background: rgb(146,208,184) /* Old browsers */
   background: linear-gradient(top, rgba(146,208,184,1) 0%,rgba(121,197,169,1) 100%)
+
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
 
-
+/*~~ Site Specific Mixins ~~*/
+column()
+  box-shadow: 0 0 7px 0 rgba(0,0,0,.55)
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** General Styles
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 html, button, input, select, textarea
-  font-family: 'museo-slab', serif
+  font-family: 'Arimo', sans-serif
 body
   smooth()
   overflow-y: scroll
@@ -411,11 +414,68 @@ input.form-error
 // .at300b:hover
 //   opacity: 1 !important
 
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/** How it Works
+/** Default Layout
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#default
+  .container
+    margin: 0 auto
+    width: 960px
+  #content
+    margin-top: 80px
+  #header
+    background: url(/img/bg-header-thin.png) repeat-x
+    height: 68px
+    position: fixed
+    left: 0
+    top: 0 // this is definitely needed
+    width: 100%
+    .container
+      position: relative
+    .green-tag
+      position: absolute
+      text-align: center
+    h1
+      margin: 0
+      float: left
+      position: relative
+      top: 8px
+    #main-nav
+      float: right
+      font-size: 22px
+      position: relative
+      right: 5px
+      ul li
+        float: left
+      a, a:visited
+        border: 3px solid #fff
+        display: block
+        float: left
+        color: #e58323
+        min-width: 60px
+        text-align: center
+        font-family: 'News Cycle', arial, sans-serif
+        font-size: 18px
+        color: #3c2613
+        cursor: pointer
+        padding: 0 15px 0 15px
+        border-right: 1px solid #e8e3cf
+        border-left: 0px solid #ffffff
+        border-top: 0
+        border-bottom: 0
+        height: 60px
+        line-height: 55px
+        margin-top: 5px
+      .sub-menu
+        display: none
 
+
+
+
+/*~~ Default Layout - How it Works ~~*/
+// TODO turn into stylus?
+#how-it-works
+  column()
 #how-it-works .container
   text-align: center
 
@@ -465,15 +525,12 @@ input.form-error
 
 #how-it-works .step.three
   padding-bottom: 20px
-  -webkit-border-bottom-right-radius: 3px
-  -webkit-border-bottom-left-radius: 3px
-  -moz-border-radius-bottomright: 3px
-  -moz-border-radius-bottomleft: 3px
-  border-bottom-right-radius: 3px
-  border-bottom-left-radius: 3px
+  border-radius: bottom 3px
+
 
 #how-it-works .step .number
   float: left
+  font-family: sans-serif
   font-size: 432px
   color: rgba(201, 191, 160, .5)
   position: relative
@@ -482,6 +539,7 @@ input.form-error
   margin-right: 50px
   height: 330px
   width: 170px
+  line-height: 1.231
 
 .ie7 #how-it-works .step .number
   color: #C9C3A2
@@ -509,10 +567,16 @@ input.form-error
   font-size: 25px
   line-height: 30px
 
-
+/*~~ Default Layout - z-index ~~*/
+#header
+  z-index: 2
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.right
+  float: right
+.left
+  float: left
 .ir
   display: block
   border: 0
