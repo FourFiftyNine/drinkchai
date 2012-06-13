@@ -1,3 +1,6 @@
 [submodule "app/webroot/css/import/nib"]
 	path = app/webroot/css/import/nib
 	url = git://github.com/visionmedia/nib.git
+[submodule "app/Plugin/DebugKit"]
+	path = app/Plugin/DebugKit
+	url = git://github.com/cakephp/debug_kit.git

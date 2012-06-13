@@ -44,7 +44,7 @@ class AppController extends Controller {
             ),
         ),
         'authError' => 'Please login to view that page.'
-    ), 'Session', 'RequestHandler', 'Cookie', 'DCAuth');
+    ), 'Session', 'RequestHandler', 'Cookie', 'DCAuth', 'DebugKit.Toolbar');
 
     public $helpers = array('Session', 'Form', 'Html', 'Js'=>array("Jquery"));
     // public $uses = array('User');

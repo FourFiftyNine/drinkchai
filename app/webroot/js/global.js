@@ -17,15 +17,15 @@ var UTIL = DrinkChai.UTIL = {
 
     var namespace = DrinkChai; // indicate your obj literal namespace here
 
-    console.log('func ', func);
+    // console.log('func ', func);
     // console.log('funcname ', funcname);
     // console.log('args ', args);
 
     funcname = (funcname === undefined) ? 'init' : funcname;
     if (func !== '' && namespace[func] && typeof namespace[func][funcname] == 'function') {
-      console.log('--------------');
-      console.log(funcname);
-      console.log('--------------');
+      // console.log('--------------');
+      // console.log(funcname);
+      // console.log('--------------');
       namespace[func][funcname](args);
     }
 
@@ -117,7 +117,7 @@ DrinkChai.common = {
     });
 
     $('.input').live('click', function () {
-      console.log('here');
+      // console.log('here');
       $(this).siblings('.error-message').fadeOut(500);
       $(this).removeClass('form-error');
       $(this).find('input').focus();
@@ -138,7 +138,7 @@ DrinkChai.common = {
     });
 
     function animateBackground() {
-      console.log('asda');
+      // console.log('asda');
       // console.log($('#flashMessage').filter(':visible'));
       // if(!$this.filter(':visible')) {
       //     clearInterval(animateInterval);

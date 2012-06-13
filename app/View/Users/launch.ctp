@@ -50,7 +50,7 @@
                 'label'     => false,
                 'default'   => 'Enter your e-mail address...',
                 'maxlength' => 256,
-                'class'     => 'required',
+                'class'     => 'required default-value',
                 'tabIndex'  => 0
             )); 
             ?>

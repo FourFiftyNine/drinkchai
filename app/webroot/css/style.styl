@@ -1,19 +1,19 @@
 /*
-## DrinkChai.com ##
- - Anthony Sessa - sessa.com
+## DrinkChai.com 
+- Authored by: Anthony Sessa - sessa.com AND ## fourfiftynine.com ##
  
-  444       444        555555555555555
- 44444     44444        555555555555555
- 44444     44444        555555555555555
- 44444     44444  [][]  55555
- 444444444444444  [][]  55555
- 444444444444444        55555
- 444444444444444  [][]  555555555555555
-           44444  [][]  555555555555555
-           44444                  55555
-           44444                  55555
-           44444                  55555
-           44444                  55555
+  444       444         555555555555555    99999999999
+ 44444     44444        555555555555555  999999999999999
+ 44444     44444        55555      555   99999     99999
+ 44444     44444  [][]  55555            99999     99999
+ 444444444444444  [][]  55555            99999     99999
+ 444444444444444        555555555555555  999999999999999
+ 444444444444444  [][]  555555555555555    9999999999999
+           44444  [][]            55555            99999
+           44444                  55555            99999
+           44444         555      55555            99999
+           44444        555555555555555            99999
+           44444        555555555555555            99999
 
 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -23,6 +23,7 @@
 $brown = #422A11
 $lightBrown = #D9C6A8
 $green = #9FD6C2
+$error = #D96F50
 
 gradientGreen()
   background: #79c5a9
@@ -155,29 +156,17 @@ textarea
     border-color: $green
 
 
-div.required input
+.required input
   background-image: url(/img/asterisk.png)
   background-repeat: no-repeat
   background-position: 97%
 
-/** ERROR MESSAGES **/
-span.error-message
-  background: #fff
-  color: #D96F50
-  font-family: Arimo, arial
-  font-size: 18px
-  font-weight: bold
-  padding: 15px 10px 10px
-  margin: 0 auto
-  width: 300px
-  box-shadow: 0 0 7px rgba(0,0,0,0.5)
-  text-shadow: 1px 1px 0px #000
-  text-shadow: 1px 1px 0px rgba(0,0,0,0.3)
-  z-index: 9
-  position: absolute
-  bottom: -55px
-  left:20px
-  border-radius: 5px
+/*~~ Inputs - Errors ~~*/
+input.form-error
+  border: 3px solid $error
+  background-image: url(/img/asterisk_error.png);
+
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -245,29 +234,32 @@ span.error-message
           right: 0
           width: 355px
           transition: width .75s 0s ease-in-out
-          &:focus
+          &:focus,&.typed
             transition: width .75s 0s ease-in-out
             width: 425px
         button.submit-email
           background-color: #ffffff
           background-image: url(/img/button_cup.gif)
-          background-repeat: no-repeat
           background-position: center center
+          background-repeat: no-repeat
+          border-radius: 5px
           border: 1px solid #e5e5e5
           border: 1px solid rgba(255,255,255,.8)
-          color: #FFF
+          color: #fffff
           cursor: pointer
           display: inline
-          height: 40px
+          font-family: Helvetica, arial, sans-serif
           font-size: 18px
+          font-weight: bold
+          height: 40px
           line-height: 35px
           position: absolute
           right: 10px
-          top: 10px
           text-align: center
           text-shadow: none
+          top: 10px
+          transition: width.75s 0s ease-in-out
           width: 55px
-          border-radius: 5px
           &:hover,&.hover
             background-color: #F1EEF4
             box-shadow: 0 0 5px rgba(0,0,0,.3)
@@ -277,8 +269,30 @@ span.error-message
             border: 1px solid rgba(0,0,0, .1)
             color: #FFF
             box-shadow: 0 0 5px rgba(0,0,0, .7) inset
+          &.entered
+              background-color: #ffffff
+              position: absolute
+              width: 95px
+              transition: width .75s 0s ease-in-out
       section.thankyou
         display: none
+      span.error-message
+        background: #fff
+        color: #D96F50
+        font-family: Arimo, arial
+        font-size: 18px
+        font-weight: bold
+        padding: 15px 10px 10px
+        margin: 0 auto
+        width: 300px
+        box-shadow: 0 0 7px rgba(0,0,0,0.5)
+        text-shadow: 1px 1px 0px #000
+        text-shadow: 1px 1px 0px rgba(0,0,0,0.3)
+        z-index: 9
+        position: absolute
+        bottom: -55px
+        left:20px
+        border-radius: 5px
 
 /*~~ Laucnh Page - Shadow Inset Boxes ~~*/
 .shadow-inset

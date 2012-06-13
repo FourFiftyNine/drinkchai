@@ -1,36 +1,30 @@
 // Layout = launch
+(function( window, $, undefined ) {
+'use strict';
+
+// global doesnt exist anywhere else yet
+var DrinkChai     = window.DrinkChai || {};
+var history   = window.history;
+var location  = window.location;
+var Modernizr = window.Modernizr;
+var $window   = $(window);
+var $document = $(document);
+
+
+// jQuery variables
+var $userEmail, $submitEmail;
+
 var launch = DrinkChai.launch = {
-  init  : function() {
-    $(window).load(function(){
-        $('#bubble-shares').css('visibility', 'visible').animate({opacity: 1}, 1500);
-    });
-  },
-  // launch - action name same as layout
-  launch : function() {
-    var $userEmail = $('#UserEmail'),
-      $submitBtn = $('.submit-email');
 
-      $userEmail.keypress(function(e) {
-           if (e.keyCode == 13 && !e.shiftKey) {
-               e.preventDefault();
-               submitEmail();          
-          }
-      });
+  init: function() {
+    $userEmail = $('#UserEmail');
+    $submitEmail = $('.submit-email');
+    launch.showAddThis();
 
-      // $('nav #businesses').colorbox({
-      //  top: 50,
-      //  inline:true,
-      //  href:"#businesses-popup"
-      // });
-    // $userEmail.focus(function() {
-    //    $(this).addClass('focus');
-    //    $submitBtn.removeClass('active')
-    //    $submitBtn.text('Submit');
-      
-    //  if(UTIL.M.csstransitions){
-    //    $submitBtn.addClass('entered');
-    //  }
-    // });
+    // binds
+    launch.onEnterEmailSubmit();
+    launch.onEmailTyping();
+
     $('nav .ajax-link').click(function(e) {
       e.preventDefault();
       var id = e.target.id;
@@ -38,14 +32,6 @@ var launch = DrinkChai.launch = {
       $('#' + id + '-content').fadeIn(500);
       $('.ajax-link').removeClass('active');
       $(this).addClass('active');
-    });
-
-    $userEmail.keyup(function(e) {
-      if($(this).val() == ''){
-        $(this).removeClass('typed');
-      } else {
-        $(this).addClass('typed');
-      }
     });
 
     $('#facebook-share').click(function(e) {
@@ -110,47 +96,31 @@ var launch = DrinkChai.launch = {
 
     // $userEmail.blur(function() {
     //  if(UTIL.M.csstransitions && ($(this).val() == '')){
-    //    $submitBtn.text('');
+    //    $submitEmail.text('');
     //    $(this).removeClass('focus');
-    //    $submitBtn.removeClass('entered');
+    //    $submitEmail.removeClass('entered');
     //  }
     // });
 
-    $submitBtn.click(function(e) {
+    $submitEmail.click(function(e) {
       e.preventDefault();
       submitEmail();
     });
-    $submitBtn.hover(function() {
+    $submitEmail.hover(function() {
       $(this).toggleClass('hover');
     });
 
-    $submitBtn.mousedown(function () {
+    $submitEmail.mousedown(function () {
       $(this).addClass('active');
     });
 
-    $submitBtn.mouseup(function () {
+    $submitEmail.mouseup(function () {
       $(this).removeClass('active');
     });
 
     var $emailValue = $userEmail.val();
     
-    $userEmail.focus(function(event) {
-      // console.log($(this).val());
-      if($(this).val() == $emailValue) {
-        $(this).animate({width: '405px', 'right': '20px'}, 410)
-        $submitBtn =  $(this)
-          .parent()
-          .siblings('.submit-email')
-          .addClass('entered')
-          .animate({right: '-30px', 'width': '95px'}, 400)
-          .css({'backgroundImage' : 'none'})
-          .text('Submit');
 
-        $(this).val('');
-      }
-
-      $(this).removeClass('form-error'); // removes red border
-    });
 
     if($userEmail.hasClass('form-error')) {
       $userEmail.keydown(function () {
@@ -158,20 +128,65 @@ var launch = DrinkChai.launch = {
         $(this).addClass('active');
       });   
     }
-    $userEmail.blur(function(event) {
-      if($(this).val() == '') {
-        $(this).animate({width: '345px', 'right': '0'}, 310);
-        $submitBtn = $(this)
-          .parent()
-          .siblings('.submit-email')
-          .removeClass('entered')
-          .animate({right: '10px', 'width': '55px'}, 300)
-          .css({'backgroundImage' : 'url(/img/button_cup.gif)'});
 
-        $($submitBtn).text('');
-        $(this).val($emailValue);
+    var submitEmailBackgroundImage = $submitEmail.css('background-image');
+    $userEmail.blur(function(event) {
+      // $submitEmail = $(this)
+      //   .parent()
+      //   .siblings('.submit-email')
+      //   .removeClass('entered')
+      //   .animate({right: '10px', 'width': '55px'}, 300)
+      //   .css({'backgroundImage' : 'url(/img/button_cup.gif)'});
+      if( !$userEmail.hasClass('typed') ) {
+        $submitEmail.removeClass('entered').text('').css({backgroundImage: submitEmailBackgroundImage});
       }
+      // console.log(submitEmailBackgroundImage);
+      // setTimeout(function() {
+      //   $submitEmail.text('').css({backgroundImage: submitEmailBackgroundImage});
+      // }, 750)
+      // $($submitEmail).text('');
     });
+
+    $userEmail.focus(function(event) {
+      // $submitEmail = $(this)
+      //   .parent()
+      //   .siblings('.submit-email')
+      //   .addClass('entered')
+      //   .animate({right: '-30px', 'width': '95px'}, 400)
+      //   .css({'backgroundImage' : 'none'})
+      //   .text('Submit');
+      $submitEmail.addClass('entered');
+      setTimeout(function() {
+        $submitEmail.text('Submit').css({backgroundImage: 'none'});
+      }, 750)
+      
+    });
+
+
+    if( !Modernizr.csstransitions ) {
+      $userEmail.blur(function(event) {
+        // console.log('animat');
+        if($(this).val() == '') {
+          $(this).animate({width: '345px', 'right': '0'}, 310);
+          $(this).val($emailValue);
+        }
+      });
+
+      $userEmail.focus(function(event) {
+        // console.log($(this).val());
+
+        if($(this).val() == $emailValue) {
+          $(this).animate({width: '405px', 'right': '20px'}, 410)
+
+
+          $(this).val('');
+        }
+
+        $(this).removeClass('form-error'); // removes red border
+      });
+
+    }
+
 
     // TODO Could transition to $.form plugin as some point.
     function submitEmail(){
@@ -197,7 +212,7 @@ var launch = DrinkChai.launch = {
         data: data,
         dataType: 'json',
         beforeSend: function(){
-          $submitBtn.hide();
+          $submitEmail.hide();
           $userEmail.hide();
           $('.input.text').append('<img style="display:none;" class="ajax-loader" src="/img/cup_large_loader.gif" />');
           $('.input.text').css({'textAlign': 'center', 'marginLeft' : '15px'}); // above styling
@@ -219,5 +234,28 @@ var launch = DrinkChai.launch = {
         }
           });
     }
+  },
+  showAddThis: function() {
+    $window.load(function(){
+      $('#bubble-shares').css('visibility', 'visible').animate({opacity: 1}, 1500);
+    });
+  },
+  onEnterEmailSubmit: function() {
+    $userEmail.keypress(function(e) {
+       if (e.keyCode == 13 && !e.shiftKey) {
+         e.preventDefault();
+         submitEmail();          
+      }
+    });
+  },
+  onEmailTyping: function() {
+    $userEmail.keyup(function(e) {
+      if($(this).val() == ''){
+        $(this).removeClass('typed');
+      } else {
+        $(this).addClass('typed');
+      }
+    });
   }
 }
+})( window, jQuery );
