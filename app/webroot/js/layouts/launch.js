@@ -27,90 +27,29 @@ var launch = DrinkChai.launch = {
     launch.onMouseActionsSubmitEmail()
     launch.onClickSubmitEmail();
 
-    $('nav .ajax-link').click(function(e) {
-      e.preventDefault();
-      var id = e.target.id;
-      $('.ajax-content').fadeOut(500).delay(600);
-      $('#' + id + '-content').fadeIn(500);
-      $('.ajax-link').removeClass('active');
-      $(this).addClass('active');
-    });
-
-    $('#facebook-share').click(function(e) {
-      e.preventDefault();
-      FB.ui(
-        {
-          method: 'feed',
-          name: 'Facebook Dialogs',
-          link: 'http://drinkchai.dev',
-          caption: 'Reference Documentation',
-          description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-        },
-        function(response) {
-          if (response && response.post_id) {
-            alert('Post was published.');
-          } else {
-            alert('Post was not published.');
-          }
-        }
-      );
-    });
-
-    $('#twitter-share').click(function(event) {
-      event.preventDefault();
-        var width  = 575,
-            height = 400,
-            left   = ($(window).width()  - width)  / 2,
-            top    = ($(window).height() - height) / 2,
-            url    = this.href + '?text=' + $('textarea.share').val().replace('DrinkChai.com', ''),
-            opts   = 'status=1' +
-                     ',width='  + width  +
-                     ',height=' + height +
-                     ',top='    + top    +
-                     ',left='   + left;
-
-        window.open(url, 'Twitter', opts);
-        return false;
-    });
-    $('#business-submit').click(function(){
-      var data = {}; // ?
-          data[$('#BusinessEmail').attr('name')] = $('#BusinessEmail').val();
-      $.ajax({
-        url: '/businesses/launch_submit',
-        type: "POST",
-        data: data,
-        dataType: 'json',
-        beforeSend: function(){
-          
-        },
-        success: function(data){
-          if(!data.error){
-            $('#message').addClass('success').html(data.success);
-            $('#BusinessLaunchSubmitForm').hide();
-          } else {
-            $('#message').addClass('error').html(data.error);
-          }
-        },
-        error: function(data){
-        }
-        });
-      });
-
-    // $userEmail.blur(function() {
-    //  if(UTIL.M.csstransitions && ($(this).val() == '')){
-    //    $submitEmail.text('');
-    //    $(this).removeClass('focus');
-    //    $submitEmail.removeClass('entered');
-    //  }
+    // TODO facebook share
+    // $('#facebook-share').click(function(e) {
+    //   e.preventDefault();
+    //   FB.ui(
+    //     {
+    //       method: 'feed',
+    //       name: 'Facebook Dialogs',
+    //       link: 'http://drinkchai.dev',
+    //       caption: 'Reference Documentation',
+    //       description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+    //     },
+    //     function(response) {
+    //       if (response && response.post_id) {
+    //         alert('Post was published.');
+    //       } else {
+    //         alert('Post was not published.');
+    //       }
+    //     }
+    //   );
     // });
 
-
-
-
+    // TODO separate out into functions
     var $emailValue = $userEmail.val();
-    
-
-
     if($userEmail.hasClass('form-error')) {
       $userEmail.keydown(function () {
         $(this).removeClass('form-error');
@@ -120,30 +59,12 @@ var launch = DrinkChai.launch = {
 
     var submitEmailBackgroundImage = $submitEmail.css('background-image');
     $userEmail.blur(function(event) {
-      // $submitEmail = $(this)
-      //   .parent()
-      //   .siblings('.submit-email')
-      //   .removeClass('entered')
-      //   .animate({right: '10px', 'width': '55px'}, 300)
-      //   .css({'backgroundImage' : 'url(/img/button_cup.gif)'});
       if( !$userEmail.hasClass('typed') ) {
         $submitEmail.removeClass('entered').text('').css({backgroundImage: submitEmailBackgroundImage});
       }
-      // console.log(submitEmailBackgroundImage);
-      // setTimeout(function() {
-      //   $submitEmail.text('').css({backgroundImage: submitEmailBackgroundImage});
-      // }, 750)
-      // $($submitEmail).text('');
     });
 
     $userEmail.focus(function(event) {
-      // $submitEmail = $(this)
-      //   .parent()
-      //   .siblings('.submit-email')
-      //   .addClass('entered')
-      //   .animate({right: '-30px', 'width': '95px'}, 400)
-      //   .css({'backgroundImage' : 'none'})
-      //   .text('Submit');
       $submitEmail.addClass('entered');
       setTimeout(function() {
         if( $submitEmail.hasClass('entered') ) {
@@ -152,7 +73,6 @@ var launch = DrinkChai.launch = {
       }, 750)
       
     });
-
 
     if( !Modernizr.csstransitions ) {
       $userEmail.blur(function(event) {
@@ -164,18 +84,13 @@ var launch = DrinkChai.launch = {
       });
 
       $userEmail.focus(function(event) {
-        // console.log($(this).val());
 
         if($(this).val() == $emailValue) {
           $(this).animate({width: '405px', 'right': '20px'}, 410)
-
-
           $(this).val('');
         }
-
         $(this).removeClass('form-error'); // removes red border
       });
-
     }
 
 
@@ -221,6 +136,28 @@ var launch = DrinkChai.launch = {
       launch.ajaxSubmitEmail();
     })
   },
+
+  // TODO check... out ... more
+  onTwitterShare: function() {
+    $('#twitter-share').click(function(event) {
+      event.preventDefault();
+        var width  = 575,
+            height = 400,
+            left   = ($(window).width()  - width)  / 2,
+            top    = ($(window).height() - height) / 2,
+            url    = this.href + '?text=' + $('textarea.share').val().replace('DrinkChai.com', ''),
+            opts   = 'status=1' +
+                     ',width='  + width  +
+                     ',height=' + height +
+                     ',top='    + top    +
+                     ',left='   + left;
+
+        window.open(url, 'Twitter', opts);
+        return false;
+    });
+  },
+
+  // TODO refactor heavily
   ajaxSubmitEmail: function() {
       var hasError    = false,
         emailAddressVal = $userEmail.val(),
@@ -265,6 +202,33 @@ var launch = DrinkChai.launch = {
         error: function(data){
         }
       });
+  },
+
+  // TODO remove?
+  ajaxSubmitBusinessEmail: function() {
+    $('#business-submit').click(function(){
+      var data = {}; // ?
+          data[$('#BusinessEmail').attr('name')] = $('#BusinessEmail').val();
+      $.ajax({
+        url: '/businesses/launch_submit',
+        type: "POST",
+        data: data,
+        dataType: 'json',
+        beforeSend: function(){
+          
+        },
+        success: function(data){
+          if(!data.error){
+            $('#message').addClass('success').html(data.success);
+            $('#BusinessLaunchSubmitForm').hide();
+          } else {
+            $('#message').addClass('error').html(data.error);
+          }
+        },
+        error: function(data){
+        }
+        });
+    });
   }
 }
 })( window, jQuery );
