@@ -24,6 +24,8 @@ var launch = DrinkChai.launch = {
     // binds
     launch.onEnterEmailSubmit();
     launch.onEmailTyping();
+    launch.onMouseActionsSubmitEmail()
+    launch.onClickSubmitEmail();
 
     $('nav .ajax-link').click(function(e) {
       e.preventDefault();
@@ -102,21 +104,8 @@ var launch = DrinkChai.launch = {
     //  }
     // });
 
-    $submitEmail.click(function(e) {
-      e.preventDefault();
-      submitEmail();
-    });
-    $submitEmail.hover(function() {
-      $(this).toggleClass('hover');
-    });
 
-    $submitEmail.mousedown(function () {
-      $(this).addClass('active');
-    });
 
-    $submitEmail.mouseup(function () {
-      $(this).removeClass('active');
-    });
 
     var $emailValue = $userEmail.val();
     
@@ -157,7 +146,9 @@ var launch = DrinkChai.launch = {
       //   .text('Submit');
       $submitEmail.addClass('entered');
       setTimeout(function() {
-        $submitEmail.text('Submit').css({backgroundImage: 'none'});
+        if( $submitEmail.hasClass('entered') ) {
+          $submitEmail.text('Submit').css({backgroundImage: 'none'});
+        }
       }, 750)
       
     });
@@ -189,7 +180,48 @@ var launch = DrinkChai.launch = {
 
 
     // TODO Could transition to $.form plugin as some point.
-    function submitEmail(){
+  },
+  showAddThis: function() {
+    setTimeout(function(){
+      $('#bubble-shares').css('visibility', 'visible').animate({opacity: 1}, 1500);
+    }, 1000)
+  },
+  onEnterEmailSubmit: function() {
+    $userEmail.keypress(function(e) {
+       if (e.keyCode == 13 && !e.shiftKey) {
+         e.preventDefault();
+         launch.ajaxSubmitEmail();         
+      }
+    });
+  },
+  onEmailTyping: function() {
+    $userEmail.keyup(function(e) {
+      if($(this).val() == ''){
+        $(this).removeClass('typed');
+      } else {
+        $(this).addClass('typed');
+      }
+    });
+  },
+  onMouseActionsSubmitEmail: function() {
+    $submitEmail
+      // .mousedown(function () {
+      //   $(this).addClass('active');
+      // })
+      .hover(function() {
+        $(this).toggleClass('hover');
+      })
+      // .mouseup(function () {
+      //   $(this).removeClass('active');
+      // });
+  },
+  onClickSubmitEmail: function() {
+    $submitEmail.click(function(e) {
+      e.preventDefault();
+      launch.ajaxSubmitEmail();
+    })
+  },
+  ajaxSubmitEmail: function() {
       var hasError    = false,
         emailAddressVal = $userEmail.val(),
         emailRegex    = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
@@ -232,30 +264,7 @@ var launch = DrinkChai.launch = {
         },
         error: function(data){
         }
-          });
-    }
-  },
-  showAddThis: function() {
-    $window.load(function(){
-      $('#bubble-shares').css('visibility', 'visible').animate({opacity: 1}, 1500);
-    });
-  },
-  onEnterEmailSubmit: function() {
-    $userEmail.keypress(function(e) {
-       if (e.keyCode == 13 && !e.shiftKey) {
-         e.preventDefault();
-         submitEmail();          
-      }
-    });
-  },
-  onEmailTyping: function() {
-    $userEmail.keyup(function(e) {
-      if($(this).val() == ''){
-        $(this).removeClass('typed');
-      } else {
-        $(this).addClass('typed');
-      }
-    });
+      });
   }
 }
 })( window, jQuery );

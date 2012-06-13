@@ -17,7 +17,7 @@
 <section id="bubble-shares" class="addthis">
     <nav class="shadow-inset">
         <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false"></div>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="http://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="http://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
         <span id="plusone">
             <g:plusone size="tall"></g:plusone>
         </span>
@@ -59,8 +59,8 @@
     </section>
     <section class="thankyou">
         <hgroup>
-            <h2>Thank You!</h2>
-            <h3>We will let you know when we launch!</h3>
+            <h2>Thank You.</h2>
+            <h3>We will let you know when one of our awesome deals launches.</h3>
         </hgroup>
         <?php echo $this->Html->link(
             $this->Html->image('emblem_large.png', array('alt'=> __('We help you find and buy tea. DrinkChai.com', true), 'border' => '0')),
