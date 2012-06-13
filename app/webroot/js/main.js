@@ -15,13 +15,13 @@ var Modernizr = window.Modernizr;
 var $window   = $(window);
 var $document = $(document);
 
-var main = CDLIX.main = {
+var main = DrinkChai.main = {
 
   init: function() {
     
  
-  },
+  }
 
-  
+}
 $document.ready( main.init );
 })( window, jQuery );

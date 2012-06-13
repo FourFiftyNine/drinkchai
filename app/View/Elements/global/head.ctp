@@ -28,7 +28,7 @@
     // echo $this->AssetCompress->includeCss();
 
     if(Configure::read('debug')){
-        echo $this->Html->css('debug'); 
+        echo $this->Html->css('cake.generic'); 
         // echo $this->Html->script('libs/live');
         echo $this->Html->script('libs/modernizr.custom.min');
       // echo $this->Html->script('libs/live');

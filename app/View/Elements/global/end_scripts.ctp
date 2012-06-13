@@ -10,7 +10,7 @@
 		// 'email-submit'
 	)
 ); ?>
-<?php echo $this->Html->script(array('main', 'facebook', 'layouts/' . $this->layout)); ?>
+<?php echo $this->Html->script(array('global', 'layouts/' . $this->layout)); ?>
 
 <!-- Facebook, twitter, google share apis -->
 <script>

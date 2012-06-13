@@ -15,7 +15,7 @@ class UsersController extends AppController {
  	public function beforeFilter() {
         parent::beforeFilter();
  		// $this->Auth->allow('launch', 'logout', 'launch_submit', 'sign_up', 'ajax_login');
-        $this->Auth->allow('launch');
+        $this->Auth->allow('*');
  	}
 
     public function beforeRender() {

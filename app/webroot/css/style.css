@@ -644,310 +644,35 @@ span.error-message {
   padding: 15px 10px 10px;
   margin: 0 auto;
   width: 300px;
+  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.50);
+  box-shadow: 0 0 7px rgba(0,0,0,0.50);
   text-shadow: 1px 1px 0px #000;
   text-shadow: 1px 1px 0px rgba(0,0,0,0.30);
   z-index: 9;
   position: absolute;
   bottom: -55px;
   left: 20px;
-}
-
-/* line 173 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 174 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 175 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 176 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0.5) -ms-box-shadow: 007pxrgba(0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0.5) 0 -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0 0.5) 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message 0.5) 0.5) 0.5) -o-box-shadow: 007pxrgba(0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0.5) 0.5) 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0.5) 0.5) 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0.5) 0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0.5) 0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0.5) 0,
-span.error-message 0 0.5) 0.5) 0,
-span.error-message 0 0.5) 0.5) 0,
-span.error-message 0.5) 0.5) 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message 0.5) 0.5) -ms-box-shadow: 007pxrgba(0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0.5) 0.5) 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0 0 0 0,
-span.error-message 0.5) 0 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0 0.5) 0 0,
-span.error-message 0.5) 0.5) 0 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0.5) 0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0 0 0.5) 0,
-span.error-message 0.5) 0 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0.5) 0,
-span.error-message 0 0.5) 0.5) 0,
-span.error-message 0 0.5) 0.5) 0,
-span.error-message 0.5) 0.5) 0.5) 0,
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0.5) 0 -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0 0.5) -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message 0.5) 0.5) -ms-box-shadow: 007pxrgba(0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0.5) 0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0.5) 0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0.5),
-span.error-message 0 0.5) 0 0.5),
-span.error-message 0 0.5) 0 0.5),
-span.error-message 0.5) 0.5) 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0.5) 0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0 0 0 0.5),
-span.error-message 0.5) 0 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0 0.5),
-span.error-message 0 0.5) 0 0.5),
-span.error-message 0 0.5) 0 0.5),
-span.error-message 0.5) 0.5) 0 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 -moz-box-shadow: 007pxrgba(0 0.5) 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0.5),
-span.error-message 0 -moz-box-shadow: 007pxrgba(0 0.5) 0.5),
-span.error-message 0.5) -moz-box-shadow: 007pxrgba(0 0.5) 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0.5),
-span.error-message 0 0 0.5) 0.5),
-span.error-message 0 0 0.5) 0.5),
-span.error-message 0.5) 0 0.5) 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0 0.5) 0.5),
-span.error-message 0 0 0.5) 0.5),
-span.error-message 0 0 0.5) 0.5),
-span.error-message 0.5) 0 0.5) 0.5),
-span.error-message -webkit-box-shadow: 007pxrgba(0 0.5) 0.5) 0.5),
-span.error-message 0 0.5) 0.5) 0.5),
-span.error-message 0 0.5) 0.5) 0.5),
-span.error-message 0.5) 0.5) 0.5) 0.5) {
-  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.50);
-  box-shadow: 0 0 7px rgba(0,0,0,0.50);
-}
-
-/* line 184 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 185 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 186 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
-/* line 187 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border-radius: 5px -o-border-radius: 5px {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 
-/* line 189 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 181 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 190 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 182 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 193 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 185 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 194 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 186 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Launch Page
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 196 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 188 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 197 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 189 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch h2,
 #launch h3 {
   color: #fff;
@@ -956,7 +681,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   font-weight: 300;
 }
 
-/* line 202 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 194 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch h2 {
   font-size: 48px;
   position: relative;
@@ -964,7 +689,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   margin: 0 auto;
 }
 
-/* line 208 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 200 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch h2 strong {
   color: #422a11;
   font-family: 'ChunkFiveRegular';
@@ -973,27 +698,27 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   text-shadow: 0 0 5px rgba(255,255,255,0.80);
 }
 
-/* line 214 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 206 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch h2 img {
   padding: 0 8px;
   position: relative;
   top: -5px;
 }
 
-/* line 218 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 210 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch h3 {
   font-size: 30px;
   margin: 10px 0 20px;
 }
 
-/* line 221 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 213 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container {
   text-align: center;
   margin: 0 auto;
   width: 800px;
 }
 
-/* line 225 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 217 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container .ajax-content {
   display: none;
   margin: 200px auto 0;
@@ -1001,26 +726,31 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   padding: 0;
 }
 
-/* line 230 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 222 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content {
   display: block;
+  margin-bottom: 20px;
   width: 800px;
 }
 
-/* line 233 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 226 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content h1 {
   margin: 0;
 }
 
-/* line 235 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 228 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content h1 .logo img {
   height: 110px;
   width: 495px;
 }
 
-/* line 238 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 231 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#launch .container #home-content form#UserLaunchSubmitForm {
+  position: relative;
+  display: inline-block;
+}
 
-/* line 243 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 238 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content form#UserLaunchSubmitForm #UserEmail {
   background-image: none;
   background-color: rgba(255,255,255,0.55);
@@ -1030,7 +760,6 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   margin: 0 auto;
   right: 0;
   width: 355px;
-  z-index: 30;
   -webkit-transition: width 0.75s 0s ease-in-out;
   -moz-transition: width 0.75s 0s ease-in-out;
   -o-transition: width 0.75s 0s ease-in-out;
@@ -1038,25 +767,68 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   transition: width 0.75s 0s ease-in-out;
 }
 
-/* line 254 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 248 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content form#UserLaunchSubmitForm #UserEmail:focus {
   -webkit-transition: width 0.75s 0s ease-in-out;
   -moz-transition: width 0.75s 0s ease-in-out;
   -o-transition: width 0.75s 0s ease-in-out;
   -ms-transition: width 0.75s 0s ease-in-out;
   transition: width 0.75s 0s ease-in-out;
-  width: 440px;
+  width: 425px;
 }
 
-/* line 257 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 251 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#launch .container #home-content form#UserLaunchSubmitForm button.submit-email {
+  background-color: #fff;
+  background-image: url("/img/button_cup.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #e5e5e5;
+  border: 1px solid rgba(255,255,255,0.80);
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  height: 40px;
+  font-size: 18px;
+  line-height: 35px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: center;
+  text-shadow: none;
+  width: 55px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 271 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#launch .container #home-content form#UserLaunchSubmitForm button.submit-email:hover,
+#launch .container #home-content form#UserLaunchSubmitForm button.submit-email.hover {
+  background-color: #f1eef4;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.30);
+  box-shadow: 0 0 5px rgba(0,0,0,0.30);
+}
+
+/* line 274 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#launch .container #home-content form#UserLaunchSubmitForm button.submit-email:active,
+#launch .container #home-content form#UserLaunchSubmitForm button.submit-email.active {
+  background-color: #e7e4ea;
+  border: 1px solid #422a11;
+  border: 1px solid rgba(0,0,0,0.10);
+  color: #fff;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.70) inset;
+  box-shadow: 0 0 5px rgba(0,0,0,0.70) inset;
+}
+
+/* line 280 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .container #home-content section.thankyou {
   display: none;
 }
 
-/* line 261 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-/*~~ Shadow Inset Boxes ~~*/
+/* line 283 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/*~~ Laucnh Page - Shadow Inset Boxes ~~*/
 
-/* line 262 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 284 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .shadow-inset {
   border: 1px solid rgba(255,255,255,0.15);
   background: #333;
@@ -1076,7 +848,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   transition: all 0.3s 0s ease-in;
 }
 
-/* line 273 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 295 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .shadow-inset:hover {
   background: rgba(0,0,0,0.40);
   -webkit-transition: all 0.3s 0s ease-in;
@@ -1086,7 +858,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   transition: all 0.3s 0s ease-in;
 }
 
-/* line 276 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 298 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .shadow-inset a,
 .shadow-inset a:visited {
   border: 1px solid rgba(255,255,255,0.00);
@@ -1104,7 +876,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   border-radius: 10px;
 }
 
-/* line 290 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 312 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .shadow-inset a:hover,
 .shadow-inset a:visited:hover,
 .shadow-inset a.active,
@@ -1131,35 +903,35 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   box-shadow: 0 0 5px rgba(0,0,0,0.80);
 }
 
-/* line 301 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 323 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Launch Page - Main Launch Navigation ~~*/
 
-/* line 302 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 324 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch nav#main {
   position: fixed;
   right: 100px;
   top: 0px;
 }
 
-/* line 306 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 328 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch nav#main ul li {
   display: inline;
 }
 
-/* line 308 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 330 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch nav#main ul li a {
   font-size: 13px;
 }
 
-/* line 310 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 332 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Launch Page -AddThis ~~*/
 
-/* line 311 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 333 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~ Navigation ~~~~*/
 
-/* line 312 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 334 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 313 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 335 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .addthis nav {
   position: fixed;
   top: 20px;
@@ -1169,18 +941,18 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   width: 186px;
 }
 
-/* line 320 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 342 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .addthis nav a {
   margin-left: 5px;
 }
 
-/* line 322 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 344 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .addthis nav .fb-link {
   margin-left: 0;
   display: inline;
 }
 
-/* line 325 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 347 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .addthis nav .twitter-share-button {
   position: relative;
   top: 3px;
@@ -1188,32 +960,47 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   margin-right: 5px;
 }
 
-/* line 330 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 352 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #launch .addthis nav #plusone {
   position: relative;
   display: inline-block;
   top: 3px;
 }
 
-/* line 343 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 357 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/*~~ Launch Page - z-index ~~*/
+
+/* line 358 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 359 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#UserLaunchSubmitForm .input.text {
+  z-index: 1;
+}
+
+/* line 361 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#UserLaunchSubmitForm .submit-button {
+  z-index: 2;
+}
+
+/* line 371 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 344 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 372 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** How it Works
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 347 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 375 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .container {
   text-align: center;
 }
 
-/* line 350 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 378 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .divider {
   height: 2px;
   background: url("/img/hiw-divider.jpg") repeat-x;
 }
 
-/* line 354 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 382 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header {
   background: url("/img/middle_bg_dark.jpg") repeat;
   padding-top: 1px;
@@ -1226,7 +1013,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   border-top-right-radius: 3px;
 }
 
-/* line 365 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 393 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header h2 {
   background: url("/img/ribbon-hiw.png") no-repeat;
   color: #fff;
@@ -1240,7 +1027,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   width: 552px;
 }
 
-/* line 377 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 405 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header p {
   font-size: 27px;
   line-height: 34px;
@@ -1251,19 +1038,19 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   margin: 0 auto;
 }
 
-/* line 386 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 414 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users header p {
   font-size: 31px;
   padding-top: 10px;
 }
 
-/* line 390 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 418 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step {
   height: 350px;
   background: url("/img/middle_bg.jpg") repeat;
 }
 
-/* line 394 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 422 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step.three {
   padding-bottom: 20px;
   -webkit-border-bottom-right-radius: 3px;
@@ -1274,7 +1061,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   border-bottom-left-radius: 3px;
 }
 
-/* line 403 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 431 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .number {
   float: left;
   font-size: 432px;
@@ -1287,12 +1074,12 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   width: 170px;
 }
 
-/* line 414 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 442 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ie7 #how-it-works .step .number {
   color: #c9c3a2;
 }
 
-/* line 417 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 445 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .right {
   width: 520px;
   position: relative;
@@ -1300,13 +1087,13 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   top: 10px;
 }
 
-/* line 423 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 451 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .badge {
   display: block;
   margin: 20px auto;
 }
 
-/* line 427 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 455 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .description {
   font-family: Arimo, 'News Cycle', arial;
   color: #422b15;
@@ -1317,20 +1104,20 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   text-align: center;
 }
 
-/* line 436 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 464 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users .step .description {
   font-size: 25px;
   line-height: 30px;
 }
 
-/* line 441 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 469 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 442 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 470 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 444 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 472 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir {
   display: block;
   border: 0;
@@ -1343,18 +1130,18 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   *line-height: 0;
 }
 
-/* line 455 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 483 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir br {
   display: none;
 }
 
-/* line 458 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 486 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 462 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 490 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1366,7 +1153,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   width: 1px;
 }
 
-/* line 472 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 500 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -1377,32 +1164,32 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
   width: auto;
 }
 
-/* line 480 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 508 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .invisible {
   visibility: hidden;
 }
 
-/* line 483 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 511 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 487 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 515 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:after {
   clear: both;
 }
 
-/* line 490 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 518 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 493 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 521 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 @media print {
 
-/* line 494 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 522 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   * {
     background: transparent;
     color: #000;
@@ -1413,58 +1200,58 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
     -ms-filter: none;
   }
 
-/* line 502 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 530 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-/* line 505 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 533 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-/* line 508 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 536 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-/* line 511 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 539 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-/* line 514 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 542 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-/* line 518 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 546 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   thead {
     display: table-header-group;
   }
 
-/* line 521 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 549 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-/* line 524 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 552 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   img {
     max-width: 100%;
   }
 
-/* line 527 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 555 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   @page {
     margin: 0.5cm;
   }
 
-/* line 530 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 558 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   p,
   h2,
   h3 {
@@ -1472,7 +1259,7 @@ span.error-message -webkit-border-radius: 5px -moz-border-radius: 5px -ms-border
     widows: 3;
   }
 
-/* line 534 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 562 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   h2,
   h3 {
     page-break-after: avoid;
