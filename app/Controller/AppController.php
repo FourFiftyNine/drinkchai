@@ -19,7 +19,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-App::import('Vendor', 'facebook/facebook');
+App::import('Vendor', 'facebook/src/facebook');
 App::import('Model', 'Business');
 App::uses('Controller', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
@@ -104,7 +104,7 @@ class AppController extends Controller {
             }
             if(isset($return)){
                 // unset($return['User']['password']);
-                debug($return); exit;
+                // debug($return); exit;
                 if ($this->Auth->login($return['User'])) {
                     return $this->redirect('/');
                 } else {

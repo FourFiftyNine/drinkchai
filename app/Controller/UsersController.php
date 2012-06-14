@@ -135,7 +135,7 @@ class UsersController extends AppController {
     }
 
     public function logout() {
-        // $this->facebook = null;
+        $this->facebook = null;
         $this->Session->destroy();
         $this->redirect($this->Auth->logout());
     }
