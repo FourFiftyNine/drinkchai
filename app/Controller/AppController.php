@@ -55,6 +55,7 @@ class AppController extends Controller {
     	}
         $user['User'] = $this->Auth->user();
         $this->set('user', $user);
+        // debug($user);
         // debug($this->Auth->user()); exit;
         if ($this->Auth->user('user_type_id') == 2) {
             $this->Business = ClassRegistry::init('Business');
@@ -95,7 +96,7 @@ class AppController extends Controller {
                 $user_profile = $this->facebook->api('/me');
             } catch (FacebookApiException $e) {
                 // TODO LOG
-                // echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
+                echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
                 // $user = null;
             }
             if(isset($user_profile)) {
@@ -103,9 +104,8 @@ class AppController extends Controller {
             }
             if(isset($return)){
                 // unset($return['User']['password']);
-                // debug($return); exit;
-                if ($this->Auth->login($return)) {
-                    $this->Session->write('Business', $return['Business']);
+                debug($return); exit;
+                if ($this->Auth->login($return['User'])) {
                     return $this->redirect('/');
                 } else {
                     $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');

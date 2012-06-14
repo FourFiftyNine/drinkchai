@@ -143,12 +143,10 @@ class User extends Model {
     }
 
     public function facebook_sign_in ($facebookUser){
-        $existingUser = $this->find('first', array('conditions' => array('User.email' => $facebookUser['email'])));
+        $existingUser = $this->find('first', array('conditions' => array('User.email' => $facebookUser['email'], 'User.facebook_id' => $facebookUser['id'])));
+        // debug($existingUser); exit;
         $this->id = $existingUser['User']['id'];
-        if($return = $this->Business->find('first', array('conditions' => array('Business.user_id' => $existingUser['User']['id'])))){
-            $return['User']['hasAccount'] = true;
-            return $return;
-        } elseif($existingUser){
+        if($existingUser){
             $this->updateFacebookUser($facebookUser);
             return $existingUser;
         } elseif(empty($facebookUser['id']) || empty($facebookUser['first_name']) || empty($facebookUser['last_name']) || empty($facebookUser['email'])){
