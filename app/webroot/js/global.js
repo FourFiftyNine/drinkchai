@@ -20,7 +20,7 @@ var UTIL = DrinkChai.UTIL = {
     // console.log('func ', func);
     // console.log('funcname ', funcname);
     // console.log('args ', args);
-
+    if(func == 'default') { func = 'defaultLayout' }
     funcname = (funcname === undefined) ? 'init' : funcname;
     if (func !== '' && namespace[func] && typeof namespace[func][funcname] == 'function') {
       // console.log('--------------');
@@ -155,10 +155,7 @@ DrinkChai.common = {
       e.preventDefault();
     });
 
-    $('.account-navigation').click(function (e) {
-      e.preventDefault();
-      $(this).siblings('.sub-menu').slideToggle('400');
-    });
+
 
     // $('header nav a.login').click(function(e) {
     //     e.preventDefault();

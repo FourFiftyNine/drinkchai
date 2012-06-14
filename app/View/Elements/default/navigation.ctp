@@ -22,10 +22,10 @@
                 <?php if(isset($user['User'])): ?>
                     <li class="name">
                         <?php if (2 == $user['User']['user_type_id']): ?>
-                            <?php echo $this->Html->link($business['name'] . ' <span class="account-button"></span>', '/account', array('escape' => false, 'class' => 'ajax-link account-navigation')); ?> 
+                            <?php echo $this->Html->link($business['name'] . ' <span class="account-button"></span>', '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 
 
                         <?php else: ?>
-                            <?php echo $this->Html->link($user['User']['firstname'] . ' <span class="account-button"></span>' . $user['User']['lastname'], '/account', array('escape' => false, 'class' => 'ajax-link account-navigation')); ?> 
+                            <?php echo $this->Html->link($user['User']['firstname'] . ' <span class="account-button"></span>' . $user['User']['lastname'], '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 
                         <?php endif; ?>
                         <nav class="sub-menu col">
                             <ul>

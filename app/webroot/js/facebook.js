@@ -1,4 +1,6 @@
 (function (global, $) {
+  var DrinkChai = window.DrinkChai || {};
+
   var theAppId, hostname = global.location.hostname;
   if (hostname == 'dc2.anthonysessa.net') {
     theAppId = '305067682888921';
@@ -10,6 +12,7 @@
       appId: theAppId,
       status: true,
       // check login status
+      channelUrl : '//' + hostname + '/channel.html', // Channel File
       cookie: true,
       // enable cookies to allow the server to access the session
       xfbml: true
@@ -55,7 +58,5 @@
       $('.logout').bind('click', DrinkChai.Facebook.logout);
       $('.disconnect').bind('click', DrinkChai.Facebook.disconnect);
     });
-
-
   }
 })(this, jQuery)

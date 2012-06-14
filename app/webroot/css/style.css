@@ -1312,13 +1312,13 @@ input.form-error {
 }
 
 /* line 554 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #header #main-nav ul li {
+#default #header #main-nav >ul>li {
   float: left;
 }
 
 /* line 556 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #header #main-nav a,
-#default #header #main-nav a:visited {
+#default #header #main-nav >ul>li >a,
+#default #header #main-nav >ul>li >a:visited {
   border: 3px solid #fff;
   display: block;
   float: left;
@@ -1341,45 +1341,96 @@ input.form-error {
 }
 
 /* line 576 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #header #main-nav a:hover,
-#default #header #main-nav a:visited:hover {
+#default #header #main-nav >ul>li >a:hover,
+#default #header #main-nav >ul>li >a:visited:hover {
   color: #b96919;
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.12);
   box-shadow: 0 0 5px rgba(0,0,0,0.12);
 }
 
 /* line 579 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #header #main-nav a:active,
-#default #header #main-nav a:visited:active {
+#default #header #main-nav >ul>li >a:active,
+#default #header #main-nav >ul>li >a:visited:active {
   top: 0;
 }
 
 /* line 581 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #header #main-nav .sub-menu {
-  display: none;
+#default #header #main-nav .account-name {
+  position: relative;
+  padding-right: 40px;
 }
 
-/* line 585 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 584 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #header #main-nav .account-button {
+  background: url("/img/account_button.png") no-repeat;
+  background-position: top center;
+  border: none;
+  float: right;
+  position: absolute;
+  top: 18px;
+  right: 0px;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  padding: 0 0px 0px 15px;
+}
+
+/* line 596 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #header #main-nav .sub-menu {
+  display: none;
+  position: absolute;
+  width: 155px;
+  top: 65px;
+  right: 0;
+  padding: 10px;
+  margin: 0;
+  background: #f3f1ea;
+  z-index: 10;
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.12);
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom: 5px solid #5b4830;
+}
+
+/* line 609 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #header #main-nav .sub-menu a {
+  width: 135px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* line 615 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Default Layout - How it Works ~~*/
 
-/* line 587 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 617 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works {
   -webkit-box-shadow: 0 0 7px 0 rgba(0,0,0,0.55);
   box-shadow: 0 0 7px 0 rgba(0,0,0,0.55);
 }
 
-/* line 589 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 619 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .container {
   text-align: center;
 }
 
-/* line 592 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 622 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .divider {
   height: 2px;
   background: url("/img/hiw-divider.jpg") repeat-x;
 }
 
-/* line 596 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 626 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header {
   background: url("/img/middle_bg_dark.jpg") repeat;
   padding-top: 1px;
@@ -1392,7 +1443,7 @@ input.form-error {
   border-top-right-radius: 3px;
 }
 
-/* line 607 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 637 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header h2 {
   background: url("/img/ribbon-hiw.png") no-repeat;
   color: #fff;
@@ -1406,7 +1457,7 @@ input.form-error {
   width: 552px;
 }
 
-/* line 619 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 649 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header p {
   font-size: 27px;
   line-height: 34px;
@@ -1417,19 +1468,19 @@ input.form-error {
   margin: 0 auto;
 }
 
-/* line 628 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 658 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users header p {
   font-size: 31px;
   padding-top: 10px;
 }
 
-/* line 632 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 662 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step {
   height: 350px;
   background: url("/img/middle_bg.jpg") repeat;
 }
 
-/* line 636 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 666 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step.three {
   padding-bottom: 20px;
   -moz-border-radius-bottomleft: 3px;
@@ -1444,7 +1495,7 @@ input.form-error {
   border-bottom-right-radius: 3px;
 }
 
-/* line 641 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 671 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .number {
   float: left;
   font-family: sans-serif;
@@ -1459,12 +1510,12 @@ input.form-error {
   line-height: 1.231;
 }
 
-/* line 654 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 684 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ie7 #how-it-works .step .number {
   color: #c9c3a2;
 }
 
-/* line 657 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 687 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .right {
   width: 520px;
   position: relative;
@@ -1472,13 +1523,13 @@ input.form-error {
   top: 10px;
 }
 
-/* line 663 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 693 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .badge {
   display: block;
   margin: 20px auto;
 }
 
-/* line 667 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 697 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .description {
   font-family: Arimo, 'News Cycle', arial;
   color: #422b15;
@@ -1489,42 +1540,42 @@ input.form-error {
   text-align: center;
 }
 
-/* line 676 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 706 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users .step .description {
   font-size: 25px;
   line-height: 30px;
 }
 
-/* line 680 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 710 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Default Layout - z-index ~~*/
 
-/* line 681 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 711 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #header {
   z-index: 2;
 }
 
-/* line 685 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 715 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 686 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 716 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Stripped Layout (Login / Sign-Up)
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 688 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 718 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 689 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 719 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .container {
   margin: 20px auto;
   width: 610px;
 }
 
-/* line 692 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 722 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .account {
   position: relative;
   top: 10px;
 }
 
-/* line 695 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 725 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .account span {
   float: left;
   font-size: 14px;
@@ -1535,24 +1586,24 @@ input.form-error {
   left: -20px;
 }
 
-/* line 703 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 733 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped #content {
   margin-top: 20px;
 }
 
-/* line 705 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 735 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped input {
   width: 100%;
 }
 
-/* line 707 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 737 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped input[type="submit"] {
   margin-top: 15px;
 }
 
-/* line 709 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 739 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 710 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 740 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section h1,
 #stripped section h3 {
   margin: 0 0 10px;
@@ -1560,13 +1611,13 @@ input.form-error {
   left: -15px;
 }
 
-/* line 714 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 744 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login {
   padding: 10px;
   width: 250px;
 }
 
-/* line 717 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 747 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button {
   background: url("/img/facebook-connect.png") no-repeat;
   display: block;
@@ -1576,69 +1627,69 @@ input.form-error {
   border: none;
 }
 
-/* line 724 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 754 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button:hover {
   background-position: 0 -43px;
 }
 
-/* line 726 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 756 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button:active {
   position: relative;
   top: 1px;
 }
 
-/* line 731 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 761 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#login {
   padding: 10px;
   width: 300px;
 }
 
-/* line 735 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 765 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#sign-up {
   padding: 10px;
   width: 300px;
 }
 
-/* line 738 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 768 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-cta {
   margin-top: 10px;
   padding: 10px;
   width: 250px;
 }
 
-/* line 742 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 772 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-cta a.btn {
   width: 230px;
 }
 
-/* line 744 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 774 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-sign-up {
   padding: 10px;
 }
 
-/* line 746 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 776 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-sign-up .fieldset {
   width: 48%;
 }
 
-/* line 749 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 779 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 750 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 780 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 752 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 782 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .right {
   float: right;
 }
 
-/* line 754 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 784 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .left {
   float: left;
 }
 
-/* line 756 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 786 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir {
   display: block;
   border: 0;
@@ -1651,18 +1702,18 @@ input.form-error {
   *line-height: 0;
 }
 
-/* line 767 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 797 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir br {
   display: none;
 }
 
-/* line 770 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 800 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 774 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 804 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1674,7 +1725,7 @@ input.form-error {
   width: 1px;
 }
 
-/* line 784 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 814 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -1685,32 +1736,32 @@ input.form-error {
   width: auto;
 }
 
-/* line 792 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 822 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .invisible {
   visibility: hidden;
 }
 
-/* line 795 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 825 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 799 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 829 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:after {
   clear: both;
 }
 
-/* line 802 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 832 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 805 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 835 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 @media print {
 
-/* line 806 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 836 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   * {
     background: transparent;
     color: #000;
@@ -1721,58 +1772,58 @@ input.form-error {
     -ms-filter: none;
   }
 
-/* line 814 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 844 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-/* line 817 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 847 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-/* line 820 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 850 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-/* line 823 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 853 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-/* line 826 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 856 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-/* line 830 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 860 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   thead {
     display: table-header-group;
   }
 
-/* line 833 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 863 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-/* line 836 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 866 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   img {
     max-width: 100%;
   }
 
-/* line 839 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 869 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   @page {
     margin: 0.5cm;
   }
 
-/* line 842 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 872 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   p,
   h2,
   h3 {
@@ -1780,7 +1831,7 @@ input.form-error {
     widows: 3;
   }
 
-/* line 846 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 876 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   h2,
   h3 {
     page-break-after: avoid;

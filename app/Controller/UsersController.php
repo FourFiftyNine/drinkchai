@@ -135,7 +135,18 @@ class UsersController extends AppController {
     }
 
     public function logout() {
-        $this->facebook = null;
+        // debug($this->facebook->getLogoutUrl()); exit;
+        // $this->facebook = null;
+        // $this->Auth->logout();
+        // finally https://developers.facebook.com/docs/reference/php/facebook-getLogoutUrl/
+        // $path = $this->Auth->logout();
+        // $params = array('next'=> 'http//' . $_SERVER['HTTP_HOST'] . $path);
+        // debug($params); 
+        // $facebookLogout = $this->facebook->getLogoutUrl($params);
+        // // debug($this->facebook->getLogoutUrl()); exit;
+        // if ($facebookLogout) {
+        //     $this->redirect($facebookLogout);
+        // }
         $this->Session->destroy();
         $this->redirect($this->Auth->logout());
     }

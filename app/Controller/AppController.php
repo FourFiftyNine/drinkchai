@@ -44,7 +44,7 @@ class AppController extends Controller {
             ),
         ),
         'authError' => 'Please login to view that page.'
-    ), 'Session', 'RequestHandler', 'Cookie', 'DCAuth', 'DebugKit.Toolbar');
+    ), 'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
 
     public $helpers = array('Session', 'Form', 'Html', 'Js'=>array("Jquery"));
     // public $uses = array('User');
@@ -91,13 +91,15 @@ class AppController extends Controller {
     { 
         // debug($this->facebook->getUser()); exit;
         // debug($this->Auth->user()); exit;
+        // BaseFacebook::$CURL_OPTS[CURLOPT_CONNECTTIMEOUT] = 30;
+        // debug(BaseFacebook::$CURL_OPTS); exit;
         if(!$this->Auth->user() && $this->facebook->getUser()) {
             try {
                 $user_profile = $this->facebook->api('/me');
             } catch (FacebookApiException $e) {
                 // TODO LOG
-                echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
-                // $user = null;
+                // echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
+                $user_profile = null;
             }
             if(isset($user_profile)) {
                 $return = ClassRegistry::init('User')->facebook_sign_in($user_profile);

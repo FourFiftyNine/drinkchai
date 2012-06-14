@@ -33,7 +33,7 @@ gradientGreen()
 
 gradientBrown()
   background: #9b693f
-  background: rgb(156,129,106); /* Old browsers */
+  background: rgb(156,129,106) /* Old browsers */
   background: linear-gradient(top, rgba(156,129,106,1) 0%,rgba(155,105,63,1) 100%)
 
 @import 'import/nib'
@@ -152,8 +152,8 @@ transparentPng()
     border: 1px solid rgba(10, 70, 47, .11)
   &.brown
     gradientBrown()
-    border: 1px solid #BBAB98;
-    border: 1px solid rgba(10, 70, 47, .11);
+    border: 1px solid #BBAB98
+    border: 1px solid rgba(10, 70, 47, .11)
     
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -180,7 +180,7 @@ transparentPng()
       border: 1px solid #aaa
       box-shadow: 1px 1px 3px 0 rgba(111, 111, 111, .8)
     &:active
-      box-shadow: 0 0 7px rgba(0, 0, 0, .2) inset;
+      box-shadow: 0 0 7px rgba(0, 0, 0, .2) inset
     &:visited
       color: $darkBrown
 /*~~ Buttons - Green Gradient ~~*/
@@ -250,9 +250,9 @@ input.form-error
 
 #authMessage
   background: $error
-  font-size: 14px;
-  background: rgba(217, 111, 80, .8);
-  color: #fff;
+  font-size: 14px
+  background: rgba(217, 111, 80, .8)
+  color: #fff
   font-weight: bold
   text-shadow: rgba(0,0,0,.4) 1px 1px 1px;
   border-radius: 5px;
@@ -551,37 +551,67 @@ input.form-error
       font-size: 22px
       position: relative
       right: 5px
-      ul li
+      >ul>li
         float: left
-      a, a:visited
-        border: 3px solid #fff
-        display: block
-        float: left
-        color: #e58323
-        min-width: 60px
-        text-align: center
-        font-family: 'News Cycle', arial, sans-serif
-        font-size: 18px
-        color: #3c2613
-        cursor: pointer
-        padding: 0 15px 0 15px
-        border-right: 1px solid #e8e3cf
-        border-left: 1px solid #e8e3cf
-        border-top: 0
-        border-bottom: 0
-        height: 60px
-        line-height: 55px
-        margin-top: 5px
-        margin-left: -1px
-        &:hover
-          color: #B96919
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.12)
-        &:active
-          top: 0
+        >a, >a:visited
+          border: 3px solid #fff
+          display: block
+          float: left
+          color: #e58323
+          min-width: 60px
+          text-align: center
+          font-family: 'News Cycle', arial, sans-serif
+          font-size: 18px
+          color: #3c2613
+          cursor: pointer
+          padding: 0 15px 0 15px
+          border-right: 1px solid #e8e3cf
+          border-left: 1px solid #e8e3cf
+          border-top: 0
+          border-bottom: 0
+          height: 60px
+          line-height: 55px
+          margin-top: 5px
+          margin-left: -1px
+          &:hover
+            color: #B96919
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.12)
+          &:active
+            top: 0
+      .account-name
+        position: relative
+        padding-right: 40px
+      .account-button
+        background: url(/img/account_button.png) no-repeat
+        background-position: top center
+        border: none
+        float: right
+        position: absolute
+        top: 18px
+        right: 0px
+        height: 24px
+        width: 24px
+        min-width:24px
+        padding: 0 0px 0px 15px
       .sub-menu
         display: none
-
-
+        position: absolute
+        width: 155px
+        top: 65px
+        right: 0
+        padding: 10px
+        margin: 0
+        background: #f3f1ea
+        z-index:10
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.12)
+        border-radius: bottom 4px
+        border-bottom: 5px solid $brown
+        a
+          width: 135px
+          font-size: 14px
+          font-weight: 500
+          text-align: right
+          margin-top: 5px
 /*~~ Default Layout - How it Works ~~*/
 // TODO turn into stylus?
 #how-it-works
