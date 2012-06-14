@@ -20,7 +20,8 @@
 /** Begin FourFiftyNine.com
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 /*~~ Colors ~~*/
-$brown = #422A11
+$darkBrown = #422A11 
+$brown = #5B4830
 $lightBrown = #D9C6A8
 $green = #9FD6C2
 $error = #D96F50
@@ -30,6 +31,11 @@ gradientGreen()
   background: rgb(146,208,184) /* Old browsers */
   background: linear-gradient(top, rgba(146,208,184,1) 0%,rgba(121,197,169,1) 100%)
 
+gradientBrown()
+  background: #9b693f
+  background: rgb(156,129,106); /* Old browsers */
+  background: linear-gradient(top, rgba(156,129,106,1) 0%,rgba(155,105,63,1) 100%)
+
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
@@ -37,6 +43,8 @@ gradientGreen()
 /*~~ Site Specific Mixins ~~*/
 column()
   box-shadow: 0 0 7px 0 rgba(0,0,0,.55)
+
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** General Styles
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -88,6 +96,11 @@ transparentPng()
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)" /* IE8 */   
   zoom: 1
 
+.canvas
+  column()
+  background: url(/img/bg-canvas.jpg)
+  border-radius: 3px
+  border-bottom: 5px solid $brown
 /*~~ General - Green Tag ~~*/
 
 .green-tag
@@ -118,6 +131,69 @@ transparentPng()
 #launch .green-tag
   right: 10px
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Gradient Styles
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~ Green Gradient ~~*/
+.gradient
+  border-radius: 3px
+  font-size: 18px
+  height: 32px
+  font-weight: bold
+  line-height: 32px
+  padding: 0 15px
+  color: white
+  display: inline-block
+  text-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 1px
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.24) inset
+  &.green
+    gradientGreen()
+    border: 1px solid #a9bbb1
+    border: 1px solid rgba(10, 70, 47, .11)
+  &.brown
+    gradientBrown()
+    border: 1px solid #BBAB98;
+    border: 1px solid rgba(10, 70, 47, .11);
+    
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Buttons
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~ Buttons - White ~~*/
+.btn
+  &.white
+    background: url(/img/bullet_circle.png) no-repeat 15px center #ffffff
+    border-radius: 5px
+    border: 1px solid #ccc
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 0 1px 0 rgba(255, 255, 255, 1) inset
+    color: $darkBrown
+    display: inline-block
+    font-family: Helvetica
+    font-size: 18px
+    font-weight: bold
+    height: 40px
+    line-height: 40px
+    padding: 0 10px
+    text-align: center
+    text-shadow: 1px 1px 0px #fff
+    &:hover
+      border: 1px solid #aaa
+      box-shadow: 1px 1px 3px 0 rgba(111, 111, 111, .8)
+    &:active
+      box-shadow: 0 0 7px rgba(0, 0, 0, .2) inset;
+    &:visited
+      color: $darkBrown
+/*~~ Buttons - Green Gradient ~~*/
+.btn
+  &.green.gradient
+    &:visited
+      color: white
+    &:hover
+      color: white
+      box-shadow: none
+    &:active
+      box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 4px 0px inset
+      border: 1px solid rgba(0,0,0,.3)
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Links
@@ -143,9 +219,10 @@ body
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Inputs
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.text input,
+.text input, .password input
 textarea
   background: white
+  background: rgba(255,255,255,.65)
   border: 3px solid $lightBrown
   box-sizing: border-box
   color: #422A11
@@ -169,9 +246,38 @@ textarea
 /*~~ Inputs - Errors ~~*/
 input.form-error
   border: 3px solid $error
-  background-image: url(/img/asterisk_error.png);
+  background-image: url(/img/asterisk_error.png)
 
+#authMessage
+  background: $error
+  font-size: 14px;
+  background: rgba(217, 111, 80, .8);
+  color: #fff;
+  font-weight: bold
+  text-shadow: rgba(0,0,0,.4) 1px 1px 1px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom:10px;
 
+.input
+  position: relative // for error messages - Better way?
+.error-message
+  background: $error
+  background: rgba(217, 111, 80, 0.8);
+  border-radius: right 4px
+  color: white;
+  cursor: pointer;
+  text-shadow: rgba(0, 0, 0, .4) 1px 1px 1px;
+  font-weight: bold;
+  font-size: 13px
+  padding: 0 10px;
+  height: 34px;
+  line-height: 34px;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  z-index: 100
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -192,7 +298,7 @@ input.form-error
     top: 10px
     margin: 0 auto
     strong
-      color: $brown
+      color: $darkBrown
       font-family: 'ChunkFiveRegular'
       text-transform: uppercase
       text-shadow: 0 0 5px white
@@ -311,7 +417,7 @@ input.form-error
           width: 100px
           border-radius: 20px
           &:hover
-            box-shadow: 0 0 5px 0 rgba(255,255,255,.8);
+            box-shadow: 0 0 5px 0 rgba(255,255,255,.8)
       span.error-message
         background: #fff
         color: #D96F50
@@ -476,8 +582,6 @@ input.form-error
         display: none
 
 
-
-
 /*~~ Default Layout - How it Works ~~*/
 // TODO turn into stylus?
 #how-it-works
@@ -576,6 +680,72 @@ input.form-error
 /*~~ Default Layout - z-index ~~*/
 #header
   z-index: 2
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Stripped Layout (Login / Sign-Up)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#stripped
+  .container
+    margin: 20px auto
+    width: 610px
+  .account
+    position: relative
+    top: 10px
+    span
+      float: left
+      font-size: 14px
+      color: white
+      font-weight: bold
+      position: relative
+      top: 8px
+      left: -20px
+  #content
+    margin-top: 20px
+  input
+    width: 100%
+    &[type="submit"]
+      margin-top: 15px
+  section
+    h1, h3
+      margin: 0 0 10px
+      position: relative
+      left: -15px
+  section#facebook-login
+    padding: 10px
+    width: 250px
+    button
+      background: url('/img/facebook-connect.png') no-repeat
+      display: block
+      text-indent: -100000px
+      height: 42px
+      width: 251px
+      border: none
+      &:hover
+        background-position: 0 -43px
+      &:active
+        position: relative
+        top: 1px
+
+  // LOGIN
+  section#login
+    padding: 10px
+    width: 300px
+  // SIGNUP
+  section#sign-up
+    padding: 10px
+    width: 300px
+  section#business-cta
+    margin-top: 10px
+    padding: 10px
+    width: 250px
+    a.btn
+      width: 230px
+  section#business-sign-up
+    padding: 10px
+    .fieldset
+      width:48%
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
