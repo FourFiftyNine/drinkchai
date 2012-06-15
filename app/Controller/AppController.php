@@ -81,7 +81,7 @@ class AppController extends Controller {
                 'secret' => '78f1c9ae321ba10215d07e6a2176d6ee',
             ));
             Configure::write('debug', 2); 
-        } else if (stristr(env('HTTP_HOST'), 'dc2.anthonysessa.net')) { 
+        } else if (stristr(env('HTTP_HOST'), 'dc.vinyljudge.com')) { 
             $this->facebook = new Facebook(array(
                 'appId'  => '305067682888921',
                 'secret' => 'ced3eed874557855df68aa74074b577a',
