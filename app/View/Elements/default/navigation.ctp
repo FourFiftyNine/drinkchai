@@ -14,7 +14,7 @@
                 <?php // <li>echo $this->Html->link('Create', '/dashboard/deals/create', array('escape' => false));</li> ?>
 
                 <?php //debug($user['User']['User']); ?>
-                <?php if (2 == $user['User']['user_type_id']): ?>
+                <?php if (isset($user['User']) && 2 == $user['User']['user_type_id']): ?>
                     <li><?php echo $this->Html->link('Businesses - How It Works', '/businesses/how-it-works', array('escape' => false)); ?></li>
                 <?php else: ?>
                     <li><?php echo $this->Html->link('How It Works', '/how-it-works', array('escape' => false)); ?></li>
