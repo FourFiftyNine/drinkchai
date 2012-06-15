@@ -702,7 +702,8 @@ input.form-error
     &.dashboard, 
     &.edit-address, 
     &.create-deal, 
-    &.deals-index
+    &.deals-index,
+    &.edit-deal
       section
         background-color: #F3F1EA
         border: b = 1px solid #eae2c9
@@ -815,7 +816,11 @@ input.form-error
           background-color: #e5ded5
         tr.odd
           background-color: darken(#e5ded5, 5)
-
+    #edit-deal
+      .left,.right
+        width: 48%
+      input, textarea
+        width: 100%
 
 
 /*~~ Default Layout - How it Works ~~*/

@@ -86,10 +86,20 @@ class DealsController extends AppController {
            
 
             $this->Deal->create();
-            $this->request->data['Deal']['user_id'] = $this->Auth->user('id');
+
+            $userId = $this->Auth->user('id');
+
+            $this->Deal->Business->recursive = -1;
+            $businessData = $this->Deal->Business->findByUserId($userId);
+
+            $this->request->data['Deal']['user_id'] = $userId;
+            $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
+
             // $this->request
             // $this->request
             // $this->Deal->Business->id = $this->_user['Business']['id'];
+
+
             // $this->request->data['Deal']['business_id'] = $this->_user['Business']['id'];
             if ($this->Deal->save($this->request->data)) {
                 $this->Session->setFlash(__('The deal has been saved'));
@@ -141,11 +151,12 @@ class DealsController extends AppController {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
         } else {
-            $this->request->data = $this->Deal->read(null, $this->params->id);
+            $this->request->data = $this->Deal->read();
+            // debug($this->request->data); exit;
             // debug($this->request->data);
         }
-        $businesses = $this->Deal->Business->find('list');
-        $this->set(compact('businesses'));
+        // $businesses = $this->Deal->Business->find('list');
+        // $this->set(compact('businesses'));
     }
 
 /**
