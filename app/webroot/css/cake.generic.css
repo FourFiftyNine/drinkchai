@@ -13,8 +13,7 @@
 .cake-error,
 .cake-debug,
 .notice,
-p.error,
-.error-message {
+p.error {
 	background: #ffcc00;
 	background-repeat: repeat-x;
 	background-image: -moz-linear-gradient(top, #ffcc00, #E6B800);
@@ -39,8 +38,7 @@ p.error,
 .success,
 .message,
 .cake-error,
-p.error,
-.error-message {
+p.error {
 	clear: both;
 	color: #fff;
 	background: #c43c35;

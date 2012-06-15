@@ -1,14 +1,16 @@
 <header class="clearfix">
     <h1 class="wood">
-        <?php if (2 == $user['user_type_id']): ?>
-            <?php echo __($business['name']); ?>
-        <?php else: ?>
-            <?php echo __('My Account'); ?>
-        <?php endif; ?>
+        <span>
+            <?php if (2 == $user['User']['user_type_id']): ?>
+                <?php echo __($business['name']); ?>
+            <?php else: ?>
+                <?php echo __('My Account'); ?>
+            <?php endif; ?>
+        </span>
     </h1>
     <nav class="gradient green clearfix" id="account">
         <ul>
-            <?php if (2 == $user['user_type_id']): ?>
+            <?php if (2 == $user['User']['user_type_id']): ?>
                 <li <?php echo ($this->params['action'] == 'account_index') ? 'class="active"' : ''; ?>><?php echo $this->Html->link('Dashboard', '/account'); ?></li>
                 <li><?php echo $this->Html->link('My Deals', '/account/deals'); ?></li>
                 <li><?php echo $this->Html->link('My Orders', '/account/create'); ?></li>

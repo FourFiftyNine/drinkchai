@@ -14,8 +14,7 @@ class UsersController extends AppController {
  */
  	public function beforeFilter() {
         parent::beforeFilter();
- 		// $this->Auth->allow('launch', 'logout', 'launch_submit', 'sign_up', 'ajax_login');
-        $this->Auth->allow('*');
+ 		$this->Auth->allow('launch', 'logout', 'launch_submit', 'sign_up', 'login', 'ajax_login');
  	}
 
     public function beforeRender() {
@@ -23,13 +22,63 @@ class UsersController extends AppController {
 
     }
 
+/**
+ * index method
+ *
+ * @return void
+ */
+    public function index() {
+        $this->set('title_for_layout', 'Make a deal, sell lots of Tea');
+        $this->User->Address->recursive = -1;
+        $addresses = $this->User->Address->findAllByUserId($this->Auth->user('id'));
+        $this->set('addresses', $addresses);
+    }	
 
-	public function index() {
+/**
+ * edit method
+ *
+ * @param string $id
+ * @return void
+ */
+    public function edit()
+    {   
+        $this->User->id = $this->Auth->user('id');
+        if(!$this->DCAuth->businessLoggedIn()) {
+            $this->redirect('/' . $this->_user['Business']['slug']);
+        }
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
 
-		// TODO check cookie redirect to launch
-		$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
-	}
+
+            $this->request->data['User']['id'] = $this->User->id;
+            // $this->request->data['Business']['user_id'] = $this->User->id;
+            // $this->request->data['Address']['user_id'] = $this->User->id;
+            // $this->request->data['Address']['user_id'] = $this->User->id;
+            // debug($this->request->data); exit;
+            if ($this->User->saveAll($this->request->data)) {
+                $this->Session->setFlash(__('Successfully Saved!'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->User->read(null, $this->User->id);
+            // debug($this->request->data);
+        }
+        // debug($this->request->data); exit;
+        // $addresses = $this->Address->findAllByUserId($this->Auth->user('id'));
+
+        // debug($addresses); exit;
+        // $this->request->data['Address'] = $addresses[0]['Address'];
+    }
+ //    public function index() {
+
+	// 	// TODO check cookie redirect to launch
+	// 	$this->User->recursive = 0;
+	// 	$this->set('users', $this->paginate());
+	// }
 
 	public function launch() {
         if($this->Auth->loggedIn() && $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))){
@@ -152,58 +201,6 @@ class UsersController extends AppController {
     }
 
 
-
-    public function account_index()
-    {   
-        $this->set('title_for_layout', 'Make a deal, sell lots of Tea');
-        $this->User->Address->recursive = -1;
-        $addresses = $this->User->Address->findAllByUserId($this->Auth->user('id'));
-        $this->set('addresses', $addresses);
-    }
-    public function account_orders() {
-        // debug('here');
-        // if(!$this->Auth->loggedIn()){
-        //     return $this->redirect();
-        // }
-    }
-/**
- * edit method
- *
- * @param string $id
- * @return void
- */
-    public function account_edit()
-    {   
-        $this->User->id = $this->Auth->user('id');
-        if(!$this->DCAuth->businessLoggedIn()) {
-            $this->redirect('/' . $this->_user['Business']['slug']);
-        }
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        if ($this->request->is('post') || $this->request->is('put')) {
-
-
-            $this->request->data['User']['id'] = $this->User->id;
-            $this->request->data['Business']['user_id'] = $this->User->id;
-            $this->request->data['Address']['user_id'] = $this->User->id;
-            // debug($this->request->data); exit;
-            if ($this->User->saveAll($this->request->data)) {
-                $this->Session->setFlash(__('Successfully Saved!'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
-        } else {
-            $this->request->data = $this->User->read(null, $this->User->id);
-            // debug($this->request->data);
-        }
-        // debug($this->request->data); exit;
-        // $addresses = $this->Address->findAllByUserId($this->Auth->user('id'));
-
-        // debug($addresses); exit;
-        // $this->request->data['Address'] = $addresses[0]['Address'];
-    }
 
 // ADMINISTRATION ACTIONS
 

@@ -37,14 +37,16 @@ App::uses('CakeEmail', 'Network/Email');
 class AppController extends Controller {
     public $facebook;
 
-	public $components = array('Auth' => array(
-        'authenticate' => array(
-            'Form' => array(
-                'fields' => array('username' => 'email')
+	public $components = array(
+        'Auth' => array(
+            'authenticate' => array(
+                'Form' => array(
+                    'fields' => array('username' => 'email')
+                )
             ),
+            'authError' => 'Please login to view that page.',
         ),
-        'authError' => 'Please login to view that page.'
-    ), 'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
+        'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
 
     public $helpers = array('Session', 'Form', 'Html', 'Js'=>array("Jquery"));
     // public $uses = array('User');
@@ -68,6 +70,11 @@ class AppController extends Controller {
     public function beforeFilter() {
         // $this->layout = 'generic';
         // $this->Auth->allow('display');
+        // $this->Auth->authorize = true;
+        // $this->Auth->authorize = array(
+        //     'Actions' => array('actionPath' => 'controllers/'),
+        //     'Controller'
+        // );
         if (stristr(env('HTTP_HOST'), '.dev')) { 
             $this->facebook = new Facebook(array(
                 'appId'  => '259510874070364',
@@ -123,6 +130,8 @@ class AppController extends Controller {
             //     // echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
             //     // $user = null;
             // }
+        } else {
+            // $this->Auth->logout();
         }
     }
 
