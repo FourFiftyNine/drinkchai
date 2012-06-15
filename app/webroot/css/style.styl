@@ -176,10 +176,6 @@ transparentPng()
     padding: 0 40px 0
     text-align: center
     text-shadow: 1px 1px 0px #fff
-    &.large
-      font-size: 24px
-      height: 50px
-      line-height: 50px
     &:hover
       border: 1px solid #aaa
       box-shadow: 1px 1px 3px 0 rgba(111, 111, 111, .8)
@@ -187,6 +183,27 @@ transparentPng()
       box-shadow: 0 0 7px rgba(0, 0, 0, .2) inset
     &:visited
       color: $darkBrown
+
+    &.small
+      line-height: 30px
+      height: 30px
+      font-size: 14px
+      padding: 0 10px 0 30px
+      text-align: right
+    &.large
+      font-size: 24px
+      height: 50px
+      line-height: 50px
+
+    &.delete
+      text-shadow: 2px 2px 0 black
+      color: white
+      line-height: 25px
+      height: 25px
+      font-size: 12px
+      border: 1px solid #914c5a
+      background: #AD5A6B !important
+      padding: 0 15px
 /*~~ Buttons - Green Gradient ~~*/
 .btn
   &.green.gradient
@@ -682,7 +699,10 @@ input.form-error
         font-weight: bold
         margin: 10px 0 3px
         text-shadow: 1px 1px 1px rgba(255,255,255, .9)
-    &.dashboard, &.edit-address, &.create-deal
+    &.dashboard, 
+    &.edit-address, 
+    &.create-deal, 
+    &.deals-index
       section
         background-color: #F3F1EA
         border: b = 1px solid #eae2c9
@@ -729,7 +749,7 @@ input.form-error
         &#business-contact-information
           margin-left: 0
 
-    /*~~~~ Account Pages - Deal Creation ~~~~*/
+    /*~~~~ Account Pages - Deal Creation and Management ~~~~*/
     &.create-deal
       .error-message
         border-radius: 4px
@@ -752,6 +772,50 @@ input.form-error
           // .error-message
           //   // left: 635px
         // &.small
+    #my-deals
+      table
+        margin-top: 20px
+        width: 100%
+        thead
+          background: lighten($brown, 20);
+          th
+            border-bottom: 3px solid $darkBrown;
+            color: #ffffff;
+            text-shadow: #424242 0 0 3px;
+            font-size: 20px;
+            text-align:left;
+            margin: 0 10px;
+            padding: 10px;
+            &.first
+              border-radius: top left 3px
+            &.last
+              text-align: right
+              border-radius: top right 3px
+        td,th
+          &.status
+            text-align: center
+            width: 100px
+        td
+          font-size: 18px
+          border-right: 1px solid $darkBrown
+          font-weight: bold
+          text-shadow: #424242 0 0 2px
+          padding: 0 10px
+          line-height: 61px
+          height: 35px
+          &.actions
+            border-right: 0
+            width: 250px
+            text-align: right
+            .delete
+              position: relative
+              top: -1px
+
+        tr.even
+          background-color: #e5ded5
+        tr.odd
+          background-color: darken(#e5ded5, 5)
+
 
 
 /*~~ Default Layout - How it Works ~~*/
