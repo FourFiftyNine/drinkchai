@@ -31,7 +31,7 @@
                             <ul>
                                 <li><?php echo $this->Html->link('My Account', '/account', array('class' => 'btn white account')); ?></li>
                                 <?php if ($user['User']['user_type_id'] == 2): ?>
-                                    <li><?php echo $this->Html->link('Your Deals', '/' . $business['slug'], array('class' => 'btn white')); ?></li>
+                                    <li><?php echo $this->Html->link('My Deals', '/account/deals', array('class' => 'btn white')); ?></li>
                                 <?php else: ?>
 
                                     <li><?php echo $this->Html->link('Your Rewards', '/account/rewards', array('class' => 'btn white rewards')); ?></li>

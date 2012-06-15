@@ -36,6 +36,15 @@ gradientBrown()
   background: rgb(156,129,106) /* Old browsers */
   background: linear-gradient(top, rgba(156,129,106,1) 0%,rgba(155,105,63,1) 100%)
 
+gradientWhite()
+  border: 1px solid white
+  color: #3C2613
+  border-radius: 5px
+  width: 100px
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.36), 0 0 1px 0 rgba(255, 255, 255, 1) inset
+  background: white
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 1)), color-stop(100%,rgba(243, 240, 233, 1)))
+
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
@@ -91,6 +100,7 @@ a:active
 a, a:hover, a:active, :focus
   outline: 0
 
+/*~~ General - Columns ~~*/
 transparentPng()
   background: transparent
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)" /* IE8 */   
@@ -131,6 +141,42 @@ transparentPng()
 #launch .green-tag
   right: 10px
 
+/*~~ General - Pink Tags ~~*/
+.tag
+    font-family: "News Cycle"
+    font-size: 24px
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3)
+    background: url(/img/tag_right_pink.png) no-repeat top right
+    display: inline-block
+    height: 56px
+    padding-right: 15px
+    margin-left: -47px
+    span
+      background: url(/img/tag_left_pink.png) no-repeat 0 0
+      display: block
+      line-height: 56px
+      color: #ffffff
+      padding: 0 0 10px 65px
+
+/*~~ General - Flash Messages ~~*/
+#flashMessage
+  background: #000000
+  background: rgba(0,0,0,.8)
+  background: url(/img/flashMessageBlack.png) repeat
+  bottom: 0
+  box-shadow: 0 -2px 3px 0px rgba(0,0,0, .7), 0 1px 1px 0px rgba(255,255,255, .1) inset
+  color: #FFFFFF
+  cursor: pointer
+  display: none
+  font-size: 60px
+  height: 90px
+  left: 0
+  line-height: 90px
+  margin: 0
+  position: fixed
+  text-align: center
+  text-shadow: rgba(0,0,0,.8) 0 0 3px
+  width: 100%
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Gradient Styles
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -154,7 +200,7 @@ transparentPng()
     gradientBrown()
     border: 1px solid #BBAB98
     border: 1px solid rgba(10, 70, 47, .11)
-    
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Buttons
@@ -656,6 +702,16 @@ input.form-error
     span
       padding-left: 120px
 /*~~~~ Account Pages - Navigation ~~~~*/
+body#default.deals.preview,
+body#default.deals.view
+  background: url(/img/bg-tea-kettle.jpg) no-repeat center center fixed
+
+  background-size: cover
+
+.ie7 body#default.deals.view,
+.ie8 body#default.deals.preview
+  background: url(/img/bg-tea-kettle.jpg) repeat center center fixed
+
 #default
   header
     a.create-a-deal
@@ -778,15 +834,15 @@ input.form-error
         margin-top: 20px
         width: 100%
         thead
-          background: lighten($brown, 20);
+          background: lighten($brown, 20)
           th
-            border-bottom: 3px solid $darkBrown;
-            color: #ffffff;
-            text-shadow: #424242 0 0 3px;
-            font-size: 20px;
-            text-align:left;
-            margin: 0 10px;
-            padding: 10px;
+            border-bottom: 3px solid $darkBrown
+            color: #ffffff
+            text-shadow: #424242 0 0 3px
+            font-size: 20px
+            text-align:left
+            margin: 0 10px
+            padding: 10px
             &.first
               border-radius: top left 3px
             &.last
@@ -822,6 +878,166 @@ input.form-error
       input, textarea
         width: 100%
 
+/*~~~~ Deal Page ~~~~*/
+.preview #deal
+  margin-bottom: 120px
+#deal
+  margin-bottom: 40px
+  #main-information
+    padding: 20px
+    .product-name
+      font-family: "News Cycle"
+      color: #3c2613
+      clear: both
+      font-size: 46px
+      float: left
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.37)
+      margin: -15px 0 5px
+    .discount
+      text-align: center
+      float: right
+      font-family: Helvetica
+      font-size: 24px
+      font-weight: bold
+      height: 61px
+      padding-top: 30px
+      width: 92px
+
+      background: url(/img/discount.png) no-repeat
+      margin: 0px 25px 0 0
+      line-height: 16px
+      text-shadow: 0 0 5px rgba(0, 0, 0, .35)
+      .percentage, .off
+        font-size: 14px
+    #share
+      background: #F0EFEB
+      background: rgba(255,255,255,.6)
+      border-radius: 2px
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.30)
+      float: right
+      height: 72px
+      padding: 9px 16px 6px 15px
+      position: relative
+      right: -141px
+      top: 103px
+      width: 175px
+      .twitter-share-button
+        position: relative
+        top: 2px
+
+    .deal-information
+      
+      background: #f0efeb
+      background: rgba(255,255,255,.6)
+      height: 250px
+      clear: both
+      margin: 30px 0 15px
+      position: relative
+      width: 968px
+      left: -24px
+      box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
+      border-radius: 2px
+      .slideshow,
+      .details,
+      .buy-now-container
+        float: left
+        height: 250px
+      .slideshow
+        position: relative
+        left: 12px
+      .details
+        padding: 30px 20px
+        height: 190px
+        max-width: 200px
+        min-width: 100px
+      .buy-now-container
+        float: right
+        margin: 25px 20px 0 0
+        .price-buy
+          height: 60px
+          line-height: 60px
+          width: 280px
+          .price
+            float: left
+            font-size: 50px
+            .dollar
+              position: relative
+              top: -16px
+              font-size: 30px
+          .buy-now
+            position: relative
+            top: 10px
+            display: block
+            float: right
+        .time-lock-status
+          width: 250px
+          margin: -10px auto 0
+          padding: 20px
+          color: #3C2613
+          text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
+          font-weight: bold
+          .time
+            text-align: center
+            position: relative
+            top: 0px
+            .time-left
+              gradientWhite()
+              font-size: 22px
+          .locked
+            background: url(/img/locked.png) no-repeat left center
+            height: 37px
+            width: 102px
+            text-align: left
+            margin: 5px auto
+            .to-unlock
+              font-size: 13px
+              padding-left: 40px
+              line-height: 12px
+          .bought 
+            text-align: center
+            .number
+              font-size: 26px
+      // .bought
+
+  #additional-information
+    margin-top: 20px
+    #product-company-information
+      width: 635px
+      p
+        font-size: 14px
+        line-height: 22px
+        font-family: Helvetica
+        color: #3c2613
+        padding: 0 35px
+        margin: 0
+        text-shadow: 0 0 1px rgba(0,0,0, .2)
+      p.company-description
+        margin-bottom: 20px
+    aside#sidebar
+      margin-left: 20px
+      width: 265px
+      section
+        width: 100%
+        margin-bottom: 10px
+        padding: 20px
+        h3
+          margin: 0
+          position: relative
+          left: -24px
+      .how-it-works
+        padding:0
+        margin: 20px 0 0
+        li
+          list-style: none
+          margin-top: 10px
+          span.number
+            padding:0
+            height: 30px
+            line-height: @height
+            width: @height
+            text-align: center
+            border-radius: @height
+            margin-right: 10px
 
 /*~~ Default Layout - How it Works ~~*/
 // TODO turn into stylus?

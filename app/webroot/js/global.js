@@ -128,9 +128,13 @@ DrinkChai.common = {
     //     console.log(xpos);
     //     $('#flashMessage').css('backgroundPosition', xpos + 'px');
     // }, 300);
-    $('#flashMessage').fadeIn(400, function () {
-      $('#flashMessage').delay(4000).fadeOut(400);
-    });
+
+
+    // $('#flashMessage').fadeIn(400, function () {
+    //   $('#flashMessage').delay(4000).fadeOut(400);
+    // });
+
+    
     $('#flashMessage').hover(function () {
       $('#flashMessage').toggleClass('hover');
     }, function () {

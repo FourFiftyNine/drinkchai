@@ -7,12 +7,11 @@ App::uses('AppController', 'Controller');
  */
 class DealsController extends AppController {
 
-    
     // public $helpers = array('Deal');
 
     public function beforeFilter(){
         parent::beforeFilter();
-        $this->Auth->allow('index',  'view', 'delete', 'edit');
+        // $this->Auth->allow('index',  'view', 'delete', 'edit');
     }
 
 /**
@@ -111,15 +110,7 @@ class DealsController extends AppController {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
         }
-        $this->set('Business', $this->Session->read('Business'));
-        // $this->set()
-        // $businesses = $this->Deal->Business->find('list');
-        // debug(compact());
-        // debug(compact('businesses'));
-        // $this->set('Business', $this->_user['Business']);
-        // $this->set(compact('businesses'));
-        // $this->set($this->_user['Business']);
-        // $this->data['Business'] = $this->_user['Business'];
+
     }
 
 /**
@@ -183,99 +174,4 @@ class DealsController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
-/*********************************************************************
-**********************************************************************
-OBSOLETE but for reference
-**********************************************************************
-**********************************************************************
-*/
-/**
- * account_index method
- *
- * @param string $id
- * @return void
- */
-    public function account_index() {
-
-        if(2 != $this->Auth->user('user_type_id')) {
-            $this->Session->setFlash(__('Sorry, you do not have access to this page.'));
-            $this->redirect(array('controller' => 'users', 'action' => 'index', 'account' => true));
-        }
-        
-        // if($this->Auth->user('user_id_type'))
-        $return = $this->Deal->findAllByUserId($this->Auth->user('id'));
-
-
-        $deals = array();
-        foreach ( $return as $item ) {
-            $deals[] = $item['Deal'];
-        }
-        $this->set('deals', $deals);
-    }
-
-/**
- * account_index method
- *
- * @param string $id
- * @return void
- */
-    public function account_create() {
-        if ($this->request->is('post')) {
-            $this->Deal->create();
-            // $this->request->data['Deal']['business_id'] = $this->_user['Business']['id'];
-            $this->request->data['Deal']['user_id'] = $this->Auth->user('id');
-            if ($this->Deal->saveAll($this->request->data)) {
-                $this->Session->setFlash(__('The deal has been saved'));
-                // $this->_refreshAuth();
-                $this->redirect(array('action' => 'index'));
-
-                // debug($this->Deal->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])))); exit;
-            } else {
-                $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
-            }
-        }
-        $this->set('Business', $this->Session->read('Business'));
-    }
-
-    public function account_edit($id='')
-    {
-        if (!$this->DCAuth->businessOwnsDeal($this->params->id)) {
-            $this->Session->setFlash('No way jose, not your deal.');
-            $this->redirect('/' . $this->Session->read('Business.slug'));
-        }
-        $this->Deal->id = $this->params->id;
-        // $this->Deal->Business->id = 
-        // debug($this->Auth->user());
-
-        if (!$this->Deal->exists()) {
-            throw new NotFoundException(__('Invalid deal'));
-        }
-
-        if ($this->request->is('post') || $this->request->is('put')) {
-            // $this->request->data['Business']['id'] = $this->_user['Business']['id'];
-            $this->request->data['Deal']['user_id'] = $this->Auth->user('id');
-            // debug($this->request->data); exit;
-            $this->request->data['Deal']['id'] = $this->Deal->id;
-            $return = $this->Deal->User->Business->find('first');
-            // debug($return); exit;
-            $this->request->data['Business']['id'] = $return['Business']['id'];
-            // debug($this->request->data); exit;
-
-            if ($ret = $this->Deal->saveAll($this->request->data)) {
-                // $ret = $this->Deal->Business->find('first', array('conditions' => array('User.id' => $this->Auth->user('id'))));
-                // $this->Session->write('Auth.User', $ret);
-                $this->request->data = $this->Deal->read(null, $this->params->id);
-                $this->Session->setFlash(__('Your deal has been saved'));
-            } else {
-                $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
-            }
-        } else {
-            $this->request->data = $this->Deal->read(null, $this->params->id);
-            // debug($this->request->data);
-        }
-        // $return = $this->Deal->User->Business->find('first');
-        // debug($businesses);
-        // $this->request->data['Business'] = $return['Business'];
-        // $this->set(compact('businesses'));
-    }
 }
