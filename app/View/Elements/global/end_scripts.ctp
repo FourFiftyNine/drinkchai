@@ -32,6 +32,8 @@
   })();
 </script>
 
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+
 <!--[if lt IE 7 ]>
 <script src="js/libs/dd_belatedpng.js"></script>
 <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>

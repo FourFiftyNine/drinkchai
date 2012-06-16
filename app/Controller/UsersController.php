@@ -72,6 +72,7 @@ class UsersController extends AppController {
         if($this->Auth->loggedIn() && $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))){
             $this->redirect('/deals/view');
         }
+        // $this->set('liveDeal')
 		$this->layout = 'launch';
 		$this->set('title_for_layout', 'Find and Buy Tea');
 	}
@@ -150,7 +151,7 @@ class UsersController extends AppController {
 
 		if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
-	            return $this->redirect($this->Auth->redirect());
+	            return $this->redirect();
 	        } else {
 	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
 	        }

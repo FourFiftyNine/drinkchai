@@ -5,13 +5,23 @@
                 <h1 class="wood"><span><?php echo $data['Business']['name']; ?></span></h1>
                 <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
             </div>
+            <?php 
+                $percentage = ($data['Deal']['price'] / $data['Deal']['original_price']);
+                $percentage = round($percentage * 100);
+             ?>
             <div class="discount">
-                50<span class="percentage">%</span><div class="off">Off</div>
+                <?php echo $percentage; ?><span class="percentage">%</span><div class="off">Off</div>
             </div>
             <div id="share" class="">
                 <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false"></div>
                 <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="http://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
-                <g:plusone size="tall"></g:plusone>
+                <div id="pinterest">
+                    <a href="http://pinterest.com/pin/create/button/?url=<?php echo $this->Html->url(null, true); ?>&media=<?php echo Router::url('/', true) ?>img/test-deal-image.png" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+                </div>
+
+<!--                 <div id="plusone">
+                    <g:plusone size="tall"></g:plusone>
+                </div> -->
             </div>
         </div>
         <div class="deal-information">
@@ -30,7 +40,7 @@
                     <div class="time left">
                         <div class="label">Time Left</div>
                         <div class="time-left">
-                            3 days 12:03:12
+                            <?php echo $data['Deal']['time_left']; ?>
                         </div>
                     </div>
                     <div class="right bought-container">

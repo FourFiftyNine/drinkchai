@@ -33,6 +33,8 @@ class DealsController extends AppController {
             $previewDeal = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
+      
+        $previewDeal['Deal']['time_left'] = $this->dateDiff($return['Deal']['start_date'] . ' ' . $return['Deal']['start_time'], $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
 
         $this->set('data', $previewDeal);
         $this->render('view');
@@ -44,21 +46,22 @@ class DealsController extends AppController {
  * @return void
  */
     public function view() {
-        $return = $this->Deal->findByUserId($this->Auth->user('id'));
-        // $this->set('Business', $return['Business']);
-        // debug($this->params['deal']);
-        $this->set('title_for_layout', 'Find and Buy Tea');
-        // debug($this->params['deal']);
+        // $return = $this->Deal->findByUserId($this->Auth->user('id'));
+        // // $this->set('Business', $return['Business']);
+        // // debug($this->params['deal']);
+        // $this->set('title_for_layout', 'Find and Buy Tea');
         if(empty($this->params['company']) || empty($this->params['deal'])){
             $currentDeal = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
+            // debug($currentDeal); exit;
             if(empty($currentDeal)) {
                 $this->redirect('/');
             }
-            // debug($currentDeal); exit;
-            debug('/deals' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']); exit;
+            // debug('/deals' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']); exit;
             $this->redirect('/deals/' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']);
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
+            $return['Deal']['time_left'] = $this->dateDiff($return['Deal']['start_date'] . ' ' . $return['Deal']['start_time'], $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time'], 2);
             $this->set('data', $return);
+     
         } else {
             throw new NotFoundException('Sorry, could not find that deal?');
         }
@@ -170,4 +173,65 @@ class DealsController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
+    // http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/
+    private function dateDiff($time1, $time2, $precision = 6) {
+        // If not numeric then convert texts to unix timestamps
+        if (!is_int($time1)) {
+          $time1 = strtotime($time1);
+        }
+        if (!is_int($time2)) {
+          $time2 = strtotime($time2);
+        }
+     
+        // If time1 is bigger than time2
+        // Then swap time1 and time2
+        if ($time1 > $time2) {
+          $ttime = $time1;
+          $time1 = $time2;
+          $time2 = $ttime;
+        }
+     
+        // Set up intervals and diffs arrays
+        $intervals = array('year','month','day','hour','minute','second');
+        $diffs = array();
+     
+        // Loop thru all intervals
+        foreach ($intervals as $interval) {
+          // Set default diff to 0
+          $diffs[$interval] = 0;
+          // Create temp time from time1 and interval
+          $ttime = strtotime("+1 " . $interval, $time1);
+          // Loop until temp time is smaller than time2
+          while ($time2 >= $ttime) {
+        $time1 = $ttime;
+        $diffs[$interval]++;
+        // Create new temp time from time1 and interval
+        $ttime = strtotime("+1 " . $interval, $time1);
+          }
+        }
+     
+        $count = 0;
+        $times = array();
+        // Loop thru all diffs
+        foreach ($diffs as $interval => $value) {
+          // Break if we have needed precission
+          if ($count >= $precision) {
+        break;
+          }
+          // Add value and interval 
+          // if value is bigger than 0
+          if ($value > 0) {
+        // Add s if value is not 1
+        if ($value != 1) {
+          $interval .= "s";
+        }
+        // Add value and interval to times array
+        $times[] = $value . " " . $interval;
+        $count++;
+          }
+        }
+     
+        // Return string with times
+        return implode(", ", $times);
+  }
 }
