@@ -14,7 +14,11 @@
     <meta property="og:site_name" content="DrinkChai"/>
     <meta property="og:description"
           content="DrinkChai brings you the best handpicked teas at a great price, delivered right to your door."/>
-    <?php echo $this->Html->meta('icon'); ?>
+    <?php echo $this->Html->meta(
+    'favicon.ico',
+    '/favicon.ico',
+    array('type' => 'icon'));?>
+
     <?php echo $this->Html->css('style.css'); ?>
     <?php //  $this->AssetCompress->addCss(
     //     array(

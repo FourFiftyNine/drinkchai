@@ -76,6 +76,7 @@ class AppController extends Controller {
         //     'Controller'
         // );
         if (stristr(env('HTTP_HOST'), '.dev')) { 
+            console.log('here');
             $this->facebook = new Facebook(array(
                 'appId'  => '259510874070364',
                 'secret' => '78f1c9ae321ba10215d07e6a2176d6ee',

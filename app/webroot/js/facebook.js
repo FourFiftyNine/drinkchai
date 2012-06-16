@@ -2,7 +2,7 @@
   var DrinkChai = window.DrinkChai || {};
 
   var theAppId, hostname = global.location.hostname;
-  if (hostname == 'dc2.anthonysessa.net') {
+  if (hostname == 'dc.vinyljudge.com') {
     theAppId = '305067682888921';
   } else if (hostname == 'drinkchai.dev' || hostname == 'www.drinkchai.dev') {
     theAppId = '259510874070364';
