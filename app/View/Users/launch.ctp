@@ -10,7 +10,7 @@
         <!-- <li><a href="<?php echo (!$user['facebook_id']) ? '/users/logout' : '#'; ?>"class="logout">Logout</a></li> -->
         <?php else: ?>
         <li><a href="/login">Login</a></li>
-        <li><a href="/sign-up">Sign Up</a></li>
+        <li><a href="/signup">Sign Up</a></li>
         <?php endif; ?>
     </ul>
 </nav>
