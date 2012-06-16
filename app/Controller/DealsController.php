@@ -168,7 +168,7 @@ class DealsController extends AppController {
 
         if ($this->Deal->save($this->request->data)) {
             $this->Session->setFlash(__('Deal deleted'));
-            $this->redirect('/accounts/deals');
+            $this->redirect('/account/deals');
         }
         $this->Session->setFlash(__('Deal was not deleted'));
         $this->redirect(array('action' => 'index'));
