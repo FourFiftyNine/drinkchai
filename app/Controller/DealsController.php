@@ -35,7 +35,7 @@ class DealsController extends AppController {
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
       
-        $previewDeal['Deal']['time_left'] = $this->dateDiff($return['Deal']['start_date'] . ' ' . $return['Deal']['start_time'], $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
+        $previewDeal['Deal']['time_left'] = $this->dateDiff($previewDeal['Deal']['start_date'] . ' ' . $previewDeal['Deal']['start_time'], $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
 
         $this->set('data', $previewDeal);
         $this->render('view');
