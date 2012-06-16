@@ -48,23 +48,21 @@ class AppController extends Controller {
         ),
         'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
 
-    public $helpers = array('Session', 'Form', 'Html', 'Js'=>array("Jquery"));
+    public $helpers = array('Session', 'Form', 'Html' => array('className' => 'MyHtml'), 'Js'=>array("Jquery"));
     // public $uses = array('User');
     
     public function beforeRender() {
     	if($this->name == 'CakeError') {
     		$this->layout = 'error';
     	}
-        $user['User'] = $this->Auth->user();
-        $this->set('user', $user);
-        // debug($user);
-        // debug($this->Auth->user()); exit;
-        if ($this->Auth->user('user_type_id') == 2) {
-            $this->Business = ClassRegistry::init('Business');
+        $userModel = ClassRegistry::init('User');
 
-            $business = $this->Business->findByUserId($this->Auth->user('id'));
-            $this->set('business', $business['Business']);
-        }
+        // $user['User'] = $this->Auth->user();
+        $user = $userModel->read(null, $this->Auth->user('id'));
+        // debug($user);
+        $this->set('user', $user);
+        $userModel = ClassRegistry::init('User');
+
     }
 
     public function beforeFilter() {
@@ -76,7 +74,6 @@ class AppController extends Controller {
         //     'Controller'
         // );
         if (stristr(env('HTTP_HOST'), '.dev')) { 
-            console.log('here');
             $this->facebook = new Facebook(array(
                 'appId'  => '259510874070364',
                 'secret' => '78f1c9ae321ba10215d07e6a2176d6ee',

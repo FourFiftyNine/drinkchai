@@ -22,17 +22,21 @@
 
         <div class="date-section">
           <label class="title">When do you want your deal to begin?</label>
-          <?php
-            echo $this->Form->input('start_date');
-            echo $this->Form->input('start_time');
-          ?>
+          <div class="fieldset">
+            <?php
+              echo $this->Form->input('start_date');
+              echo $this->Form->input('start_time');
+            ?>
+          </div>
         </div>
         <div class="date-section">
           <label class="title">When do you want your deal to begin?</label>
-          <?php
-            echo $this->Form->input('end_date');
-            echo $this->Form->input('end_time');
-          ?>
+          <div class="fieldset">
+            <?php
+              echo $this->Form->input('end_date');
+              echo $this->Form->input('end_time');
+            ?>
+          </div>
         </div>
         <?php
           echo $this->Form->input('minimum', array('label' => 'Minimum you want to sell before deal unlocks', 'type' => 'text'));
@@ -42,7 +46,7 @@
         ?>
       </div>
     <?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn white'));?>
-    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete'), __('Are you sure you want to delete %s?', $this->Form->value('Deal.name'))); ?>
+    <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
   </div>
   </section>
 </article>

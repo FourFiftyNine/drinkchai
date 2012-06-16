@@ -1,6 +1,7 @@
 <header id="header">
     <div class="container">
         <h1>
+            <?php //debug($user); exit; ?>
             <?php echo $this->Html->link(
                 $this->Html->image('logo-small.png', array('alt'=> __('We help you find and buy tea. DrinkChai.com', true), 'border' => '0', 'class' => 'logo')),
                     '/',
@@ -22,7 +23,7 @@
                 <?php if(isset($user['User'])): ?>
                     <li class="name">
                         <?php if (2 == $user['User']['user_type_id']): ?>
-                            <?php echo $this->Html->link($business['name'] . ' <span class="account-button"></span>', '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 
+                            <?php echo $this->Html->link($user['Business']['name'] . ' <span class="account-button"></span>', '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 
 
                         <?php else: ?>
                             <?php echo $this->Html->link($user['User']['firstname'] . ' <span class="account-button"></span>' . $user['User']['lastname'], '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 

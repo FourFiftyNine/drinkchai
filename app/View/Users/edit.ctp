@@ -1,5 +1,10 @@
 <article id="my-account" class="canvas edit-address clearfix">
     <?php echo $this->element('default/account_navigation'); ?>
+    <?php 
+    /*
+    * Business User Top, Normal User Below
+    **/
+     ?>
     <?php if(2 == $user['User']['user_type_id']): ?>
         <?php echo $this->Form->create('User');?>
         <section id="business-contact-information" class="left">
@@ -40,7 +45,14 @@
         <?php echo $this->Form->end(array('label' => 'Save', 'class' => 'btn white'));?>
     <?php else: ?>
         <section id="personal-information">
+            <h2 class="gradient brown">Edit Contact Information</h2>
             
+                <?php
+                    echo $this->Form->input('User.firstname');
+                    echo $this->Form->input('User.lastname');
+                    echo $this->Form->input('User.email');
+                    // echo $this->Form->input('password');
+                ?>
         </section>
     <?php endif; ?>
 </article>

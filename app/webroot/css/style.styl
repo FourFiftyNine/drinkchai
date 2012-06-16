@@ -339,8 +339,8 @@ input.form-error
   font-weight: bold
   font-size: 13px
   padding: 0 10px
-  height: 34px
-  line-height: 34px
+  height: 35px
+  line-height: 35px
   position: absolute
   right: 0
   top: 25px
@@ -803,9 +803,10 @@ body#default.deals.view
         h2
           display: block
           text-align: center
-        &#business-contact-information
+        &#business-contact-information,
+        &#personal-information
           margin-left: 0
-
+       
     /*~~~~ Account Pages - Deal Creation and Management ~~~~*/
     &.create-deal
       .error-message
@@ -873,10 +874,29 @@ body#default.deals.view
         tr.odd
           background-color: darken(#e5ded5, 5)
     #edit-deal
+      position: relative
       .left,.right
         width: 48%
       input, textarea
         width: 100%
+      .title
+        font-size: 22px
+      .fieldset
+        border: 1px solid $lightBrown
+        border-radius: 4px
+        padding: 10px
+        .input:first-child label
+          margin-top: 0
+      input[type="submit"]
+        margin-top: 60px
+      .delete
+        position: absolute
+        right: 10px
+        bottom: 60px
+        &:active
+          position: absolute
+          top: auto
+          bottom: 59px
 
 /*~~~~ Deal Page ~~~~*/
 .preview #deal
@@ -1202,7 +1222,11 @@ body#default.deals.view
     padding: 10px
     .fieldset
       width:48%
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Debug
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.cake-debug
+  margin-top: 80px
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

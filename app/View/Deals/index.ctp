@@ -13,6 +13,7 @@
         <?php
           $i = 0;
           foreach ($deals as $deal): ?>
+            <?php if( $deal['Deal']['status'] == 'deleted') { continue; } ?>
             <tr class="<?php echo ($i%2) ? 'odd' : 'even'; ?>">
 
               <td><?php echo $deal['Deal']['product_name']; ?>&nbsp;</td>
@@ -22,7 +23,7 @@
                 <?php echo $this->Html->link(__('Edit'), '/account/deals/edit/' . $deal['Deal']['id'], array('class' => 'btn white small')); ?>
                 <?php echo $this->Html->link(__('Preview'), '/account/deals/preview/' . $deal['Deal']['id'], array('class' => 'btn white small')); ?>
 
-                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $deal['Deal']['id']), array('class' => 'btn white delete'), __('Are you sure you want to delete %s?', $deal['Deal']['name'])); ?>
+                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $deal['Deal']['id']), array('class' => 'btn white delete'), __('Are you sure you want to delete "%s"?', $deal['Deal']['product_name'])); ?>
               </td>
             </tr>
             <?php $i++; ?>

@@ -28,7 +28,7 @@ class UsersController extends AppController {
  * @return void
  */
     public function index() {
-        $this->set('title_for_layout', 'Make a deal, sell lots of Tea');
+        $this->set('title_for_layout', 'My Account - Make a deal, sell lots of Tea');
         $this->User->Address->recursive = -1;
         $addresses = $this->User->Address->findAllByUserId($this->Auth->user('id'));
         $this->set('addresses', $addresses);
@@ -42,43 +42,31 @@ class UsersController extends AppController {
  */
     public function edit()
     {   
+        $this->set('title_for_layout', 'Edit My Account - Make a deal, sell lots of Tea');
+
         $this->User->id = $this->Auth->user('id');
-        if(!$this->DCAuth->businessLoggedIn()) {
-            $this->redirect('/' . $this->_user['Business']['slug']);
-        }
+
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
 
-
             $this->request->data['User']['id'] = $this->User->id;
-            // $this->request->data['Business']['user_id'] = $this->User->id;
-            // $this->request->data['Address']['user_id'] = $this->User->id;
-            // $this->request->data['Address']['user_id'] = $this->User->id;
-            // debug($this->request->data); exit;
             if ($this->User->saveAll($this->request->data)) {
+
                 $this->Session->setFlash(__('Successfully Saved!'));
                 $this->redirect(array('action' => 'index'));
+
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         } else {
+            // debug($this->User->read(null, $this->User->id));
             $this->request->data = $this->User->read(null, $this->User->id);
             // debug($this->request->data);
         }
-        // debug($this->request->data); exit;
-        // $addresses = $this->Address->findAllByUserId($this->Auth->user('id'));
-
-        // debug($addresses); exit;
-        // $this->request->data['Address'] = $addresses[0]['Address'];
     }
- //    public function index() {
 
-	// 	// TODO check cookie redirect to launch
-	// 	$this->User->recursive = 0;
-	// 	$this->set('users', $this->paginate());
-	// }
 
 	public function launch() {
         if($this->Auth->loggedIn() && $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))){

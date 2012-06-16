@@ -1,11 +1,16 @@
 <article id="my-account" class="dashboard canvas clearfix">
   <?php echo $this->element('default/account_navigation', array('user'=> $user)); ?>
+  <?php 
+  /*
+  * Business User Top, Normal User Below
+  **/
+   ?>
   <?php if (2 == $user['User']['user_type_id']): ?>
     <section id="business-information" class="left">
       <h2 class="gradient brown">Business Information<a class="btn white" href="/account/edit">Edit</a></h2>
       <div class="content">
         <div class="label">Business Name</div>
-        <div class="text"><?php echo $business['name']; ?></div>
+        <div class="text"><?php echo $user['Business']['name']; ?></div>
         
         <div class="label">Email Address</div>
         <div class="text"><?php echo $user['User']['email']; ?></div>
@@ -21,16 +26,16 @@
           </div>
         </div>
         <div class="label">Website</div>
-        <div class="text"><?php echo $business['url_website']; ?></div>
+        <div class="text"><?php echo $user['Business']['url_website']; ?></div>
 
         <div class="label">Facebook Page</div>
-        <div class="text"><?php echo $business['url_facebook']; ?></div>
+        <div class="text"><?php echo $user['Business']['url_facebook']; ?></div>
 
         <div class="label">Twitter</div>
-        <div class="text"><?php echo $business['url_twitter']; ?></div>
+        <div class="text"><?php echo $user['Business']['url_twitter']; ?></div>
 
         <div class="label">Yelp Url</div>
-        <div class="text"><?php echo $business['url_yelp']; ?></div>
+        <div class="text"><?php echo $user['Business']['url_yelp']; ?></div>
       </div>
     </section>
         <?php if ($addresses):?>

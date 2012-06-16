@@ -909,8 +909,8 @@ input.form-error {
   font-weight: bold;
   font-size: 13px;
   padding: 0 10px;
-  height: 34px;
-  line-height: 34px;
+  height: 35px;
+  line-height: 35px;
   position: absolute;
   right: 0;
   top: 25px;
@@ -1724,63 +1724,64 @@ body#default.deals.view {
 }
 
 /* line 806 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-#default #my-account.edit-address section#business-contact-information {
+#default #my-account.edit-address section#business-contact-information,
+#default #my-account.edit-address section#personal-information {
   margin-left: 0;
 }
 
-/* line 810 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 811 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 812 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account.create-deal .error-message {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
 
-/* line 813 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 814 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
 /* line 815 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 816 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account.create-deal .input.full input,
 #default #my-account.create-deal .input.full textarea {
   width: 630px;
 }
 
-/* line 817 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 818 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account.create-deal .input.full .error-message {
   right: auto;
   top: 22px;
   left: 640px;
 }
 
-/* line 821 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 822 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 823 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account.create-deal .input.small input {
   width: 200px;
 }
 
-/* line 824 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 825 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account.create-deal .input.small .error-message {
   right: auto;
   top: 22px;
   left: 210px;
 }
 
-/* line 831 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 832 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 833 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table {
   margin-top: 20px;
   width: 100%;
 }
 
-/* line 835 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 836 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table thead {
   background: #9e7d53;
 }
 
-/* line 837 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 838 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table thead th {
   border-bottom: 3px solid #422a11;
   color: #fff;
@@ -1791,7 +1792,7 @@ body#default.deals.view {
   padding: 10px;
 }
 
-/* line 845 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 846 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table thead th.first {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -1800,7 +1801,7 @@ body#default.deals.view {
   border-top-left-radius: 3px;
 }
 
-/* line 847 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 848 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table thead th.last {
   text-align: right;
   -moz-border-radius-topright: 3px;
@@ -1810,16 +1811,16 @@ body#default.deals.view {
   border-top-right-radius: 3px;
 }
 
-/* line 850 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 851 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+
+/* line 852 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table td.status,
 #default #my-account #my-deals table th.status {
   text-align: center;
   width: 100px;
 }
 
-/* line 854 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 855 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table td {
   font-size: 18px;
   border-right: 1px solid #422a11;
@@ -1830,62 +1831,102 @@ body#default.deals.view {
   height: 35px;
 }
 
-/* line 862 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 863 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table td.actions {
   border-right: 0;
   width: 250px;
   text-align: right;
 }
 
-/* line 866 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 867 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table td.actions .delete {
   position: relative;
   top: -1px;
 }
 
-/* line 870 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 871 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table tr.even {
   background-color: #e5ded5;
 }
 
-/* line 872 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 873 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #my-deals table tr.odd {
   background-color: #dbd2c5;
 }
 
-/* line 874 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
-
 /* line 875 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal {
+  position: relative;
+}
+
+/* line 877 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #edit-deal .left,
 #default #my-account #edit-deal .right {
   width: 48%;
 }
 
-/* line 877 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 879 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #default #my-account #edit-deal input,
 #default #my-account #edit-deal textarea {
   width: 100%;
 }
 
-/* line 880 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 881 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal .title {
+  font-size: 22px;
+}
+
+/* line 883 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal .fieldset {
+  border: 1px solid #d9c6a8;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* line 887 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal .fieldset .input:first-child label {
+  margin-top: 0;
+}
+
+/* line 889 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal input[type="submit"] {
+  margin-top: 60px;
+}
+
+/* line 891 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal .delete {
+  position: absolute;
+  right: 10px;
+  bottom: 60px;
+}
+
+/* line 895 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+#default #my-account #edit-deal .delete:active {
+  position: absolute;
+  top: auto;
+  bottom: 59px;
+}
+
+/* line 900 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~ Deal Page ~~~~*/
 
-/* line 881 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 901 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .preview #deal {
   margin-bottom: 120px;
 }
 
-/* line 883 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 903 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal {
   margin-bottom: 40px;
 }
 
-/* line 885 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 905 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information {
   padding: 20px;
 }
 
-/* line 887 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 907 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .product-name {
   font-family: "News Cycle";
   color: #3c2613;
@@ -1896,7 +1937,7 @@ body#default.deals.view {
   margin: -15px 0 5px;
 }
 
-/* line 895 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 915 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .discount {
   text-align: center;
   float: right;
@@ -1912,13 +1953,13 @@ body#default.deals.view {
   text-shadow: 0 0 5px rgba(0,0,0,0.35);
 }
 
-/* line 909 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 929 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .discount .percentage,
 #deal #main-information .discount .off {
   font-size: 14px;
 }
 
-/* line 911 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 931 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information #share {
   background: #f0efeb;
   background: rgba(255,255,255,0.60);
@@ -1935,13 +1976,13 @@ body#default.deals.view {
   width: 175px;
 }
 
-/* line 923 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 943 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information #share .twitter-share-button {
   position: relative;
   top: 2px;
 }
 
-/* line 927 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 947 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information {
   background: #f0efeb;
   background: rgba(255,255,255,0.60);
@@ -1957,7 +1998,7 @@ body#default.deals.view {
   border-radius: 2px;
 }
 
-/* line 939 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 959 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .slideshow,
 #deal #main-information .deal-information .details,
 #deal #main-information .deal-information .buy-now-container {
@@ -1965,13 +2006,13 @@ body#default.deals.view {
   height: 250px;
 }
 
-/* line 944 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 964 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .slideshow {
   position: relative;
   left: 12px;
 }
 
-/* line 947 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 967 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .details {
   padding: 30px 20px;
   height: 190px;
@@ -1979,33 +2020,33 @@ body#default.deals.view {
   min-width: 100px;
 }
 
-/* line 952 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 972 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container {
   float: right;
   margin: 25px 20px 0 0;
 }
 
-/* line 955 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 975 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .price-buy {
   height: 60px;
   line-height: 60px;
   width: 280px;
 }
 
-/* line 959 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 979 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .price-buy .price {
   float: left;
   font-size: 50px;
 }
 
-/* line 962 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 982 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .price-buy .price .dollar {
   position: relative;
   top: -16px;
   font-size: 30px;
 }
 
-/* line 966 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 986 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .price-buy .buy-now {
   position: relative;
   top: 10px;
@@ -2013,7 +2054,7 @@ body#default.deals.view {
   float: right;
 }
 
-/* line 971 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 991 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
   width: 250px;
   margin: -10px auto 0;
@@ -2023,14 +2064,14 @@ body#default.deals.view {
   font-weight: bold;
 }
 
-/* line 978 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 998 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .time {
   text-align: center;
   position: relative;
   top: 0px;
 }
 
-/* line 982 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1002 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .time .time-left {
   border: 1px solid #fff;
   color: #3c2613;
@@ -2044,7 +2085,7 @@ body#default.deals.view {
   font-size: 22px;
 }
 
-/* line 985 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1005 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .locked {
   background: url("/img/locked.png") no-repeat left center;
   height: 37px;
@@ -2053,34 +2094,34 @@ body#default.deals.view {
   margin: 5px auto;
 }
 
-/* line 991 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1011 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .locked .to-unlock {
   font-size: 13px;
   padding-left: 40px;
   line-height: 12px;
 }
 
-/* line 995 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1015 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .bought {
   text-align: center;
 }
 
-/* line 997 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1017 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #main-information .deal-information .buy-now-container .time-lock-status .bought .number {
   font-size: 26px;
 }
 
-/* line 1000 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1020 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information {
   margin-top: 20px;
 }
 
-/* line 1002 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1022 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information #product-company-information {
   width: 635px;
 }
 
-/* line 1004 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1024 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information #product-company-information p {
   font-size: 14px;
   line-height: 22px;
@@ -2091,44 +2132,44 @@ body#default.deals.view {
   text-shadow: 0 0 1px rgba(0,0,0,0.20);
 }
 
-/* line 1012 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1032 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information #product-company-information p.company-description {
   margin-bottom: 20px;
 }
 
-/* line 1014 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1034 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar {
   margin-left: 20px;
   width: 265px;
 }
 
-/* line 1017 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1037 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar section {
   width: 100%;
   margin-bottom: 10px;
   padding: 20px;
 }
 
-/* line 1021 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1041 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar section h3 {
   margin: 0;
   position: relative;
   left: -24px;
 }
 
-/* line 1025 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1045 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar .how-it-works {
   padding: 0;
   margin: 20px 0 0;
 }
 
-/* line 1028 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1048 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar .how-it-works li {
   list-style: none;
   margin-top: 10px;
 }
 
-/* line 1031 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1051 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #deal #additional-information aside#sidebar .how-it-works li span.number {
   padding: 0;
   height: 30px;
@@ -2140,27 +2181,27 @@ body#default.deals.view {
   margin-right: 10px;
 }
 
-/* line 1040 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1060 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Default Layout - How it Works ~~*/
 
-/* line 1042 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1062 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works {
   -webkit-box-shadow: 0 0 7px 0 rgba(0,0,0,0.55);
   box-shadow: 0 0 7px 0 rgba(0,0,0,0.55);
 }
 
-/* line 1044 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1064 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .container {
   text-align: center;
 }
 
-/* line 1047 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1067 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .divider {
   height: 2px;
   background: url("/img/hiw-divider.jpg") repeat-x;
 }
 
-/* line 1051 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1071 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header {
   background: url("/img/middle_bg_dark.jpg") repeat;
   padding-top: 1px;
@@ -2173,7 +2214,7 @@ body#default.deals.view {
   border-top-right-radius: 3px;
 }
 
-/* line 1062 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1082 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header h2 {
   background: url("/img/ribbon-hiw.png") no-repeat;
   color: #fff;
@@ -2187,7 +2228,7 @@ body#default.deals.view {
   width: 552px;
 }
 
-/* line 1074 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1094 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works header p {
   font-size: 27px;
   line-height: 34px;
@@ -2198,19 +2239,19 @@ body#default.deals.view {
   margin: 0 auto;
 }
 
-/* line 1083 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1103 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users header p {
   font-size: 31px;
   padding-top: 10px;
 }
 
-/* line 1087 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1107 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step {
   height: 350px;
   background: url("/img/middle_bg.jpg") repeat;
 }
 
-/* line 1091 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1111 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step.three {
   padding-bottom: 20px;
   -moz-border-radius-bottomleft: 3px;
@@ -2225,7 +2266,7 @@ body#default.deals.view {
   border-bottom-right-radius: 3px;
 }
 
-/* line 1096 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1116 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .number {
   float: left;
   font-family: sans-serif;
@@ -2240,12 +2281,12 @@ body#default.deals.view {
   line-height: 1.231;
 }
 
-/* line 1109 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1129 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ie7 #how-it-works .step .number {
   color: #c9c3a2;
 }
 
-/* line 1112 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1132 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .right {
   width: 520px;
   position: relative;
@@ -2253,13 +2294,13 @@ body#default.deals.view {
   top: 10px;
 }
 
-/* line 1118 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1138 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .badge {
   display: block;
   margin: 20px auto;
 }
 
-/* line 1122 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1142 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works .step .description {
   font-family: Arimo, 'News Cycle', arial;
   color: #422b15;
@@ -2270,42 +2311,42 @@ body#default.deals.view {
   text-align: center;
 }
 
-/* line 1131 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1151 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #how-it-works.users .step .description {
   font-size: 25px;
   line-height: 30px;
 }
 
-/* line 1135 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1155 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~ Default Layout - z-index ~~*/
 
-/* line 1136 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1156 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #header {
   z-index: 2;
 }
 
-/* line 1140 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1160 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 1141 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1161 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Stripped Layout (Login / Sign-Up)
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 1143 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1163 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 1144 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1164 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .container {
   margin: 20px auto;
   width: 610px;
 }
 
-/* line 1147 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1167 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .account {
   position: relative;
   top: 10px;
 }
 
-/* line 1150 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1170 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped .account span {
   float: left;
   font-size: 14px;
@@ -2316,24 +2357,24 @@ body#default.deals.view {
   left: -20px;
 }
 
-/* line 1158 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1178 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped #content {
   margin-top: 20px;
 }
 
-/* line 1160 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1180 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped input {
   width: 100%;
 }
 
-/* line 1162 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1182 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped input[type="submit"] {
   margin-top: 15px;
 }
 
-/* line 1164 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1184 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 
-/* line 1165 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1185 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section h1,
 #stripped section h3 {
   margin: 0 0 10px;
@@ -2341,13 +2382,13 @@ body#default.deals.view {
   left: -15px;
 }
 
-/* line 1169 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1189 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login {
   padding: 10px;
   width: 250px;
 }
 
-/* line 1172 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1192 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button {
   background: url("/img/facebook-connect.png") no-repeat;
   display: block;
@@ -2357,69 +2398,81 @@ body#default.deals.view {
   border: none;
 }
 
-/* line 1179 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1199 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button:hover {
   background-position: 0 -43px;
 }
 
-/* line 1181 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1201 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#facebook-login button:active {
   position: relative;
   top: 1px;
 }
 
-/* line 1186 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1206 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#login {
   padding: 10px;
   width: 300px;
 }
 
-/* line 1190 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1210 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#sign-up {
   padding: 10px;
   width: 300px;
 }
 
-/* line 1193 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1213 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-cta {
   margin-top: 10px;
   padding: 10px;
   width: 250px;
 }
 
-/* line 1197 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1217 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-cta a.btn {
   width: 170px;
 }
 
-/* line 1199 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1219 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-sign-up {
   padding: 10px;
 }
 
-/* line 1201 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1221 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 #stripped section#business-sign-up .fieldset {
   width: 48%;
 }
 
-/* line 1204 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1223 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 1205 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1224 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/** Debug
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* line 1226 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+.cake-debug {
+  margin-top: 80px;
+}
+
+/* line 1228 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* line 1229 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 /** Utility
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* line 1207 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1231 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .right {
   float: right;
 }
 
-/* line 1209 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1233 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .left {
   float: left;
 }
 
-/* line 1211 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1235 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir {
   display: block;
   border: 0;
@@ -2432,18 +2485,18 @@ body#default.deals.view {
   *line-height: 0;
 }
 
-/* line 1222 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1246 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .ir br {
   display: none;
 }
 
-/* line 1225 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1249 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 1229 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1253 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -2455,7 +2508,7 @@ body#default.deals.view {
   width: 1px;
 }
 
-/* line 1239 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1263 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -2466,32 +2519,32 @@ body#default.deals.view {
   width: auto;
 }
 
-/* line 1247 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1271 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .invisible {
   visibility: hidden;
 }
 
-/* line 1250 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1274 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 1254 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1278 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix:after {
   clear: both;
 }
 
-/* line 1257 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1281 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 1260 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1284 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
 @media print {
 
-/* line 1261 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1285 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   * {
     background: transparent;
     color: #000;
@@ -2502,58 +2555,58 @@ body#default.deals.view {
     -ms-filter: none;
   }
 
-/* line 1269 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1293 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-/* line 1272 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1296 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-/* line 1275 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1299 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-/* line 1278 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1302 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-/* line 1281 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1305 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-/* line 1285 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1309 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   thead {
     display: table-header-group;
   }
 
-/* line 1288 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1312 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-/* line 1291 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1315 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   img {
     max-width: 100%;
   }
 
-/* line 1294 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1318 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   @page {
     margin: 0.5cm;
   }
 
-/* line 1297 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1321 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   p,
   h2,
   h3 {
@@ -2561,7 +2614,7 @@ body#default.deals.view {
     widows: 3;
   }
 
-/* line 1301 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
+/* line 1325 : /Users/anthonysessa/Sites/mygit/drinkchai.com/app/webroot/css/style.styl */
   h2,
   h3 {
     page-break-after: avoid;

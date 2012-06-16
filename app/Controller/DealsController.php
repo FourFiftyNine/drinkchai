@@ -20,18 +20,10 @@ class DealsController extends AppController {
  * @return void
  */
     public function index(){
-        // if (!$this->DCAuth->businessLoggedIn()) {
-        //     $this->redirect('/users/login');
-        // }
-        
-        // if($this->Auth->user('user_id_type'))
         $this->Deal->recursive = -1;
         $return = $this->Deal->findAllByUserId($this->Auth->user('id'));
+        // debug($return);
         $this->set('deals', $return);
-        // debug($return); exit;
-        // if (!strstr($this->params->url, $this->Session->read('Business.slug'))) {
-        //     $this->redirect('/' . $this->Session->read('Business.slug'), array('status' => '302'));
-        // }
     }
 
     public function preview()
@@ -163,12 +155,16 @@ class DealsController extends AppController {
 
         $this->Deal->id = $id;
 
+
         if (!$this->Deal->exists()) {
             throw new NotFoundException(__('Invalid deal'));
         }
-        if ($this->Deal->delete()) {
+
+        $this->request->data['Deal']['status'] = 'deleted';
+
+        if ($this->Deal->save($this->request->data)) {
             $this->Session->setFlash(__('Deal deleted'));
-            $this->redirect(array('/accounts/deals'));
+            $this->redirect('/accounts/deals');
         }
         $this->Session->setFlash(__('Deal was not deleted'));
         $this->redirect(array('action' => 'index'));
