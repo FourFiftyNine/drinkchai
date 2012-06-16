@@ -126,8 +126,8 @@ class DealsController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Business']['id'] = $this->_user['Business']['id'];
             if ($ret = $this->Deal->saveAll($this->request->data)) {
-                $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
-                $this->Session->write('Auth.User', $ret);
+                // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
+                // $this->Session->write('Auth.User', $ret);
                 $this->request->data = $this->Deal->read(null, $this->params->id);
                 $this->Session->setFlash(__('Your deal has been saved'));
             } else {
