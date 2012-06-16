@@ -58,10 +58,9 @@ class AppController extends Controller {
         $userModel = ClassRegistry::init('User');
 
         // $user['User'] = $this->Auth->user();
-        $user = $userModel->read(null, $this->Auth->user('id'));
+        $user = $userModel->findById($this->Auth->user('id'));
         // debug($user);
         $this->set('user', $user);
-        $userModel = ClassRegistry::init('User');
 
     }
 

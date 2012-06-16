@@ -5,7 +5,7 @@
         <li><?php echo $this->Html->link('How It Works', '/how-it-works'); ?></li>
         <!-- <li><?php echo $this->Html->link('Businesses', '/businesses', array('id' => 'businesses', 'class' => 'ajax-link')); ?></li> -->
         <li><?php echo $this->Html->link('Current Deal', '/deals/view');?></li>
-        <?php if($user['User']): ?>
+        <?php if(isset($user['User'])): ?>
         <li><a href="/account">My Account</a></li>
         <!-- <li><a href="<?php echo (!$user['facebook_id']) ? '/users/logout' : '#'; ?>"class="logout">Logout</a></li> -->
         <?php else: ?>

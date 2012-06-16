@@ -103,6 +103,7 @@ class UsersController extends AppController {
         $this->layout = 'stripped';
         if($this->RequestHandler->isPost()){
             if ($return = $this->User->saveAll($this->request->data)) {
+                
                 $email = new CakeEmail('gmail');
                 $email->template('sign_up')
                 ->from(array('team@drinkchai.com' => 'DrinkChai.com'))
@@ -133,10 +134,11 @@ class UsersController extends AppController {
                     ->to('sessa@drinkchai.com')
                     ->subject('About')
                     ->send('My message');
+
                 $this->Auth->login();
                 $this->redirect('/account');
             } else {
-
+                
             }
         }
     }
