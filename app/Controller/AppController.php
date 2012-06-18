@@ -20,6 +20,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::import('Vendor', 'facebook/src/facebook');
+// App::import('Vendor', 'geoip');
 App::import('Model', 'Business');
 App::uses('Controller', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
@@ -46,12 +47,17 @@ class AppController extends Controller {
             ),
             'authError' => 'Please login to view that page.',
         ),
-        'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
+        'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'GeoIP', 'DebugKit.Toolbar');
 
     public $helpers = array('Session', 'Form', 'Html' => array('className' => 'MyHtml'), 'Js'=>array("Jquery"));
     // public $uses = array('User');
     
+
     public function beforeRender() {
+        // debug($_SERVER['REMOTE_ADDR']);
+        // debug(GeoipComponent::countryCode($_SERVER['REMOTE_ADDR']));
+        // debug($this->GeoIP);
+        debug($this->GeoIP->countryCode('127.0.0.1'));
     	if($this->name == 'CakeError') {
     		$this->layout = 'error';
     	}
