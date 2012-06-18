@@ -21,7 +21,7 @@
         ?>
 
         <div class="date-section">
-          <label class="title">When do you want your deal to begin?</label>
+          <label class="title">When would you like your deal to begin?</label>
           <div class="fieldset">
             <?php
               echo $this->Form->input('start_date');
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="date-section">
-          <label class="title">When do you want your deal to begin?</label>
+          <label class="title">When would you like deal to end?</label>
           <div class="fieldset">
             <?php
               echo $this->Form->input('end_date');
