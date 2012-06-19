@@ -87,6 +87,9 @@ class AppController extends Controller {
         } else {
             Configure::write('debug', 2); 
         }
+        if($this->RequestHandler->isAjax()) {
+            Configure::write('debug', 0);
+        }
         $this->__checkFBStatus();
     }
 

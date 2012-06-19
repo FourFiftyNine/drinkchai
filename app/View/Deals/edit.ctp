@@ -1,5 +1,5 @@
 <article id="my-account" class="canvas edit-deal">
-  <?php echo $this->element('default/account_navigation'); ?>
+  <?php echo $this->element('default/account_navigation', array('data' => $this->data)); ?>
   <section id="edit-deal">
     <h2 class="gradient brown">Edit Your Deal</h2>
     <div class="clearfix">
@@ -12,12 +12,20 @@
 
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
-          echo $this->Form->input('Image.file', array('type' => 'file'));
+          echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
          ?>
-         <?php foreach($this->data['Image'] as $image): ?>
-
-         <img src="<?php echo $image['path']?>" alt="">
-         <?php endforeach; ?>
+        <label class="title" for="">Currently Uploaded Pictures</label>
+        <div class="pictures fieldset clearfix">
+          <?php foreach($this->data['Image'] as $image): ?>
+            <?php if ($image['deleted']) { continue; } ?>
+              <div class="column">
+                <div class="picture-container">
+                  <img src="<?php echo $image['path_thumb']?>" alt="">
+                </div>
+                <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
+              </div>
+          <?php endforeach; ?>
+        </div>
       </div>
       <div class="right">
         <?php
@@ -52,7 +60,7 @@
         ?>
       </div>
     <?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn white'));?>
-    <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
+    <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete deal'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
   </div>
   </section>
 </article>

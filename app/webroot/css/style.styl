@@ -888,7 +888,7 @@ body#default.deals.view
           margin-top: 0
       input[type="submit"]
         margin-top: 60px
-      .delete
+      .delete.deal
         position: absolute
         right: 10px
         bottom: 60px
@@ -896,6 +896,28 @@ body#default.deals.view
           position: absolute
           top: auto
           bottom: 59px
+      .pictures
+        margin-top: 20px
+        .picture-container
+          width: 100px
+          height: 100px
+        .column
+          // margin-top: 10px
+          // padding-top: 10px
+          text-align: center
+          float: left
+          width: 100px
+          margin-left: 10px
+          // background: lighten($lightBrown, 5)
+          &:first-child
+            border-top: 0
+            margin-left: 0
+            padding-top: 0
+          .btn
+            position: relative
+            // top: -20px
+            // margin-left: 20px
+
 
 /*~~~~ Deal Page ~~~~*/
 .preview #deal
@@ -979,6 +1001,16 @@ body#default.deals.view
       .slideshow
         position: relative
         left: 12px
+        .frame, .picture
+          position: absolute
+        .frame
+          left: 0
+        .picture
+          left: 0
+          top: 0
+        // background: url(/img/deal-image-frame.jpg) no-repeat center center
+        // width: 330px
+        // height: 250px
       .details
         padding: 30px 20px
         height: 190px
@@ -1171,6 +1203,13 @@ body#default.deals.view
 /*~~ Default Layout - z-index ~~*/
 #header
   z-index: 2
+.deal-information
+  z-index: 1
+  .slideshow
+    .frame
+      z-index: 2
+    .picture
+      z-index: 1
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

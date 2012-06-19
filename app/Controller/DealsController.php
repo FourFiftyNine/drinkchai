@@ -147,16 +147,29 @@ class DealsController extends AppController {
             $this->request->data['Business']['id'] = $businessData['Business']['id'];
             // debug($this->request->data); exit;
             $this->Uploader = new Uploader(array('overwrite' => false));
-            // debug($this->data);
+            // debug($this->request->data['Image']); exit;
             if ($data = $this->Uploader->upload('Image.file')) {
                 // Upload successful, do whatever
-                // debug($data);
-                $this->request->data['Image'][0]['filename'] = $data['name'];
-                $this->request->data['Image'][0]['mimetype'] = $data['type'];
-                $this->request->data['Image'][0]['filesize'] = $data['filesize'];
-                $this->request->data['Image'][0]['path']     = $data['path'];
-                $this->request->data['Image'][0]['width']    = $data['width'];
-                $this->request->data['Image'][0]['height']   = $data['height'];
+                $dimensions = $this->Uploader->dimensions($data['path']);
+                // debug($data); exit;
+                // ->crop(array('height' => 250, 'location' => UploaderComponent::LOC_CENTER, 'quality' => 100)
+                if($dimensions['width'] > $dimensions['height']) {
+                    $resized_path = $this->Uploader->resize(array('width' => 330, 'quality' => 100));
+                    $thumb_path = $this->Uploader->resize(array('width' => 100, 'quality' => 100));
+                } else {
+                    $resized_path = $this->Uploader->resize(array('height' => 250, 'quality' => 100));
+                    $thumb_path = $this->Uploader->resize(array('height' => 100, 'quality' => 100));
+                }
+
+                // debug($resized_path);
+                $this->request->data['Image'][0]['filename']     = $data['name'];
+                $this->request->data['Image'][0]['mimetype']     = $data['type'];
+                $this->request->data['Image'][0]['filesize']     = $data['filesize'];
+                $this->request->data['Image'][0]['path']         = $data['path'];
+                $this->request->data['Image'][0]['path_resized'] = $resized_path;
+                $this->request->data['Image'][0]['path_thumb']   = $thumb_path;
+                $this->request->data['Image'][0]['width']        = $data['width'];
+                $this->request->data['Image'][0]['height']       = $data['height'];
                 unset($this->request->data['Image']['file']);
                 // $this->Deal->Image->set('filename', $data['name']);
             } else {

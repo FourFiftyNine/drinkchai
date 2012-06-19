@@ -26,7 +26,12 @@
         </div>
         <div class="deal-information">
             <div class="slideshow">
-                <?php echo $this->Html->image('/img/test-deal-image.png') ?>
+                <img class="frame" src="/img/deal-image-frame.png" alt="">
+                <?php foreach($data['Image'] as $image): ?>
+                  <?php if ($image['deleted']) { continue; } ?>
+                  <img class="picture" src="<?php echo $image['path_resized'] ?>" alt="">
+                <?php endforeach; ?>
+                
             </div>
             <div class="details">
                 <p><?php echo $data['Deal']['details'] ?></p>

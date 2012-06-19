@@ -10,7 +10,7 @@
     </h1>
     <?php if (2 == $user['User']['user_type_id']): ?>
         <?php if('edit' == $this->params['action']): ?>
-            <a href="/account/deals/create" class="btn white large create-a-deal">Preview This Deal</a>
+            <a href="/account/deals/preview/<?php echo $data['Deal']['id']; ?>" target="_blank" class="btn white large create-a-deal">Preview This Deal</a>
         <?php else: ?>
             <a href="/account/deals/create" class="btn white large create-a-deal">Create A Deal</a>
         <?php endif; ?>
