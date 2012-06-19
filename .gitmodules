@@ -7,3 +7,6 @@
 [submodule "app/Vendor/facebook"]
 	path = app/Vendor/facebook
 	url = git://github.com/facebook/php-sdk.git
+[submodule "app/Plugin/MeioUpload"]
+	path = app/Plugin/MeioUpload
+	url = git://github.com/jrbasso/MeioUpload.git

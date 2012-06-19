@@ -133,7 +133,16 @@ class DealsController extends AppController {
             throw new NotFoundException(__('Invalid deal'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['Business']['id'] = $this->_user['Business']['id'];
+
+            $userId = $this->Auth->user('id');
+
+            $this->Deal->Business->recursive = -1;
+            $businessData = $this->Deal->Business->findByUserId($userId);
+
+            $this->request->data['Deal']['user_id'] = $userId;
+            $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
+            $this->request->data['Business']['id'] = $businessData['Business']['id'];
+            // debug($this->request->data); exit;
             if ($ret = $this->Deal->saveAll($this->request->data)) {
                 // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
                 // $this->Session->write('Auth.User', $ret);

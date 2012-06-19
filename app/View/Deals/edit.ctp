@@ -3,7 +3,7 @@
   <section id="edit-deal">
     <h2 class="gradient brown">Edit Your Deal</h2>
     <div class="clearfix">
-    <?php echo $this->Form->create('Deal');?>
+    <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
       <div class="left">
         <?php 
           echo $this->Form->input('id');
@@ -11,6 +11,10 @@
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
+          echo $this->Form->input('Image.filename', array('type' => 'file'));
+          // echo $this->Form->input('Image.dir', array('type' => 'hidden'));
+          // echo $this->Form->input('Image.mimetype', array('type' => 'hidden'));
+          // echo $this->Form->input('Image.filesize', array('type' => 'hidden'));
          ?>
       </div>
       <div class="right">
