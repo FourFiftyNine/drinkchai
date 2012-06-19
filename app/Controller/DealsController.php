@@ -35,8 +35,12 @@ class DealsController extends AppController {
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
         // $previewDeal['Deal']['time_left'] = $this->dateDiff($previewDeal['Deal']['start_date'] . ' ' . $previewDeal['Deal']['start_time'], $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
-        debug(date('Y-m-d H:i:s'));
-        $previewDeal['Deal']['time_left'] = $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
+        // debug(date('Y-m-d H:i:s'));
+        // debug( $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time'])); exit;
+        $timeArray = $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
+
+        // debug($this->getTimeRemainingLabel($timeArray));
+        $previewDeal['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
 
         $this->set('data', $previewDeal);
         $this->render('view');
@@ -188,6 +192,8 @@ class DealsController extends AppController {
         // If time1 is bigger than time2
         // Then swap time1 and time2
         if ($time1 > $time2) {
+
+            return false;
           $ttime = $time1;
           $time1 = $time2;
           $time2 = $ttime;
@@ -222,18 +228,45 @@ class DealsController extends AppController {
           }
           // Add value and interval 
           // if value is bigger than 0
-          if ($value > 0) {
+          //  if ($value > 0) {
         // Add s if value is not 1
-        if ($value != 1) {
-          $interval .= "s";
-        }
+        // if ($value != 1) {
+        //   $interval .= "s";
+        // }
+            $interval .= 's';
+            if($value < 10 && $interval != 'days') {
+                // debug($value);
+                $value = '0' . $value;
+            }
         // Add value and interval to times array
-        $times[] = $value . " " . $interval;
+        $times[$interval] = $value;
         $count++;
-          }
+          // }
         }
      
         // Return string with times
-        return implode(", ", $times);
+        return $times;
+        // return implode(", ", $times);
   }
+
+    private function getTimeRemainingLabel($timeArray) {
+        if(is_array($timeArray)) {
+            $timeLeft = '';
+            if($timeArray['days']) {
+                $timeLeft .= $timeArray['days'] . ' day';
+                if($timeArray['days']!= 1) {
+                    $timeLeft .= 's ';
+                }
+            }
+            $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
+            // if(isset($timeArray['hours'])) {
+            //     $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
+            // }
+
+            return $timeLeft;
+
+        } else {
+            return 'Deal Has Ended';
+        }
+    }
 }

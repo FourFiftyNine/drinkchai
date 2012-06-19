@@ -9,7 +9,11 @@
         </span>
     </h1>
     <?php if (2 == $user['User']['user_type_id']): ?>
-    <a href="/account/deals/create" class="btn white large create-a-deal">Create A Deal</a>
+        <?php if('edit' == $this->params['action']): ?>
+            <a href="/account/deals/create" class="btn white large create-a-deal">Preview This Deal</a>
+        <?php else: ?>
+            <a href="/account/deals/create" class="btn white large create-a-deal">Create A Deal</a>
+        <?php endif; ?>
     <?php endif ?>
     <nav class="gradient green clearfix" id="account">
         <ul>

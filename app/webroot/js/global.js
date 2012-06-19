@@ -134,6 +134,10 @@ DrinkChai.common = {
     //   $('#flashMessage').delay(4000).fadeOut(400);
     // });
 
+    if ( !$('#flashMessage').hasClass('preview') ) {
+      $('#flashMessage').delay(1750).fadeOut(500);
+    }
+
     
     $('#flashMessage').hover(function () {
       $('#flashMessage').toggleClass('hover');
