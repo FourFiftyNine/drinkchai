@@ -130,3 +130,15 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 CakePlugin::load('DebugKit');
+/**
+ * Format the filename a specific way before uploading and attaching.
+ * 
+ * @access public
+ * @param string $name  - The current filename without extension
+ * @param string $field - The form field name
+ * @param array $file - The $_FILES data
+ * @return string
+ */
+function formatFileName($name, $field, $file) {
+  return md5($name);
+}

@@ -1,5 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
+CakePlugin::load('Uploader');
+App::import('Vendor', 'Uploader.Uploader');
+ 
 /**
  * Deals Controller
  *
@@ -133,7 +136,34 @@ class DealsController extends AppController {
             throw new NotFoundException(__('Invalid deal'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['Business']['id'] = $this->_user['Business']['id'];
+            // $this->request->data['Business']['id'] = $this->_user['Business']['id'];
+            $userId = $this->Auth->user('id');
+
+            $this->Deal->Business->recursive = -1;
+            $businessData = $this->Deal->Business->findByUserId($userId);
+
+            $this->request->data['Deal']['user_id'] = $userId;
+            $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
+            $this->request->data['Business']['id'] = $businessData['Business']['id'];
+            // debug($this->request->data); exit;
+            $this->Uploader = new Uploader(array('overwrite' => false));
+            // debug($this->data);
+            if ($data = $this->Uploader->upload('Image.file')) {
+                // Upload successful, do whatever
+                // debug($data);
+                $this->request->data['Image'][0]['filename'] = $data['name'];
+                $this->request->data['Image'][0]['mimetype'] = $data['type'];
+                $this->request->data['Image'][0]['filesize'] = $data['filesize'];
+                $this->request->data['Image'][0]['path']     = $data['path'];
+                $this->request->data['Image'][0]['width']    = $data['width'];
+                $this->request->data['Image'][0]['height']   = $data['height'];
+                unset($this->request->data['Image']['file']);
+                // $this->Deal->Image->set('filename', $data['name']);
+            } else {
+                $this->request->data['Image'] = null;
+            }
+            // $this->Deal->Image->create();
+            // debug($this->request->data); exit;
             if ($ret = $this->Deal->saveAll($this->request->data)) {
                 // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
                 // $this->Session->write('Auth.User', $ret);

@@ -3,15 +3,21 @@
   <section id="edit-deal">
     <h2 class="gradient brown">Edit Your Deal</h2>
     <div class="clearfix">
-    <?php echo $this->Form->create('Deal');?>
+    <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
       <div class="left">
         <?php 
           echo $this->Form->input('id');
           echo $this->Form->input('Business.name', array('label' => 'Your Company\'s Name'));
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
+
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
+          echo $this->Form->input('Image.file', array('type' => 'file'));
          ?>
+         <?php foreach($this->data['Image'] as $image): ?>
+
+         <img src="<?php echo $image['path']?>" alt="">
+         <?php endforeach; ?>
       </div>
       <div class="right">
         <?php
