@@ -16,15 +16,19 @@
          ?>
         <label class="title" for="">Currently Uploaded Pictures</label>
         <div class="pictures fieldset clearfix">
-          <?php foreach($this->data['Image'] as $image): ?>
-            <?php if ($image['deleted']) { continue; } ?>
-              <div class="column">
-                <div class="picture-container">
-                  <img src="<?php echo $image['path_thumb']?>" alt="">
+          <?php if( !empty($this->data['Image']) ): ?>
+            <?php foreach($this->data['Image'] as $image): ?>
+              <?php if ($image['deleted']) { continue; } ?>
+                <div class="column">
+                  <div class="picture-container">
+                    <img src="<?php echo $image['path_thumb']?>" alt="">
+                  </div>
+                  <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
                 </div>
-                <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
-              </div>
-          <?php endforeach; ?>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No pictures uploaded.</p>
+          <?php endif; ?>
         </div>
       </div>
       <div class="right">

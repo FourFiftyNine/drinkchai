@@ -29,7 +29,7 @@
                 <img class="frame" src="/img/deal-image-frame.png" alt="">
                 <?php foreach($data['Image'] as $image): ?>
                   <?php if ($image['deleted']) { continue; } ?>
-                  <img class="picture" src="<?php echo $image['path_resized'] ?>" alt="">
+                  <img class="picture" src="<?php echo $image['path_resized'] ?>" style="position: relative; top: <?php echo $image['offset'] ?>px;" alt="">
                 <?php endforeach; ?>
                 
             </div>
@@ -43,10 +43,29 @@
                 </div>
                 <div class="time-lock-status canvas clearfix">
                     <div class="time left">
+                        <?php if ($data['Deal']['time_left']): ?>
                         <div class="label">Time Left</div>
                         <div class="time-left">
-                            <?php echo $data['Deal']['time_left']; ?>
+                            <?php $timeLeft = $data['Deal']['time_left']; ?>
+                            <div class="days"><?php echo $timeLeft['days']; ?></div>
+                            <div class="countdown">
+                                <?php /*
+                                <span class="hours"><?php echo $timeLeft['hours']; ?></span>
+                                <span class="colon">:</span>
+                                <span class="minutes"><?php echo $timeLeft['minutes']; ?></span>
+                                <span class="colon">:</span>
+                                <span class="seconds"><?php echo $timeLeft['seconds']; ?></span>
+                                */ ?>
+                                <span class="hours"></span>
+                                <span class="colon">:</span>
+                                <span class="minutes"></span>
+                                <span class="colon">:</span>
+                                <span class="seconds"></span>
+                            </div>
                         </div>
+                        <?php else: ?>
+                            <div class="time-left">Deal Has Ended</div>
+                        <?php endif; ?>
                     </div>
                     <div class="right bought-container">
                         <div class="bought">

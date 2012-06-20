@@ -37,12 +37,20 @@ class DealsController extends AppController {
             $previewDeal = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
-        // $previewDeal['Deal']['time_left'] = $this->dateDiff($previewDeal['Deal']['start_date'] . ' ' . $previewDeal['Deal']['start_time'], $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
-        // debug(date('Y-m-d H:i:s'));
-        // debug( $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time'])); exit;
-        $timeArray = $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
+   
 
+        foreach($previewDeal['Image'] as $key => $image) {
+            if($image['deleted']) { continue; }
+            $previewDeal['Image'][$key]['offset'] = 0;
+            if($image['resized_height'] < 250) {
+                $previewDeal['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
+            }
+            
+        }
+        // $offest = (250 - $previewDeal['Image']['height']) / 2;
+        // $previewDeal['Image']
         // debug($this->getTimeRemainingLabel($timeArray));
+        $timeArray = $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
         $previewDeal['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
 
         $this->set('data', $previewDeal);
@@ -60,15 +68,34 @@ class DealsController extends AppController {
         // // debug($this->params['deal']);
         // $this->set('title_for_layout', 'Find and Buy Tea');
         if(empty($this->params['company']) || empty($this->params['deal'])){
-            $currentDeal = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
-            // debug($currentDeal); exit;
-            if(empty($currentDeal)) {
-                $this->redirect('/');
+            $return = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
+
+            if(empty($return)) {
+                $this->redirect('/'); // might cause infinite redirect loop... 
             }
+
+            $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
+
+            // debug($this->getTimeRemainingLabel($timeArray));
+            $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
+            $this->set('data', $return);
             // debug('/deals' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']); exit;
             $this->redirect('/deals/' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']);
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
-            $return['Deal']['time_left'] = $this->dateDiff($return['Deal']['start_date'] . ' ' . $return['Deal']['start_time'], $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time'], 2);
+            $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
+
+            foreach($return['Image'] as $key => $image) {
+                if($image['deleted']) { continue; }
+                $return['Image'][$key]['offset'] = 0;
+                if($image['resized_height'] < 250) {
+                    $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
+                }
+                
+            }
+            // $offest = (250 - $return['Image']['height']) / 2;
+            // $return['Image']
+            // debug($this->getTimeRemainingLabel($timeArray));
+            $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
             $this->set('data', $return);
      
         } else {
@@ -160,16 +187,19 @@ class DealsController extends AppController {
                     $resized_path = $this->Uploader->resize(array('height' => 250, 'quality' => 100));
                     $thumb_path = $this->Uploader->resize(array('height' => 100, 'quality' => 100));
                 }
+                $resized_dimensions = $this->Uploader->dimensions($resized_path);
 
                 // debug($resized_path);
-                $this->request->data['Image'][0]['filename']     = $data['name'];
-                $this->request->data['Image'][0]['mimetype']     = $data['type'];
-                $this->request->data['Image'][0]['filesize']     = $data['filesize'];
-                $this->request->data['Image'][0]['path']         = $data['path'];
-                $this->request->data['Image'][0]['path_resized'] = $resized_path;
-                $this->request->data['Image'][0]['path_thumb']   = $thumb_path;
-                $this->request->data['Image'][0]['width']        = $data['width'];
-                $this->request->data['Image'][0]['height']       = $data['height'];
+                $this->request->data['Image'][0]['filename']       = $data['name'];
+                $this->request->data['Image'][0]['mimetype']       = $data['type'];
+                $this->request->data['Image'][0]['filesize']       = $data['filesize'];
+                $this->request->data['Image'][0]['path']           = $data['path'];
+                $this->request->data['Image'][0]['path_resized']   = $resized_path;
+                $this->request->data['Image'][0]['path_thumb']     = $thumb_path;
+                $this->request->data['Image'][0]['orig_width']     = $data['width'];
+                $this->request->data['Image'][0]['orig_height']    = $data['height'];
+                $this->request->data['Image'][0]['resized_width']  = $resized_dimensions['width'];
+                $this->request->data['Image'][0]['resized_height'] = $resized_dimensions['height'];
                 unset($this->request->data['Image']['file']);
                 // $this->Deal->Image->set('filename', $data['name']);
             } else {
@@ -222,6 +252,35 @@ class DealsController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
+    public function get_time_left() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+
+
+        if($this->RequestHandler->isAjax()) {
+            $this->autoRender = false;
+            $this->RequestHandler->respondAs('json');
+            // $this->Image->set('deleted', true);
+            $this->Deal->recursive = -1;
+
+            // debug();
+            // return json_encode($this->request->data);
+            $deal_id = $this->request->data['deal_id'];
+            // return json_encode($deal_id);
+            $return = $this->Deal->findById($deal_id);
+            // if($return = $this->Image->save()) {
+            //     return json_encode($return);
+            // } else {
+            //     return json_encode(array('error' => 'Could not delete.'));
+            // }
+            $time_array = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
+            $time_left = $this->getTimeRemainingLabel($time_array);
+            return json_encode($time_left);
+        }
+
+
+    }
     // http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/
     private function dateDiff($time1, $time2, $precision = 6) {
         // If not numeric then convert texts to unix timestamps
@@ -297,8 +356,10 @@ class DealsController extends AppController {
             $timeLeft = '';
             if($timeArray['days']) {
                 $timeLeft .= $timeArray['days'] . ' day';
+                $timeArray['days'] = $timeArray['days'] . ' day';
                 if($timeArray['days']!= 1) {
                     $timeLeft .= 's ';
+                    $timeArray['days'] .= 's ';
                 }
             }
             $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
@@ -306,10 +367,11 @@ class DealsController extends AppController {
             //     $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
             // }
 
-            return $timeLeft;
+            // return $timeLeft;
+            return $timeArray;
 
         } else {
-            return 'Deal Has Ended';
+            return false;
         }
     }
 }

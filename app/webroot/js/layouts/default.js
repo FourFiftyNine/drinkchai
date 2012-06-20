@@ -18,6 +18,7 @@ var dLayout = DrinkChai.defaultLayout = {
 
   init: function() {
     // console.log('here');
+    dLayout.ajaxGetTimeLeft()
     dLayout.onClickAccountName()
     dLayout.onClickDeleteImage();
   },
@@ -55,6 +56,71 @@ var dLayout = DrinkChai.defaultLayout = {
       }
       // console.log('delete!!');
     });
+  },
+  ajaxGetTimeLeft: function() {
+    var timeLeft = {};
+    $.ajax({
+      url: '/deals/get_time_left',
+      type: 'POST',
+      dataType: 'json',
+      data: {deal_id: '6'},
+      complete: function(xhr, textStatus) {
+        //called when complete
+      },
+      success: function(data, textStatus, xhr) {
+        //called when successful
+        // console.log(data);
+        // timeLeft = data
+        dLayout.startCountdown(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        //called when there is an error
+        // console.log(xhr);
+      }
+    });
+  },
+  startCountdown: function(timeLeft) {
+    // var timeLeft = data;
+    
+    var $days    = $('.days');
+    var $hours   = $('.hours');
+    var $minutes = $('.minutes');
+    var $seconds = $('.seconds');
+    // console.log($seconds);
+    // var days    = parseInt($days.text(), 10);
+    // var hours   = parseInt($hours.text(), 10);
+    // var minutes = parseInt($minutes.text(), 10);
+    // var seconds = parseInt($seconds.text(), 10);
+    // console.log(seconds);
+
+    var days = timeLeft.days;
+    var hours = timeLeft.hours;
+    var minutes = timeLeft.minutes;
+    var seconds = timeLeft.seconds;
+
+
+    // var counter = setTimeout(doCountDown, 1000);
+
+    (function doCountDown() {
+      // console.log('1 sec');
+      if( seconds <= 0 ) {
+        minutes -= 1;
+        seconds = 59;
+      } else {
+        seconds -= 1;
+        $seconds.text(prependZero(seconds));
+      }
+      setTimeout(doCountDown, 1000);
+    })();
+
+    function prependZero(num) {
+      if(num < 10) {
+        num = '0' + num;
+        return num;
+      } else {
+        return num;
+      }
+    }
   }
 }
 })( window, jQuery );
