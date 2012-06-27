@@ -576,13 +576,15 @@ textarea {
 textarea:focus {
   border-color: #9fd6c2;
 }
-.required input {
+.required input,
+.required textarea {
   background-image: url("/img/asterisk.png");
   background-repeat: no-repeat;
   background-position: 97%;
 }
 /*~~ Inputs - Errors ~~*/
-input.form-error {
+input.form-error,
+textarea.form-error {
   border: 3px solid #d96f50;
   background-image: url("/img/asterisk_error.png");
 }
@@ -627,6 +629,10 @@ input.form-error {
   right: 0;
   top: 25px;
   z-index: 100;
+}
+.textarea .error-message {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
@@ -1364,18 +1370,22 @@ body#default.deals.view {
   height: 100px;
 }
 #default #my-account #edit-deal .pictures .column {
+  border: 1px solid #d9c6a8;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  padding: 5px;
   text-align: center;
   float: left;
   width: 100px;
   margin-left: 10px;
 }
 #default #my-account #edit-deal .pictures .column:first-child {
-  border-top: 0;
   margin-left: 0;
-  padding-top: 0;
 }
 #default #my-account #edit-deal .pictures .column .btn {
   position: relative;
+  top: 5px;
+  margin-bottom: 5px;
 }
 /*~~~~ Deal Page ~~~~*/
 .preview #deal {

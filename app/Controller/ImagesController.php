@@ -64,7 +64,13 @@ class ImagesController extends AppController {
       if( !$dealId ) {
         $dealId = $this->request->data['Deal']['id'];
       }
-    $this->Uploader = new Uploader(array('overwrite' => false));
+    $this->Uploader = new Uploader(array(
+      'overwrite' => false, 
+      'extension'  => array(
+        'value' => array('gif', 'jpg', 'png', 'jpeg'),
+        'error' => 'Filetype incorrect'
+        )
+      ));
     // $data['success'] = false;
     if ($uploadedImateData = $this->Uploader->upload('Image.file')) {
       // debug('here');
@@ -79,45 +85,8 @@ class ImagesController extends AppController {
         return json_encode($cleanedArray);
         // return json_encode($this->request->data['Image']['file']);
       }
-
-      // $dimensions = $this->Uploader->dimensions($data['path']);
-
-      // if($dimensions['width'] > $dimensions['height']) {
-      //     $resized_path = $this->Uploader->resize(array('width' => 330, 'quality' => 100));
-      //     $thumb_path = $this->Uploader->resize(array('width' => 100, 'quality' => 100));
-      // } else {
-      //     $resized_path = $this->Uploader->resize(array('height' => 250, 'quality' => 100));
-      //     $thumb_path = $this->Uploader->resize(array('height' => 100, 'quality' => 100));
-      // }
-      // $resized_dimensions = $this->Uploader->dimensions($resized_path);
-
-      // // debug($resized_path);
-      // // $this->request->data['Image'][0]['filename']       = $data['name'];
-      // // $this->request->data['Image'][0]['mimetype']       = $data['type'];
-      // // $this->request->data['Image'][0]['filesize']       = $data['filesize'];
-      // // $this->request->data['Image'][0]['path']           = $data['path'];
-      // // $this->request->data['Image'][0]['path_resized']   = $resized_path;
-      // // $this->request->data['Image'][0]['path_thumb']     = $thumb_path;
-      // // $this->request->data['Image'][0]['orig_width']     = $data['width'];
-      // // $this->request->data['Image'][0]['orig_height']    = $data['height'];
-      // // $this->request->data['Image'][0]['resized_width']  = $resized_dimensions['width'];
-      // // $this->request->data['Image'][0]['resized_height'] = $resized_dimensions['height'];
-
-      // $imageModelData['Image'][0]['filename']       = $data['name'];
-      // $imageModelData['Image'][0]['mimetype']       = $data['type'];
-      // $imageModelData['Image'][0]['filesize']       = $data['filesize'];
-      // $imageModelData['Image'][0]['path']           = $data['path'];
-      // $imageModelData['Image'][0]['path_resized']   = $resized_path;
-      // $imageModelData['Image'][0]['path_thumb']     = $thumb_path;
-      // $imageModelData['Image'][0]['orig_width']     = $data['width'];
-      // $imageModelData['Image'][0]['orig_height']    = $data['height'];
-      // $imageModelData['Image'][0]['resized_width']  = $resized_dimensions['width'];
-      // $imageModelData['Image'][0]['resized_height'] = $resized_dimensions['height'];
-   
-
-      
     }
-    $data['success'] = false;
+    $data['success'] = $this;
     return json_encode($data);
     // debug('here 2');
     // $data['result'] = true;

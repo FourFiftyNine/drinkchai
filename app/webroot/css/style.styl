@@ -303,13 +303,15 @@ textarea
     border-color: $green
 
 
-.required input
+.required input,
+.required textarea
   background-image: url(/img/asterisk.png)
   background-repeat: no-repeat
   background-position: 97%
 
 /*~~ Inputs - Errors ~~*/
-input.form-error
+input.form-error,
+textarea.form-error
   border: 3px solid $error
   background-image: url(/img/asterisk_error.png)
 
@@ -343,6 +345,9 @@ input.form-error
   right: 0
   top: 25px
   z-index: 100
+
+.textarea .error-message
+  border-radius: 4px
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -905,17 +910,20 @@ body#default.deals.view
         .column
           // margin-top: 10px
           // padding-top: 10px
+          border: 1px solid $lightBrown
+          border-radius: 4px
+          padding: 5px
           text-align: center
           float: left
           width: 100px
           margin-left: 10px
           // background: lighten($lightBrown, 5)
           &:first-child
-            border-top: 0
             margin-left: 0
-            padding-top: 0
           .btn
             position: relative
+            top: 5px
+            margin-bottom: 5px
             // top: -20px
             // margin-left: 20px
 
@@ -1003,7 +1011,7 @@ body#default.deals.view
         // background: none
         background: #E0D0BB
         // background: #e4eddf // green
-        // background: url(/img/bg-canvas.jpg) repeat;
+        // background: url(/img/bg-canvas.jpg) repeat
         position: relative
         left: 12px
         .frame, .picture
@@ -1054,7 +1062,7 @@ body#default.deals.view
             .time-left
               gradientWhite()
               font-size: 22px
-              // display: none;
+              // display: none
           .locked
             background: url(/img/locked.png) no-repeat left center
             height: 37px

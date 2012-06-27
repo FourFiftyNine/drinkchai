@@ -87,7 +87,7 @@ class Deal extends Model {
         'limit' => array(
             'rule' => 'notEmpty'
         ),
-        'description' => array(
+        'product_description' => array(
             'rule' => 'notEmpty'
         ),
         'discount' => array(

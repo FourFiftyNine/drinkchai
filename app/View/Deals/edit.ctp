@@ -20,35 +20,39 @@
           // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
 
           // AJAX - jquery file upload
-          echo $this->Form->input('Image.file', array(
-            'type'     => 'file',
-            'id'       => 'fileupload',
-            'data-url' => '/images/uploader',
-            'multiple' => 'multiple'
-            ));
-          // echo $this->Form->input('Image.file_upload', array('type' => 'file'))
-         ?>
-<!--          <div id="file-uploader">
-             <noscript>
-                 <p>Please enable JavaScript to use file uploader.</p>
-             </noscript>
-         </div> -->
-        <label class="title" for="">Currently Uploaded Pictures</label>
-        <div id="pictures-container" class="pictures fieldset clearfix">
-          <?php if( !empty($this->data['Image']) ): ?>
-            <?php foreach($this->data['Image'] as $image): ?>
-              <?php if ($image['deleted']) { continue; } ?>
-                <div class="column">
-                  <div class="picture-container">
-                    <img src="<?php echo $image['path_thumb']?>" alt="">
+          if( $this->params['action'] == 'edit' ):
+
+            echo $this->Form->input('Image.file', array(
+              'type'     => 'file',
+              'label'    => 'Upload one or many photos.  <br/>Photos will be uploaded and saved immediately. <br/> Jpg, Jpeg, and pngs only',
+              'id'       => 'fileupload',
+              'data-url' => '/images/uploader',
+              'multiple' => 'multiple'
+              ));
+            // echo $this->Form->input('Image.file_upload', array('type' => 'file'))
+           ?>
+  <!--          <div id="file-uploader">
+               <noscript>
+                   <p>Please enable JavaScript to use file uploader.</p>
+               </noscript>
+           </div> -->
+          <label class="title" for="">Currently Uploaded Pictures</label>
+          <div id="pictures-container" class="pictures fieldset clearfix">
+            <?php if( !empty($this->data['Image']) ): ?>
+              <?php foreach($this->data['Image'] as $image): ?>
+                <?php if ($image['deleted']) { continue; } ?>
+                  <div class="column">
+                    <div class="picture-container">
+                      <img src="<?php echo $image['path_thumb']?>" alt="">
+                    </div>
+                    <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
                   </div>
-                  <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
-                </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <p>No pictures uploaded.</p>
-          <?php endif; ?>
-        </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <p>No pictures uploaded.</p>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
       </div>
       <div class="right">
         <?php
