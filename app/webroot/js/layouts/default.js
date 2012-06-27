@@ -68,8 +68,9 @@ var dLayout = DrinkChai.defaultLayout = {
     });
   },
   onClickDeleteImage: function() {
-    var $deleteImageButton = $('.delete-image');
-    $deleteImageButton.click(function(e) {
+    // var $deleteImageButton = $('.delete-image');
+
+    $('#pictures-container').on('click', '.delete-image', function(e) {
       var url = $(this).attr('href');
       var $clickedBtn = $(this);
       e.preventDefault();
@@ -93,8 +94,9 @@ var dLayout = DrinkChai.defaultLayout = {
           }
         });
       }
+    })
+
       // console.log('delete!!');
-    });
   },
   ajaxGetTimeLeft: function() {
     var timeLeft = {};
