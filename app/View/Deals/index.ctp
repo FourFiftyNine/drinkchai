@@ -20,6 +20,7 @@
               <td class="status"><?php echo $deal['Deal']['status']; ?>&nbsp;</td>
 
               <td class="actions">
+                <?php // echo $this->Html->link(__('Add Images'), '/account/deals/edit/' . $deal['Deal']['id'] . 'images/manage', array('class' => 'btn white small')); ?>
                 <?php echo $this->Html->link(__('Edit'), '/account/deals/edit/' . $deal['Deal']['id'], array('class' => 'btn white small')); ?>
                 <?php echo $this->Html->link(__('Preview'), '/account/deals/preview/' . $deal['Deal']['id'], array('class' => 'btn white small')); ?>
 

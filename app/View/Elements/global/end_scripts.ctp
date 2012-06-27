@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write("<script src='js/libs/jquery-1.7.1.min.js'>\x3C/script>")</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script> -->
 <div id="fb-root"></div>
 <?php echo $this->Html->script(
 	array(
@@ -10,7 +10,21 @@
 		// 'email-submit'
 	)
 ); ?>
-<?php echo $this->Html->script(array('global', 'facebook', 'layouts/' . $this->layout)); ?>
+<?php echo $this->Html->script(array(
+  'global', 
+  'facebook', 
+  'layouts/' . 
+  $this->layout, 
+  'libs/jquery.ui.widget.js',
+  'libs/jquery.iframe-transport.js',
+  'libs/jquery.fileupload.js',
+  'libs/tmpl.min.js'
+  // '/lib/jquery-file-upload/js/jquery.fileupload-ui.js'
+  )); ?>
+
+<!-- <script src="js/vendor/jquery.ui.widget.js"></script>
+<script src="js/jquery.iframe-transport.js"></script>
+<script src="js/jquery.fileupload.js"></script> -->
 
 <!-- Facebook, twitter, google share apis -->
 <script>

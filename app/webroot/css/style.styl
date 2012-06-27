@@ -83,7 +83,6 @@ ul
   list-style-position: outside
   margin-top: 0
   padding-left: 20px
-  list-style-image: url(/images/bullet.png)
   li
     font-size: 17px
 .lt-ie9
@@ -830,6 +829,8 @@ body#default.deals.view
           //   // left: 635px
         // &.small
     #my-deals
+      .no-deals
+        text-align: center
       table
         margin-top: 20px
         width: 100%
@@ -999,7 +1000,10 @@ body#default.deals.view
         float: left
         height: 250px
       .slideshow
-        background: #e4eddf
+        // background: none
+        background: #E0D0BB
+        // background: #e4eddf // green
+        // background: url(/img/bg-canvas.jpg) repeat;
         position: relative
         left: 12px
         .frame, .picture
@@ -1050,6 +1054,7 @@ body#default.deals.view
             .time-left
               gradientWhite()
               font-size: 22px
+              // display: none;
           .locked
             background: url(/img/locked.png) no-repeat left center
             height: 37px

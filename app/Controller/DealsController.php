@@ -112,18 +112,20 @@ class DealsController extends AppController {
     public function create() {
         // debug($this->_user['Business']['id']);
         // debug();
+        $userId = $this->Auth->user('id');
+
+        $this->Deal->Business->recursive = -1;
+        $businessData = $this->Deal->Business->findByUserId($userId);
+
+        $this->request->data['Deal']['user_id'] = $userId;
+        $this->request->data['Business'] = $businessData['Business'];
+        $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
         if ($this->request->is('post')) {
            
-
+            // debug($this->request->data); exit;
             $this->Deal->create();
 
-            $userId = $this->Auth->user('id');
 
-            $this->Deal->Business->recursive = -1;
-            $businessData = $this->Deal->Business->findByUserId($userId);
-
-            $this->request->data['Deal']['user_id'] = $userId;
-            $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
 
             // $this->request
             // $this->request
@@ -141,7 +143,7 @@ class DealsController extends AppController {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
         }
-
+        $this->render('edit');
     }
 
 /**
@@ -165,6 +167,7 @@ class DealsController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             // $this->request->data['Business']['id'] = $this->_user['Business']['id'];
             $userId = $this->Auth->user('id');
+            // debug($this->request->data); exit;
 
             $this->Deal->Business->recursive = -1;
             $businessData = $this->Deal->Business->findByUserId($userId);
@@ -336,10 +339,10 @@ class DealsController extends AppController {
         //   $interval .= "s";
         // }
             $interval .= 's';
-            if($value < 10 && $interval != 'days') {
-                // debug($value);
-                $value = '0' . $value;
-            }
+            // if($value < 10 && $interval != 'days') {
+            //     // debug($value);
+            //     $value = '0' . $value;
+            // }
         // Add value and interval to times array
         $times[$interval] = $value;
         $count++;

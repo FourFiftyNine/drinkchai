@@ -56,11 +56,7 @@
                                 <span class="colon">:</span>
                                 <span class="seconds"><?php echo $timeLeft['seconds']; ?></span>
                                 */ ?>
-                                <span class="hours"></span>
-                                <span class="colon">:</span>
-                                <span class="minutes"></span>
-                                <span class="colon">:</span>
-                                <span class="seconds"></span>
+                                <span class="hours"></span><span class="colon">:</span><span class="minutes"></span><span class="colon">:</span><span class="seconds"></span>
                             </div>
                         </div>
                         <?php else: ?>

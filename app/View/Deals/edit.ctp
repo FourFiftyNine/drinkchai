@@ -1,7 +1,7 @@
 <article id="my-account" class="canvas edit-deal">
   <?php echo $this->element('default/account_navigation', array('data' => $this->data)); ?>
   <section id="edit-deal">
-    <h2 class="gradient brown">Edit Your Deal</h2>
+    <h2 class="gradient brown"><?php echo $this->params['action'] == 'create' ? 'Create' : 'Edit'; ?> Your Deal</h2>
     <div class="clearfix">
     <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
       <div class="left">
@@ -12,10 +12,29 @@
 
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
-          echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
+
+          // Multiple default - no good right now
+          // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images', 'multiple' => 'multiple', 'name' => 'data[Image][file][]'));
+
+          // NORMAL
+          // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
+
+          // AJAX - jquery file upload
+          echo $this->Form->input('Image.file', array(
+            'type'     => 'file',
+            'id'       => 'fileupload',
+            'data-url' => '/images/uploader',
+            'multiple' => 'multiple'
+            ));
+          // echo $this->Form->input('Image.file_upload', array('type' => 'file'))
          ?>
+<!--          <div id="file-uploader">
+             <noscript>
+                 <p>Please enable JavaScript to use file uploader.</p>
+             </noscript>
+         </div> -->
         <label class="title" for="">Currently Uploaded Pictures</label>
-        <div class="pictures fieldset clearfix">
+        <div id="pictures-container" class="pictures fieldset clearfix">
           <?php if( !empty($this->data['Image']) ): ?>
             <?php foreach($this->data['Image'] as $image): ?>
               <?php if ($image['deleted']) { continue; } ?>
@@ -68,3 +87,11 @@
   </div>
   </section>
 </article>
+<script id="pictures-container-content" type="text/x-tmpl">
+  <div class="column">
+    <div class="picture-container">
+      <img src="{%=o.path_thumb%}" alt="">
+    </div>
+    <a href="/images/delete/{%=o.id%}" class="delete-image btn white delete">Delete</a>
+  </div>
+</script>

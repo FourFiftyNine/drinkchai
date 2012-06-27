@@ -7,6 +7,3 @@
 [submodule "app/Vendor/facebook"]
 	path = app/Vendor/facebook
 	url = git://github.com/facebook/php-sdk.git
-[submodule "app/Plugin/Uploader"]
-	path = app/Plugin/Uploader
-	url = git://github.com/milesj/cake-uploader.git

@@ -20,6 +20,19 @@
     array('type' => 'icon'));?>
 
     <?php echo $this->Html->css('style.css'); ?>
+    <?php if ($this->params['controller'] == 'image' && $this->params['action'] == 'manage'): ?>
+        <?php
+        
+        echo $this->Html->css('/lib/file-uploader/client/fileuploader.css');
+
+        // $libJqueryFileUpload = '/lib/jquery-file-upload/';
+        // echo $this->Html->css('http://blueimp.github.com/cdn/css/bootstrap.min.css');
+        // echo $this->Html->css($libJqueryFileUpload . 'css/style.css');
+        // echo $this->Html->css('"http://blueimp.github.com/cdn/css/bootstrap-responsive.min.css"'); 
+        // echo $this->Html->css('http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css'); 
+        // echo $this->Html->css($libJqueryFileUpload . 'css/jquery.fileupload-ui.css'); 
+        ?>
+    <?php endif; ?>
     <?php //  $this->AssetCompress->addCss(
     //     array(
     //         'normalize.css', 

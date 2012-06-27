@@ -18,9 +18,48 @@ var dLayout = DrinkChai.defaultLayout = {
 
   init: function() {
     // console.log('here');
-    dLayout.ajaxGetTimeLeft()
-    dLayout.onClickAccountName()
+
+    // dLayout.ajaxGetTimeLeft();
+    dLayout.onClickAccountName();
     dLayout.onClickDeleteImage();
+
+    // var uploader = new qq.FileUploader({
+    //     // pass the dom node (ex. $(selector)[0] for jQuery users)
+    //     element: document.getElementById('file-uploader'),
+    //     // path to server-side upload script
+    //     action: '/images/uploader',
+    //     debug: true
+    // });
+    
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        progressall: function (e, data) {
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          console.log(progress);
+        },
+        done: function (e, data) {
+          console.log(data.result);
+          $('#pictures-container').append(tmpl("pictures-container-content", data.result));
+            // $.each(data.result, function (index, file) {
+            //     $('<p/>').text(file.name).appendTo(document.body);
+            // });
+
+        }
+    });
+
+    // $('#ImageFileUpload').uploadify({
+    //     // Some options
+    //     'method'   : 'post',
+    //     'preventCaching' : false,
+    //     'debug'    : true,
+    //     'swf'      : '/lib/uploadify/uploadify.swf',
+    //     'formData' : { 'someKey' : 'someValue' },
+    //     'uploader' : '/images/uploader',
+    //     'onUploadSuccess' : function(file, data, response) {
+    //       console.log(data);
+    //       console.log(response);
+    //     }
+    // });
   },
   onClickAccountName: function() {
     $('.account-name').click(function (e) {
@@ -71,6 +110,10 @@ var dLayout = DrinkChai.defaultLayout = {
         //called when successful
         // console.log(data);
         // timeLeft = data
+        // var date = new Date();
+        // dLayout.start = date.getTime();
+        // dLayout.timerStart = (new Date).getTime();
+        /* Run a test. */
         dLayout.startCountdown(data);
       },
       error: function(xhr, textStatus, errorThrown) {
@@ -81,11 +124,18 @@ var dLayout = DrinkChai.defaultLayout = {
   },
   startCountdown: function(timeLeft) {
     // var timeLeft = data;
-    
+    console.log(timeLeft);
+    var days = timeLeft.days;
+    var hours = timeLeft.hours;
+    var minutes = timeLeft.minutes;
+    var seconds = timeLeft.seconds;
+    var $timeLeft = $('.time-left');
     var $days    = $('.days');
     var $hours   = $('.hours');
     var $minutes = $('.minutes');
     var $seconds = $('.seconds');
+
+
     // console.log($seconds);
     // var days    = parseInt($days.text(), 10);
     // var hours   = parseInt($hours.text(), 10);
@@ -93,32 +143,118 @@ var dLayout = DrinkChai.defaultLayout = {
     // var seconds = parseInt($seconds.text(), 10);
     // console.log(seconds);
 
-    var days = timeLeft.days;
-    var hours = timeLeft.hours;
-    var minutes = timeLeft.minutes;
-    var seconds = timeLeft.seconds;
+
+
+    // var internalCounter = 0;
+    // var oneSecond = 1000;
+    // var interval = oneSecond;
+    // var offset = 0;
+    // var staticTimer = 0;
+
 
 
     // var counter = setTimeout(doCountDown, 1000);
+    // var timeoutId;
 
-    (function doCountDown() {
+    // $seconds.text(prependZero(--seconds));
+    // doCountDown();
+
+    if(checkNotNegative(days, minutes, seconds, hours)) {
+      $hours.text(prependZero(hours));
+      $minutes.text(prependZero(minutes));
+      $seconds.text(prependZero(seconds));
+
+      var timer = dLayout.interval(1000, doCountDown)
+      timer.run();
+      // doCountDown();
+    }
+    // $timeLeft.fadeIn(750);
+
+    function doCountDown (skipOffset) {
       // console.log('1 sec');
-      if( seconds <= 0 ) {
-        minutes -= 1;
-        seconds = 59;
-      } else {
-        seconds -= 1;
-        $seconds.text(prependZero(seconds));
-      }
-      setTimeout(doCountDown, 1000);
-    })();
+      // console.log(seconds);
+      $seconds.text(prependZero(seconds))
+      console.log('here');
 
+      if( seconds == 0 ) {
+        minutes--;
+        if(minutes == 0) {
+          if(hours == 0) {
+
+            if(days == 0) {
+
+            } else {
+              hours = 23
+              day--;
+            }
+          } else {
+            hours--;
+            minutes = 59;
+          }
+        }
+        $minutes.text(prependZero(minutes));
+        seconds = 60;
+      }
+      // if (typeof timeoutId != 'undefined') {
+      //   // console.log('here2');
+      //   seconds--;          
+      // }
+
+      seconds--;
+    }
+
+    function checkNotNegative() {
+      for (var i = 0; i < arguments.length; ++i) {
+        if ( arguments[i] < 0) {
+          return false
+        }
+      }
+      return true;
+    }
     function prependZero(num) {
       if(num < 10) {
         num = '0' + num;
         return num;
       } else {
         return num;
+      }
+    }
+  },
+  // doCountDown: function(skipOffset) {
+  //   // console.log('1 sec');
+  //   if( seconds == 0 ) {
+  //     minutes--;
+  //     seconds = 60;
+  //     $seconds.text(dLayout.prependZero(seconds))
+  //   }
+  //   if (typeof timeoutId != 'undefined') {
+  //     // console.log('here2');
+  //     seconds--;          
+  //   }
+  // },
+  interval: function (duration, callback){
+    var baseline = undefined;
+    return {
+       run: function() {
+         if( baseline === undefined ) {
+           baseline = new Date().getTime();
+         }
+         callback();
+         var end = new Date().getTime();
+         baseline += duration;
+      
+         var nextTick = duration - (end - baseline);
+         if( nextTick < 0 ) {
+           nextTick = 0;
+         }
+         (function(i) {
+             i.timer = setTimeout(function(){
+             i.run( end );
+           }, nextTick)
+         }(this));
+       },
+       stop: function() {
+        clearTimeout( this.timer );
       }
     }
   }

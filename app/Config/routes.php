@@ -71,6 +71,9 @@
 
     Router::connect('/account/deals/edit/:id', 
         array('controller' => 'deals', 'action' => 'edit'));
+
+    // Router::connect('/account/deals/edit/:id/images/manage', 
+    //     array('controller' => 'images', 'action' => 'manage'));
     // Router::connect('/account/deals/delete/:id', 
     //     array('controller' => 'deals', 'action' => 'delete'), array('pass' => array('id')));
     Router::connect('/account/deals/preview/:id', 
