@@ -22,6 +22,7 @@ var dLayout = DrinkChai.defaultLayout = {
     // dLayout.ajaxGetTimeLeft();
     dLayout.onClickAccountName();
     dLayout.onClickDeleteImage();
+    dLayout.onClickSetFeaturedImage();
 
     // var uploader = new qq.FileUploader({
     //     // pass the dom node (ex. $(selector)[0] for jQuery users)
@@ -39,7 +40,13 @@ var dLayout = DrinkChai.defaultLayout = {
         },
         done: function (e, data) {
           console.log(data.result);
-          $('#pictures-container').append(tmpl("pictures-container-content", data.result));
+          if(data.result.error) {
+            $('#fileupload').after('<div class="error-message file">' + data.result.error + '</div>')
+          } else {
+            $('.no-photos').hide();
+            $('#pictures-container').append(tmpl("pictures-container-content", data.result));
+          }
+
             // $.each(data.result, function (index, file) {
             //     $('<p/>').text(file.name).appendTo(document.body);
             // });
@@ -97,6 +104,33 @@ var dLayout = DrinkChai.defaultLayout = {
     })
 
       // console.log('delete!!');
+  },
+  onClickSetFeaturedImage: function() {
+    $('#pictures-container').on('click', '.feature', function(e) {
+      var url = $(this).attr('href');
+      var $clickedBtn = $(this);
+      $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'json',
+        data: {},
+        complete: function(xhr, textStatus) {
+          //called when complete
+        },
+        success: function(data, textStatus, xhr) {
+          // console.log(data);
+          if(data.Image.featured) {
+            $('#pictures-container .column').removeClass('featured');
+
+            $clickedBtn.parent('.column').addClass('featured');
+          }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          //called when there is an error
+        }
+      });
+      e.preventDefault();
+    });
   },
   ajaxGetTimeLeft: function() {
     var timeLeft = {};

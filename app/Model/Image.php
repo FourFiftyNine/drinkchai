@@ -56,8 +56,11 @@ class Image extends Model {
     // var $data = 
     // $data['Image']['deal_id'] = $dealId;
     $imageModelData = array();
+    $imagePath = $imageData['path'];
 
-    $dimensions = $Uploader->dimensions($imageData['path']);
+
+
+    $dimensions = $Uploader->dimensions($imagePath);
 
     if($dimensions['width'] > $dimensions['height']) {
         $resized_path = $Uploader->resize(array('width' => 330, 'quality' => 100));
@@ -71,7 +74,7 @@ class Image extends Model {
     $imageModelData['Image']['filename']       = $imageData['name'];
     $imageModelData['Image']['mimetype']       = $imageData['type'];
     $imageModelData['Image']['filesize']       = $imageData['filesize'];
-    $imageModelData['Image']['path']           = $imageData['path'];
+    $imageModelData['Image']['path']           = $imagePath;
     $imageModelData['Image']['path_resized']   = $resized_path;
     $imageModelData['Image']['path_thumb']     = $thumb_path;
     $imageModelData['Image']['orig_width']     = $imageData['width'];
@@ -84,7 +87,6 @@ class Image extends Model {
     $return = parent::save($imageModelData);
 
     return $return;
-
     // return $imageModelData;
 
   }

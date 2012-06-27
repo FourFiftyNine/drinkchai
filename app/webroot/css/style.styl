@@ -346,6 +346,17 @@ textarea.form-error
   top: 25px
   z-index: 100
 
+.error-message.file
+  position: relative
+  border-radius: 4px
+  top: 0
+  margin-top: 7px
+  height: 60px
+  line-height: 30px
+  text-align: center
+  .filename {
+    color: $darkBrown
+  }
 .textarea .error-message
   border-radius: 4px
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -913,17 +924,50 @@ body#default.deals.view
           border: 1px solid $lightBrown
           border-radius: 4px
           padding: 5px
+          position: relative
           text-align: center
           float: left
           width: 100px
-          margin-left: 10px
+          margin-right: 10px
+          margin-bottom: 10px
+          height: 140px;
           // background: lighten($lightBrown, 5)
+          .featured-text
+            display: none
+          &.featured
+            border: 1px solid darken($green, 2)
+            background: $green
+            .feature.btn
+              display: none
+            .featured-text
+              color: darken($green, 50)
+              display: block
+              padding: 0
+              width: 100%
+              height: 30px
+              line-height: 30px
+              position: relative
+              top: 5px
+              margin-bottom: 5px
           &:first-child
             margin-left: 0
           .btn
             position: relative
             top: 5px
             margin-bottom: 5px
+            &.delete-image
+              position: absolute
+              right: 5px
+              padding: 0
+              width: 25px
+            &.feature
+              background: white
+              padding: 0
+              width: 100%
+              font-size: 10px
+              height: 30px
+              line-height: 30px
+
             // top: -20px
             // margin-left: 20px
 

@@ -630,6 +630,19 @@ textarea.form-error {
   top: 25px;
   z-index: 100;
 }
+.error-message.file {
+  position: relative;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  top: 0;
+  margin-top: 7px;
+  height: 60px;
+  line-height: 30px;
+  text-align: center;
+}
+.error-message.file .filename {
+  color: #422a11;
+}
 .textarea .error-message {
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -1374,10 +1387,34 @@ body#default.deals.view {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 5px;
+  position: relative;
   text-align: center;
   float: left;
   width: 100px;
-  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 140px;
+}
+#default #my-account #edit-deal .pictures .column .featured-text {
+  display: none;
+}
+#default #my-account #edit-deal .pictures .column.featured {
+  border: 1px solid #98d3bd;
+  background: #9fd6c2;
+}
+#default #my-account #edit-deal .pictures .column.featured .feature.btn {
+  display: none;
+}
+#default #my-account #edit-deal .pictures .column.featured .featured-text {
+  color: #235341;
+  display: block;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  top: 5px;
+  margin-bottom: 5px;
 }
 #default #my-account #edit-deal .pictures .column:first-child {
   margin-left: 0;
@@ -1386,6 +1423,20 @@ body#default.deals.view {
   position: relative;
   top: 5px;
   margin-bottom: 5px;
+}
+#default #my-account #edit-deal .pictures .column .btn.delete-image {
+  position: absolute;
+  right: 5px;
+  padding: 0;
+  width: 25px;
+}
+#default #my-account #edit-deal .pictures .column .btn.feature {
+  background: #fff;
+  padding: 0;
+  width: 100%;
+  font-size: 10px;
+  height: 30px;
+  line-height: 30px;
 }
 /*~~~~ Deal Page ~~~~*/
 .preview #deal {

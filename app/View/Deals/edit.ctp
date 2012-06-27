@@ -39,17 +39,20 @@
           <label class="title" for="">Currently Uploaded Pictures</label>
           <div id="pictures-container" class="pictures fieldset clearfix">
             <?php if( !empty($this->data['Image']) ): ?>
+              <span>Featured image (first image) is highlighted in green.</span>
               <?php foreach($this->data['Image'] as $image): ?>
                 <?php if ($image['deleted']) { continue; } ?>
-                  <div class="column">
+                  <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
                     <div class="picture-container">
                       <img src="<?php echo $image['path_thumb']?>" alt="">
                     </div>
-                    <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
+                    <?php echo $this->Html->link('X', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
+                    <?php echo $this->Html->link('Feature Image', array('controller' => 'images', 'action' => 'feature', $image['id']), array('class' => 'btn white feature')); ?>
+                    <div class="featured-text">Featured</div>
                   </div>
               <?php endforeach; ?>
             <?php else: ?>
-              <p>No pictures uploaded.</p>
+              <p class="no-pictures">No photos uploaded.</p>
             <?php endif; ?>
           </div>
         <?php endif; ?>
@@ -96,6 +99,8 @@
     <div class="picture-container">
       <img src="{%=o.path_thumb%}" alt="">
     </div>
-    <a href="/images/delete/{%=o.id%}" class="delete-image btn white delete">Delete</a>
+    <a href="/images/delete/{%=o.id%}" class="delete-image btn white delete">X</a>
+    <a href="/images/feature/{%=o.id%}" class="btn white feature">Feature Photo</a>
+    <div class="featured-text">Featured</div>
   </div>
 </script>

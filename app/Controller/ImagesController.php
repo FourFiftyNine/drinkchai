@@ -64,35 +64,77 @@ class ImagesController extends AppController {
       if( !$dealId ) {
         $dealId = $this->request->data['Deal']['id'];
       }
-    $this->Uploader = new Uploader(array(
-      'overwrite' => false, 
-      'extension'  => array(
-        'value' => array('gif', 'jpg', 'png', 'jpeg'),
-        'error' => 'Filetype incorrect'
-        )
-      ));
-    // $data['success'] = false;
-    if ($uploadedImateData = $this->Uploader->upload('Image.file')) {
-      // debug('here');
-      // $data['success'] = true;
+      $this->Uploader = new Uploader(array(
+        'overwrite' => false, 
+        'extension'  => array(
+          'value' => array('gif', 'jpg', 'png', 'jpeg'),
+          'error' => 'Filetype incorrect' // not working
+          )
+        ));
+      
+      $return = array();
+      if ($uploadedImateData = $this->Uploader->upload('Image.file')) {
 
-      if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $this->Uploader)) {
-        // unset($this->request->data['Image']['file']);
-        $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
-        $cleanedArray = array_unique($mergedArray);
+        if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $this->Uploader)) {
+          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
+          $cleanedArray = array_unique($mergedArray);
 
-        // $return = $this->request->data['Image']['file'];
-        return json_encode($cleanedArray);
-        // return json_encode($this->request->data['Image']['file']);
+          // unset($this->request->data['Image']['file']);
+
+          return json_encode($cleanedArray);
+        }
       }
-    }
-    $data['success'] = $this;
-    return json_encode($data);
-    // debug('here 2');
-    // $data['result'] = true;
-    
+
+      return json_encode(array(
+        'error' => 'There was an error processing: <span class="filename">' . $this->request->data['Image']['file']['name'] . '</span><br>Please make sure it is a jpeg, jpg, or png file.'
+        ));
     }
   }
+
+/**
+ * delete method
+ *
+ * @param string $id
+ * @return void
+ */
+  public function feature($id = null) {
+    if (!$this->request->is('post') || !$this->RequestHandler->isAjax()) {
+      throw new MethodNotAllowedException();
+    }
+
+    if($this->RequestHandler->isAjax()) {
+      $this->autoRender = false;
+      $this->RequestHandler->respondAs('json');
+      $featuredImageData = $this->Image->findByFeatured(true);
+      // debug($featuredImageData); exit;
+      // return json_encode($featuredImageData);
+      $this->Image->id = $featuredImageData['Image']['id'];
+      $this->Image->set('featured', false);
+      // $featuredImageData['Image']['featured'] = false;
+      $this->Image->save();
+
+      $this->Image->id = $id;
+      $this->Image->set('featured', true);
+      if($return = $this->Image->save()) {
+        return json_encode($return);
+      } else {
+        return json_encode(array('error' => 'Could not feature'));
+      }
+      
+    }
+
+    if (!$this->Image->exists()) {
+      throw new NotFoundException(__('Invalid image'));
+    }
+
+    if ($this->Image->delete()) {
+      $this->flash(__('Image deleted'), array('action' => 'index'));
+    }
+
+    $this->flash(__('Image was not deleted'), array('action' => 'index'));
+    $this->redirect(array('action' => 'index'));
+  }
+
 /**
  * manage method
  *
