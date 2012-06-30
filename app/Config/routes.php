@@ -70,7 +70,7 @@
         array('controller' => 'deals', 'action' => 'create'));
 
     Router::connect('/account/deals/edit/:id', 
-        array('controller' => 'deals', 'action' => 'edit'));
+        array('controller' => 'deals', 'action' => 'edit'), array('pass' => array('id')));
 
     // Router::connect('/account/deals/edit/:id/images/manage', 
     //     array('controller' => 'images', 'action' => 'manage'));

@@ -76,6 +76,7 @@ class ImagesController extends AppController {
       if ($uploadedImateData = $this->Uploader->upload('Image.file')) {
 
         if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $this->Uploader)) {
+          return json_encode($return);
           $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
           $cleanedArray = array_unique($mergedArray);
 
@@ -84,7 +85,6 @@ class ImagesController extends AppController {
           return json_encode($cleanedArray);
         }
       }
-
       return json_encode(array(
         'error' => 'There was an error processing: <span class="filename">' . $this->request->data['Image']['file']['name'] . '</span><br>Please make sure it is a jpeg, jpg, or png file.'
         ));

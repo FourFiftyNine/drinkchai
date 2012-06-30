@@ -57,8 +57,10 @@ class Image extends Model {
     // $data['Image']['deal_id'] = $dealId;
     $imageModelData = array();
     $imagePath = $imageData['path'];
+    $imageExt = $Uploader::ext($imagePath);
 
-
+    return array('error' => true, 'ext' => $imageExt);
+    // if ($imageData)
 
     $dimensions = $Uploader->dimensions($imagePath);
 
@@ -84,9 +86,8 @@ class Image extends Model {
     
     $imageModelData['Image']['deal_id'] = $dealId;
     
-    $return = parent::save($imageModelData);
+    return parent::save($imageModelData);
 
-    return $return;
     // return $imageModelData;
 
   }

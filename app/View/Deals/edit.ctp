@@ -4,6 +4,37 @@
     <h2 class="gradient brown"><?php echo $this->params['action'] == 'create' ? 'Create' : 'Edit'; ?> Your Deal</h2>
     <div class="clearfix">
     <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
+      <?php if( $this->params['action'] == 'edit' ): ?>
+        <div id="pictures-container" class="pictures fieldset clearfix">
+
+          <?php echo $this->Form->input('Image.file', array(
+              'type'     => 'file',
+              'label'    => 'Upload one or many photos.  Photos will be uploaded and saved immediately. File format: jpg, jpeg, and pngs only',
+              'id'       => 'fileupload',
+              'data-url' => '/images/uploader',
+              'multiple' => 'multiple'
+              ));
+           ?>
+          <label class="title" for="">Currently Uploaded Pictures</label>
+
+          <?php if( !empty($this->data['Image']) ): ?>
+            <label>Featured image (first image) is highlighted in green.</label>
+            <?php foreach($this->data['Image'] as $image): ?>
+              <?php if ($image['deleted']) { continue; } ?>
+                <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
+                  <div class="picture-container">
+                    <img src="<?php echo $image['path_thumb']?>" alt="">
+                  </div>
+                  <?php echo $this->Html->link('X', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
+                  <?php echo $this->Html->link('Feature Image', array('controller' => 'images', 'action' => 'feature', $image['id']), array('class' => 'btn white feature')); ?>
+                  <div class="featured-text">Featured</div>
+                </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p class="no-pictures">No photos uploaded.</p>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
       <div class="left">
         <?php 
           echo $this->Form->input('id');
@@ -18,44 +49,7 @@
 
           // NORMAL
           // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
-
-          // AJAX - jquery file upload
-          if( $this->params['action'] == 'edit' ):
-
-            echo $this->Form->input('Image.file', array(
-              'type'     => 'file',
-              'label'    => 'Upload one or many photos.  <br/>Photos will be uploaded and saved immediately. <br/> Jpg, Jpeg, and pngs only',
-              'id'       => 'fileupload',
-              'data-url' => '/images/uploader',
-              'multiple' => 'multiple'
-              ));
-            // echo $this->Form->input('Image.file_upload', array('type' => 'file'))
-           ?>
-  <!--          <div id="file-uploader">
-               <noscript>
-                   <p>Please enable JavaScript to use file uploader.</p>
-               </noscript>
-           </div> -->
-          <label class="title" for="">Currently Uploaded Pictures</label>
-          <div id="pictures-container" class="pictures fieldset clearfix">
-            <?php if( !empty($this->data['Image']) ): ?>
-              <span>Featured image (first image) is highlighted in green.</span>
-              <?php foreach($this->data['Image'] as $image): ?>
-                <?php if ($image['deleted']) { continue; } ?>
-                  <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
-                    <div class="picture-container">
-                      <img src="<?php echo $image['path_thumb']?>" alt="">
-                    </div>
-                    <?php echo $this->Html->link('X', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
-                    <?php echo $this->Html->link('Feature Image', array('controller' => 'images', 'action' => 'feature', $image['id']), array('class' => 'btn white feature')); ?>
-                    <div class="featured-text">Featured</div>
-                  </div>
-              <?php endforeach; ?>
-            <?php else: ?>
-              <p class="no-pictures">No photos uploaded.</p>
-            <?php endif; ?>
-          </div>
-        <?php endif; ?>
+          ?>
       </div>
       <div class="right">
         <?php

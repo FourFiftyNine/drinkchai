@@ -153,14 +153,13 @@ class DealsController extends AppController {
  * @return void
  */
     public function edit($id = null) {
-        if (!$this->DCAuth->businessOwnsDeal($this->params->id)) {
+        if (!$this->DCAuth->businessOwnsDeal($id)) {
             $this->Session->setFlash('No way jose, not your deal.');
             $this->redirect('/' . $this->Session->read('Business.slug'));
         }
-        $this->Deal->id = $this->params->id;
+        $this->Deal->id = $id;
         // $this->Deal->Business->id = 
         // debug($this->Auth->user());
-
         if (!$this->Deal->exists()) {
             throw new NotFoundException(__('Invalid deal'));
         }
@@ -171,54 +170,29 @@ class DealsController extends AppController {
 
             $this->Deal->Business->recursive = -1;
             $businessData = $this->Deal->Business->findByUserId($userId);
-
+            // $this->Deal->recursive = -1;
+            // $businessData = $this->Deal->findById($id);
+            // $dealModelData = $businessData
+            // debug($businessData); exit;
             $this->request->data['Deal']['user_id'] = $userId;
             $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
             $this->request->data['Business']['id'] = $businessData['Business']['id'];
             // debug($this->request->data); exit;
-            $this->Uploader = new Uploader(array('overwrite' => false));
-            // debug($this->request->data['Image']); exit;
-            if ($data = $this->Uploader->upload('Image.file')) {
-                // Upload successful, do whatever
-                $dimensions = $this->Uploader->dimensions($data['path']);
-                // debug($data); exit;
-                // ->crop(array('height' => 250, 'location' => UploaderComponent::LOC_CENTER, 'quality' => 100)
-                if($dimensions['width'] > $dimensions['height']) {
-                    $resized_path = $this->Uploader->resize(array('width' => 330, 'quality' => 100));
-                    $thumb_path = $this->Uploader->resize(array('width' => 100, 'quality' => 100));
-                } else {
-                    $resized_path = $this->Uploader->resize(array('height' => 250, 'quality' => 100));
-                    $thumb_path = $this->Uploader->resize(array('height' => 100, 'quality' => 100));
-                }
-                $resized_dimensions = $this->Uploader->dimensions($resized_path);
-
-                // debug($resized_path);
-                $this->request->data['Image'][0]['filename']       = $data['name'];
-                $this->request->data['Image'][0]['mimetype']       = $data['type'];
-                $this->request->data['Image'][0]['filesize']       = $data['filesize'];
-                $this->request->data['Image'][0]['path']           = $data['path'];
-                $this->request->data['Image'][0]['path_resized']   = $resized_path;
-                $this->request->data['Image'][0]['path_thumb']     = $thumb_path;
-                $this->request->data['Image'][0]['orig_width']     = $data['width'];
-                $this->request->data['Image'][0]['orig_height']    = $data['height'];
-                $this->request->data['Image'][0]['resized_width']  = $resized_dimensions['width'];
-                $this->request->data['Image'][0]['resized_height'] = $resized_dimensions['height'];
-                unset($this->request->data['Image']['file']);
-                // $this->Deal->Image->set('filename', $data['name']);
-            } else {
-                $this->request->data['Image'] = null;
-            }
             // $this->Deal->Image->create();
             // debug($this->request->data); exit;
             if ($ret = $this->Deal->saveAll($this->request->data)) {
                 // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
                 // $this->Session->write('Auth.User', $ret);
-                $this->request->data = $this->Deal->read(null, $this->params->id);
+
                 $this->Session->setFlash(__('Your deal has been saved'));
             } else {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
+            
+            // debug($this->Deal->read()); exit;
+            $this->request->data = $this->Deal->findById($id);
         } else {
+            // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->read();
             // debug($this->request->data); exit;
             // debug($this->request->data);
