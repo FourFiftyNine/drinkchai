@@ -69,7 +69,7 @@ class DealsController extends AppController {
         // $this->set('title_for_layout', 'Find and Buy Tea');
         if(empty($this->params['company']) || empty($this->params['deal'])){
             $return = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
-            debug($return); exit;
+            // debug($return); exit;
             if(empty($return)) {
                 $this->redirect('/'); // might cause infinite redirect loop... 
             }
