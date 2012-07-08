@@ -77,6 +77,10 @@ class ImagesController extends AppController {
 
         if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $this->Uploader)) {
           return json_encode($return);
+          if( !isset($return['error'])) {
+            return json
+          }
+
           $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
           $cleanedArray = array_unique($mergedArray);
 

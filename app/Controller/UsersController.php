@@ -105,8 +105,8 @@ class UsersController extends AppController {
             if ($return = $this->User->saveAll($this->request->data)) {
                 
                 $email = new CakeEmail('gmail');
-                $email->template('sign_up')
-                ->from(array('team@drinkchai.com' => 'DrinkChai.com'))
+                // $email->template('sign_up')
+                $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
                     ->to($this->data['User']['email'])
                     ->subject('Welcome to DrinkChai')
                     ->send();

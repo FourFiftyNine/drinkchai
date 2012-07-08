@@ -101,6 +101,7 @@ class AppController extends Controller {
         // BaseFacebook::$CURL_OPTS[CURLOPT_CONNECTTIMEOUT] = 30;
         // debug(BaseFacebook::$CURL_OPTS); exit;
         if(!$this->Auth->user() && $this->facebook->getUser()) {
+
             try {
                 $user_profile = $this->facebook->api('/me');
             } catch (FacebookApiException $e) {
@@ -108,6 +109,7 @@ class AppController extends Controller {
                 // echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
                 $user_profile = null;
             }
+
             if(isset($user_profile)) {
                 $return = ClassRegistry::init('User')->facebook_sign_in($user_profile);
             }
