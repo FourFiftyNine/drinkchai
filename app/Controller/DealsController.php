@@ -32,28 +32,34 @@ class DealsController extends AppController {
 
     public function preview()
     {   
-        $previewDeal = array();
+        $return = array();
         if ($this->DCAuth->businessOwnsDeal($this->params['id'])) {
-            $previewDeal = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
+            $return = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
    
+        $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
+        $logo = false;
 
-        foreach($previewDeal['Image'] as $key => $image) {
-            if($image['deleted']) { continue; }
-            $previewDeal['Image'][$key]['offset'] = 0;
-            if($image['resized_height'] < 250) {
-                $previewDeal['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
+        foreach($return['Image'] as $key => $image) {
+            if ($image['deleted'] || $image['is_logo']) { 
+              if ($image['is_logo'] && !$image['deleted']) {
+                $logo = $image;
+              }
+              continue; 
             }
-            
+            $return['Image'][$key]['offset'] = 0;
+            if($image['resized_height'] < 250) {
+                $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
+            }
         }
-        // $offest = (250 - $previewDeal['Image']['height']) / 2;
-        // $previewDeal['Image']
+        $return['Image']['logo'] = $logo;
+        // $offest = (250 - $return['Image']['height']) / 2;
+        // $return['Image']
         // debug($this->getTimeRemainingLabel($timeArray));
-        $timeArray = $this->dateDiff(time(), $previewDeal['Deal']['end_date'] . ' ' . $previewDeal['Deal']['end_time']);
-        $previewDeal['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
+        $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
 
-        $this->set('data', $previewDeal);
+        $this->set('data', $return);
         $this->render('view');
     }
 /**
@@ -67,6 +73,7 @@ class DealsController extends AppController {
         // // $this->set('Business', $return['Business']);
         // // debug($this->params['deal']);
         // $this->set('title_for_layout', 'Find and Buy Tea');
+        // debug($this->request);
         if(empty($this->params['company']) || empty($this->params['deal'])){
             $return = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
             // debug($return); exit;
@@ -84,14 +91,21 @@ class DealsController extends AppController {
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
             $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
 
+            $logo = false;
+
             foreach($return['Image'] as $key => $image) {
-                if($image['deleted']) { continue; }
+                if ($image['deleted'] || $image['is_logo']) { 
+                  if ($image['is_logo'] && !$image['deleted']) {
+                    $logo = $image;
+                  }
+                  continue; 
+                }
                 $return['Image'][$key]['offset'] = 0;
                 if($image['resized_height'] < 250) {
                     $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
                 }
-                
             }
+            $return['Image']['logo'] = $logo;
             // $offest = (250 - $return['Image']['height']) / 2;
             // $return['Image']
             // debug($this->getTimeRemainingLabel($timeArray));
@@ -180,6 +194,7 @@ class DealsController extends AppController {
             // debug($this->request->data); exit;
             // $this->Deal->Image->create();
             // debug($this->request->data); exit;
+            unset($this->request->data['Image']);
             if ($ret = $this->Deal->saveAll($this->request->data)) {
                 // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
                 // $this->Session->write('Auth.User', $ret);

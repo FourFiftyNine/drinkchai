@@ -19,7 +19,7 @@ var dLayout = DrinkChai.defaultLayout = {
   init: function() {
     // console.log('here');
 
-    // dLayout.ajaxGetTimeLeft();
+    dLayout.ajaxGetTimeLeft();
     dLayout.onClickAccountName();
     dLayout.onClickDeleteImage();
     dLayout.onClickSetFeaturedImage();
@@ -32,19 +32,24 @@ var dLayout = DrinkChai.defaultLayout = {
     //     debug: true
     // });
     
-    $('#fileupload').fileupload({
+    $('#fileupload, #logoupload').fileupload({
         dataType: 'json',
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
           console.log(progress);
         },
         done: function (e, data) {
+          // console.log(data.result);
           console.log(data.result);
           if(data.result.error) {
             $('#fileupload').after('<div class="error-message file">' + data.result.error + '</div>')
           } else {
             $('.no-photos').hide();
-            $('#pictures-container').append(tmpl("pictures-container-content", data.result));
+            if( !data.result.Image.is_logo ) {
+              $('#pictures-container').append(tmpl("pictures-container-content", data.result.Image));
+            } else {
+              $('#logo-container').html(tmpl("logo-container-content", data.result.Image));
+            }
           }
 
             // $.each(data.result, function (index, file) {
@@ -134,11 +139,12 @@ var dLayout = DrinkChai.defaultLayout = {
   },
   ajaxGetTimeLeft: function() {
     var timeLeft = {};
+    var deal_id = $('.time-left').attr('data-dealid');
     $.ajax({
       url: '/deals/get_time_left',
       type: 'POST',
       dataType: 'json',
-      data: {deal_id: '6'},
+      data: {deal_id: deal_id},
       complete: function(xhr, textStatus) {
         //called when complete
       },
@@ -150,7 +156,13 @@ var dLayout = DrinkChai.defaultLayout = {
         // dLayout.start = date.getTime();
         // dLayout.timerStart = (new Date).getTime();
         /* Run a test. */
-        dLayout.startCountdown(data);
+        console.log(data);
+        if (data) {
+          dLayout.startCountdown(data);
+        } else {
+
+        }
+      
       },
       error: function(xhr, textStatus, errorThrown) {
         //called when there is an error
@@ -160,7 +172,6 @@ var dLayout = DrinkChai.defaultLayout = {
   },
   startCountdown: function(timeLeft) {
     // var timeLeft = data;
-    console.log(timeLeft);
     var days = timeLeft.days;
     var hours = timeLeft.hours;
     var minutes = timeLeft.minutes;
@@ -200,7 +211,7 @@ var dLayout = DrinkChai.defaultLayout = {
       $minutes.text(prependZero(minutes));
       $seconds.text(prependZero(seconds));
 
-      var timer = dLayout.interval(1000, doCountDown)
+      var timer = dLayout.interval(1000, doCountDown);
       timer.run();
       // doCountDown();
     }
@@ -209,8 +220,10 @@ var dLayout = DrinkChai.defaultLayout = {
     function doCountDown (skipOffset) {
       // console.log('1 sec');
       // console.log(seconds);
+      if(!seconds && !minutes && !hours && !days) {
+        alert('here');
+      }
       $seconds.text(prependZero(seconds))
-      console.log('here');
 
       if( seconds == 0 ) {
         minutes--;

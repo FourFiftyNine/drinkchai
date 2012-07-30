@@ -356,13 +356,13 @@ a:active,
 }
 .green-tag .facebook:hover,
 .green-tag .twitter:hover {
-  opacity: 0.5 ;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50) ;
-  filter: alpha(opacity=50) ;
+  opacity: 0.5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  filter: alpha(opacity=50);
 }
 .green-tag .facebook img,
 .green-tag .twitter img {
-  opacity: 1 ;
+  opacity: 1;
   -ms-filter: none;
   filter: none;
   position: relative;
@@ -379,7 +379,7 @@ a:active,
 .tag {
   font-family: "News Cycle";
   font-size: 24px;
-  text-shadow: 0 0 3px rgba(0,0,0,0.30);
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
   background: url("/img/tag_right_pink.png") no-repeat top right;
   display: inline-block;
   height: 56px;
@@ -396,11 +396,11 @@ a:active,
 /*~~ General - Flash Messages ~~*/
 #flashMessage {
   background: #000;
-  background: rgba(0,0,0,0.80);
+  background: rgba(0,0,0,0.8);
   background: url("/img/flashMessageBlack.png") repeat;
   bottom: 0;
-  -webkit-box-shadow: 0 -2px 3px 0px rgba(0,0,0,0.70), 0 1px 1px 0px rgba(255,255,255,0.10) inset;
-  box-shadow: 0 -2px 3px 0px rgba(0,0,0,0.70), 0 1px 1px 0px rgba(255,255,255,0.10) inset;
+  -webkit-box-shadow: 0 -2px 3px 0px rgba(0,0,0,0.7), 0 1px 1px 0px rgba(255,255,255,0.1) inset;
+  box-shadow: 0 -2px 3px 0px rgba(0,0,0,0.7), 0 1px 1px 0px rgba(255,255,255,0.1) inset;
   color: #fff;
   cursor: pointer;
   font-size: 60px;
@@ -410,7 +410,7 @@ a:active,
   margin: 0;
   position: fixed;
   text-align: center;
-  text-shadow: rgba(0,0,0,0.80) 0 0 3px;
+  text-shadow: rgba(0,0,0,0.8) 0 0 3px;
   width: 100%;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -427,7 +427,7 @@ a:active,
   padding: 0 15px;
   color: #fff;
   display: inline-block;
-  text-shadow: rgba(0,0,0,0.50) 0px 1px 1px;
+  text-shadow: rgba(0,0,0,0.496) 0px 1px 1px;
   -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.24), 0 1px 0 rgba(255,255,255,0.24) inset;
   box-shadow: 0 2px 3px rgba(0,0,0,0.24), 0 1px 0 rgba(255,255,255,0.24) inset;
 }
@@ -481,12 +481,12 @@ a:active,
 }
 .btn.white:hover {
   border: 1px solid #aaa;
-  -webkit-box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.80);
-  box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.80);
+  -webkit-box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.8);
+  box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.8);
 }
 .btn.white:active {
-  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.20) inset;
-  box-shadow: 0 0 7px rgba(0,0,0,0.20) inset;
+  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.2) inset;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2) inset;
 }
 .btn.white:visited {
   color: #422a11;
@@ -523,9 +523,9 @@ a:active,
   box-shadow: none;
 }
 .btn.green.gradient:active {
-  -webkit-box-shadow: rgba(0,0,0,0.50) 0px 0px 4px 0px inset;
-  box-shadow: rgba(0,0,0,0.50) 0px 0px 4px 0px inset;
-  border: 1px solid rgba(0,0,0,0.30);
+  -webkit-box-shadow: rgba(0,0,0,0.496) 0px 0px 4px 0px inset;
+  box-shadow: rgba(0,0,0,0.496) 0px 0px 4px 0px inset;
+  border: 1px solid rgba(0,0,0,0.3);
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Links
@@ -591,10 +591,10 @@ textarea.form-error {
 #authMessage {
   background: #d96f50;
   font-size: 14px;
-  background: rgba(217,111,80,0.80);
+  background: rgba(217,111,80,0.8);
   color: #fff;
   font-weight: bold;
-  text-shadow: rgba(0,0,0,0.40) 1px 1px 1px;
+  text-shadow: rgba(0,0,0,0.4) 1px 1px 1px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   padding: 10px;
@@ -606,7 +606,7 @@ textarea.form-error {
 }
 .error-message {
   background: #d96f50;
-  background: rgba(217,111,80,0.80);
+  background: rgba(217,111,80,0.8);
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   -o-border-top-right-radius: 4px;
@@ -619,7 +619,7 @@ textarea.form-error {
   border-bottom-right-radius: 4px;
   color: #fff;
   cursor: pointer;
-  text-shadow: rgba(0,0,0,0.40) 1px 1px 1px;
+  text-shadow: rgba(0,0,0,0.4) 1px 1px 1px;
   font-weight: bold;
   font-size: 13px;
   padding: 0 10px;
@@ -671,7 +671,7 @@ textarea.form-error {
   font-family: 'ChunkFiveRegular';
   text-transform: uppercase;
   text-shadow: 0 0 5px #fff;
-  text-shadow: 0 0 5px rgba(255,255,255,0.80);
+  text-shadow: 0 0 5px rgba(255,255,255,0.8);
 }
 #launch h2 img {
   padding: 0 8px;
@@ -744,7 +744,7 @@ textarea.form-error {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  border: 1px solid rgba(255,255,255,0.80);
+  border: 1px solid rgba(255,255,255,0.8);
   color: #fff f;
   cursor: pointer;
   display: inline;
@@ -768,16 +768,16 @@ textarea.form-error {
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email:hover,
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email.hover {
   background-color: #f1eef4;
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.30);
-  box-shadow: 0 0 5px rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email:active,
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email.active {
   background-color: #e7e4ea;
   border: 1px solid #422a11;
-  border: 1px solid rgba(0,0,0,0.10);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.70) inset;
-  box-shadow: 0 0 5px rgba(0,0,0,0.70) inset;
+  border: 1px solid rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7) inset;
+  box-shadow: 0 0 5px rgba(0,0,0,0.7) inset;
 }
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email.entered {
   background-color: #fff;
@@ -794,8 +794,8 @@ textarea.form-error {
 }
 #launch .container #home-content section.thankyou textarea {
   display: block;
-  background: rgba(0,0,0,0.60);
-  border: 1px solid rgba(255,255,255,0.20);
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
   max-width: 350px;
   min-width: 350px;
   width: 350px;
@@ -814,20 +814,20 @@ textarea.form-error {
   font-size: 20px;
   font-weight: bold;
   text-shadow: 0 0 2px #000;
-  text-shadow: 0 0 2px rgba(0,0,0,0.70);
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
   color: #000;
   background: url("/img/twitter-bird.png") no-repeat 10px center #fff;
   border: 1px solid #fff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.50);
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.50);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
   padding: 5px 5px 5px 35px;
   width: 100px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 #launch .container #home-content section.thankyou #twitter-share-container #twitter-share:hover {
-  -webkit-box-shadow: 0 0 5px 0 rgba(255,255,255,0.80);
-  box-shadow: 0 0 5px 0 rgba(255,255,255,0.80);
+  -webkit-box-shadow: 0 0 5px 0 rgba(255,255,255,0.8);
+  box-shadow: 0 0 5px 0 rgba(255,255,255,0.8);
 }
 #launch .container #home-content span.error-message {
   background: #fff;
@@ -837,10 +837,10 @@ textarea.form-error {
   font-weight: bold;
   padding: 15px 10px 10px;
   margin: 5px auto;
-  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.50);
-  box-shadow: 0 0 7px rgba(0,0,0,0.50);
+  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.5);
+  box-shadow: 0 0 7px rgba(0,0,0,0.5);
   text-shadow: 1px 1px 0px #000;
-  text-shadow: 1px 1px 0px rgba(0,0,0,0.30);
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -849,12 +849,12 @@ textarea.form-error {
   border: 1px solid rgba(255,255,255,0.15);
   background: #333;
   background: url("/img/50_black.png") repeat;
-  background: rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.1);
   font-family: Helvetica, Arial;
   margin: 20px 0 30px;
   padding: 10px;
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.90) inset;
-  box-shadow: 0 0 5px rgba(0,0,0,0.90) inset;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.9) inset;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9) inset;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -webkit-transition: all 0.3s 0s ease-in;
@@ -864,7 +864,7 @@ textarea.form-error {
   transition: all 0.3s 0s ease-in;
 }
 .shadow-inset:hover {
-  background: rgba(0,0,0,0.40);
+  background: rgba(0,0,0,0.4);
   -webkit-transition: all 0.3s 0s ease-in;
   -moz-transition: all 0.3s 0s ease-in;
   -o-transition: all 0.3s 0s ease-in;
@@ -873,7 +873,7 @@ textarea.form-error {
 }
 .shadow-inset a,
 .shadow-inset a:visited {
-  border: 1px solid rgba(255,255,255,0.00);
+  border: 1px solid rgba(255,255,255,0);
   color: #fff;
 /*color: rgba(255,255,255, .1)*/
   font-weight: bold;
@@ -883,7 +883,7 @@ textarea.form-error {
   line-height: 30px;
   display: inline-block;
   text-shadow: 0 0 5px #000;
-  text-shadow: 0 0 5px rgba(0,0,0,0.90);
+  text-shadow: 0 0 5px rgba(0,0,0,0.9);
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -891,11 +891,11 @@ textarea.form-error {
 .shadow-inset a:visited:hover,
 .shadow-inset a.active,
 .shadow-inset a:visited.active {
-  border: 1px solid rgba(255,255,255,0.30);
+  border: 1px solid rgba(255,255,255,0.3);
   color: #fff;
   text-align: center;
   text-shadow: 0 0 2px #000;
-  text-shadow: 0 0 2px rgba(0,0,0,0.70);
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
   -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.24), 0 1px 0 rgba(255,255,255,0.24) inset;
   box-shadow: 0 2px 3px rgba(0,0,0,0.24), 0 1px 0 rgba(255,255,255,0.24) inset;
   background: #79c5a9;
@@ -909,8 +909,8 @@ textarea.form-error {
   background: linear-gradient(top, #92d0b8 0%, #79c5a9 100%);
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.80);
-  box-shadow: 0 0 5px rgba(0,0,0,0.80);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.8);
+  box-shadow: 0 0 5px rgba(0,0,0,0.8);
 }
 /*~~ Launch Page - Main Launch Navigation ~~*/
 #launch nav#main {
@@ -927,9 +927,9 @@ textarea.form-error {
 /*~~ Launch Page -AddThis ~~*/
 /*~~~~ Navigation ~~~~*/
 #launch #bubble-shares {
-  opacity: 0 ;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0) ;
-  filter: alpha(opacity=0) ;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
 }
 #launch .addthis nav {
   position: fixed;
@@ -1086,11 +1086,29 @@ textarea.form-error {
   margin-top: 5px;
 }
 /*~~ Default Layout - Wood H1 Tag ~~*/
+#default .company-logo {
+  width: 416px;
+  height: 121px;
+  color: #000;
+  color: rgba(0,0,0,0.8);
+  float: left;
+  font-size: 32px;
+  line-height: 121px;
+  text-align: left;
+  position: relative;
+  left: 0px;
+  margin: 0;
+  top: -15px;
+  text-shadow: rgba(255,255,255,0.3) 1px 1px 0px;
+}
+#default .company-logo img {
+  height: 150px;
+}
 #default .wood {
   width: 416px;
   height: 121px;
   color: #000;
-  color: rgba(0,0,0,0.80);
+  color: rgba(0,0,0,0.8);
   background: url("/img/wood-and-leaves-name.png") no-repeat center;
   float: left;
   font-size: 32px;
@@ -1100,7 +1118,7 @@ textarea.form-error {
   left: -80px;
   margin: 0;
   top: -15px;
-  text-shadow: rgba(255,255,255,0.30) 1px 1px 0px;
+  text-shadow: rgba(255,255,255,0.3) 1px 1px 0px;
 }
 #default .wood span {
   padding-left: 120px;
@@ -1151,7 +1169,7 @@ body#default.deals.view {
 #default nav#account li a.active,
 #default nav#account li a:hover {
   background: #fff;
-  background: rgba(255,255,255,0.40);
+  background: rgba(255,255,255,0.4);
   -webkit-transition: background 0.3s 0.1s linear;
   -moz-transition: background 0.3s 0.1s linear;
   -o-transition: background 0.3s 0.1s linear;
@@ -1170,7 +1188,7 @@ body#default.deals.view {
   font-size: 14px;
   font-weight: bold;
   margin: 10px 0 3px;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.90);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
 }
 #default #my-account.dashboard section,
 #default #my-account.edit-address section,
@@ -1180,8 +1198,8 @@ body#default.deals.view {
   background-color: #f3f1ea;
   border: 1px solid #eae2c9;
   padding: 10px;
-  -webkit-box-shadow: 0 0 5px 0px rgba(0,0,0,0.30);
-  box-shadow: 0 0 5px 0px rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-top: 20px;
@@ -1458,6 +1476,8 @@ body#default.deals.view {
   margin: -15px 0 5px;
 }
 #deal #main-information .discount {
+  position: relative;
+  top: 23px;
   text-align: center;
   float: right;
   font-family: Helvetica;
@@ -1477,18 +1497,18 @@ body#default.deals.view {
 }
 #deal #main-information #share {
   background: #f0efeb;
-  background: rgba(255,255,255,0.60);
+  background: rgba(255,255,255,0.6);
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.30);
-  box-shadow: 0 0 3px 0 rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   float: right;
   height: 72px;
   padding: 9px 16px 6px 15px;
   position: relative;
-  right: -141px;
-  top: 103px;
-  width: 170px;
+  right: 39px;
+  top: 25px;
+  width: 160px;
 }
 #deal #main-information #share .twitter-share-button {
   position: relative;
@@ -1515,15 +1535,15 @@ body#default.deals.view {
 }
 #deal #main-information .deal-information {
   background: #f0efeb;
-  background: rgba(255,255,255,0.60);
+  background: rgba(255,255,255,0.6);
   height: 250px;
   clear: both;
   margin: 30px 0 15px;
   position: relative;
   width: 968px;
   left: -24px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.30);
-  box-shadow: 0 0 3px 0 rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
@@ -1584,7 +1604,7 @@ body#default.deals.view {
   margin: -10px auto 0;
   padding: 20px;
   color: #3c2613;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.50);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status .time {
@@ -1635,7 +1655,7 @@ body#default.deals.view {
   color: #3c2613;
   padding: 0 35px;
   margin: 0;
-  text-shadow: 0 0 1px rgba(0,0,0,0.20);
+  text-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
 #deal #additional-information #product-company-information p.company-description {
   margin-bottom: 20px;
@@ -1741,7 +1761,7 @@ body#default.deals.view {
   float: left;
   font-family: sans-serif;
   font-size: 432px;
-  color: rgba(201,191,160,0.50);
+  color: rgba(201,191,160,0.5);
   position: relative;
   bottom: 90px;
   left: 40px;

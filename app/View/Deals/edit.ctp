@@ -16,11 +16,17 @@
               ));
            ?>
           <label class="title" for="">Currently Uploaded Pictures</label>
-
           <?php if( !empty($this->data['Image']) ): ?>
             <label>Featured image (first image) is highlighted in green.</label>
+            <?php $logo = false; ?>
             <?php foreach($this->data['Image'] as $image): ?>
-              <?php if ($image['deleted']) { continue; } ?>
+              <?php 
+              if ($image['deleted'] || $image['is_logo']) { 
+                if ($image['is_logo'] && !$image['deleted']) {
+                  $logo = $image;
+                }
+                continue; 
+              } ?>
                 <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
                   <div class="picture-container">
                     <img src="<?php echo $image['path_thumb']?>" alt="">
@@ -38,7 +44,23 @@
       <div class="left">
         <?php 
           echo $this->Form->input('id');
+          echo $this->Form->input('Business.id');
           echo $this->Form->input('Business.name', array('label' => 'Your Company\'s Name'));
+          echo $this->Form->input('Image.logo', array(
+              'type'     => 'file',
+              'label'    => 'Company Logo',
+              'id'       => 'logoupload',
+              'data-url' => '/images/uploader'
+              ));
+        ?>
+        <?php if($logo): ?>
+        <div id="logo-container" class="pictures fieldset clearfix">
+          <div class="picture-container">
+            <img src="<?php echo $logo['path_thumb']?>" alt="">
+          </div>
+        </div>
+        <?php endif; ?>
+        <?php  
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
 
           echo $this->Form->input('product_name');
@@ -94,7 +116,12 @@
       <img src="{%=o.path_thumb%}" alt="">
     </div>
     <a href="/images/delete/{%=o.id%}" class="delete-image btn white delete">X</a>
-    <a href="/images/feature/{%=o.id%}" class="btn white feature">Feature Photo</a>
+    {% if (!o.is_logo) { %}<a href="/images/feature/{%=o.id%}" class="btn white feature">Feature Photo</a>{% } else { %}LOGO{% } %}
     <div class="featured-text">Featured</div>
   </div>
+</script>
+<script id="logo-container-content" type="text/x-tmpl">
+    <div class="picture-container">
+      <img src="{%=o.path_thumb%}" alt="">
+    </div>
 </script>

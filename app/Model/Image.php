@@ -52,14 +52,14 @@ class Image extends Model {
   // }
 
 
-  public function saveUploadedImage($imageData, $dealId, $Uploader) {
+  public function saveUploadedImage($imageData, $dealId, $businessId, $Uploader, $isLogo) {
     // var $data = 
     // $data['Image']['deal_id'] = $dealId;
     $imageModelData = array();
     $imagePath = $imageData['path'];
     $imageExt = $Uploader::ext($imagePath);
 
-    return array('error' => true, 'ext' => $imageExt);
+    // return array('error' => true, 'ext' => $imageExt);
     // if ($imageData)
 
     $dimensions = $Uploader->dimensions($imagePath);
@@ -85,6 +85,9 @@ class Image extends Model {
     $imageModelData['Image']['resized_height'] = $resized_dimensions['height'];
     
     $imageModelData['Image']['deal_id'] = $dealId;
+    $imageModelData['Image']['business_id'] = $businessId;
+    // DELETE OLD LOGOS
+    $imageModelData['Image']['is_logo'] = $isLogo;
     
     return parent::save($imageModelData);
 

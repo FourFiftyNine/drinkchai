@@ -56,7 +56,7 @@ class ImagesController extends AppController {
     $this->set(compact('deals'));
   }
 
-  public function uploader($dealId = null) {
+  public function uploader($dealId = null, $businessId = null) {
     if($this->RequestHandler->isAjax()) {
       $this->autoRender = false;
       $this->RequestHandler->respondAs('json');
@@ -64,6 +64,59 @@ class ImagesController extends AppController {
       if( !$dealId ) {
         $dealId = $this->request->data['Deal']['id'];
       }
+      if( !$businessId ) {
+        $businessId = $this->request->data['Business']['id'];
+      }
+
+      $this->Uploader = new Uploader(array(
+        'overwrite' => false, 
+        'extension'  => array(
+          'value' => array('gif', 'jpg', 'png', 'jpeg'),
+          'error' => 'Filetype incorrect' // not working
+          )
+        ));
+      $return = array();
+      $uploadInput = ($this->request->data['Image']['file']) ? 'Image.file' : 'Image.logo';
+      $isLogo = $this->request->data['Image']['logo'] ? true : false;
+
+      if ($uploadedImateData = $this->Uploader->upload($uploadInput)) {
+
+        if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $businessId, $this->Uploader, $isLogo)) {
+
+          // TODO CLEANUP?
+          return json_encode($return);
+          if( !isset($return['error'])) {
+            return json;
+          }
+
+          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
+          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['logo']);
+          $cleanedArray = array_unique($mergedArray);
+
+
+          return json_encode($cleanedArray);
+        }
+      }
+      return json_encode(array(
+        'error' => 'There was an error processing: <span class="filename">' . $this->request->data['Image']['file']['name'] . '</span><br>Please make sure it is a jpeg, jpg, or png file.'
+        ));
+    }
+  }
+
+  public function uploadLogo($dealId = null, $businessId = null) {
+    if($this->RequestHandler->isAjax()) {
+      $this->autoRender = false;
+      $this->RequestHandler->respondAs('json');
+
+      if( !$businessId ) {
+        $businessId = $this->request->data['Business']['id'];
+      }
+      debug($this->request->data);
+
+      if( !$dealId ) {
+        $dealId = $this->request->data['Deal']['id'];
+      }
+
       $this->Uploader = new Uploader(array(
         'overwrite' => false, 
         'extension'  => array(
@@ -73,15 +126,15 @@ class ImagesController extends AppController {
         ));
       
       $return = array();
-      if ($uploadedImateData = $this->Uploader->upload('Image.file')) {
+      if ($uploadedImateData = $this->Uploader->upload('Image.logo')) {
 
-        if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $this->Uploader)) {
+        if ($return = $this->Image->saveUploadedImage($uploadedImateData, $businessId, $this->Uploader)) {
           return json_encode($return);
           if( !isset($return['error'])) {
             return json;
           }
 
-          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
+          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['logo']);
           $cleanedArray = array_unique($mergedArray);
 
           // unset($this->request->data['Image']['file']);

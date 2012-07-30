@@ -2,8 +2,10 @@
     <div id="main-information" class="canvas">
         <div class="clearfix">
             <div class="left title-tagline">
-                <h1 class="wood"><span><?php echo $data['Business']['name']; ?></span></h1>
+                <h1 class="company-logo"><img src="<?php echo $data['Image']['logo']['path_resized']; ?>" /></h1>
+                <?php /* ?>
                 <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
+                */ ?>
             </div>
             <?php 
                 $percentage = ($data['Deal']['price'] / $data['Deal']['original_price']);
@@ -28,7 +30,7 @@
             <div class="slideshow">
                 <img class="frame" src="/img/deal-image-frame.png" alt="">
                 <?php foreach($data['Image'] as $image): ?>
-                  <?php if ($image['deleted']) { continue; } ?>
+                  <?php if ($image['deleted'] || $image['is_logo']) { continue; } ?>
                   <img class="picture" src="<?php echo $image['path_resized'] ?>" style="position: relative; top: <?php echo $image['offset'] ?>px;" alt="">
                 <?php endforeach; ?>
                 
@@ -45,9 +47,12 @@
                     <div class="time left">
                         <?php if ($data['Deal']['time_left']): ?>
                         <div class="label">Time Left</div>
-                        <div class="time-left">
+                        <div data-dealid="<?php echo $data['Deal']['id'] ?>" class="time-left">
+                            <?php //echo $data['Deal']['end_date'] ?>
                             <?php $timeLeft = $data['Deal']['time_left']; ?>
+                            <?php if ($timeLeft['days']): ?>
                             <div class="days"><?php echo $timeLeft['days']; ?></div>
+                            <?php endif; ?>
                             <div class="countdown">
                                 <?php /*
                                 <span class="hours"><?php echo $timeLeft['hours']; ?></span>
@@ -82,7 +87,7 @@
     <div id="additional-information" class="clearfix">
         <div id="product-company-information" class="canvas left">
             <div class="the-deal">
-                <h1 class="tag"><span>What's the Deal</span></h1>
+                <h1 class="tag"><span><?php echo $data['Deal']['product_name']; ?></span></h1>
                 <p class="deals-description">
                     <?php echo $data['Deal']['product_description']; ?>
                 </p>
