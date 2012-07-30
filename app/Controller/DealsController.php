@@ -14,7 +14,7 @@ class DealsController extends AppController {
 
     public function beforeFilter(){
         parent::beforeFilter();
-        $this->Auth->allow('view');
+        $this->Auth->allow('view', 'get_time_left');
         // $this->Auth->allow('index',  'view', 'delete', 'edit');
     }
 
