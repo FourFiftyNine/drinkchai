@@ -149,163 +149,21 @@ var dLayout = DrinkChai.defaultLayout = {
         //called when complete
       },
       success: function(data, textStatus, xhr) {
-        //called when successful
-        // console.log(data);
-        // timeLeft = data
-        // var date = new Date();
-        // dLayout.start = date.getTime();
-        // dLayout.timerStart = (new Date).getTime();
-        /* Run a test. */
-        console.log(data);
+
+        var timeleft = '+' + data.days + 'd +' + data.hours + 'h +' + data.minutes + 'm +' + data.seconds + 's';
         if (data) {
-          dLayout.startCountdown(data);
+          $('.time-left').countdown({until: timeleft, compact: true});
+
+          return data;
         } else {
 
         }
-      
       },
       error: function(xhr, textStatus, errorThrown) {
         //called when there is an error
         // console.log(xhr);
       }
     });
-  },
-  startCountdown: function(timeLeft) {
-    // var timeLeft = data;
-    var days = timeLeft.days;
-    var hours = timeLeft.hours;
-    var minutes = timeLeft.minutes;
-    var seconds = timeLeft.seconds;
-    var $timeLeft = $('.time-left');
-    var $days    = $('.days');
-    var $hours   = $('.hours');
-    var $minutes = $('.minutes');
-    var $seconds = $('.seconds');
-
-
-    // console.log($seconds);
-    // var days    = parseInt($days.text(), 10);
-    // var hours   = parseInt($hours.text(), 10);
-    // var minutes = parseInt($minutes.text(), 10);
-    // var seconds = parseInt($seconds.text(), 10);
-    // console.log(seconds);
-
-
-
-    // var internalCounter = 0;
-    // var oneSecond = 1000;
-    // var interval = oneSecond;
-    // var offset = 0;
-    // var staticTimer = 0;
-
-
-
-    // var counter = setTimeout(doCountDown, 1000);
-    // var timeoutId;
-
-    // $seconds.text(prependZero(--seconds));
-    // doCountDown();
-
-    if(checkNotNegative(days, minutes, seconds, hours)) {
-      $hours.text(prependZero(hours));
-      $minutes.text(prependZero(minutes));
-      $seconds.text(prependZero(seconds));
-
-      var timer = dLayout.interval(1000, doCountDown);
-      timer.run();
-      // doCountDown();
-    }
-    // $timeLeft.fadeIn(750);
-
-    function doCountDown (skipOffset) {
-      // console.log('1 sec');
-      // console.log(seconds);
-      if(!seconds && !minutes && !hours && !days) {
-        alert('here');
-      }
-      $seconds.text(prependZero(seconds))
-
-      if( seconds == 0 ) {
-        minutes--;
-        if(minutes == 0) {
-          if(hours == 0) {
-
-            if(days == 0) {
-
-            } else {
-              hours = 23
-              day--;
-            }
-          } else {
-            hours--;
-            minutes = 59;
-          }
-        }
-        $minutes.text(prependZero(minutes));
-        seconds = 60;
-      }
-      // if (typeof timeoutId != 'undefined') {
-      //   // console.log('here2');
-      //   seconds--;          
-      // }
-
-      seconds--;
-    }
-
-    function checkNotNegative() {
-      for (var i = 0; i < arguments.length; ++i) {
-        if ( arguments[i] < 0) {
-          return false
-        }
-      }
-      return true;
-    }
-    function prependZero(num) {
-      if(num < 10) {
-        num = '0' + num;
-        return num;
-      } else {
-        return num;
-      }
-    }
-  },
-  // doCountDown: function(skipOffset) {
-  //   // console.log('1 sec');
-  //   if( seconds == 0 ) {
-  //     minutes--;
-  //     seconds = 60;
-  //     $seconds.text(dLayout.prependZero(seconds))
-  //   }
-  //   if (typeof timeoutId != 'undefined') {
-  //     // console.log('here2');
-  //     seconds--;          
-  //   }
-  // },
-  interval: function (duration, callback){
-    var baseline = undefined;
-    return {
-       run: function() {
-         if( baseline === undefined ) {
-           baseline = new Date().getTime();
-         }
-         callback();
-         var end = new Date().getTime();
-         baseline += duration;
-      
-         var nextTick = duration - (end - baseline);
-         if( nextTick < 0 ) {
-           nextTick = 0;
-         }
-         (function(i) {
-             i.timer = setTimeout(function(){
-             i.run( end );
-           }, nextTick)
-         }(this));
-       },
-       stop: function() {
-        clearTimeout( this.timer );
-      }
-    }
   }
 }
 })( window, jQuery );

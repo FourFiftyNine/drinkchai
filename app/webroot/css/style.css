@@ -1478,6 +1478,7 @@ body#default.deals.view {
 #deal #main-information .discount {
   position: relative;
   top: 23px;
+  right: 160px;
   text-align: center;
   float: right;
   font-family: Helvetica;
@@ -1506,7 +1507,7 @@ body#default.deals.view {
   height: 72px;
   padding: 9px 16px 6px 15px;
   position: relative;
-  right: 39px;
+  right: -141px;
   top: 25px;
   width: 160px;
 }

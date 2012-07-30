@@ -54,16 +54,11 @@
                             <div class="days"><?php echo $timeLeft['days']; ?></div>
                             <?php endif; ?>
                             <div class="countdown">
-                                <?php /*
-                                <span class="hours"><?php echo $timeLeft['hours']; ?></span>
-                                <span class="colon">:</span>
-                                <span class="minutes"><?php echo $timeLeft['minutes']; ?></span>
-                                <span class="colon">:</span>
-                                <span class="seconds"><?php echo $timeLeft['seconds']; ?></span>
-                                */ ?>
-                                <span class="hours"></span><span class="colon">:</span><span class="minutes"></span><span class="colon">:</span><span class="seconds"></span>
+
+                                <!-- <span class="hours"></span><span class="colon">:</span><span class="minutes"></span><span class="colon">:</span><span class="seconds"></span> -->
                             </div>
                         </div>
+                        <div id="endtime" class="hidden"><?php echo $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time'] ?></div>
                         <?php else: ?>
                             <div class="time-left">Deal Has Ended</div>
                         <?php endif; ?>
