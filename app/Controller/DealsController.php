@@ -85,9 +85,24 @@ class DealsController extends AppController {
 
             // debug($this->getTimeRemainingLabel($timeArray));
             $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
+            $logo = false;
+
+            foreach($return['Image'] as $key => $image) {
+                if ($image['deleted'] || $image['is_logo']) { 
+                  if ($image['is_logo'] && !$image['deleted']) {
+                    $logo = $image;
+                  }
+                  continue; 
+                }
+                $return['Image'][$key]['offset'] = 0;
+                if($image['resized_height'] < 250) {
+                    $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
+                }
+            }
+            $return['Image']['logo'] = $logo;
             $this->set('data', $return);
             // debug('/deals' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']); exit;
-            $this->redirect('/deals/' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']);
+            // $this->redirect('/deals/' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']);
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
             $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
 
