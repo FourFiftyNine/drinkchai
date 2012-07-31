@@ -5,5 +5,8 @@
 	path = app/Plugin/DebugKit
 	url = git://github.com/cakephp/debug_kit.git
 [submodule "app/Vendor/facebook"]
-	path = app/Vendor/facebook
-	url = git://github.com/facebook/php-sdk.git
+  path = app/Vendor/facebook
+  url = git://github.com/facebook/php-sdk.git
+[submodule "app/Plugin/Uploader"]
+	path = app/Plugin/Uploader
+	url = git://github.com/milesj/cake-uploader.git
