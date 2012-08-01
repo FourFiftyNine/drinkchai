@@ -147,7 +147,7 @@ class DealsController extends AppController {
         $businessData = $this->Deal->Business->findByUserId($userId);
 
         $this->request->data['Deal']['user_id'] = $userId;
-        $this->request->data['Business'] = $businessData['Business'];
+        $this->request->data['Business']['id'] = $businessData['Business']['id'];
         $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
         if ($this->request->is('post')) {
            
@@ -162,7 +162,8 @@ class DealsController extends AppController {
 
 
             // $this->request->data['Deal']['business_id'] = $this->_user['Business']['id'];
-            if ($this->Deal->save($this->request->data)) {
+            unset($this->request->data['Image']);
+            if ($this->Deal->saveAll($this->request->data)) {
                 $this->Session->setFlash(__('The deal has been saved'));
                 // $this->_refreshAuth();
                 $this->redirect(array('action' => 'index'));
@@ -171,6 +172,8 @@ class DealsController extends AppController {
             } else {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
+        } else {
+            $this->request->data['Business'] = $businessData['Business'];
         }
         $this->render('edit');
     }
@@ -221,11 +224,22 @@ class DealsController extends AppController {
             
             // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->findById($id);
+            // debug($this->request->data);
+            foreach ($this->request->data['Image'] as $image) {
+                if ($image['is_logo']) {
+                    $this->set('logo', $image);
+                }
+            }
+
         } else {
             // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->read();
             // debug($this->request->data); exit;
-            // debug($this->request->data);
+            foreach ($this->request->data['Image'] as $image) {
+                if ($image['is_logo']) {
+                    $this->set('logo', $image);
+                }
+            }
         }
         // $businesses = $this->Deal->Business->find('list');
         // $this->set(compact('businesses'));

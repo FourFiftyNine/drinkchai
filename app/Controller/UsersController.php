@@ -103,14 +103,14 @@ class UsersController extends AppController {
         $this->layout = 'stripped';
         if($this->RequestHandler->isPost()){
             if ($return = $this->User->saveAll($this->request->data)) {
-                
-                $email = new CakeEmail('gmail');
-                // $email->template('sign_up')
-                $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
-                    ->to($this->data['User']['email'])
-                    ->subject('Welcome to DrinkChai')
-                    ->send();
-                $this->Auth->login($return);
+                // debug($this->request->data); exit;
+                // $email = new CakeEmail('gmail');
+                // // $email->template('sign_up')
+                // $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
+                //     ->to($this->data['User']['email'])
+                //     ->subject('Welcome to DrinkChai')
+                //     ->send();
+                $this->Auth->login();
                 $this->redirect(array('controller' => 'deals', 'action' => 'view'));
             } else {
                 // $errors = $this->User->invalidFields();
@@ -129,11 +129,11 @@ class UsersController extends AppController {
             $this->request->data['Business']['slug'] = strtolower(Inflector::slug($this->request->data['Business']['name']));
             $this->request->data['User']['user_type_id'] = 2;
             if($return = $this->User->saveAll($this->request->data)){
-                $email = new CakeEmail('gmail');
-                $email->from(array('me@example.com' => 'My Site'))
-                    ->to('sessa@drinkchai.com')
-                    ->subject('About')
-                    ->send('My message');
+                // $email = new CakeEmail('gmail');
+                // $email->from(array('me@example.com' => 'My Site'))
+                //     ->to('sessa@drinkchai.com')
+                //     ->subject('About')
+                //     ->send('My message');
 
                 $this->Auth->login();
                 $this->redirect('/account');

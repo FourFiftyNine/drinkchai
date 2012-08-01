@@ -19,7 +19,12 @@ var dLayout = DrinkChai.defaultLayout = {
   init: function() {
     // console.log('here');
 
-    dLayout.ajaxGetTimeLeft();
+    if (($('body').hasClass('view') || $('body').hasClass('preview')) 
+      && !$('.time-left').hasClass('no-time') 
+      && !$('.time-left').hasClass('days-left')) {
+      dLayout.ajaxGetTimeLeft();
+    }
+    
     dLayout.onClickAccountName();
     dLayout.onClickDeleteImage();
     dLayout.onClickSetFeaturedImage();
@@ -45,10 +50,11 @@ var dLayout = DrinkChai.defaultLayout = {
             $('#fileupload').after('<div class="error-message file">' + data.result.error + '</div>')
           } else {
             $('.no-photos').hide();
-            if( !data.result.Image.is_logo ) {
-              $('#pictures-container').append(tmpl("pictures-container-content", data.result.Image));
-            } else {
+            if( data.result.Image.is_logo ) {
               $('#logo-container').html(tmpl("logo-container-content", data.result.Image));
+
+            } else {
+              $('#pictures-container').append(tmpl("pictures-container-content", data.result.Image));
             }
           }
 

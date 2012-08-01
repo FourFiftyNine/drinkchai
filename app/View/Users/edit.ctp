@@ -22,10 +22,13 @@
                 <?php
                     echo $this->Form->input('Business.id', array('label' => 'Business Name'));
                     echo $this->Form->input('Business.name', array('label' => 'Business Name'));
-                    echo $this->Form->input('Business.description', array('label' => 'Business Description (Used on Deal Page)'));
-                    echo $this->Form->input('Business.url_website');
-                    echo $this->Form->input('Business.url_facebook');
-                    echo $this->Form->input('Business.url_yelp');
+                    echo $this->Form->input('Business.description', array('label' => 'Business Description (Used on Deal Page)')); 
+                    /*
+                    echo $this->Form->input('Business.url_website', array('label' => 'Website Url'));
+                    echo $this->Form->input('Business.url_facebook', array('label' => 'Facebook Url'));
+                    echo $this->Form->input('Business.url_twitter', array('label' => 'Twitter Url'));
+                    echo $this->Form->input('Business.url_yelp', array('label' => 'Yelp Url'));
+                    */
                     // echo $this->Form->input('password');
                 ?>
    

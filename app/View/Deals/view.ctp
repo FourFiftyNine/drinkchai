@@ -28,7 +28,6 @@
         </div>
         <div class="deal-information">
             <div class="slideshow">
-                <img class="frame" src="/img/deal-image-frame.png" alt="">
                 <?php foreach($data['Image'] as $image): ?>
                   <?php if ($image['deleted'] || $image['is_logo']) { continue; } ?>
                   <img class="picture" src="<?php echo $image['path_resized'] ?>" style="position: relative; top: <?php echo $image['offset'] ?>px;" alt="">
@@ -47,9 +46,9 @@
                     <div class="time left">
                         <?php if ($data['Deal']['time_left']): ?>
                         <div class="label">Time Left</div>
-                        <div data-dealid="<?php echo $data['Deal']['id'] ?>" class="time-left">
+                        <?php $timeLeft = $data['Deal']['time_left']; ?>
+                        <div data-dealid="<?php echo $data['Deal']['id'] ?>" class="time-left<?php if($timeLeft['days']): echo ' days-left'; endif; ?>">
                             <?php //echo $data['Deal']['end_date'] ?>
-                            <?php $timeLeft = $data['Deal']['time_left']; ?>
                             <?php if ($timeLeft['days']): ?>
                             <div class="days"><?php echo $timeLeft['days']; ?></div>
                             <?php endif; ?>
@@ -60,7 +59,7 @@
                         </div>
                         <div id="endtime" class="hidden"><?php echo $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time'] ?></div>
                         <?php else: ?>
-                            <div class="time-left">Deal Has Ended</div>
+                            <div class="time-left no-time">Deal Has Ended</div>
                         <?php endif; ?>
                     </div>
                     <div class="right bought-container">
@@ -111,9 +110,29 @@
                     <li>3</li>
                 </ul>
             </section>
+            <?php /*
             <section class="canvas bottom">
-                Facebook / Twitter / Yelp
+                <h3 class="gradient green"><span>Social Media</span></h3>
+                <ul id="social" class="clearfix">
+                    <?php if(!empty($data['Business']['url_facebook'])): ?>
+                        <li class="facebook">
+                            <a href="http://<?php echo $data['Business']['url_facebook'] ?>"><img src="/img/social_facebook.png" alt=""></a>
+                        </li>
+                    <?php endif ?>
+                    <?php if(!empty($data['Business']['url_twitter'])): ?>
+                        <li class="facebook">
+                            <a href="http://<?php echo $data['Business']['url_twitter'] ?>"><img src="/img/social_twitter.png" alt=""></a>
+                        </li>
+                    <?php endif ?>
+                    <?php if(!empty($data['Business']['url_yelp'])): ?>
+                        <li class="facebook">
+                            <a href="http://<?php echo $data['Business']['url_yelp'] ?>"><img src="/img/social_yelp.png" alt=""></a>
+                        </li>
+                    <?php endif ?>
+                    
+                </ul>
             </section>
+        */ ?>
         </aside>
     </div>
 </article>

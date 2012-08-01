@@ -65,10 +65,10 @@ class Image extends Model {
     $dimensions = $Uploader->dimensions($imagePath);
 
     if($dimensions['width'] > $dimensions['height']) {
-        $resized_path = $Uploader->resize(array('width' => 330, 'quality' => 100));
+        $resized_path = $Uploader->crop(array('width' => 330, 'height' => 250, 'quality' => 100));
         $thumb_path = $Uploader->resize(array('width' => 100, 'quality' => 100));
     } else {
-        $resized_path = $Uploader->resize(array('height' => 250, 'quality' => 100));
+        $resized_path = $Uploader->crop(array('height' => 250, 'width' => 330, 'quality' => 100));
         $thumb_path = $Uploader->resize(array('height' => 100, 'quality' => 100));
     }
     $resized_dimensions = $Uploader->dimensions($resized_path);

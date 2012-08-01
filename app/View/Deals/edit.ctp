@@ -18,15 +18,8 @@
           <label class="title" for="">Currently Uploaded Pictures</label>
           <?php if( !empty($this->data['Image']) ): ?>
             <label>Featured image (first image) is highlighted in green.</label>
-            <?php $logo = false; ?>
             <?php foreach($this->data['Image'] as $image): ?>
-              <?php 
-              if ($image['deleted'] || $image['is_logo']) { 
-                if ($image['is_logo'] && !$image['deleted']) {
-                  $logo = $image;
-                }
-                continue; 
-              } ?>
+              <?php if ($image['deleted'] || $image['is_logo']): continue; endif; ?>
                 <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
                   <div class="picture-container">
                     <img src="<?php echo $image['path_thumb']?>" alt="">
@@ -53,13 +46,14 @@
               'data-url' => '/images/uploader'
               ));
         ?>
-        <?php if($logo): ?>
         <div id="logo-container" class="pictures fieldset clearfix">
-          <div class="picture-container">
-            <img src="<?php echo $logo['path_thumb']?>" alt="">
+
+        <?php if(isset($logo)): ?>
+          <div class="picture-container company-logo-container">
+            <img src="<?php echo $logo['path_resized']?>"  alt="">
           </div>
-        </div>
         <?php endif; ?>
+      </div>
         <?php  
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
 
@@ -101,7 +95,12 @@
         <?php
           echo $this->Form->input('minimum', array('label' => 'Minimum you want to sell before deal unlocks', 'type' => 'text'));
           echo $this->Form->input('limit', array('label' => 'Maximum you want to sell', 'type' => 'text'));
-
+          /*
+          echo $this->Form->input('Business.url_website', array('label' => 'Website Url'));
+          echo $this->Form->input('Business.url_facebook', array('label' => 'Facebook Url'));
+          echo $this->Form->input('Business.url_twitter', array('label' => 'Twitter Url'));
+          echo $this->Form->input('Business.url_yelp', array('label' => 'Yelp Url'));
+          */
           //echo $this->Form->input('slug');
         ?>
       </div>
@@ -122,6 +121,6 @@
 </script>
 <script id="logo-container-content" type="text/x-tmpl">
     <div class="picture-container">
-      <img src="{%=o.path_thumb%}" alt="">
+      <img src="{%=o.path_resized%}" alt="">
     </div>
 </script>

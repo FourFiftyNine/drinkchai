@@ -309,6 +309,10 @@ textarea
   background-repeat: no-repeat
   background-position: 97%
 
+.error input
+  background-repeat: no-repeat
+  background-position: 97%
+  
 /*~~ Inputs - Errors ~~*/
 input.form-error,
 textarea.form-error
@@ -710,10 +714,10 @@ textarea.form-error
     position: relative
     left: 0px
     margin: 0
-    top: -15px
+    top: -5px
     text-shadow: rgba(255,255,255, .3) 1px 1px 0px
     img
-      height: 150px
+      height: 145px
   .wood
     width: 416px
     height: 121px
@@ -934,6 +938,10 @@ body#default.deals.view
         .picture-container
           width: 100px
           height: 100px
+        .company-logo-container
+          img
+            max-width: 420px
+            max-height: 100px
         .column
           // margin-top: 10px
           // padding-top: 10px
@@ -1119,10 +1127,14 @@ body#default.deals.view
           text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
           font-weight: bold
           .time
+            .label
+              font-size: 20px
             text-align: center
             position: relative
             top: 0px
             .time-left
+              margin-top: 10px
+              min-height: 32px
               gradientWhite()
               font-size: 22px
               // display: none
@@ -1181,6 +1193,12 @@ body#default.deals.view
             text-align: center
             border-radius: @height
             margin-right: 10px
+      ul#social
+        margin: 20px 0
+        li
+          list-style: none
+          float: left
+          margin-right: 20px
 
 /*~~ Default Layout - How it Works ~~*/
 // TODO turn into stylus?

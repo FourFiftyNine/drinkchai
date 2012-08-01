@@ -582,6 +582,10 @@ textarea:focus {
   background-repeat: no-repeat;
   background-position: 97%;
 }
+.error input {
+  background-repeat: no-repeat;
+  background-position: 97%;
+}
 /*~~ Inputs - Errors ~~*/
 input.form-error,
 textarea.form-error {
@@ -1098,11 +1102,11 @@ textarea.form-error {
   position: relative;
   left: 0px;
   margin: 0;
-  top: -15px;
+  top: -5px;
   text-shadow: rgba(255,255,255,0.3) 1px 1px 0px;
 }
 #default .company-logo img {
-  height: 150px;
+  height: 145px;
 }
 #default .wood {
   width: 416px;
@@ -1400,6 +1404,10 @@ body#default.deals.view {
   width: 100px;
   height: 100px;
 }
+#default #my-account #edit-deal .pictures .company-logo-container img {
+  max-width: 420px;
+  max-height: 100px;
+}
 #default #my-account #edit-deal .pictures .column {
   border: 1px solid #d9c6a8;
   -webkit-border-radius: 4px;
@@ -1613,7 +1621,12 @@ body#default.deals.view {
   position: relative;
   top: 0px;
 }
+#deal #main-information .deal-information .buy-now-container .time-lock-status .time .label {
+  font-size: 20px;
+}
 #deal #main-information .deal-information .buy-now-container .time-lock-status .time .time-left {
+  margin-top: 10px;
+  min-height: 32px;
   border: 1px solid #fff;
   color: #3c2613;
   -webkit-border-radius: 5px;
@@ -1692,6 +1705,14 @@ body#default.deals.view {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   margin-right: 10px;
+}
+#deal #additional-information aside#sidebar ul#social {
+  margin: 20px 0;
+}
+#deal #additional-information aside#sidebar ul#social li {
+  list-style: none;
+  float: left;
+  margin-right: 20px;
 }
 /*~~ Default Layout - How it Works ~~*/
 #how-it-works {
