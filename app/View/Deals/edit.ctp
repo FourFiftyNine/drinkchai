@@ -3,68 +3,53 @@
   <section id="edit-deal">
     <h2 class="gradient brown"><?php echo $this->params['action'] == 'create' ? 'Create' : 'Edit'; ?> Your Deal</h2>
     <div class="clearfix">
+      <div class="file-upload-error"></div>
     <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
       <?php if( $this->params['action'] == 'edit' ): ?>
-        <div id="pictures-container" class="pictures fieldset clearfix">
-
+        <div id="product-image" class="fieldset image-container left">
           <?php echo $this->Form->input('Image.file', array(
               'type'     => 'file',
-              'label'    => 'Upload one or many photos.  Photos will be uploaded and saved immediately. File format: jpg, jpeg, and pngs only',
+              'label'    => 'Product Image',
               'id'       => 'fileupload',
-              'data-url' => '/images/uploader',
-              'multiple' => 'multiple'
+              'data-url' => '/images/uploader'
               ));
-           ?>
-          <label class="title" for="">Currently Uploaded Pictures</label>
-          <?php if( !empty($this->data['Image']) ): ?>
-            <label>Featured image (first image) is highlighted in green.</label>
-            <?php foreach($this->data['Image'] as $image): ?>
-              <?php if ($image['deleted'] || $image['is_logo']): continue; endif; ?>
-                <div class="column<?php echo $image['featured'] ? ' featured' : '' ?>">
-                  <div class="picture-container">
-                    <img src="<?php echo $image['path_thumb']?>" alt="">
-                  </div>
-                  <?php echo $this->Html->link('X', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
-                  <?php echo $this->Html->link('Feature Image', array('controller' => 'images', 'action' => 'feature', $image['id']), array('class' => 'btn white feature')); ?>
-                  <div class="featured-text">Featured</div>
-                </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <p class="no-pictures">No photos uploaded.</p>
+          ?>
+          <div class="percent loaded-product hidden"><span class="number"></span>%</div>
+          <div class="product-image-container image">
+          <?php if(isset($productImage)): ?>
+              <img src="<?php echo $productImage['path_resized']?>"  alt="">
           <?php endif; ?>
+          </div>
+
         </div>
+      
+      <div id="logo-image" class="image-container fieldset right">
+      <?php
+        echo $this->Form->input('Image.logo', array(
+            'type'     => 'file',
+            'label'    => 'Company Logo',
+            'id'       => 'logoupload',
+            'data-url' => '/images/uploader'
+            ));
+      ?>
+        <div class="percent loaded-logo hidden"><span class="number"></span>%</div>
+        <div class="company-logo-container image">
+        <?php if(isset($logo)): ?>
+            <img src="<?php echo $logo['path_resized']?>"  alt="">
+        <?php endif; ?>
+        </div>
+
+      </div>
       <?php endif; ?>
+      <div class="clearfix"></div>
       <div class="left">
         <?php 
           echo $this->Form->input('id');
           echo $this->Form->input('Business.id');
           echo $this->Form->input('Business.name', array('label' => 'Your Company\'s Name'));
-          echo $this->Form->input('Image.logo', array(
-              'type'     => 'file',
-              'label'    => 'Company Logo',
-              'id'       => 'logoupload',
-              'data-url' => '/images/uploader'
-              ));
-        ?>
-        <div id="logo-container" class="pictures fieldset clearfix">
-
-        <?php if(isset($logo)): ?>
-          <div class="picture-container company-logo-container">
-            <img src="<?php echo $logo['path_resized']?>"  alt="">
-          </div>
-        <?php endif; ?>
-      </div>
-        <?php  
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
-
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
-
-          // Multiple default - no good right now
-          // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images', 'multiple' => 'multiple', 'name' => 'data[Image][file][]'));
-
-          // NORMAL
-          // echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images'));
           ?>
       </div>
       <div class="right">
@@ -109,18 +94,3 @@
   </div>
   </section>
 </article>
-<script id="pictures-container-content" type="text/x-tmpl">
-  <div class="column">
-    <div class="picture-container">
-      <img src="{%=o.path_thumb%}" alt="">
-    </div>
-    <a href="/images/delete/{%=o.id%}" class="delete-image btn white delete">X</a>
-    {% if (!o.is_logo) { %}<a href="/images/feature/{%=o.id%}" class="btn white feature">Feature Photo</a>{% } else { %}LOGO{% } %}
-    <div class="featured-text">Featured</div>
-  </div>
-</script>
-<script id="logo-container-content" type="text/x-tmpl">
-    <div class="picture-container">
-      <img src="{%=o.path_resized%}" alt="">
-    </div>
-</script>

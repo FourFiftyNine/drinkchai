@@ -41,20 +41,27 @@ var dLayout = DrinkChai.defaultLayout = {
         dataType: 'json',
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
+          if ( $(this).attr('id') == 'logoupload' ) {
+            $('.percent.loaded-logo').removeClass('hidden').find('.number').html(progress);
+          } else {
+            $('.percent.loaded-product').removeClass('hidden').find('.number').html(progress);
+          }
           console.log(progress);
         },
         done: function (e, data) {
+          $('.percent').addClass('hidden');
           // console.log(data.result);
-          console.log(data.result);
+          // console.log(data.result);
+          console.log(data);
           if(data.result.error) {
-            $('#fileupload').after('<div class="error-message file">' + data.result.error + '</div>')
+            $('.file-upload-error').html('<div class="error-message file">' + data.result.error + '</div>')
           } else {
             $('.no-photos').hide();
-            if( data.result.Image.is_logo ) {
-              $('#logo-container').html(tmpl("logo-container-content", data.result.Image));
+            if( data.result.Image.type == 'logo' ) {
+              $('#logo-image .image').html('<img src="' + data.result.Image.path_resized + '"/>');
 
             } else {
-              $('#pictures-container').append(tmpl("pictures-container-content", data.result.Image));
+              $('#product-image .image').html('<img src="' + data.result.Image.path_resized + '"/>');
             }
           }
 

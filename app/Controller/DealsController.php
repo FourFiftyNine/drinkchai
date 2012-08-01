@@ -41,19 +41,7 @@ class DealsController extends AppController {
         $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
         $logo = false;
 
-        foreach($return['Image'] as $key => $image) {
-            if ($image['deleted'] || $image['is_logo']) { 
-              if ($image['is_logo'] && !$image['deleted']) {
-                $logo = $image;
-              }
-              continue; 
-            }
-            $return['Image'][$key]['offset'] = 0;
-            if($image['resized_height'] < 250) {
-                $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
-            }
-        }
-        $return['Image']['logo'] = $logo;
+        $this->setImages($return['Image']);
         // $offest = (250 - $return['Image']['height']) / 2;
         // $return['Image']
         // debug($this->getTimeRemainingLabel($timeArray));
@@ -225,26 +213,29 @@ class DealsController extends AppController {
             // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->findById($id);
             // debug($this->request->data);
-            foreach ($this->request->data['Image'] as $image) {
-                if ($image['is_logo']) {
-                    $this->set('logo', $image);
-                }
-            }
+            $this->setImages($this->request->data['Image']);
 
         } else {
             // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->read();
             // debug($this->request->data); exit;
-            foreach ($this->request->data['Image'] as $image) {
-                if ($image['is_logo']) {
-                    $this->set('logo', $image);
-                }
-            }
+            $this->setImages($this->request->data['Image']);
+
         }
         // $businesses = $this->Deal->Business->find('list');
         // $this->set(compact('businesses'));
     }
 
+    private function setImages($imageData) {
+        foreach ($imageData as $image) {
+            if ($image['type'] == 'product') {
+                $this->set('productImage', $image);
+            }
+            if ($image['type'] == 'logo') {
+                $this->set('logo', $image);
+            }
+        }
+    }
 /**
  * delete method
  *

@@ -52,25 +52,41 @@ class Image extends Model {
   // }
 
 
-  public function saveUploadedImage($imageData, $dealId, $businessId, $Uploader, $isLogo) {
+  public function saveUploadedImage($imageData, $dealId, $businessId, $Uploader, $type) {
     // var $data = 
     // $data['Image']['deal_id'] = $dealId;
     $imageModelData = array();
     $imagePath = $imageData['path'];
     $imageExt = $Uploader::ext($imagePath);
-
+    CakeLog::write(2, $imageExt);
+    if ($imageExt != 'gif' && $imageExt != 'jpg' && $imageExt != 'png' && $imageExt != 'jpeg') {
+      return false;
+    }
     // return array('error' => true, 'ext' => $imageExt);
     // if ($imageData)
 
     $dimensions = $Uploader->dimensions($imagePath);
 
-    if($dimensions['width'] > $dimensions['height']) {
-        $resized_path = $Uploader->crop(array('width' => 330, 'height' => 250, 'quality' => 100));
-        $thumb_path = $Uploader->resize(array('width' => 100, 'quality' => 100));
+    if ($type == 'product') {
+      if ($dimensions['width'] > $dimensions['height']) {
+          $resized_path = $Uploader->crop(array('width' => 330, 'height' => 250, 'quality' => 100));
+          $thumb_path = $Uploader->resize(array('width' => 100, 'quality' => 100));
+      } else {
+          $resized_path = $Uploader->crop(array('height' => 250, 'width' => 330, 'quality' => 100));
+          $thumb_path = $Uploader->resize(array('height' => 100, 'quality' => 100));
+      }
     } else {
-        $resized_path = $Uploader->crop(array('height' => 250, 'width' => 330, 'quality' => 100));
-        $thumb_path = $Uploader->resize(array('height' => 100, 'quality' => 100));
+      CakeLog::write(2, $dimensions['width']);
+      CakeLog::write(2, $dimensions['height']);
+      if ($dimensions['width'] > $dimensions['height']) {
+          $resized_path = $Uploader->resize(array('width' => 330, 'quality' => 100));
+          $thumb_path = $Uploader->resize(array('width' => 100, 'quality' => 100));
+      } else {
+          $resized_path = $Uploader->resize(array('height' => 250, 'quality' => 100));
+          $thumb_path = $Uploader->resize(array('height' => 100, 'quality' => 100));
+      }
     }
+
     $resized_dimensions = $Uploader->dimensions($resized_path);
 
     $imageModelData['Image']['filename']       = $imageData['name'];
@@ -87,7 +103,9 @@ class Image extends Model {
     $imageModelData['Image']['deal_id'] = $dealId;
     $imageModelData['Image']['business_id'] = $businessId;
     // DELETE OLD LOGOS
-    $imageModelData['Image']['is_logo'] = $isLogo;
+    $imageModelData['Image']['type'] = $type;
+
+    
     
     return parent::save($imageModelData);
 

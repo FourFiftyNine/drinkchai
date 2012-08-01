@@ -355,8 +355,9 @@ textarea.form-error
   border-radius: 4px
   top: 0
   margin-top: 7px
-  height: 60px
-  line-height: 30px
+  margin-bottom: 7px
+  font-size: 15px
+  // line-height: 30px
   text-align: center
   .filename {
     color: $darkBrown
@@ -933,67 +934,16 @@ body#default.deals.view
           position: absolute
           top: auto
           bottom: 59px
-      .pictures
-        margin-top: 20px
-        .picture-container
-          width: 100px
-          height: 100px
-        .company-logo-container
-          img
-            max-width: 420px
-            max-height: 100px
-        .column
-          // margin-top: 10px
-          // padding-top: 10px
-          border: 1px solid $lightBrown
-          border-radius: 4px
-          padding: 5px
-          position: relative
+      .image-container
+        width: 47%
+        .image
           text-align: center
-          float: left
-          width: 100px
-          margin-right: 10px
-          margin-bottom: 10px
-          height: 140px;
-          // background: lighten($lightBrown, 5)
-          .featured-text
-            display: none
-          &.featured
-            border: 1px solid darken($green, 2)
-            background: $green
-            .feature.btn
-              display: none
-            .featured-text
-              color: darken($green, 50)
-              display: block
-              padding: 0
-              width: 100%
-              height: 30px
-              line-height: 30px
-              position: relative
-              top: 5px
-              margin-bottom: 5px
-          &:first-child
-            margin-left: 0
-          .btn
-            position: relative
-            top: 5px
-            margin-bottom: 5px
-            &.delete-image
-              position: absolute
-              right: 5px
-              padding: 0
-              width: 25px
-            &.feature
-              background: white
-              padding: 0
-              width: 100%
-              font-size: 10px
-              height: 30px
-              line-height: 30px
+          margin-top: 10px
+          max-height: 250px
+          max-width: 330px
+          img
+            width: 100%
 
-            // top: -20px
-            // margin-left: 20px
 
 
 /*~~~~ Deal Page ~~~~*/

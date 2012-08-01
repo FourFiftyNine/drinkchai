@@ -3,33 +3,53 @@
   <section id="edit-deal">
     <h2 class="gradient brown"><?php echo $this->params['action'] == 'create' ? 'Create' : 'Edit'; ?> Your Deal</h2>
     <div class="clearfix">
+      <div class="file-upload-error"></div>
     <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
+      <?php if( $this->params['action'] == 'edit' ): ?>
+        <div id="product-image" class="fieldset image-container left">
+          <?php echo $this->Form->input('Image.file', array(
+              'type'     => 'file',
+              'label'    => 'Product Image',
+              'id'       => 'fileupload',
+              'data-url' => '/images/uploader'
+              ));
+          ?>
+          <?php if(isset($productImage)): ?>
+            <div class="product-image-container image">
+              <img src="<?php echo $productImage['path_resized']?>"  alt="">
+            </div>
+          <?php endif; ?>
+
+        </div>
+      
+      <div id="logo-image" class="image-container fieldset right">
+      <?php
+        echo $this->Form->input('Image.logo', array(
+            'type'     => 'file',
+            'label'    => 'Company Logo',
+            'id'       => 'logoupload',
+            'data-url' => '/images/uploader'
+            ));
+      ?>
+
+        <?php if(isset($logo)): ?>
+          <div class="company-logo-container image">
+            <img src="<?php echo $logo['path_resized']?>"  alt="">
+          </div>
+        <?php endif; ?>
+
+      </div>
+      <?php endif; ?>
+      <div class="clearfix"></div>
       <div class="left">
         <?php 
           echo $this->Form->input('id');
+          echo $this->Form->input('Business.id');
           echo $this->Form->input('Business.name', array('label' => 'Your Company\'s Name'));
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
-
           echo $this->Form->input('product_name');
           echo $this->Form->input('product_description');
-          echo $this->Form->input('Image.file', array('type' => 'file', 'label' => 'Upload tea / product Images', 'multiple' => 'multiple'));
-         ?>
-        <label class="title" for="">Currently Uploaded Pictures</label>
-        <div class="pictures fieldset clearfix">
-          <?php if( !empty($this->data['Image']) ): ?>
-            <?php foreach($this->data['Image'] as $image): ?>
-              <?php if ($image['deleted']) { continue; } ?>
-                <div class="column">
-                  <div class="picture-container">
-                    <img src="<?php echo $image['path_thumb']?>" alt="">
-                  </div>
-                  <?php echo $this->Html->link('Delete', array('controller' => 'images', 'action' => 'delete', $image['id']), array('class' => 'delete-image btn white delete')); ?>
-                </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <p>No pictures uploaded.</p>
-          <?php endif; ?>
-        </div>
+          ?>
       </div>
       <div class="right">
         <?php
@@ -59,7 +79,12 @@
         <?php
           echo $this->Form->input('minimum', array('label' => 'Minimum you want to sell before deal unlocks', 'type' => 'text'));
           echo $this->Form->input('limit', array('label' => 'Maximum you want to sell', 'type' => 'text'));
-
+          /*
+          echo $this->Form->input('Business.url_website', array('label' => 'Website Url'));
+          echo $this->Form->input('Business.url_facebook', array('label' => 'Facebook Url'));
+          echo $this->Form->input('Business.url_twitter', array('label' => 'Twitter Url'));
+          echo $this->Form->input('Business.url_yelp', array('label' => 'Yelp Url'));
+          */
           //echo $this->Form->input('slug');
         ?>
       </div>

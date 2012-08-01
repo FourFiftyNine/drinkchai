@@ -2,7 +2,7 @@
     <div id="main-information" class="canvas">
         <div class="clearfix">
             <div class="left title-tagline">
-                <h1 class="company-logo"><img src="<?php echo $data['Image']['logo']['path_resized']; ?>" /></h1>
+                <h1 class="company-logo"><img src="<?php echo $logo['path_resized']; ?>" /></h1>
                 <?php /* ?>
                 <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
                 */ ?>
@@ -28,10 +28,8 @@
         </div>
         <div class="deal-information">
             <div class="slideshow">
-                <?php foreach($data['Image'] as $image): ?>
-                  <?php if ($image['deleted'] || $image['is_logo']) { continue; } ?>
-                  <img class="picture" src="<?php echo $image['path_resized'] ?>" style="position: relative; top: <?php echo $image['offset'] ?>px;" alt="">
-                <?php endforeach; ?>
+               
+                  <img class="picture" src="<?php echo $productImage['path_resized'] ?>"  alt="">
                 
             </div>
             <div class="details">
@@ -40,7 +38,11 @@
             <div class="buy-now-container">
                 <div class="gradient green price-buy clearfix">
                     <div class="price"><span class="dollar">$</span><?php echo $data['Deal']['price']; ?></div>
+                    <?php if($data['Deal']['time_left']): ?>
                     <button class="btn white buy-now">Buy Now</button>
+                    <?php else: ?>
+                    <div class="ended">Ended</div>
+                    <?php endif; ?>
                 </div>
                 <div class="time-lock-status canvas clearfix">
                     <div class="time left">

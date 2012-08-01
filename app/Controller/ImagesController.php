@@ -71,39 +71,28 @@ class ImagesController extends AppController {
       $this->Uploader = new Uploader(array(
         'overwrite' => false, 
         'extension'  => array(
-          'value' => array('gif', 'jpg', 'png', 'jpeg'),
-          'error' => 'Filetype incorrect' // not working
+          'value' => array('gif', 'jpg', 'png', 'jpeg')
           )
         ));
+
       $return = array();
       $uploadInput = ($this->request->data['Image']['file']) ? 'Image.file' : 'Image.logo';
-      $isLogo = $this->request->data['Image']['logo'] ? true : false;
+      $imageType = $this->request->data['Image']['logo'] ? 'logo' : 'product';
 
-      if ($uploadedImateData = $this->Uploader->upload($uploadInput)) {
+      if ($uploadedImageData = $this->Uploader->upload($uploadInput)) {
+        $this->Image->deleteAll(array('Image.business_id' => $businessId, 'Image.type' => $imageType));
 
-        if ($isLogo) {
-          $this->Image->deleteAll(array('Image.business_id' => $businessId));
-        }
-
-        if ($return = $this->Image->saveUploadedImage($uploadedImateData, $dealId, $businessId, $this->Uploader, $isLogo)) {
-
+        if ($return = $this->Image->saveUploadedImage($uploadedImageData, $dealId, $businessId, $this->Uploader, $imageType)) {
+          $this->Image->deleteAll(array('Image.business_id' => $businessId, 'Image.type' => $imageType, 'Image.id !=' => $return['Image']['id']));
           // TODO CLEANUP?
           return json_encode($return);
-          if( !isset($return['error'])) {
-            return json;
-          }
-
-          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['file']);
-          $mergedArray = array_merge($return['Image'], $this->request->data['Image']['logo']);
-          $cleanedArray = array_unique($mergedArray);
-
-
-          return json_encode($cleanedArray);
+        } else {
+          return json_encode(array(
+            'error' => 'There was an error processing: <span class="filename">' . $uploadedImageData['name'] . '</span> Please make sure it is a jpeg, jpg, or png file.'
+            ));
         }
       }
-      return json_encode(array(
-        'error' => 'There was an error processing: <span class="filename">' . $this->request->data['Image']['file']['name'] . '</span><br>Please make sure it is a jpeg, jpg, or png file.'
-        ));
+
     }
   }
 
