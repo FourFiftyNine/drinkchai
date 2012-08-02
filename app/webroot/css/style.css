@@ -1091,7 +1091,7 @@ textarea.form-error {
 }
 /*~~ Default Layout - Wood H1 Tag ~~*/
 #default .company-logo {
-  width: 416px;
+  max-width: 330px;
   height: 121px;
   color: #000;
   color: rgba(0,0,0,0.8);
@@ -1430,12 +1430,10 @@ body#default.deals.view {
 }
 #deal #main-information .product-name {
   font-family: "News Cycle";
+  margin: 0 0 10px;
   color: #3c2613;
-  clear: both;
-  font-size: 46px;
-  float: left;
+  font-size: 24px;
   text-shadow: 0px 1px 1px rgba(0,0,0,0.37);
-  margin: -15px 0 5px;
 }
 #deal #main-information .discount {
   position: relative;
@@ -1534,12 +1532,13 @@ body#default.deals.view {
   top: 0;
 }
 #deal #main-information .deal-information .details {
-  padding: 30px 20px;
+  padding: 10px 20px 30px 30px;
   height: 190px;
   width: 250px;
 }
 #deal #main-information .deal-information .details ul li {
   margin-bottom: 5px;
+  list-style-image: url("/img/bullet_circle.png");
 }
 #deal #main-information .deal-information .buy-now-container {
   float: right;

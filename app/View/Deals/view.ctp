@@ -28,11 +28,12 @@
         </div>
         <div class="deal-information">
             <div class="slideshow">
-               
-                  <img class="picture" src="<?php echo $productImage['path_resized'] ?>"  alt="">
+                <img class="frame" src="/img/deal-image-frame.png" alt="">
+                <img class="picture" src="<?php echo $productImage['path_resized'] ?>"  alt="">
                 
             </div>
             <div class="details">
+                <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
                 <ul>
                     <?php if ($data['Deal']['product_detail_1']): ?>
                         <li class="product-detail"><?php echo $data['Deal']['product_detail_1'] ?></li>
