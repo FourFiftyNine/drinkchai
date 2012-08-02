@@ -33,7 +33,23 @@
                 
             </div>
             <div class="details">
-                <p><?php echo $data['Deal']['details'] ?></p>
+                <ul>
+                    <?php if ($data['Deal']['product_detail_1']): ?>
+                        <li class="product-detail"><?php echo $data['Deal']['product_detail_1'] ?></li>
+                    <?php endif; ?>
+                    <?php if ($data['Deal']['product_detail_2']): ?>
+                        <li class="product-detail"><?php echo $data['Deal']['product_detail_2'] ?></li>
+                    <?php endif; ?>
+                    <?php if ($data['Deal']['product_detail_3']): ?>
+                        <li class="product-detail"><?php echo $data['Deal']['product_detail_3'] ?></li>
+                    <?php endif; ?>
+                    <?php if ($data['Deal']['product_detail_4']): ?>
+                        <li class="product-detail"><?php echo $data['Deal']['product_detail_4'] ?></li>
+                    <?php endif; ?>
+                    <?php if ($data['Deal']['product_detail_5']): ?>
+                        <li class="product-detail"><?php echo $data['Deal']['product_detail_5'] ?></li>
+                    <?php endif; ?>
+                </ul>
             </div>
             <div class="buy-now-container">
                 <div class="gradient green price-buy clearfix">
@@ -41,7 +57,7 @@
                     <?php if($data['Deal']['time_left']): ?>
                     <button class="btn white buy-now">Buy Now</button>
                     <?php else: ?>
-                    <div class="ended">Ended</div>
+                    <div class="ended">Deal Has Ended</div>
                     <?php endif; ?>
                 </div>
                 <div class="time-lock-status canvas clearfix">
@@ -65,15 +81,24 @@
                         <?php endif; ?>
                     </div>
                     <div class="right bought-container">
+                        <?php if ($data['Deal']['num_purchased']): ?>
                         <div class="bought">
                             <span class="number">
-                                55
+                                <?php echo $data['Deal']['num_purchased']; ?>
                             </span>
                             bought
-                        </div>  
-                        <div class="locked">
-                            <div class="to-unlock">3 more needed to unlock</div>
                         </div>
+                        <?php else: ?>
+                        <br>
+                        <?php endif; ?>
+                        <?php $leftToUnlock = $data['Deal']['minimum'] - $data['Deal']['num_purchased']; ?>
+                        <?php if ($leftToUnlock <= 0 ): ?>
+
+                        <?php else: ?>
+                        <div class="locked">
+                            <div class="to-unlock"><?php echo $data['Deal']['minimum'] - $data['Deal']['num_purchased'] ?> more needed to unlock</div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -99,17 +124,16 @@
             <section class="canvas bottom">
                 <h3 class="gradient green"><span>How It Works</span></h3>
                 <ul class="how-it-works">
-                    <li><span class="number gradient green">1</span>Purchase.</li>
-                    <li><span class="number gradient green">2</span>Seller ships to your door.</li>
-                    <li><span class="number gradient green">3</span>Share with a friend.</li>
+                    <li><span class="number gradient brown">1</span>Purchase</li>
+                    <li><span class="number gradient brown">2</span>Seller ships to your door</li>
+                    <li><span class="number gradient brown">3</span>Share with a friend</li>
                 </ul>
             </section>
             <section class="canvas bottom">
-                <h3 class="gradient green"><span>General Offer Rules</span></h3>
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
+                <h3 class="gradient green"><span>The Fine Print</span></h3>
+                <ul class="rules">
+                    <li>Maximum 1 offer per customer</li>
+                    <li>Offer is immediately redeemed once deal is unlocked</li>
                 </ul>
             </section>
             <?php /*

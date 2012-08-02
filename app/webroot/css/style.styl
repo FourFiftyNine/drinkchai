@@ -155,7 +155,7 @@ transparentPng()
       display: block
       line-height: 56px
       color: #ffffff
-      padding: 0 0 10px 65px
+      padding: 0 10px 10px 65px
 
 /*~~ General - Flash Messages ~~*/
 #flashMessage
@@ -926,6 +926,14 @@ body#default.deals.view
           margin-top: 0
       input[type="submit"]
         margin-top: 60px
+      #product-details-container
+        clear:both
+        input::-webkit-input-placeholder {
+            text-shadow: none
+        }
+        input:-moz-placeholder {
+            text-shadow: none
+        }
       .delete.deal
         position: absolute
         right: 10px
@@ -1029,6 +1037,7 @@ body#default.deals.view
         float: left
         height: 250px
       .slideshow
+        width: 330px
         // background: none
         background: #E0D0BB
         // background: #e4eddf // green
@@ -1048,8 +1057,9 @@ body#default.deals.view
       .details
         padding: 30px 20px
         height: 190px
-        max-width: 200px
-        min-width: 100px
+        width: 250px
+        ul li
+          margin-bottom: 5px
       .buy-now-container
         float: right
         margin: 25px 20px 0 0
@@ -1069,6 +1079,9 @@ body#default.deals.view
             top: 10px
             display: block
             float: right
+        .ended
+          font-size: 24px
+          text-align: center
         .time-lock-status
           width: 250px
           margin: -10px auto 0
@@ -1132,6 +1145,8 @@ body#default.deals.view
       .how-it-works
         padding:0
         margin: 20px 0 0
+        color: #3c2613
+        text-shadow: 1px 1px 0 white
         li
           list-style: none
           margin-top: 10px
@@ -1143,6 +1158,15 @@ body#default.deals.view
             text-align: center
             border-radius: @height
             margin-right: 10px
+      .rules
+        margin-top: 20px
+        margin-bottom: 0
+        li
+          font-size: 13px
+          color: #3c2613
+          line-height: 13px
+          margin-bottom: 10px
+          text-shadow: 1px 1px 0 white
       ul#social
         margin: 20px 0
         li

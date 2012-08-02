@@ -391,7 +391,7 @@ a:active,
   display: block;
   line-height: 56px;
   color: #fff;
-  padding: 0 0 10px 65px;
+  padding: 0 10px 10px 65px;
 }
 /*~~ General - Flash Messages ~~*/
 #flashMessage {
@@ -1387,6 +1387,15 @@ body#default.deals.view {
 #default #my-account #edit-deal input[type="submit"] {
   margin-top: 60px;
 }
+#default #my-account #edit-deal #product-details-container {
+  clear: both;
+}
+#default #my-account #edit-deal #product-details-container input::-webkit-input-placeholder {
+  text-shadow: none;
+}
+#default #my-account #edit-deal #product-details-container input:-moz-placeholder {
+  text-shadow: none;
+}
 #default #my-account #edit-deal .delete.deal {
   position: absolute;
   right: 10px;
@@ -1508,6 +1517,7 @@ body#default.deals.view {
   height: 250px;
 }
 #deal #main-information .deal-information .slideshow {
+  width: 330px;
   background: #e0d0bb;
   position: relative;
   left: 12px;
@@ -1526,8 +1536,10 @@ body#default.deals.view {
 #deal #main-information .deal-information .details {
   padding: 30px 20px;
   height: 190px;
-  max-width: 200px;
-  min-width: 100px;
+  width: 250px;
+}
+#deal #main-information .deal-information .details ul li {
+  margin-bottom: 5px;
 }
 #deal #main-information .deal-information .buy-now-container {
   float: right;
@@ -1552,6 +1564,10 @@ body#default.deals.view {
   top: 10px;
   display: block;
   float: right;
+}
+#deal #main-information .deal-information .buy-now-container .ended {
+  font-size: 24px;
+  text-align: center;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
   width: 250px;
@@ -1636,6 +1652,8 @@ body#default.deals.view {
 #deal #additional-information aside#sidebar .how-it-works {
   padding: 0;
   margin: 20px 0 0;
+  color: #3c2613;
+  text-shadow: 1px 1px 0 #fff;
 }
 #deal #additional-information aside#sidebar .how-it-works li {
   list-style: none;
@@ -1650,6 +1668,17 @@ body#default.deals.view {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   margin-right: 10px;
+}
+#deal #additional-information aside#sidebar .rules {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+#deal #additional-information aside#sidebar .rules li {
+  font-size: 13px;
+  color: #3c2613;
+  line-height: 13px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 0 #fff;
 }
 #deal #additional-information aside#sidebar ul#social {
   margin: 20px 0;

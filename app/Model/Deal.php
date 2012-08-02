@@ -98,6 +98,15 @@ class Deal extends Model {
         ),
         'end' => array(
             'rule' => 'notEmpty'
+        ),
+        'product_detail_1' => array(
+            'rule' => 'notEmpty'
+        ),
+        'product_detail_2' => array(
+            'rule' => 'notEmpty'
+        ),
+        'product_detail_3' => array(
+            'rule' => 'notEmpty'
         )
     );
 

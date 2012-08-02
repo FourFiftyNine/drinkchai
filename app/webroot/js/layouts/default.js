@@ -46,7 +46,6 @@ var dLayout = DrinkChai.defaultLayout = {
           } else {
             $('.percent.loaded-product').removeClass('hidden').find('.number').html(progress);
           }
-          console.log(progress);
         },
         done: function (e, data) {
           $('.percent').addClass('hidden');

@@ -18,7 +18,6 @@
   'libs/jquery.ui.widget.js',
   'libs/jquery.iframe-transport.js',
   'libs/jquery.fileupload.js',
-  'libs/tmpl.min.js',
   'libs/jquery.countdown.pack.js'
   // '/lib/jquery-file-upload/js/jquery.fileupload-ui.js'
   )); ?>

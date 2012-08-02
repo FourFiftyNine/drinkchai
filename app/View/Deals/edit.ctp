@@ -89,6 +89,16 @@
           //echo $this->Form->input('slug');
         ?>
       </div>
+      <div id="product-details-container">
+        <label class="title">Product Details</label>
+        <?php 
+          echo $this->Form->input('product_detail_1', array('label' => 'Product Detail 1', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('product_detail_2', array('label' => 'Product Detail 2', 'placeholder' => 'e.g. Rooibos, crushed green cardamom, cardamom seeds and vanilla flavor'));
+          echo $this->Form->input('product_detail_3', array('label' => 'Product Detail 3', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('product_detail_4', array('label' => 'Product Detail 4', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('product_detail_5', array('label' => 'Product Detail 5', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+         ?>
+      </div>
     <?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn white'));?>
     <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete deal'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
   </div>
