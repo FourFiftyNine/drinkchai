@@ -79,34 +79,15 @@ class DealsController extends AppController {
  */
     public function create() {
 
-        $userId = $this->Auth->user('id');
+        $businessData = $this->setBusinessData();
 
-        $this->Deal->Business->recursive = -1;
-        $businessData = $this->Deal->Business->findByUserId($userId);
-
-        $this->request->data['Deal']['user_id'] = $userId;
-        $this->request->data['Business']['id'] = $businessData['Business']['id'];
-        $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
         if ($this->request->is('post')) {
            
-            // debug($this->request->data); exit;
             $this->Deal->create();
-
-
-
-            // $this->request
-            // $this->request
-            // $this->Deal->Business->id = $this->_user['Business']['id'];
-
-
-            // $this->request->data['Deal']['business_id'] = $this->_user['Business']['id'];
             unset($this->request->data['Image']);
             if ($this->Deal->saveAll($this->request->data)) {
                 $this->Session->setFlash(__('The deal has been saved'));
-                // $this->_refreshAuth();
                 $this->redirect(array('action' => 'index'));
-
-                // debug($this->Deal->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])))); exit;
             } else {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
@@ -128,52 +109,38 @@ class DealsController extends AppController {
             $this->redirect('/' . $this->Session->read('Business.slug'));
         }
         $this->Deal->id = $id;
-        // $this->Deal->Business->id = 
-        // debug($this->Auth->user());
+
         if (!$this->Deal->exists()) {
             throw new NotFoundException(__('Invalid deal'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            // $this->request->data['Business']['id'] = $this->_user['Business']['id'];
-            $userId = $this->Auth->user('id');
-            // debug($this->request->data); exit;
-
-            $this->Deal->Business->recursive = -1;
-            $businessData = $this->Deal->Business->findByUserId($userId);
-            // $this->Deal->recursive = -1;
-            // $businessData = $this->Deal->findById($id);
-            // $dealModelData = $businessData
-            // debug($businessData); exit;
-            $this->request->data['Deal']['user_id'] = $userId;
-            $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
-            $this->request->data['Business']['id'] = $businessData['Business']['id'];
-            // debug($this->request->data); exit;
-            // $this->Deal->Image->create();
-            // debug($this->request->data); exit;
+            $this->setBusinessData();
             unset($this->request->data['Image']);
             if ($ret = $this->Deal->saveAll($this->request->data)) {
-                // $ret = $this->User->Business->find('first', array('conditions' => array('User.id' => $this->_user['User']['id'])));
-                // $this->Session->write('Auth.User', $ret);
-
                 $this->Session->setFlash(__('Your deal has been saved'));
             } else {
                 $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
             }
-            
-            // debug($this->Deal->read()); exit;
-            $this->request->data = $this->Deal->findById($id);
-            // debug($this->request->data);
-            $this->setImages($this->request->data['Image']);
+            // TODO Use $ret?
+            $this->request->data = $this->Deal->read();
 
         } else {
-            // debug($this->Deal->read()); exit;
             $this->request->data = $this->Deal->read();
-            // debug($this->request->data); exit;
-            $this->setImages($this->request->data['Image']);
-
         }
-        // $businesses = $this->Deal->Business->find('list');
-        // $this->set(compact('businesses'));
+        $this->setImages($this->request->data['Image']);
+
+    }
+
+    private function setBusinessData() {
+
+        $userId = $this->Auth->user('id');
+        $this->Deal->Business->recursive = -1;
+        $businessData = $this->Deal->Business->findByUserId($userId);
+        $this->request->data['Deal']['user_id'] = $userId;
+        $this->request->data['Business']['id'] = $businessData['Business']['id'];
+        $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
+
+        return $businessData;
     }
 
     private function setImages($imageData) {

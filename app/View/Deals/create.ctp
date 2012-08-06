@@ -89,7 +89,9 @@
         ?>
       </div>
     <?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn white'));?>
-    <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete deal'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
+    <?php if( $this->params['action'] == 'edit' ): ?>
+      <?php echo $this->Form->postLink(__('Delete Deal'), array('action' => 'delete', $this->Form->value('Deal.id')), array('class'=>'btn white delete deal'), __('Are you sure you want to delete "%s?"', $this->Form->value('Deal.product_name'))); ?>
+    <?php endif; ?>
   </div>
   </section>
 </article>

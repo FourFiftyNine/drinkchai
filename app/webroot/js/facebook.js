@@ -42,7 +42,6 @@
         FB.logout(function (response) {
           window.location = '/users/logout';
         });
-
       },
       disconnect: function () {
         FB.api({
@@ -53,8 +52,8 @@
       }
     };
     $ (document).ready(function ($) {
-      $('.sign-in-with-facebook').on('click', DrinkChai.Facebook.login);
       $('.logout').bind('click', DrinkChai.Facebook.logout);
+      $('.sign-in-with-facebook').on('click', DrinkChai.Facebook.login);
       $('.disconnect').bind('click', DrinkChai.Facebook.disconnect);
     });
   };

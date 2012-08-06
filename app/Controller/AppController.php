@@ -46,7 +46,7 @@ class AppController extends Controller {
             ),
             'authError' => 'Please login to view that page.',
         ),
-        'Session', 'RequestHandler', /*'Cookie',*/ 'DCAuth', 'DebugKit.Toolbar');
+        'Session', 'RequestHandler', 'Cookie', 'DCAuth', 'DebugKit.Toolbar');
 
     public $helpers = array('Session', 'Form', 'Html' => array('className' => 'MyHtml'), 'Js'=>array("Jquery"));
     // public $uses = array('User');
@@ -55,9 +55,7 @@ class AppController extends Controller {
     	if($this->name == 'CakeError') {
     		$this->layout = 'error';
     	}
-
         $this->setUserData();
-
     }
 
     protected function setUserData() {

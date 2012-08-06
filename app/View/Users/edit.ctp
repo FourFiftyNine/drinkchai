@@ -14,6 +14,24 @@
                     echo $this->Form->input('firstname');
                     echo $this->Form->input('lastname');
                     echo $this->Form->input('email');
+                    // echo $this->Form->input('old_password', array(
+                    //   'label'       => 'Old Password',
+                    //   'maxlength'   => 256,
+                    //   'value'       => '',
+                    //   'type'        => 'password'
+                    // ));
+                    // echo $this->Form->input('change_password', array(
+                    //   'label'       => 'New Password',
+                    //   'maxlength'   => 256,
+                    //   'value'       => '',
+                    //   'type'        => 'password'
+                    // ));
+                    // echo $this->Form->input('change_password_confirm', array(
+                    //   'label'       => 'Confirm New Password',
+                    //   'maxlength'   => 256,
+                    //   'value'       => '',
+                    //   'type'        => 'password'
+                    // ));
                     // echo $this->Form->input('password');
                 ?>
         </section>
@@ -36,6 +54,7 @@
         <section id="business-address" class="left">
             <h2 class="gradient brown">Edit Address</h2>
             <?php 
+                echo $this->Form->input('Address.0.id');
                 echo $this->Form->input('Address.0.address_one');
                 echo $this->Form->input('Address.0.address_two');
                 echo $this->Form->input('Address.0.state');
@@ -54,6 +73,18 @@
                     echo $this->Form->input('User.firstname');
                     echo $this->Form->input('User.lastname');
                     echo $this->Form->input('User.email');
+                    // echo $this->Form->input('change_password', array(
+                    //   'label'       => 'Password',
+                    //   'maxlength'   => 256,
+                    //   'value'       => '',
+                    //   'type'        => 'password'
+                    // ));
+                    // echo $this->Form->input('change_password_confirm', array(
+                    //   'label'       => 'Confirm Password',
+                    //   'maxlength'   => 256,
+                    //   'value'       => '',
+                    //   'type'        => 'password'
+                    // ));
                     // echo $this->Form->input('password');
                 ?>
         </section>

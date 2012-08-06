@@ -62,4 +62,12 @@ class DCAuthComponent extends Component {
         }
         return false;
     }
+
+    public function isAdmin() {
+        if ($this->Auth->user('user_type') == 'admin') {
+            
+            return true;
+        }debug($this->Auth->user('user_type'));
+        return false;
+    }
 }

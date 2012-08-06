@@ -51,9 +51,9 @@ class UsersController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['User']['id'] = $this->User->id;
-            foreach ($this->request->data['Address'] as $key => $address) {
-                $this->request->data['Address'][$key]['user_id'] = $this->Auth->user('id');
-            }
+            // foreach ($this->request->data['Address'] as $key => $address) {
+            //     $this->request->data['Address'][$key]['user_id'] = $this->Auth->user('id');
+            // }
 
             if ($this->User->saveAll($this->request->data)) {
 
@@ -64,15 +64,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         } else {
-            // debug($this->User->read(null, $this->User->id));
-            // $this->User->recursive = -1;
             $this->request->data = $this->User->read(null, $this->User->id);
-            // $this->User->Address->recursive = -1;
-            // $this->request->data = compact($this->User->Address->findAllByUserId($this->User->id));
-            // $this->request->data['Address'] = $this->User->Address->find('threaded', array(
-            //     'conditions' => array('Address.user_id' => $this->User->id)
-            // )); 
-            // debug($this->request->data);
         }
     }
 
@@ -80,7 +72,7 @@ class UsersController extends AppController {
     public function launch() {
         $this->User->Deal->recursive = -1;
         $dealIsLive = $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
-        if($this->Auth->loggedIn()){
+        if($this->Auth->loggedIn() || $this->Cookie->read('email_submitted')){
             if ($this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))) {
                 $this->redirect('/deals/view');
             } else {
@@ -100,13 +92,22 @@ class UsersController extends AppController {
 
         if (!empty($this->data)) {
             if (!$this->User->find('first', array('conditions' => array('User.email' => $this->data['User']['email'])))) {
-                if ($this->User->save($this->data)) {
+                $this->request->data['User']['user_type'] = 'subscriber';
+                if ($this->User->save($this->request->data)) {
+                    $email = new CakeEmail('gmail');
+                    // $email->template('launch_sign_up');
+                    $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
+                        ->to($this->request->data['User']['email'])
+                        ->subject('Welcome to DrinkChai')
+                        ->send("This is a test message\nthis is a test line\nthis is another\n");
+                    $this->Cookie->write('email_submitted', true, false, '1 year');
                     echo json_encode(array('success' => 'Thank You.'));
                 } else {
                     $errors = $this->User->invalidFields();
                     echo json_encode(array('error' => $errors['email']));
                 }
             } else {
+                $this->Cookie->write('email_submitted', true, false, '1 year');
                 echo json_encode(array('success' => 'Thank You!'));
             }
         }
@@ -122,12 +123,12 @@ class UsersController extends AppController {
             $this->request->data['User']['user_type'] = 'customer';
             if ($return = $this->User->saveAll($this->request->data)) {
                 // debug($this->request->data); exit;
-                // $email = new CakeEmail('gmail');
-                // // $email->template('sign_up')
-                // $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
-                //     ->to($this->data['User']['email'])
-                //     ->subject('Welcome to DrinkChai')
-                //     ->send();
+                $email = new CakeEmail('gmail');
+                // $email->template('sign_up')
+                $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
+                    ->to($this->data['User']['email'])
+                    ->subject('Welcome to DrinkChai')
+                    ->send();
                 $this->Auth->login();
                 $this->redirect(array('controller' => 'deals', 'action' => 'view'));
             } else {
@@ -220,7 +221,22 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-    public function view($id = null) {
+    public function admin_index() {
+        if (!$this->DCAuth->isAdmin()) {
+            $this->redirect($this->referer());
+        }
+    }
+
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+    public function admin_view($id = null) {
+        if (!$this->DCAuth->isAdmin()) {
+            $this->redirect($this->referer());
+        }
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
@@ -233,7 +249,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-    public function add() {
+    public function admin_add() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
@@ -253,7 +269,10 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-    public function delete($id = null) {
+    public function admin_delete($id = null) {
+        if (!$this->DCAuth->isAdmin()) {
+            $this->redirect($this->referer());
+        }
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }

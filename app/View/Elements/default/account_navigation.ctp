@@ -23,6 +23,8 @@
             <li><?php echo $this->Html->activeLink('My Deals', '/account/deals'); ?></li>
             <li><?php echo $this->Html->activeLink('My Orders', '/account/create'); ?></li>
             <li><?php echo $this->Html->activeLink('Edit Business', '/account/edit'); ?></li>
+        <?php elseif ('admin' == $user['User']['user_type']): ?>
+            
         <?php else: ?>
             <li><?php echo $this->Html->activeLink('Account', '/account', array('class' =>  (($this->params['action'] == 'index') ? 'active' : ''))); ?></li>
             <?php /*

@@ -3,7 +3,7 @@
         <div class="clearfix">
             <div class="left title-tagline">
                 <h1 class="company-logo">
-                    <?php if(isset($logo['path_resize'])): ?>
+                    <?php if(isset($logo['path_resized'])): ?>
                     <img src="<?php echo $logo['path_resized']; ?>" />
                     <?php else: ?>
                     <a href="/account/deals/edit/<?php echo $data['Deal']['id']; ?>" class="btn white">Add Your Company's Logo</a>

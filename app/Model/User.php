@@ -114,13 +114,13 @@ class User extends Model {
             'rule'              => 'notEmpty'// TODO MESSAGE
         ),
         'password'          => array(
-            'notEmptyRule'      => array(
-                'rule'              => 'notEmpty',
-                'message'           => 'This field cannot be left blank'
+            'notEmptyRule'   => array(
+                'rule'           => 'notEmpty',
+                'message'        => 'This field cannot be left blank'
             ),
-            'lengthRule'        => array(
-                  'rule' => array('minLength', 5),          
-                  'message' => 'Must be 5 digits long.'
+            'lengthRule'     => array(
+                'rule'           => array('minLength', 5),          
+                'message'        => 'Must be 5 characters long.'
             )
         ),
         'password_confirm'  => array(
@@ -131,14 +131,70 @@ class User extends Model {
             'matchingPasswords' => array(
                 'rule'              => array('matchingPasswords'),
                 'message'           => 'Passwords must match'
+            )
+        ),
+        'old_password' => array(
+            'checkCurrentPassword' => array(
+                'rule'           => 'checkCurrentPassword',
+                'allowEmpty'     => true,
+                'message'        => 'Incorrect Old Password',
+                'on'             => 'update'
             ),
         ),
+        'change_password' => array(
+            'matchingNewPasswords' => array(
+                'allowEmpty' => true,
+                'rule'  => 'matchingNewPasswords',
+                'message' => 'New passwords must match'
+            ),
+            'lengthRule'     => array(
+                'rule'           => array('minLength', 5),          
+                'message'        => 'Must be 5 characters long.'
+            )
+        ),
+        'change_password_confirm' => array(
+            'matchingNewPasswords' => array(
+                'allowEmpty' => true,
+                'rule'  => 'matchingNewPasswords',
+                'message' => 'New passwords must match'
+            ),
+            'lengthRule'     => array(
+                'rule'           => array('minLength', 5),          
+                'message'        => 'Must be 5 characters long.'
+            )
+        )
+
     );
+
+    public function checkCurrentPassword() {
+
+        $matchedCurrentPassword = false;
+        $currentPassword = AuthComponent::password($this->data['User']['old_password']);
+        // debug($currentPassword); exit;
+        // debug($this->data);
+        if($this->hasAny(array(
+                'User.id'=> $this->data['User']['id'], 
+                'User.password' => $currentPassword))) {
+            $matchedCurrentPassword = true;
+
+        }
+        return $matchedCurrentPassword;
+    }
+
+    public function matchingNewPasswords() {
+        if($this->data['User']['change_password'] == $this->data['User']['change_password_confirm']){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function beforeSave($options = array()) {
         if(isset($this->data['User']['password'])) {
             $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
-        } else {
+        }
+
+        if($this->data['User']['user_type'] == 'subscriber') {
             $this->data['User']['password'] = AuthComponent::password($this->generatePassword());
         }
         return true;
@@ -155,12 +211,12 @@ class User extends Model {
             return false;
         } else {
             $data = $this->packageFacebookData($facebookUser);
+            $this->data['User']['password'] = AuthComponent::password($this->generatePassword());
             if($this->save($data, false)){
                 $data['hasAccount'] = false;
                 return $data;
             }
         }
-
     }
     
     public function updateFacebookUser($facebookUser){

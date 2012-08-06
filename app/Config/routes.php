@@ -72,6 +72,13 @@
     Router::connect('/account/deals/edit/:id', 
         array('controller' => 'deals', 'action' => 'edit'), array('pass' => array('id')));
 
+    /****** Admin ******/
+    // Router::connect('/admin', 
+    //     array('controller' => 'users', 'action' => 'admin_index'));
+    // Router::connect('/admin/users', 
+    //     array('controller' => 'users', 'action' => 'admin_users'));
+    // Router::connect('/admin/deals', 
+    //     array('controller' => 'deals', 'action' => 'admin_deals'));
     // Router::connect('/account/deals/edit/:id/images/manage', 
     //     array('controller' => 'images', 'action' => 'manage'));
     // Router::connect('/account/deals/delete/:id', 

@@ -834,6 +834,9 @@ textarea.form-error {
   box-shadow: 0 0 5px 0 rgba(255,255,255,0.8);
 }
 #launch .container #home-content span.error-message {
+  height: 25px;
+  line-height: 25px;
+  position: static;
   background: #fff;
   color: #d96f50;
   font-family: Arimo, arial;
@@ -1255,11 +1258,6 @@ body#default.deals.view {
 }
 #default #my-account.dashboard section {
   width: 430px;
-}
-#default #my-account.edit-address .error-message {
-  top: 18px;
-  height: 36px;
-  line-height: 36px;
 }
 #default #my-account.edit-address section {
   margin-left: 20px;
