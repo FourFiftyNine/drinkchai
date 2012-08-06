@@ -912,6 +912,8 @@ body#default.deals.view
           background-color: darken(#e5ded5, 5)
     #edit-deal
       position: relative
+      form
+        margin-top: 10px
       .left,.right
         width: 48%
       input, textarea
@@ -1052,6 +1054,10 @@ body#default.deals.view
         // background: url(/img/deal-image-frame.jpg) no-repeat center center
         // width: 330px
         // height: 250px
+        .add-product-image
+          position: relative
+          top: 100px
+          left: 35px
       .details
         padding: 10px 20px 30px 30px
         height: 190px
@@ -1079,7 +1085,7 @@ body#default.deals.view
             display: block
             float: right
         .ended
-          font-size: 24px
+          font-size: 20px
           text-align: center
         .time-lock-status
           width: 250px
@@ -1278,6 +1284,8 @@ body#default.deals.view
       z-index: 2
     .picture
       z-index: 1
+    .add-product-image
+      z-index: 3
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

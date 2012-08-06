@@ -55,13 +55,22 @@ class AppController extends Controller {
     	if($this->name == 'CakeError') {
     		$this->layout = 'error';
     	}
+
+        $this->setUserData();
+
+    }
+
+    protected function setUserData() {
         $userModel = ClassRegistry::init('User');
 
         // $user['User'] = $this->Auth->user();
         $user = $userModel->findById($this->Auth->user('id'));
         // debug($user);
-        $this->set('user', $user);
-
+        if ($user) {
+            $this->set('user', $user);    
+        } else {
+            $this->Auth->logout();
+        }
     }
 
     public function beforeFilter() {
@@ -144,7 +153,7 @@ class AppController extends Controller {
      * @param string $value
      * @return void 
      */
-    function _refreshAuth($field = '', $value = '') {
+    private function _refreshAuth($field = '', $value = '') {
         if (!empty($field) && !empty($value)) { 
             $this->Session->write($this->Auth->sessionKey .'.'. $field, $value);
         } else {

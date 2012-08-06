@@ -5,7 +5,7 @@
     * Business User Top, Normal User Below
     **/
      ?>
-    <?php if(2 == $user['User']['user_type_id']): ?>
+    <?php if('business' == $user['User']['user_type']): ?>
         <?php echo $this->Form->create('User');?>
         <section id="business-contact-information" class="left">
             <h2 class="gradient brown">Edit Contact Information</h2>
@@ -36,7 +36,6 @@
         <section id="business-address" class="left">
             <h2 class="gradient brown">Edit Address</h2>
             <?php 
-                echo $this->Form->input('Address.0.id');
                 echo $this->Form->input('Address.0.address_one');
                 echo $this->Form->input('Address.0.address_two');
                 echo $this->Form->input('Address.0.state');
@@ -44,10 +43,11 @@
                 echo $this->Form->input('Address.0.city');
             ?>
         </section>
-        <div class="clearfix"></div>
-        <?php echo $this->Form->end(array('label' => 'Save', 'class' => 'btn white'));?>
+
     <?php else: ?>
-        <section id="personal-information">
+        <?php echo $this->Form->create('User');?>
+
+        <section id="personal-information" class="left">
             <h2 class="gradient brown">Edit Contact Information</h2>
             
                 <?php
@@ -57,7 +57,33 @@
                     // echo $this->Form->input('password');
                 ?>
         </section>
+        <section id="business-address" class="left">
+            <h2 class="gradient brown">Edit Shipping Address</h2>
+            <?php 
+                echo $this->Form->input('Address.0.type', array('type'=> 'hidden', 'value' => 'shipping'));
+                echo $this->Form->input('Address.0.id');
+                echo $this->Form->input('Address.0.address_one');
+                echo $this->Form->input('Address.0.address_two');
+                echo $this->Form->input('Address.0.state');
+                echo $this->Form->input('Address.0.zip');
+                echo $this->Form->input('Address.0.city');
+            ?>
+        </section>
+        <section id="business-address" class="left">
+            <h2 class="gradient brown">Edit Billing Address</h2>
+            <?php 
+                echo $this->Form->input('Address.1.type', array('type'=> 'hidden', 'value' => 'billing'));
+                echo $this->Form->input('Address.1.id');
+                echo $this->Form->input('Address.1.address_one');
+                echo $this->Form->input('Address.1.address_two');
+                echo $this->Form->input('Address.1.state');
+                echo $this->Form->input('Address.1.zip');
+                echo $this->Form->input('Address.1.city');
+            ?>
+        </section>
     <?php endif; ?>
+    <div class="clearfix"></div>
+    <?php echo $this->Form->end(array('label' => 'Save', 'class' => 'btn white'));?>
 </article>
 
 

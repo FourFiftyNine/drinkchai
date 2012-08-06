@@ -67,7 +67,23 @@ class Address extends Model {
 	          'rule' => 'numeric',          
 	          'message' => 'Only numbers allowed'
 	        )
-	      )
-		);
-
+	      ),
+		'user_id' => array(
+		    'rule' => 'checkAuth',
+		    'message' => 'Nice try buddy.',
+		    'on' => 'update'
+		)
+	);
+	
+	function checkAuth() {
+	    $authorized = true;
+	    if(!$this->hasAny(array(
+	            'Address.id'=>$this->data['Address']['id'], 
+	            'Address.user_id' => $this->data['Address']['user_id']))) {
+	        $authorized = false;         
+	    }
+	    return $authorized;
+	}
 }
+
+

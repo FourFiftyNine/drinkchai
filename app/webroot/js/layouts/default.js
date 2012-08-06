@@ -164,7 +164,15 @@ var dLayout = DrinkChai.defaultLayout = {
 
         var timeleft = '+' + data.days + 'd +' + data.hours + 'h +' + data.minutes + 'm +' + data.seconds + 's';
         if (data) {
-          $('.time-left').countdown({until: timeleft, compact: true});
+          $('.time-left').countdown({
+            until: timeleft, 
+            compact: true,
+            onExpiry: function() {
+              $('.buy-now').replaceWith('<div class="ended">Deal Has Ended</div>');
+              // $('.time-left .no-time'{}
+            },
+            expiryText: 'Deal Has Ended'
+          });
 
           return data;
         } else {

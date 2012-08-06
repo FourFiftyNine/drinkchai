@@ -1,14 +1,14 @@
 <header class="clearfix">
     <h1 class="wood">
         <span>
-            <?php if (2 == $user['User']['user_type_id']): ?>
+            <?php if ('business' == $user['User']['user_type']): ?>
                 <?php echo __($user['Business']['name']); ?>
             <?php else: ?>
                 <?php echo __('My Account'); ?>
             <?php endif; ?>
         </span>
     </h1>
-    <?php if (2 == $user['User']['user_type_id']): ?>
+    <?php if ('business' == $user['User']['user_type']): ?>
 
         <?php if('edit' == $this->params['action'] && 'deals' == $this->params['controller']): ?>
             <a href="/account/deals/preview/<?php echo $data['Deal']['id']; ?>" target="_blank" class="btn white large create-a-deal">Preview This Deal</a>
@@ -18,7 +18,7 @@
     <?php endif ?>
     <nav class="gradient green clearfix" id="account">
         <ul>
-        <?php if (2 == $user['User']['user_type_id']): ?>
+        <?php if ('business' == $user['User']['user_type']): ?>
             <li><?php echo $this->Html->activeLink('Dashboard', '/account'); ?></li>
             <li><?php echo $this->Html->activeLink('My Deals', '/account/deals'); ?></li>
             <li><?php echo $this->Html->activeLink('My Orders', '/account/create'); ?></li>

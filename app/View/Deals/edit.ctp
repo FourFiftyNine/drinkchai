@@ -2,10 +2,9 @@
   <?php echo $this->element('default/account_navigation', array('data' => $this->data)); ?>
   <section id="edit-deal">
     <h2 class="gradient brown"><?php echo $this->params['action'] == 'create' ? 'Create' : 'Edit'; ?> Your Deal</h2>
-    <div class="clearfix">
+      <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
+      <?php if( $this->params['action'] == 'edit'): ?>
       <div class="file-upload-error"></div>
-    <?php echo $this->Form->create('Deal', array('type' => 'file'));?>
-      <?php if( $this->params['action'] == 'edit' ): ?>
         <div id="product-image" class="fieldset image-container left">
           <?php echo $this->Form->input('Image.file', array(
               'type'     => 'file',
@@ -40,22 +39,22 @@
         </div>
 
       </div>
-      <?php endif; ?>
+    <?php endif; ?>
       <div class="clearfix"></div>
       <div class="left">
         <?php 
-          echo $this->Form->input('id');
           echo $this->Form->input('Business.id');
+          echo $this->Form->input('Deal.id');
           echo $this->Form->input('Business.name', array('label' => 'Your Company\'s Name'));
           echo $this->Form->input('Business.description', array('label' => 'Your Company\'s Description'));
-          echo $this->Form->input('product_name');
-          echo $this->Form->input('product_description');
+          echo $this->Form->input('Deal.product_name');
+          echo $this->Form->input('Deal.product_description');
           ?>
       </div>
       <div class="right">
         <?php
-          echo $this->Form->input('original_price', array('type' => 'text'));
-          echo $this->Form->input('price', array('type' => 'text', 'label' => 'Discounted Price'));
+          echo $this->Form->input('Deal.original_price', array('type' => 'text'));
+          echo $this->Form->input('Deal.price', array('type' => 'text', 'label' => 'Discounted Price'));
           // echo $this->Form->input('discount', array('label' => 'Calculated Discount', 'disabled' => true, 'type' => 'text'));
         ?>
 
@@ -63,8 +62,8 @@
           <label class="title">When would you like your deal to begin?</label>
           <div class="fieldset">
             <?php
-              echo $this->Form->input('start_date');
-              echo $this->Form->input('start_time');
+              echo $this->Form->input('Deal.start_date');
+              echo $this->Form->input('Deal.start_time');
             ?>
           </div>
         </div>
@@ -72,8 +71,8 @@
           <label class="title">When would you like deal to end?</label>
           <div class="fieldset">
             <?php
-              echo $this->Form->input('end_date');
-              echo $this->Form->input('end_time');
+              echo $this->Form->input('Deal.end_date');
+              echo $this->Form->input('Deal.end_time');
             ?>
           </div>
         </div>
@@ -92,11 +91,11 @@
       <div id="product-details-container">
         <label class="title">Product Details</label>
         <?php 
-          echo $this->Form->input('product_detail_1', array('label' => 'Product Detail 1', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
-          echo $this->Form->input('product_detail_2', array('label' => 'Product Detail 2', 'placeholder' => 'e.g. Rooibos, crushed green cardamom, cardamom seeds and vanilla flavor'));
-          echo $this->Form->input('product_detail_3', array('label' => 'Product Detail 3', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
-          echo $this->Form->input('product_detail_4', array('label' => 'Product Detail 4', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
-          echo $this->Form->input('product_detail_5', array('label' => 'Product Detail 5', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('Deal.product_detail_1', array('label' => 'Product Detail 1', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('Deal.product_detail_2', array('label' => 'Product Detail 2', 'placeholder' => 'e.g. Rooibos, crushed green cardamom, cardamom seeds and vanilla flavor'));
+          echo $this->Form->input('Deal.product_detail_3', array('label' => 'Product Detail 3', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('Deal.product_detail_4', array('label' => 'Product Detail 4', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
+          echo $this->Form->input('Deal.product_detail_5', array('label' => 'Product Detail 5', 'placeholder' => 'e.g. 12 Teabags / 24 oz loose leaf tea'));
          ?>
       </div>
     <?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn white'));?>

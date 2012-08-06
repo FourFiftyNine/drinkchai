@@ -37,17 +37,7 @@ class DealsController extends AppController {
             $return = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
-   
-        $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
-        $logo = false;
-
-        $this->setImages($return['Image']);
-        // $offest = (250 - $return['Image']['height']) / 2;
-        // $return['Image']
-        // debug($this->getTimeRemainingLabel($timeArray));
-        $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
-
-        $this->set('data', $return);
+        $this->setupDealData($return);
         $this->render('view');
     }
 /**
@@ -57,67 +47,38 @@ class DealsController extends AppController {
  * @return void
  */
     public function view() {
-        // $return = $this->Deal->findByUserId($this->Auth->user('id'));
-        // // $this->set('Business', $return['Business']);
-        // // debug($this->params['deal']);
-        // $this->set('title_for_layout', 'Find and Buy Tea');
-        // debug($this->request);
         if(empty($this->params['company']) || empty($this->params['deal'])){
             $return = $this->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
             // debug($return); exit;
             if(empty($return)) {
                 $this->redirect('/'); // might cause infinite redirect loop... 
             }
-
-            $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
-
-            // debug($this->getTimeRemainingLabel($timeArray));
-            $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
-            $logo = false;
-
-            
-            $this->setImages($return['Image']);
-            $this->set('data', $return);
-            // debug('/deals' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']); exit;
-            // $this->redirect('/deals/' . $currentDeal['Business']['slug'] . '/' . $currentDeal['Deal']['slug']);
+            $this->setupDealData($return);
+            $this->redirect('/deals/' . $return['Business']['slug'] . '/' . $return['Deal']['slug']);
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
-            $timeArray = $this->dateDiff(time(), $return['Deal']['end_date'] . ' ' . $return['Deal']['end_time']);
-
-            $logo = false;
-
-            foreach($return['Image'] as $key => $image) {
-                if ($image['deleted'] || $image['is_logo']) { 
-                  if ($image['is_logo'] && !$image['deleted']) {
-                    $logo = $image;
-                  }
-                  continue; 
-                }
-                $return['Image'][$key]['offset'] = 0;
-                if($image['resized_height'] < 250) {
-                    $return['Image'][$key]['offset'] = (250 - $image['resized_height']) / 2;
-                }
-            }
-            $return['Image']['logo'] = $logo;
-            // $offest = (250 - $return['Image']['height']) / 2;
-            // $return['Image']
-            // debug($this->getTimeRemainingLabel($timeArray));
-            $return['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
-            $this->set('data', $return);
+            $this->setupDealData($return);
      
         } else {
             throw new NotFoundException('Sorry, could not find that deal?');
         }
     }
 
+    private function setupDealData($data) {
+        $timeArray = $this->dateDiff(time(), $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time']);
 
+        $data['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
+        $this->set('title_for_layout', $data['Deal']['product_name']);
+        $this->setImages($data['Image']);
+
+        $this->set('data', $data);
+    }
 /**
  * create method
  *
  * @return void
  */
     public function create() {
-        // debug($this->_user['Business']['id']);
-        // debug();
+
         $userId = $this->Auth->user('id');
 
         $this->Deal->Business->recursive = -1;

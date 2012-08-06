@@ -2,7 +2,7 @@
 <article id="how-it-works" class="users">
   <header>
     <h2>HOW IT WORKS</h2>
-    <p class="intro">DrinkChai brings you the best handpicked teas at a great price.  We cannot wait to share each one with you.</p>
+    <p class="intro">DrinkChai brings you the best handpicked teas at a great price.</p>
   </header>
   <div class="divider">&nbsp;</div>
   <section class="step one container clearfix">

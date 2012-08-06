@@ -15,14 +15,14 @@
                 <?php // <li>echo $this->Html->link('Create', '/dashboard/deals/create', array('escape' => false));</li> ?>
 
                 <?php //debug($user['User']['User']); ?>
-                <?php if (isset($user['User']) && 2 == $user['User']['user_type_id']): ?>
+                <?php if (isset($user['User']) && 'business' == $user['User']['user_type']): ?>
                     <li><?php echo $this->Html->link('Businesses - How It Works', '/businesses/how-it-works', array('escape' => false)); ?></li>
                 <?php else: ?>
                     <li><?php echo $this->Html->link('How It Works', '/how-it-works', array('escape' => false)); ?></li>
                 <?php endif; ?>
                 <?php if(isset($user['User'])): ?>
                     <li class="name">
-                        <?php if (2 == $user['User']['user_type_id']): ?>
+                        <?php if ('business' == $user['User']['user_type']): ?>
                             <?php echo $this->Html->link($user['Business']['name'] . ' <span class="account-button"></span>', '/account', array('escape' => false, 'class' => 'ajax-link account-name')); ?> 
 
                         <?php else: ?>
@@ -31,7 +31,7 @@
                         <nav class="sub-menu col">
                             <ul>
                                 <li><?php echo $this->Html->link('My Account', '/account', array('class' => 'btn white account')); ?></li>
-                                <?php if ($user['User']['user_type_id'] == 2): ?>
+                                <?php if ('business' == $user['User']['user_type']): ?>
                                     <li><?php echo $this->Html->link('My Deals', '/account/deals', array('class' => 'btn white')); ?></li>
                                 <?php else: ?>
 

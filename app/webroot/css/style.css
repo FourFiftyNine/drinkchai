@@ -1364,6 +1364,9 @@ body#default.deals.view {
 #default #my-account #edit-deal {
   position: relative;
 }
+#default #my-account #edit-deal form {
+  margin-top: 10px;
+}
 #default #my-account #edit-deal .left,
 #default #my-account #edit-deal .right {
   width: 48%;
@@ -1531,6 +1534,11 @@ body#default.deals.view {
   left: 0;
   top: 0;
 }
+#deal #main-information .deal-information .slideshow .add-product-image {
+  position: relative;
+  top: 100px;
+  left: 35px;
+}
 #deal #main-information .deal-information .details {
   padding: 10px 20px 30px 30px;
   height: 190px;
@@ -1565,7 +1573,7 @@ body#default.deals.view {
   float: right;
 }
 #deal #main-information .deal-information .buy-now-container .ended {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
@@ -1803,6 +1811,9 @@ body#default.deals.view {
 }
 .deal-information .slideshow .picture {
   z-index: 1;
+}
+.deal-information .slideshow .add-product-image {
+  z-index: 3;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Stripped Layout (Login / Sign-Up)

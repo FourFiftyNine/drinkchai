@@ -38,7 +38,7 @@ class DCAuthComponent extends Component {
     public function businessLoggedIn() {
         if ($this->Auth->loggedIn()) {
             // $bUser = $this->Session->read('Business');
-            if ($this->Auth->user('user_type_id') == 2) {
+            if ($this->Auth->user('user_type') == 'business') {
                 return true;
             }
         }

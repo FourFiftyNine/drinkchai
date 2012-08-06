@@ -5,7 +5,7 @@
   * Business User Top, Normal User Below
   **/
    ?>
-  <?php if (2 == $user['User']['user_type_id']): ?>
+  <?php if ('business' == $user['User']['user_type']): ?>
     <section id="business-information" class="left">
       <h2 class="gradient brown">Business Information<a class="btn white" href="/account/edit">Edit</a></h2>
       <div class="content">

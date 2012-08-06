@@ -145,7 +145,7 @@ class User extends Model {
     }
 
     public function facebook_sign_in ($facebookUser){
-        $existingUser = $this->find('first', array('conditions' => array('User.email' => $facebookUser['email'], 'User.facebook_id' => $facebookUser['id'])));
+        $existingUser = $this->find('first', array('conditions' => array('User.facebook_id' => $facebookUser['id'])));
         // debug($existingUser); exit;
         $this->id = $existingUser['User']['id'];
         if($existingUser){
@@ -175,6 +175,7 @@ class User extends Model {
         $data['User']['email']            = $facebookUser['email'];
         $data['User']['facebook_id']      = $facebookUser['id'];
         $data['User']['password']         = AuthComponent::password($this->generatePassword());
+        $data['User']['user_type']        = 'customer';
         return $data;
     }
     private function generatePassword ($length = 8){ 

@@ -2,13 +2,19 @@
     <div id="main-information" class="canvas">
         <div class="clearfix">
             <div class="left title-tagline">
-                <h1 class="company-logo"><img src="<?php echo $logo['path_resized']; ?>" /></h1>
+                <h1 class="company-logo">
+                    <?php if(isset($logo['path_resize'])): ?>
+                    <img src="<?php echo $logo['path_resized']; ?>" />
+                    <?php else: ?>
+                    <a href="/account/deals/edit/<?php echo $data['Deal']['id']; ?>" class="btn white">Add Your Company's Logo</a>
+                    <?php endif; ?>
+                </h1>
                 <?php /* ?>
                 <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
                 */ ?>
             </div>
             <?php 
-                $percentage = ($data['Deal']['price'] / $data['Deal']['original_price']);
+                $percentage = 1 - ($data['Deal']['price'] / $data['Deal']['original_price']);
                 $percentage = round($percentage * 100);
              ?>
             <div class="discount">
@@ -29,7 +35,11 @@
         <div class="deal-information">
             <div class="slideshow">
                 <img class="frame" src="/img/deal-image-frame.png" alt="">
+                <?php if (isset($productImage['path_resized'])): ?>
                 <img class="picture" src="<?php echo $productImage['path_resized'] ?>"  alt="">
+                <?php else: ?>
+                <a href="/account/deals/edit/<?php echo $data['Deal']['id']; ?>" class="btn white add-product-image">Add a Product Image</a>
+                <?php endif; ?>
                 
             </div>
             <div class="details">
