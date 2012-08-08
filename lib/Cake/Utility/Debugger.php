@@ -229,7 +229,7 @@ class Debugger {
 			case E_COMPILE_ERROR:
 			case E_USER_ERROR:
 				$error = 'Fatal Error';
-				$level = LOG_ERROR;
+				$level = LOG_ERR;
 			break;
 			case E_WARNING:
 			case E_USER_WARNING:
@@ -290,7 +290,7 @@ class Debugger {
 			'scope'		=> null,
 			'exclude'	=> array('call_user_func_array', 'trigger_error')
 		);
-		$options = Set::merge($defaults, $options);
+		$options = Hash::merge($defaults, $options);
 
 		$backtrace = debug_backtrace();
 		$count = count($backtrace);
@@ -544,8 +544,10 @@ class Debugger {
 			foreach ($var as $key => $val) {
 				$vars[] = $break . self::exportVar($key) .
 					' => ' .
-					self::_export($val, $depth - 1, $indent);
+					self::_export($val, $depth, $indent);
 			}
+		} else {
+			$vars[] = $break . '[maximum depth reached]';
 		}
 		return $out . implode(',', $vars) . $end . ')';
 	}

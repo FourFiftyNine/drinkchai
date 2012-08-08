@@ -47,15 +47,6 @@ class TranslateBehaviorTest extends CakeTestCase {
 	);
 
 /**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		ClassRegistry::flush();
-	}
-
-/**
  * Test that count queries with conditions get the correct joins
  *
  * @return void
@@ -70,7 +61,7 @@ class TranslateBehaviorTest extends CakeTestCase {
 				'I18n__content.locale' => 'eng'
 			)
 		));
-		$this->assertEqual(3, $result);
+		$this->assertEquals(3, $result);
 	}
 
 /**
@@ -541,6 +532,34 @@ class TranslateBehaviorTest extends CakeTestCase {
 	}
 
 /**
+ * Test that saving only some of the translated fields allows the record to be found again.
+ *
+ * @return void
+ */
+	public function testSavePartialFields() {
+		$this->loadFixtures('Translate', 'TranslatedItem');
+
+		$TestModel = new TranslatedItem();
+		$TestModel->locale = 'spa';
+		$data = array(
+			'slug' => 'fourth_translated',
+			'title' => 'Leyenda #4',
+		);
+		$TestModel->create($data);
+		$TestModel->save();
+		$result = $TestModel->read();
+		$expected = array(
+			'TranslatedItem' => array(
+				'id' => $TestModel->id,
+				'translated_article_id' => null,
+				'locale' => 'spa',
+				'content' => '',
+			) + $data
+		);
+		$this->assertEquals($expected, $result);
+	}
+
+/**
  * testSaveUpdate method
  *
  * @return void
@@ -678,8 +697,8 @@ class TranslateBehaviorTest extends CakeTestCase {
 		$translations = array('title' => 'Title', 'content' => 'Content');
 		$TestModel->bindTranslation($translations, false);
 		$result = $TestModel->read(null, 1);
-		$result['Title'] = Set::sort($result['Title'], '{n}.id', 'asc');
-		$result['Content'] = Set::sort($result['Content'], '{n}.id', 'asc');
+		$result['Title'] = Hash::sort($result['Title'], '{n}.id', 'asc');
+		$result['Content'] = Hash::sort($result['Content'], '{n}.id', 'asc');
 		$expected = array(
 			'TranslatedItem' => array(
 				'id' => 1,
@@ -1015,4 +1034,28 @@ class TranslateBehaviorTest extends CakeTestCase {
 		$TestModel = new TranslatedItem();
 		$TestModel->bindTranslation(array('name' => 'name'));
 	}
+
+/**
+ * Test that translations can be bound and unbound dynamically.
+ *
+ * @return void
+ */
+	public function testUnbindTranslation() {
+		$this->loadFixtures('Translate', 'TranslatedItem');
+		$Model = new TranslatedItem();
+		$Model->unbindTranslation();
+		$Model->bindTranslation(array('body', 'slug'), false);
+
+		$result = $Model->Behaviors->Translate->settings['TranslatedItem'];
+		$this->assertEquals(array('body', 'slug'), $result);
+
+		$Model->unbindTranslation(array('body'));
+		$result = $Model->Behaviors->Translate->settings['TranslatedItem'];
+		$this->assertNotContains('body', $result);
+
+		$Model->unbindTranslation('slug');
+		$result = $Model->Behaviors->Translate->settings['TranslatedItem'];
+		$this->assertNotContains('slug', $result);
+	}
+
 }

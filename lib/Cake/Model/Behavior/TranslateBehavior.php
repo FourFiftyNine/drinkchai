@@ -207,7 +207,7 @@ class TranslateBehavior extends ModelBehavior {
  * @param array $query The query array to append a join to.
  * @param string $field The field name being joined.
  * @param string $aliasField The aliased field name being joined.
- * @param mixed $locale The locale(s) having joins added.
+ * @param string|array $locale The locale(s) having joins added.
  * @param boolean $addField Whether or not to add a field.
  * @return array The modfied query
  */
@@ -393,6 +393,16 @@ class TranslateBehavior extends ModelBehavior {
 		$conditions = array('model' => $model->alias, 'foreign_key' => $model->id);
 		$RuntimeModel = $this->translateModel($model);
 
+		$fields = array_merge($this->settings[$model->alias], $this->runtime[$model->alias]['fields']);
+		if ($created) {
+			foreach ($fields as $field) {
+				if (!isset($tempData[$field])) {
+					//set the field value to an empty string
+					$tempData[$field] = '';
+				}
+			}
+		}
+
 		foreach ($tempData as $field => $value) {
 			unset($conditions['content']);
 			$conditions['field'] = $field;
@@ -484,7 +494,8 @@ class TranslateBehavior extends ModelBehavior {
  *
  * @param Model $model instance of model
  * @param string|array $fields string with field or array(field1, field2=>AssocName, field3)
- * @param boolean $reset
+ * @param boolean $reset Leave true to have the fields only modified for the next operation.
+ *   if false the field will be added for all future queries.
  * @return boolean
  * @throws CakeException when attempting to bind a translating called name.  This is not allowed
  *   as it shadows Model::$name.
@@ -511,7 +522,7 @@ class TranslateBehavior extends ModelBehavior {
 				);
 			}
 
-			$this->_updateSettings($model, $field);
+			$this->_removeField($model, $field);
 
 			if (is_null($association)) {
 				if ($reset) {
@@ -553,17 +564,17 @@ class TranslateBehavior extends ModelBehavior {
  *
  * @param string $field The field to update.
  */
-	protected function _updateSettings(Model $model, $field) {
+	protected function _removeField(Model $model, $field) {
 		if (array_key_exists($field, $this->settings[$model->alias])) {
 			unset($this->settings[$model->alias][$field]);
 		} elseif (in_array($field, $this->settings[$model->alias])) {
-			$this->settings[$model->alias] = array_merge(array_diff_assoc($this->settings[$model->alias], array($field)));
+			$this->settings[$model->alias] = array_merge(array_diff($this->settings[$model->alias], array($field)));
 		}
 
 		if (array_key_exists($field, $this->runtime[$model->alias]['fields'])) {
 			unset($this->runtime[$model->alias]['fields'][$field]);
 		} elseif (in_array($field, $this->runtime[$model->alias]['fields'])) {
-			$this->runtime[$model->alias]['fields'] = array_merge(array_diff_assoc($this->runtime[$model->alias]['fields'], array($field)));
+			$this->runtime[$model->alias]['fields'] = array_merge(array_diff($this->runtime[$model->alias]['fields'], array($field)));
 		}
 	}
 
@@ -572,7 +583,7 @@ class TranslateBehavior extends ModelBehavior {
  * fake field
  *
  * @param Model $model instance of model
- * @param mixed $fields string with field, or array(field1, field2=>AssocName, field3), or null for
+ * @param string|array $fields string with field, or array(field1, field2=>AssocName, field3), or null for
  *    unbind all original translations
  * @return boolean
  */
@@ -599,7 +610,7 @@ class TranslateBehavior extends ModelBehavior {
 				$association = $value;
 			}
 
-			$this->_updateSettings($model, $field);
+			$this->_removeField($model, $field);
 
 			if (!is_null($association) && (isset($model->hasMany[$association]) || isset($model->__backAssociation['hasMany'][$association]))) {
 				$associations[] = $association;
