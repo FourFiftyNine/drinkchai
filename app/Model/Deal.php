@@ -1,12 +1,12 @@
 <?php
-App::uses('Model', 'Model');
+App::uses('AppModel', 'Model');
 /**
  * Deal Model
  *
  * @property Business $Business
  * @property Order $Order
  */
-class Deal extends Model {
+class Deal extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

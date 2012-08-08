@@ -1,12 +1,12 @@
 <?php
-App::uses('Model', 'Model');
+App::uses('AppModel', 'Model');
 /**
  * Billing Model
  *
  * @property Address $Address
  * @property User $User
  */
-class Billing extends Model {
+class Billing extends AppModel {
 /**
  * Display field
  *

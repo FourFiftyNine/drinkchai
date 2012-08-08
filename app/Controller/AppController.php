@@ -46,7 +46,7 @@ class AppController extends Controller {
             ),
             'authError' => 'Please login to view that page.',
         ),
-        'Session', 'RequestHandler', 'Cookie', 'DCAuth', 'DebugKit.Toolbar');
+        'Session', 'RequestHandler', 'Cookie', 'DCAuth', 'DebugKit.Toolbar', 'Security');
 
     public $helpers = array('Session', 'Form', 'Html' => array('className' => 'MyHtml'), 'Js'=>array("Jquery"));
     // public $uses = array('User');
@@ -72,18 +72,17 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
-        // $this->layout = 'generic';
-        // $this->Auth->allow('display');
-        // $this->Auth->authorize = true;
-        // $this->Auth->authorize = array(
-        //     'Actions' => array('actionPath' => 'controllers/'),
-        //     'Controller'
-        // );
+        // FORCE SSL on all except live deals
+
         if (stristr(env('HTTP_HOST'), '.dev')) { 
             $this->facebook = new Facebook(array(
                 'appId'  => '259510874070364',
                 'secret' => '78f1c9ae321ba10215d07e6a2176d6ee',
             ));
+            if ($this->request->params['controller'] != 'deals' && $this->request->params['action'] != 'view') {
+                $this->Security->requireSecure();
+                $this->Security->blackHoleCallback = 'forceSSL';
+            }
             Configure::write('debug', 2); 
         } else if (stristr(env('HTTP_HOST'), 'dc.vinyljudge.com')) { 
             $this->facebook = new Facebook(array(
@@ -98,8 +97,13 @@ class AppController extends Controller {
             Configure::write('debug', 0);
         }
         $this->__checkFBStatus();
+
     }
 
+
+    public function forceSSL() {
+        $this->redirect('https://' . env('SERVER_NAME') . $this->here);
+    }
 
     private function __checkFBStatus()
     { 

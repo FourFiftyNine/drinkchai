@@ -1,5 +1,5 @@
 <?php
-App::uses('Model', 'Model');
+App::uses('AppModel', 'Model');
 /**
  * User Model
  *
@@ -8,7 +8,7 @@ App::uses('Model', 'Model');
  * @property Business $Business
  * @property Order $Order
  */
-class User extends Model {
+class User extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

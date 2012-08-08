@@ -1278,6 +1278,9 @@ body#default.deals.view {
 #default #my-account.dashboard section {
   width: 430px;
 }
+#default #my-account.dashboard #email-notifications {
+  clear: left;
+}
 #default #my-account.edit-address section {
   margin-left: 20px;
   width: 270px;

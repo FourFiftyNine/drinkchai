@@ -120,6 +120,22 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
+Configure::write('Dispatcher.filters', array(
+    'AssetDispatcher',
+    'CacheDispatcher'
+));
+
+// Add logging configuration.
+CakeLog::config('debug', array(
+    'engine' => 'FileLog',
+    'types' => array('notice', 'info', 'debug'),
+    'file' => 'debug',
+));
+CakeLog::config('error', array(
+    'engine' => 'FileLog',
+    'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
+    'file' => 'error',
+));
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
  * Uncomment one of the lines below, as you need. make sure you read the documentation on CakePlugin to use more

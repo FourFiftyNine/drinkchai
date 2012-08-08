@@ -1,8 +1,8 @@
 <?php
-App::uses('Model', 'Model');
+App::uses('AppModel', 'Model');
 /**
  * Status Model
  *
  */
-class Status extends Model {
+class Status extends AppModel {
 }

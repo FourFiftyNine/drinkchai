@@ -1,5 +1,5 @@
 <?php 
-App::uses('Model', 'Model');
+App::uses('AppModel', 'Model');
 // CakePlugin::load('Uploader');
 // App::import('Vendor', 'Uploader.Uploader');
 
@@ -7,7 +7,7 @@ App::uses('Model', 'Model');
  * Image Model
  *
  */
-class Image extends Model {
+class Image extends AppModel {
 
   // public $actsAs = array( 
   //   'Uploader.Attachment' => array(
