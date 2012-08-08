@@ -1184,7 +1184,7 @@ body#default.deals.view {
   transition: background 0.3s 0.1s linear;
 }
 #default #footer {
-  margin-top: 20px;
+  margin: 20px auto;
 }
 #default #footer #footer-content {
   padding: 20px;
