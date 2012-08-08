@@ -67,15 +67,15 @@
           </section>
         <?php endif; ?>
 
-  <?php else: ?>
-      <?php if($user['User']['facebook_id']): ?>
+  <?php else: ?> <?php // @CUSTOMERS ?>
+      <?php /* if($user['User']['facebook_id']): ?>
         <aside id="picture-container">
           <div class="picture-border"></div>
           <?php echo $this->Html->image('http://graph.facebook.com/' . $user['User']['facebook_id'] . '/picture?type=large', array('class' => 'profile-picture')); ?>
         </aside>
-      <?php endif; ?>
+      <?php endif; */ ?>
       <section id="personal-information" class="left">
-        <h2 class="gradient brown">personal information</h2>
+        <h2 class="gradient brown">Personal Information<a class="btn white" href="/account/edit">Edit</a></h2>
         <div class="label">name</div>
         <div> <?php echo $user['User']['firstname'] . ' ' . $user['User']['lastname']; ?></div>
 
@@ -83,13 +83,14 @@
         <div><?php echo $user['User']['email']; ?></div>
       </section>
       <section id="billing-information" class="right">
-        <h2 class="gradient brown">personal information</h2>
+        <h2 class="gradient brown">Billing Information<a class="btn white" href="/account/edit">Edit</a></h2>
         <div class="label">name</div>
         <div> <?php echo $user['User']['firstname'] . ' ' . $user['User']['lastname']; ?></div>
 
         <div class="label">email</div>
         <div><?php echo $user['User']['email']; ?></div>
       </section>
+      <div class="clearfix"></div>
       <section id="email-notifications">
         <h2 class="gradient brown">email notifications</h2>
         <p class="name"><div class="label">name</div><br /><?php echo $user['User']['firstname'] . ' ' . $user['User']['lastname']; ?></p>

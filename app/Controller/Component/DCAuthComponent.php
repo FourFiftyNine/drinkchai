@@ -45,20 +45,9 @@ class DCAuthComponent extends Component {
         return false;
     }
 
-    public function businessOwnsDeal($dealId) {
-        // debug($this->user('Deal')); exit;
-        $Deal = new Deal();
-        if ($this->Auth->loggedIn()) {
-            $return = $Deal->findAllByUserId($this->Auth->user('id'));
-            $deals = array();
-            foreach ( $return as $item ) {
-                $deals[] = $item['Deal'];
-            }
-            foreach ($deals as $deal) {
-                if ($deal['id'] == $dealId) {
-                    return true;
-                }
-            }
+    public function businessOwnsDeal($dealData) {
+        if ($dealData['User']['id'] == $this->Auth->user('id')) {
+            return true;
         }
         return false;
     }

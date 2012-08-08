@@ -1248,14 +1248,6 @@ body#default.deals.view {
   margin-top: 20px;
   width: 100%;
 }
-#default #my-account.dashboard section#email-notifications,
-#default #my-account.edit-address section#email-notifications,
-#default #my-account.create-deal section#email-notifications,
-#default #my-account.deals-index section#email-notifications,
-#default #my-account.edit-deal section#email-notifications {
-  clear: both;
-  width: 100%;
-}
 #default #my-account.dashboard section {
   width: 430px;
 }
@@ -1431,10 +1423,14 @@ body#default.deals.view {
 }
 #deal #main-information .product-name {
   font-family: "News Cycle";
-  margin: 0 0 10px;
+  margin: 5px 0 10px;
   color: #3c2613;
-  font-size: 24px;
+  font-size: 21px;
   text-shadow: 0px 1px 1px rgba(0,0,0,0.37);
+  padding: 5px 0 7px;
+  line-height: 24px;
+  border-top: 2px solid #d9c6a8;
+  border-bottom: 2px solid #d9c6a8;
 }
 #deal #main-information .discount {
   position: relative;

@@ -52,7 +52,7 @@
     Router::connect('/login', 
         array('controller' => 'users', 'action' => 'login'));
 
-    /****** User Accounts ******/
+    /****** User Accounts ******/   
     Router::connect('/account', 
         array('controller' => 'users', 'action' => 'index'));
     Router::connect('/account/edit', 
@@ -84,7 +84,7 @@
     // Router::connect('/account/deals/delete/:id', 
     //     array('controller' => 'deals', 'action' => 'delete'), array('pass' => array('id')));
     Router::connect('/account/deals/preview/:id', 
-        array('controller' => 'deals', 'action' => 'preview'));
+        array('controller' => 'deals', 'action' => 'preview'), array('pass' => array('id')));
     Router::connect('/account/orders', 
         array('controller' => 'users', 'action' => 'edit'));
 
@@ -94,8 +94,6 @@
     Router::connect('/deals/:company/:deal', 
         array('controller' => 'deals', 'action' => 'view'));
 
-
-    
     // Router::connect('/:slug/deals/create', array('controller' => 'deals', 'action' => 'create'), array('routeClass' => 'SlugRoute'));
 
     // Router::connect('/:slug/deals/edit/:id', array('controller' => 'deals', 'action' => 'edit'), array('routeClass' => 'SlugRoute'));

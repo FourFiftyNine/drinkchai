@@ -56,6 +56,9 @@ class Business extends Model {
 	// );
 	
 		public $validate = array(
+			'name' => array(
+				'rule' => 'notEmpty'
+			),
 	    'description' => array(
 	      'rule' => 'notEmpty'
 	    ),

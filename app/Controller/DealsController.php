@@ -30,14 +30,16 @@ class DealsController extends AppController {
         $this->set('deals', $return);
     }
 
-    public function preview()
+    public function preview($id = null)
     {   
-        $return = array();
-        if ($this->DCAuth->businessOwnsDeal($this->params['id'])) {
-            $return = $this->Deal->find('first', array('conditions' => array('Deal.id' => $this->params['id'])));
+        $this->Deal->id = $id;
+        $dealData = $this->Deal->read();
+        if (!$this->DCAuth->businessOwnsDeal($dealData)) {
+            $this->Session->setFlash('No way jose, not your deal.');
+            $this->redirect('/account/deals');
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
-        $this->setupDealData($return);
+        $this->setupDealData($dealData);
         $this->render('view');
     }
 /**
@@ -104,17 +106,16 @@ class DealsController extends AppController {
  * @return void
  */
     public function edit($id = null) {
-        if (!$this->DCAuth->businessOwnsDeal($id)) {
-            $this->Session->setFlash('No way jose, not your deal.');
-            $this->redirect('/' . $this->Session->read('Business.slug'));
-        }
         $this->Deal->id = $id;
-
-        if (!$this->Deal->exists()) {
-            throw new NotFoundException(__('Invalid deal'));
+        $dealData = $this->Deal->read();
+        // debug($dealData);
+        if (!$this->DCAuth->businessOwnsDeal($dealData)) {
+            $this->Session->setFlash('No way jose, not your deal.');
+            $this->redirect('/account/deals');
         }
+
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->setBusinessData();
+            $this->setBusinessData($dealData);
             unset($this->request->data['Image']);
             if ($ret = $this->Deal->saveAll($this->request->data)) {
                 $this->Session->setFlash(__('Your deal has been saved'));
@@ -125,17 +126,22 @@ class DealsController extends AppController {
             $this->request->data = $this->Deal->read();
 
         } else {
-            $this->request->data = $this->Deal->read();
+            $this->request->data = $dealData;
         }
         $this->setImages($this->request->data['Image']);
 
     }
 
-    private function setBusinessData() {
+    private function setBusinessData($dealData = null) {
 
         $userId = $this->Auth->user('id');
-        $this->Deal->Business->recursive = -1;
-        $businessData = $this->Deal->Business->findByUserId($userId);
+        $businessData['Business'] = $dealData['Business'];
+        // debug($dealData);
+        if(!$dealData) {
+            $this->Deal->Business->recursive = -1;
+            $businessData = $this->Deal->Business->findByUserId($userId);
+        }
+
         $this->request->data['Deal']['user_id'] = $userId;
         $this->request->data['Business']['id'] = $businessData['Business']['id'];
         $this->request->data['Deal']['business_id'] = $businessData['Business']['id'];
