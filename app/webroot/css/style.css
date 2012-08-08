@@ -1184,7 +1184,7 @@ body#default.deals.view {
   transition: background 0.3s 0.1s linear;
 }
 #default #footer {
-  margin-top: 20px;
+  margin: 20px auto;
 }
 #default #footer #footer-content {
   padding: 20px;
@@ -1441,9 +1441,6 @@ body#default.deals.view {
 /*~~~~ Deal Page ~~~~*/
 .preview #deal {
   margin-bottom: 120px;
-}
-#deal {
-  margin-bottom: 40px;
 }
 #deal #main-information {
   padding: 20px;
