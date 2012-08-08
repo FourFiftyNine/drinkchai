@@ -779,7 +779,25 @@ body#default.deals.view
           background: #ffffff
           background: rgba(255,255,255, .4)
           transition: background .3s .1s linear
-
+  #footer
+    margin-top: 20px
+    #footer-content
+      padding: 20px
+      font-size: 13px
+      color: $darkBrown
+      font-weight: bold
+    #footer-nav
+      display: inline-block
+      float: right
+      ul li
+        display: inline-block
+        font-size: 13px
+        margin: 0 7px
+        a, a:visited
+          color: $darkBrown
+          font-weight: bold
+          &:hover
+            color: lighten($darkBrown, 25%)
 /*~~ Default Layout - Account Pages ~~*/
 #default
   #my-account

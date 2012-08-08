@@ -1183,6 +1183,33 @@ body#default.deals.view {
   -ms-transition: background 0.3s 0.1s linear;
   transition: background 0.3s 0.1s linear;
 }
+#default #footer {
+  margin-top: 20px;
+}
+#default #footer #footer-content {
+  padding: 20px;
+  font-size: 13px;
+  color: #422a11;
+  font-weight: bold;
+}
+#default #footer #footer-nav {
+  display: inline-block;
+  float: right;
+}
+#default #footer #footer-nav ul li {
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 7px;
+}
+#default #footer #footer-nav ul li a,
+#default #footer #footer-nav ul li a:visited {
+  color: #422a11;
+  font-weight: bold;
+}
+#default #footer #footer-nav ul li a:hover,
+#default #footer #footer-nav ul li a:visited:hover {
+  color: #976027;
+}
 /*~~ Default Layout - Account Pages ~~*/
 #default #my-account {
   padding: 20px;
