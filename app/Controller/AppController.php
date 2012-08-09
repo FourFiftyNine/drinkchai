@@ -79,11 +79,11 @@ class AppController extends Controller {
                 'appId'  => '259510874070364',
                 'secret' => '78f1c9ae321ba10215d07e6a2176d6ee',
             ));
-            $this->Security = $this->Components->load('Security');
-            if ($this->request->params['controller'] != 'deals' && $this->request->params['action'] != 'view') {
-                $this->Security->requireSecure();
-                $this->Security->blackHoleCallback = 'forceSSL';
-            }
+            // $this->Security = $this->Components->load('Security');
+            // if ($this->request->params['controller'] != 'deals' && $this->request->params['action'] != 'view') {
+            //     // $this->Security->requireSecure();
+            //     $this->Security->blackHoleCallback = 'forceSSL';
+            // }
             Configure::write('debug', 2); 
         } else if (stristr(env('HTTP_HOST'), 'dc.vinyljudge.com')) { 
             $this->facebook = new Facebook(array(

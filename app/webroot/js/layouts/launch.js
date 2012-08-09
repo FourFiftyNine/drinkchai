@@ -188,6 +188,7 @@ var launch = DrinkChai.launch = {
           $('.ajax-loader').delay(200).fadeIn(400);
         },
         success: function(data){
+          console.log(data);
           if(!data.error){
             $('section.submit').fadeOut(500);
             $('.ajax-loader').remove();
@@ -196,7 +197,7 @@ var launch = DrinkChai.launch = {
             $('.ajax-loader').remove();
             $('.input.text').css({'textAlign': 'left', 'marginLeft' : '0'}); 
             $('.submit-email, #UserEmail').show();
-            $userEmail.delay(500).after('<span class="error-message">' + data.error + '</span>');
+            $userEmail.delay(500).after('<span style="display:block;" class="error-message">' + data.error + '</span>');
           }
         },
         error: function(data){

@@ -90,7 +90,7 @@ class UsersController extends AppController {
         $this->autoRender = false;
         sleep(.5);
 
-        if (!empty($this->data)) {
+        if (!empty($this->request->data)) {
             if (!$this->User->find('first', array('conditions' => array('User.email' => $this->data['User']['email'])))) {
                 $this->request->data['User']['user_type'] = 'subscriber';
                 if ($this->User->save($this->request->data)) {
@@ -110,6 +110,8 @@ class UsersController extends AppController {
                 $this->Cookie->write('email_submitted', true, false, '1 year');
                 echo json_encode(array('success' => 'Thank You!'));
             }
+        } else {
+            echo json_encode(array('error' => $this->request));
         }
     }
 
