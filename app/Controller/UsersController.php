@@ -7,11 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
+    public $components = array('DCEmail');
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('launch', 'logout', 'launch_submit', 'sign_up', 'login', 'ajax_login', 'businesses_sign_up');
@@ -72,7 +69,7 @@ class UsersController extends AppController {
     public function launch() {
         $this->User->Deal->recursive = -1;
         $dealIsLive = $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
-        if($this->Auth->loggedIn() || $this->Cookie->read('email_submitted')){
+        if($this->Auth->loggedIn() /*|| $this->Cookie->read('email_submitted')*/){
             if ($this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))) {
                 $this->redirect('/deals/view');
             } else {
@@ -94,12 +91,8 @@ class UsersController extends AppController {
             if (!$this->User->find('first', array('conditions' => array('User.email' => $this->data['User']['email'])))) {
                 $this->request->data['User']['user_type'] = 'subscriber';
                 if ($this->User->save($this->request->data)) {
-                    $email = new CakeEmail('gmail');
-                    // $email->template('launch_sign_up');
-                    $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
-                        ->to($this->request->data['User']['email'])
-                        ->subject('Welcome to DrinkChai')
-                        ->send("This is a test message\nthis is a test line\nthis is another\n");
+                    $this->DCEmail->sendLaunchEmail($this->request->data['User']['email']);
+
                     $this->Cookie->write('email_submitted', true, false, '1 year');
                     echo json_encode(array('success' => 'Thank You.'));
                 } else {
