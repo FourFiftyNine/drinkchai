@@ -59,7 +59,7 @@ public $scaffold;
 
     public function payment() {
         // debug($this->Session->read());
-        $url = "http://dc.vinyljudge.com/checkout/confirm";
+        $url = "http://dc.vinyljudge.com/checkout/confirm"; 
         // $url = true;
         $api_login_id = '3S7Ft9pr';
         $transaction_key = '8beXX685kxz8Dp6k';
