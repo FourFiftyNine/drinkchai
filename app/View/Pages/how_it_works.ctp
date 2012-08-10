@@ -33,7 +33,7 @@
   </section>
   <div class="divider">&nbsp;</div>
   <section class="step four container clearfix sign-up">
-    <?php echo $this->Html->link('Sign Up Now', '/users/sign-up', array('class' => 'btn white')) ?>
+    <?php echo $this->Html->link('Sign Up Now', '/users/sign-up', array('class' => 'btn gradient green')) ?>
   </section>
 </article>
 <?php else: ?>

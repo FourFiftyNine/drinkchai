@@ -123,8 +123,9 @@ class AuthorizeNetDPM extends AuthorizeNetSIM_Form
             'x_fp_hash'       => $fp,
             'x_fp_timestamp'  => $time,
             'x_relay_response'=> "TRUE",
-            'x_relay_url'     => $relay_response_url,
+            // 'x_relay_url'     => $relay_response_url,
             'x_login'         => $api_login_id,
+            'x_type'          => 'AUTH_ONLY'
             )
         );
         $hidden_fields = $sim->getHiddenFieldString();

@@ -94,13 +94,17 @@
     Router::connect('/deals/:company/:deal', 
         array('controller' => 'deals', 'action' => 'view'));
 
-    /******* Checkout *******/
+    /************************************
+    ** Checkout
+    ************************************/
     Router::connect('/checkout', 
         array('controller' => 'orders', 'action' => 'index'));
     Router::connect('/checkout/review', 
         array('controller' => 'orders', 'action' => 'review'));
     Router::connect('/checkout/payment', 
         array('controller' => 'orders', 'action' => 'payment'));
+    Router::connect('/checkout/confirm', 
+        array('controller' => 'orders', 'action' => 'confirm'));
     // Router::connect('/:slug/deals/create', array('controller' => 'deals', 'action' => 'create'), array('routeClass' => 'SlugRoute'));
 
     // Router::connect('/:slug/deals/edit/:id', array('controller' => 'deals', 'action' => 'edit'), array('routeClass' => 'SlugRoute'));

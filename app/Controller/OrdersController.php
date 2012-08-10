@@ -22,7 +22,11 @@ public $scaffold;
         // $this->Auth->allow('quicky');
         // $this->Auth->allow('index');
         // define("AUTHORIZENET_API_LOGIN_ID", "7wUVfB38jfJ");
-        // define("AUTHORIZENET_TRANSACTION_KEY", "624Ff3sfz77GNMGk");
+        // define("AUTHORIZENET_TRANSACTION_KEY", "624Ff3sfz77GNMGk");\
+
+        //////four50nine2
+        // 3S7Ft9pr 
+        // 8beXX685kxz8Dp6k
         define("AUTHORIZENET_API_LOGIN_ID", "36BY7bqn");
         define("AUTHORIZENET_TRANSACTION_KEY", "8VuDVU2P3s4f55nU");
         define("AUTHORIZENET_SANDBOX", true);
@@ -55,8 +59,22 @@ public $scaffold;
 
     public function payment() {
         // debug($this->Session->read());
+        $url = "http://dc.vinyljudge.com/checkout/confirm";
+        // $url = true;
+        $api_login_id = '3S7Ft9pr';
+        $transaction_key = '8beXX685kxz8Dp6k';
+        $md5_setting = '3S7Ft9pr'; // Your MD5 Setting
+        // x+veX3taxqErvWRS+2NgW0
+        $amount = "5.99";
+        AuthorizeNetDPM::directPostDemo($url, $api_login_id, $transaction_key, $amount, $md5_setting);
         debug($this->request->data); exit;
 
+    }
+
+    public function confirm() {
+        $this->autoRender = false;
+        debug($_POST);
+        debug('confirm'); exit;
     }
 
     public function quicky() {
