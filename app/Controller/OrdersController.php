@@ -72,9 +72,9 @@ public $scaffold;
     }
 
     public function confirm() {
-        $this->autoRender = false;
-        debug($_POST);
-        debug('confirm'); exit;
+        // // $this->autoRender = false;
+        // debug($_POST);
+        // debug('confirm'); exit;
     }
 
     public function quicky() {
