@@ -103,6 +103,8 @@
         array('controller' => 'orders', 'action' => 'review'));
     Router::connect('/checkout/payment', 
         array('controller' => 'orders', 'action' => 'payment'));
+    Router::connect('/checkout/check_response_code', 
+        array('controller' => 'orders', 'action' => 'check_response_code'));
     Router::connect('/checkout/confirm', 
         array('controller' => 'orders', 'action' => 'confirm'));
     // Router::connect('/:slug/deals/create', array('controller' => 'deals', 'action' => 'create'), array('routeClass' => 'SlugRoute'));

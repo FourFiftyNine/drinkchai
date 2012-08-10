@@ -15,18 +15,23 @@ class OrdersController extends AppController {
  */
 public $scaffold;
 
+    public $api_login_id;
+    public $transaction_key;
     public function beforeFilter() {
         // $this->layout
         $this->layout = 'stripped';
         parent::beforeFilter();
+        $this->Auth->allow('relay_response');
         // $this->Auth->allow('quicky');
         // $this->Auth->allow('index');
         // define("AUTHORIZENET_API_LOGIN_ID", "7wUVfB38jfJ");
         // define("AUTHORIZENET_TRANSACTION_KEY", "624Ff3sfz77GNMGk");\
 
         //////four50nine2
-        // 3S7Ft9pr 
+        // 3S7Ft9pr $this->api_login_id
         // 8beXX685kxz8Dp6k
+        $this->api_login_id = '3S7Ft9pr';
+        $this->transaction_key = '8beXX685kxz8Dp6k';
         define("AUTHORIZENET_API_LOGIN_ID", "36BY7bqn");
         define("AUTHORIZENET_TRANSACTION_KEY", "8VuDVU2P3s4f55nU");
         define("AUTHORIZENET_SANDBOX", true);
@@ -63,34 +68,26 @@ public $scaffold;
         $time = time();
         // $url = true;
         $this->set('postUrl', AuthorizeNetDPM::SANDBOX_URL);
-        // $AuthNetHiddenFields['post_url'] = AuthorizeNetDPM::SANDBOX_URL;
-        $AuthNetHiddenFields['x_login'] = '3S7Ft9pr';
-        // $AuthNetHiddenFields['transaction_key'] = '8beXX685kxz8Dp6k';
-        // $AuthNetHiddenFields['md5_setting'] = '3S7Ft9pr';
-        $AuthNetHiddenFields['x_amount'] = '5.99'; // TESTING
-        $AuthNetHiddenFields['x_type'] = 'AUTH_ONLY'; // TESTING
-        $AuthNetHiddenFields['x_fp_sequence'] = $time; // TESTING
-        $AuthNetHiddenFields['x_fp_timestamp'] = $time; // TESTING
-        $AuthNetHiddenFields['x_relay_response'] = "TRUE"; // TESTING
-        $AuthNetHiddenFields['x_relay_url'] = 'http://dc.vinyljudge.com/orders/relay_response'; // TESTING
+        $AuthNetHiddenFields['x_login'] = $this->api_login_id;
+        $AuthNetHiddenFields['x_amount'] = '5.99';
+        $AuthNetHiddenFields['x_type'] = 'AUTH_ONLY';
+        $AuthNetHiddenFields['x_fp_sequence'] = $time; // TODO INVOICE #
+        $AuthNetHiddenFields['x_fp_timestamp'] = $time;
+        $AuthNetHiddenFields['x_relay_response'] = "TRUE";
+        $AuthNetHiddenFields['x_relay_url'] = 'http://dc.vinyljudge.com/orders/relay_response';
 
-        $x_fp_hash = AuthorizeNetDPM::getFingerprint($AuthNetHiddenFields['x_login'], '8beXX685kxz8Dp6k', $AuthNetHiddenFields['x_amount'], $AuthNetHiddenFields['x_fp_sequence'], $time);
+        $x_fp_hash = AuthorizeNetDPM::getFingerprint($this->api_login_id, $this->transaction_key, $AuthNetHiddenFields['x_amount'], $AuthNetHiddenFields['x_fp_sequence'], $time);
 
-        $AuthNetHiddenFields['x_fp_hash'] = $x_fp_hash; // TESTING
+        $AuthNetHiddenFields['x_fp_hash'] = $x_fp_hash;
 
         $this->set('AuthNetHiddenFields', $AuthNetHiddenFields);
-        // debug($AuthNetHiddenFields);
-
-
-        // AuthorizeNetDPM::directPostDemo($url, $api_login_id, $transaction_key, $amount, $md5_setting);
-        // debug($this->request->data); exit;
-
     }
 
     public function relay_response() {
-        $redirect_url = "http://google.com";
-        $api_login_id = '3S7Ft9pr';
-        $md5_setting = ""; // Your MD5 Setting
+        $this->autoRender = false;
+        $redirect_url = "http://dc.vinyljudge.com/orders/confirm";
+        $api_login_id = $this->api_login_id;
+        $md5_setting = $this->api_login_id; // Your MD5 Setting
         $response = new AuthorizeNetSIM($api_login_id, $md5_setting); 
         // debug($response); exit;
         // debug($response->isAuthorizeNet()); exit;
@@ -113,7 +110,7 @@ public $scaffold;
     }
 
     public function confirm() {
-        // // $this->autoRender = false;
+        $this->autoRender = false;
         // debug($_POST);
         // debug('confirm'); exit;
     }
