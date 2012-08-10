@@ -51,6 +51,8 @@ class AuthorizeNetDPM extends AuthorizeNetSIM_Form
             {
                 if ($response->approved) 
                 {
+                    var_dump('here'); exit;
+
                     // Do your processing here.
                     $redirect_url = $url . '?response_code=1&transaction_id=' . $response->transaction_id; 
                 }
