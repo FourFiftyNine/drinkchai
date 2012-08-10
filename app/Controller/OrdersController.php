@@ -88,25 +88,28 @@ public $scaffold;
     }
 
     public function relay_response() {
-        // $redirect_url = "http://YOUR_DOMAIN.com/receipt_page.php";
-        // $api_login_id = 'YOUR_API_LOGIN_ID';
-        // $md5_setting = ""; // Your MD5 Setting
-        // $response = new AuthorizeNetSIM($api_login_id, $md5_setting); if ($response->isAuthorizeNet())
-        // {
-        // if ($response->approved)
-        //    {
-        //        // Do your processing here.
-        //        $redirect_url .= '?response_code=1&transaction_id=' .
-        //        $response->transaction_id;
-        // } else {
-        // $redirect_url .= '?response_code='.$response->response_code .  '&response_reason_text=' . $response->response_reason_text;
-        // }
-        // // Send the Javascript back to AuthorizeNet, which will redirect user back to 
-        //    echo AuthorizeNetDPM::getRelayResponseSnippet($redirect_url);
-        // } else
-        // {
-        // echo "Error. Check your MD5 Setting.";
-        // }
+        $redirect_url = "http://google.com";
+        $api_login_id = '3S7Ft9pr';
+        $md5_setting = ""; // Your MD5 Setting
+        $response = new AuthorizeNetSIM($api_login_id, $md5_setting); 
+        // debug($response); exit;
+        // debug($response->isAuthorizeNet()); exit;
+        if ($response->isAuthorizeNet())
+        {
+        if ($response->approved)
+           {
+               // Do your processing here.
+               $redirect_url .= '?response_code=1&transaction_id=' .
+               $response->transaction_id;
+        } else {
+        $redirect_url .= '?response_code='.$response->response_code . '&response_reason_text=' . $response->response_reason_text;
+        }
+        // Send the Javascript back to AuthorizeNet, which will redirect user back to 
+           echo AuthorizeNetDPM::getRelayResponseSnippet($redirect_url);
+        } else
+        {
+        echo "Error. Check your MD5 Setting.";
+        }
     }
 
     public function confirm() {
