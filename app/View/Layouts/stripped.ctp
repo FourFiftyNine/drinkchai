@@ -10,6 +10,11 @@
                     );
             ?>
             <?php echo $this->Session->flash(); ?>
+            <!-- User Login -->
+            <?php echo $this->element('stripped/navigation'); ?>
+            <?php if ($this->params['controller'] == 'orders'): ?>
+                <?php echo $this->element('stripped/checkout-steps'); ?>
+            <?php endif; ?>
             <?php echo $content_for_layout; ?>
         </div>
     </div>

@@ -851,6 +851,23 @@ textarea.form-error {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
+#launch #a-business {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+}
+#launch #a-business label {
+  display: block;
+  color: #fff;
+  font-weight: bold;
+}
+#launch #a-business a.btn {
+  margin-top: 10px;
+  background-image: none;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 0 25px;
+}
 /*~~ Laucnh Page - Shadow Inset Boxes ~~*/
 .shadow-inset {
   border: 1px solid rgba(255,255,255,0.15);
@@ -878,8 +895,20 @@ textarea.form-error {
   -ms-transition: all 0.3s 0s ease-in;
   transition: all 0.3s 0s ease-in;
 }
-.shadow-inset a,
-.shadow-inset a:visited {
+/*~~ Launch Page - Main Launch Navigation ~~*/
+#launch nav#main {
+  position: fixed;
+  right: 100px;
+  top: 0px;
+}
+#launch nav#main ul li {
+  display: inline;
+}
+#launch nav#main ul li a {
+  font-size: 13px;
+}
+#launch nav#main a,
+#launch nav#main a:visited {
   border: 1px solid rgba(255,255,255,0);
   color: #fff;
 /*color: rgba(255,255,255, .1)*/
@@ -894,10 +923,10 @@ textarea.form-error {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-.shadow-inset a:hover,
-.shadow-inset a:visited:hover,
-.shadow-inset a.active,
-.shadow-inset a:visited.active {
+#launch nav#main a:hover,
+#launch nav#main a:visited:hover,
+#launch nav#main a.active,
+#launch nav#main a:visited.active {
   border: 1px solid rgba(255,255,255,0.3);
   color: #fff;
   text-align: center;
@@ -918,18 +947,6 @@ textarea.form-error {
   border-radius: 15px;
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.8);
   box-shadow: 0 0 5px rgba(0,0,0,0.8);
-}
-/*~~ Launch Page - Main Launch Navigation ~~*/
-#launch nav#main {
-  position: fixed;
-  right: 100px;
-  top: 0px;
-}
-#launch nav#main ul li {
-  display: inline;
-}
-#launch nav#main ul li a {
-  font-size: 13px;
 }
 /*~~ Launch Page -AddThis ~~*/
 /*~~~~ Navigation ~~~~*/
@@ -1042,6 +1059,7 @@ textarea.form-error {
 #default #header #main-nav >ul>li >a:active,
 #default #header #main-nav >ul>li >a:visited:active {
   top: 0;
+  line-height: 58px;
 }
 #default #header #main-nav .account-name {
   position: relative;
@@ -1729,7 +1747,6 @@ body#default.deals.view {
   background: url("/img/hiw-divider.jpg") repeat-x;
 }
 #how-it-works header {
-  background: url("/img/middle_bg_dark.jpg") repeat;
   padding-top: 1px;
   height: 285px;
   -webkit-border-top-left-radius: 3px;
@@ -1766,20 +1783,9 @@ body#default.deals.view {
 }
 #how-it-works .step {
   height: 350px;
-  background: url("/img/middle_bg.jpg") repeat;
 }
 #how-it-works .step.three {
   padding-bottom: 20px;
-  -moz-border-radius-bottomleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -o-border-bottom-left-radius: 3px;
-  -ms-border-bottom-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -o-border-bottom-right-radius: 3px;
-  -ms-border-bottom-right-radius: 3px;
-  border-bottom-right-radius: 3px;
 }
 #how-it-works .step .number {
   float: left;
@@ -1819,6 +1825,30 @@ body#default.deals.view {
 #how-it-works.users .step .description {
   font-size: 25px;
   line-height: 30px;
+}
+#how-it-works .step.four {
+  height: 100px;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -o-border-bottom-left-radius: 3px;
+  -ms-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -o-border-bottom-right-radius: 3px;
+  -ms-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#how-it-works .btn.white {
+  padding: 0;
+  background-image: none;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  margin-top: 10px;
+  height: 70px;
+  width: 320px;
+  font-size: 40px;
+  line-height: 70px;
 }
 /*~~ Default Layout - z-index ~~*/
 #header {
@@ -1911,6 +1941,125 @@ body#default.deals.view {
 }
 #stripped section#business-sign-up .fieldset {
   width: 48%;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Checkout
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#checkout-steps {
+  margin-top: 20px;
+  padding: 10px 30px;
+}
+#checkout-steps ul {
+  text-align: center;
+}
+#checkout-steps ul li {
+  list-style: none;
+  margin-right: 10px;
+  float: left;
+  display: block;
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  font-weight: bold;
+}
+#checkout-steps ul li span {
+  padding: 0 10px;
+  -webkit-border-radius: 30px !important;
+  border-radius: 30px !important;
+  display: inline-block;
+}
+#checkout-steps ul li.active span {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #3c2613;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 100px;
+  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f3f0e9));
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  width: auto;
+}
+#checkout {
+  margin-top: 20px;
+  width: 710px;
+  margin-left: -65px;
+  padding: 15px;
+}
+#checkout .product-image {
+  margin-right: 15px;
+}
+#checkout .company-name {
+  margin: 5px 0 0;
+}
+#checkout .product-name {
+  font-family: "News Cycle";
+  margin: 5px 0 10px;
+  color: #3c2613;
+  font-size: 21px;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.37);
+  padding: 5px 0 7px;
+  line-height: 24px;
+  border-top: 2px solid #d9c6a8;
+  border-bottom: 2px solid #d9c6a8;
+}
+#checkout .order-items {
+  clear: both;
+  padding: 10px 0;
+  margin-top: 15px;
+  background: #f0efeb;
+  background: rgba(255,255,255,0.6);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  width: 746px;
+  margin-left: -18px;
+}
+#checkout .order-items table {
+  width: 100%;
+}
+#checkout .order-items table td {
+  vertical-align: middle;
+}
+#checkout .deal-details ul {
+  margin-bottom: 0;
+  float: left;
+}
+#checkout .deal-details ul li {
+  list-style: none;
+  font-size: 13px;
+}
+#checkout .deal-details .options {
+  float: right;
+}
+#checkout .input.select {
+  float: right;
+}
+#checkout .input.select label {
+  font-weight: bold;
+  display: none;
+}
+#checkout .review-bottom {
+  margin-top: 20px;
+}
+#checkout .review-bottom .submit,
+#checkout .review-bottom .total {
+  float: right;
+}
+#checkout .review-bottom .btn.continue {
+  margin-top: 0;
+}
+#checkout .review-bottom .btn.continue:active {
+  top: 1px;
+}
+#checkout .review-bottom .total {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 15px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

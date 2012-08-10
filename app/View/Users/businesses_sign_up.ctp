@@ -1,8 +1,3 @@
- <div class="already account right">
-    <span>Not a business?</span>
-    <?php echo $this->Html->link('Sign Up', array('controller' => 'users', 'action' => 'sign-up'), array('class' => 'btn gradient green')); ?>
-    <?php echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login'), array('class' => 'btn gradient green')); ?>
-</div>
 <section id="content">
       <section id="business-sign-up" class="canvas clearfix">
          <h1 class="gradient brown">Make a Deal <span class="small">Its Free!</span></h1>

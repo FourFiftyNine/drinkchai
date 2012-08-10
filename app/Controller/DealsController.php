@@ -39,7 +39,7 @@ class DealsController extends AppController {
             $this->redirect('/account/deals');
         }
         $this->Session->setFlash(__('This is a preview of your deal'), 'flash_preview');
-        $this->setupDealData($dealData);
+        $this->setDealData($dealData);
         $this->render('view');
     }
 /**
@@ -55,25 +55,16 @@ class DealsController extends AppController {
             if(empty($return)) {
                 $this->redirect('/'); // might cause infinite redirect loop... 
             }
-            $this->setupDealData($return);
+            $this->setDealData($return);
             $this->redirect('/deals/' . $return['Business']['slug'] . '/' . $return['Deal']['slug']);
         } elseif ($return = $this->Deal->getDealBySlug($this->params['company'], $this->params['deal'])) {
-            $this->setupDealData($return);
+            $this->setDealData($return);
      
         } else {
             throw new NotFoundException('Sorry, could not find that deal?');
         }
     }
 
-    private function setupDealData($data) {
-        $timeArray = $this->dateDiff(time(), $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time']);
-
-        $data['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
-        $this->set('title_for_layout', $data['Deal']['product_name']);
-        $this->setImages($data['Image']);
-
-        $this->set('data', $data);
-    }
 /**
  * create method
  *
@@ -148,17 +139,6 @@ class DealsController extends AppController {
 
         return $businessData;
     }
-
-    private function setImages($imageData) {
-        foreach ($imageData as $image) {
-            if ($image['type'] == 'product') {
-                $this->set('productImage', $image);
-            }
-            if ($image['type'] == 'logo') {
-                $this->set('logo', $image);
-            }
-        }
-    }
 /**
  * delete method
  *
@@ -215,98 +195,5 @@ class DealsController extends AppController {
         }
 
 
-    }
-    // http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/
-    private function dateDiff($time1, $time2, $precision = 6) {
-        // If not numeric then convert texts to unix timestamps
-        if (!is_int($time1)) {
-          $time1 = strtotime($time1);
-        }
-        if (!is_int($time2)) {
-          $time2 = strtotime($time2);
-        }
-     
-        // If time1 is bigger than time2
-        // Then swap time1 and time2
-        if ($time1 > $time2) {
-
-            return false;
-          $ttime = $time1;
-          $time1 = $time2;
-          $time2 = $ttime;
-        }
-     
-        // Set up intervals and diffs arrays
-        $intervals = array('year','month','day','hour','minute','second');
-        $diffs = array();
-     
-        // Loop thru all intervals
-        foreach ($intervals as $interval) {
-          // Set default diff to 0
-          $diffs[$interval] = 0;
-          // Create temp time from time1 and interval
-          $ttime = strtotime("+1 " . $interval, $time1);
-          // Loop until temp time is smaller than time2
-          while ($time2 >= $ttime) {
-        $time1 = $ttime;
-        $diffs[$interval]++;
-        // Create new temp time from time1 and interval
-        $ttime = strtotime("+1 " . $interval, $time1);
-          }
-        }
-     
-        $count = 0;
-        $times = array();
-        // Loop thru all diffs
-        foreach ($diffs as $interval => $value) {
-          // Break if we have needed precission
-          if ($count >= $precision) {
-        break;
-          }
-          // Add value and interval 
-          // if value is bigger than 0
-          //  if ($value > 0) {
-        // Add s if value is not 1
-        // if ($value != 1) {
-        //   $interval .= "s";
-        // }
-            $interval .= 's';
-            // if($value < 10 && $interval != 'days') {
-            //     // debug($value);
-            //     $value = '0' . $value;
-            // }
-        // Add value and interval to times array
-        $times[$interval] = $value;
-        $count++;
-          // }
-        }
-     
-        // Return string with times
-        return $times;
-        // return implode(", ", $times);
-  }
-
-    private function getTimeRemainingLabel($timeArray) {
-        if(is_array($timeArray)) {
-            $timeLeft = '';
-            if($timeArray['days']) {
-                $timeLeft .= $timeArray['days'] . ' day';
-                $timeArray['days'] = $timeArray['days'] . ' day';
-                if($timeArray['days']!= 1) {
-                    $timeLeft .= 's ';
-                    $timeArray['days'] .= 's ';
-                }
-            }
-            $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
-            // if(isset($timeArray['hours'])) {
-            //     $timeLeft .= $timeArray['hours'] . ':' . $timeArray['minutes'] . ':' . $timeArray['seconds'];
-            // }
-
-            // return $timeLeft;
-            return $timeArray;
-
-        } else {
-            return false;
-        }
     }
 }

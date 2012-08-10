@@ -1,5 +1,5 @@
 <?php if(strpos($this->request->url, 'businesses') === false): ?>
-<article id="how-it-works" class="users">
+<article id="how-it-works" class="users canvas">
   <header>
     <h2>HOW IT WORKS</h2>
     <p class="intro">DrinkChai brings you the best handpicked teas at a great price.</p>
@@ -31,9 +31,13 @@
       <p class="description">Sit back and wait for the manufacturer to mail the tea to your doorstep. No vouchers to print or redeem. It's that simple. </p>
     </div>
   </section>
+  <div class="divider">&nbsp;</div>
+  <section class="step four container clearfix sign-up">
+    <?php echo $this->Html->link('Sign Up Now', '/users/sign-up', array('class' => 'btn white')) ?>
+  </section>
 </article>
 <?php else: ?>
-<article id="how-it-works">
+<article id="how-it-works" class="canvas">
   <header>
     <h2>HOW IT WORKS</h2>
     <p class="intro">DrinkChai does something supermarket shelves could never do - put your tea front and center with tea drinkers everywhere. Let us show you how.</p>
@@ -64,6 +68,10 @@
       <?php echo $this->Html->image('ribbon-sell.png', array('alt'=> __('How it Works', true), 'class' => 'ribbon')) ?>
       <p class="description">Once the deal is done, simply ship out the orders and wait for your check in the mail or a transfer into your PayPal account.</p>
     </div>
+  </section>
+  <div class="divider">&nbsp;</div>
+  <section class="step four container clearfix sign-up">
+    <?php echo $this->Html->link('Sign Up Now', '/businesses/sign-up', array('class' => 'btn white')) ?>
   </section>
 </article>
 <?php endif; ?>

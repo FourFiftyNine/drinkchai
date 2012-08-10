@@ -16,6 +16,10 @@
         <?php endif; ?>
     </ul>
 </nav>
+<section class="shadow-inset" id="a-business">
+    <label for="">Do you sell tea?</label>
+    <?php echo $this->Html->link('Click Here', '/businesses/how-it-works', array('class' => 'btn white')); ?>
+</section>
 <section id="bubble-shares" class="addthis">
     <nav class="shadow-inset">
         <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false"></div>

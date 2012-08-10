@@ -44,29 +44,15 @@
             </div>
             <div class="details">
                 <h2 class="product-name"><?php echo $data['Deal']['product_name']; ?></h2>
-                <ul>
-                    <?php if ($data['Deal']['product_detail_1']): ?>
-                        <li class="product-detail"><?php echo $data['Deal']['product_detail_1'] ?></li>
-                    <?php endif; ?>
-                    <?php if ($data['Deal']['product_detail_2']): ?>
-                        <li class="product-detail"><?php echo $data['Deal']['product_detail_2'] ?></li>
-                    <?php endif; ?>
-                    <?php if ($data['Deal']['product_detail_3']): ?>
-                        <li class="product-detail"><?php echo $data['Deal']['product_detail_3'] ?></li>
-                    <?php endif; ?>
-                    <?php if ($data['Deal']['product_detail_4']): ?>
-                        <li class="product-detail"><?php echo $data['Deal']['product_detail_4'] ?></li>
-                    <?php endif; ?>
-                    <?php if ($data['Deal']['product_detail_5']): ?>
-                        <li class="product-detail"><?php echo $data['Deal']['product_detail_5'] ?></li>
-                    <?php endif; ?>
-                </ul>
+                <?php echo $this->element('global/deal_details'); ?>
             </div>
             <div class="buy-now-container">
                 <div class="gradient green price-buy clearfix">
                     <div class="price"><span class="dollar">$</span><?php echo $data['Deal']['price']; ?></div>
                     <?php if($data['Deal']['time_left']): ?>
-                    <button class="btn white buy-now">Buy Now</button>
+                    <?php echo $this->Form->create(array('url' => '/checkout')) ?>
+                    <?php echo $this->Form->input('Deal.id', array('type' => 'hidden', 'value' => $data['Deal']['id'])) ?>
+                    <?php echo $this->Form->end(array('label' => 'Buy Now', 'class' => 'btn white buy-now')); ?>
                     <?php else: ?>
                     <div class="ended">Deal Has Ended</div>
                     <?php endif; ?>

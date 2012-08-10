@@ -15,7 +15,7 @@
             <?php echo $this->Html->link('Current Deal', '/'); ?>
           </li>
           <li>
-            <?php echo $this->Html->link('How It Works', '/how-it-works'); ?>
+            <?php echo $this->Html->link('Do You Sell Tea?', '/businesses/how-it-works'); ?>
           </li>
           <li>
             <?php echo $this->Html->link('Account', '/account'); ?>

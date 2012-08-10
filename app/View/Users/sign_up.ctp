@@ -1,5 +1,3 @@
-<div class="already account right"><span>Already have an account?</span><?php echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login'), array('class' => 'btn gradient green')); ?>
-</div>
 <section id="content" class="clearfix">
     <?php //TODO TAB INDEX LOOP ?>
   <section id="sign-up" class="canvas left">

@@ -1,5 +1,3 @@
-<div class="already account right"><span>Don't have an account?</span><?php echo $this->Html->link('Sign Up', '/signup', array('class' => 'btn gradient green')); ?>
-</div>
 <div id="content" class="clearfix">
    <section id="login" class="canvas left">
 

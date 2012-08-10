@@ -17,7 +17,7 @@
                 <?php //debug($user['User']['User']); ?>
                 <?php if (isset($user['User']) && 'business' == $user['User']['user_type']): ?>
                     <li><?php echo $this->Html->link('Businesses - How It Works', '/businesses/how-it-works', array('escape' => false)); ?></li>
-                <?php else: ?>
+                <?php elseif ($this->request->url != 'businesses/how-it-works'): ?>
                     <li><?php echo $this->Html->link('How It Works', '/how-it-works', array('escape' => false)); ?></li>
                 <?php endif; ?>
                 <?php if(isset($user['User'])): ?>
@@ -44,7 +44,12 @@
                         </nav>
                         
                     </li>
+                <?php elseif ($this->request->url == 'businesses/how-it-works'): ?>
+                    <li><?php echo $this->Html->link('How It Works', '/businesses/how-it-works', array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link('Login', '/login', array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link('Sign Up', '/businesses/sign-up', array('escape' => false, 'class' => 'sign-up-btn')); ?></li>
                 <?php else: ?>
+
                     <?php /*
                     <div id="" class="account-box clearfix">
                         <div class="login form">

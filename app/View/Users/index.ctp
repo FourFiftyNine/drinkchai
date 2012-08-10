@@ -83,14 +83,14 @@
         <div><?php echo $user['User']['email']; ?></div>
       </section>
       <section id="billing-information" class="right">
-        <h2 class="gradient brown">Billing Information<?php echo ($user['Billing']['name']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : '<a class="btn white" href="/account/billing/add">Add</a>'; ?></h2>
-        <?php if ($user['Billing']['name']): ?>
+        <h2 class="gradient brown">Billing Information<?php echo ($billingInfo['Billing']['name']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : '<a class="btn white" href="/account/billing/add">Add</a>'; ?></h2>
+        <?php if ($billingInfo['Billing']['name']): ?>
           <div class="label">Name on Card</div>
-          <div> <?php echo $user['Billing']['name'] ?></div>
+          <div> <?php echo $billingInfo['Billing']['name'] ?></div>
           <div class="label">Card Type</div>
-          <div> <?php echo $user['Billing']['card_type'] ?></div>
+          <div> <?php echo $billingInfo['Billing']['card_type'] ?></div>
           <div class="label">Card Number</div>
-          <div>xxxx xxxx xxxx <?php echo $user['Billing']['card_number_last_four']; ?></div>
+          <div>xxxx xxxx xxxx <?php echo $billingInfo['Billing']['card_number_last_four']; ?></div>
         <?php else: ?>
           <p>No billing information</p>
         <?php endif; ?>

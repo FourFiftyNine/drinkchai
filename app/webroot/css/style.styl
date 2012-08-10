@@ -45,6 +45,17 @@ gradientWhite()
   background: white
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 1)), color-stop(100%,rgba(243, 240, 233, 1)))
 
+btnGreen()
+  border: 1px solid rgba(255,255,255,.3)
+  color: #fff
+  text-align: center
+  text-shadow: 0 0 2px #000
+  text-shadow: 0 0 2px rgba(0,0,0,0.7)
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.24) inset
+  gradientGreen()
+  border-radius: 15px
+  box-shadow: 0 0 5px rgba(0,0,0,.8)
+
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
@@ -248,6 +259,7 @@ transparentPng()
       border: 1px solid #914c5a
       background: #AD5A6B !important
       padding: 0 15px
+
 /*~~ Buttons - Green Gradient ~~*/
 .btn
   &.green.gradient
@@ -519,7 +531,19 @@ textarea.form-error
         text-shadow: 1px 1px 0px #000
         text-shadow: 1px 1px 0px rgba(0,0,0,0.3)
         border-radius: 5px
-
+  #a-business
+    position: absolute
+    bottom: 0
+    right: 30px
+    label
+      display: block
+      color: white
+      font-weight: bold
+    a.btn
+      margin-top: 10px
+      background-image: none
+      border-radius: 30px
+      padding: 0 25px
 /*~~ Laucnh Page - Shadow Inset Boxes ~~*/
 .shadow-inset
   border: 1px solid rgba(255,255,255,.15)
@@ -535,6 +559,16 @@ textarea.form-error
   &:hover
     background: rgba(0,0,0,.4)
     transition: all .3s 0s ease-in
+
+/*~~ Launch Page - Main Launch Navigation ~~*/
+#launch nav#main
+  position: fixed
+  right: 100px
+  top: 0px
+  ul li
+    display: inline
+    a
+      font-size: 13px
   a,a:visited
     border: 1px solid rgba(255,255,255,0)
     color: #FFFFFF
@@ -548,27 +582,9 @@ textarea.form-error
     text-shadow: 0 0 5px #000
     text-shadow: 0 0 5px rgba(0,0,0,0.9)
     border-radius: 10px
-
     &:hover, &.active
-      border: 1px solid rgba(255,255,255,.3)
-      color: #fff
-      text-align: center
-      text-shadow: 0 0 2px #000
-      text-shadow: 0 0 2px rgba(0,0,0,0.7)
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.24) inset
-      gradientGreen()
-      border-radius: 15px
-      box-shadow: 0 0 5px rgba(0,0,0,.8)
+      btnGreen()
 
-/*~~ Launch Page - Main Launch Navigation ~~*/
-#launch nav#main
-  position: fixed
-  right: 100px
-  top: 0px
-  ul li
-    display: inline
-    a
-      font-size: 13px
 /*~~ Launch Page -AddThis ~~*/
 /*~~~~ Navigation ~~~~*/
 #launch
@@ -668,6 +684,8 @@ textarea.form-error
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.12)
           &:active
             top: 0
+            line-height: 58px
+          // &.sign-up-btn
       .account-name
         position: relative
         padding-right: 40px
@@ -977,21 +995,24 @@ body#default.deals.view
 
 
 /*~~~~ Deal Page ~~~~*/
+productName()
+  font-family: "News Cycle"
+  margin: 5px 0 10px
+  color: #3c2613
+  font-size: 21px
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.37)
+  padding: 5px 0 7px
+  line-height: 24px
+  border-top: 2px solid $lightBrown
+  border-bottom: 2px solid $lightBrown
+
 .preview #deal
   margin-bottom: 120px
 #deal
   #main-information
     padding: 20px
     .product-name
-      font-family: "News Cycle"
-      margin: 5px 0 10px
-      color: #3c2613
-      font-size: 21px
-      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.37)
-      padding: 5px 0 7px
-      line-height: 24px
-      border-top: 2px solid $lightBrown
-      border-bottom: 2px solid $lightBrown
+      productName()
     .discount
       position: relative
       top: 23px
@@ -1214,7 +1235,7 @@ body#default.deals.view
   background: url(/img/hiw-divider.jpg) repeat-x
 
 #how-it-works header
-  background: url(/img/middle_bg_dark.jpg) repeat
+  // background: url(/img/middle_bg_dark.jpg) repeat
   padding-top: 1px
   height: 285px
   -webkit-border-top-left-radius: 3px
@@ -1251,11 +1272,10 @@ body#default.deals.view
 
 #how-it-works .step
   height: 350px
-  background: url(/img/middle_bg.jpg) repeat
+  // background: url(/img/middle_bg.jpg) repeat
 
 #how-it-works .step.three
   padding-bottom: 20px
-  border-radius: bottom 3px
 
 
 #how-it-works .step .number
@@ -1297,6 +1317,20 @@ body#default.deals.view
   font-size: 25px
   line-height: 30px
 
+
+#how-it-works
+  .step.four
+    height: 100px
+    border-radius: bottom 3px
+  .btn.white
+    padding: 0
+    background-image: none
+    border-radius: 40px
+    margin-top: 10px
+    height: 70px
+    width: 320px
+    font-size: 40px
+    line-height: @height
 /*~~ Default Layout - z-index ~~*/
 #header
   z-index: 2
@@ -1374,6 +1408,124 @@ body#default.deals.view
     padding: 10px
     .fieldset
       width:48%
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Checkout
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#checkout-steps
+  margin-top: 20px;
+  padding: 10px 30px
+  ul 
+    text-align: center
+    li
+      list-style: none
+      margin-right: 10px
+      float: left;
+      display: block
+      font-size: 14px
+      height: 35px;
+      line-height: 35px
+      font-weight: bold
+      span
+        padding: 0 10px
+        border-radius: 30px !important
+        display: inline-block
+        // border-bottom: 3px solid transparent
+        // border-top: 3px solid transparent
+        // border: 1px solid transparent
+      &.active span
+        // border-top: 2px solid $lightBrown
+        // border-bottom: 2px solid $lightBrown
+        // background: $lightBrown
+        // gradientWhite()
+        // border: 1px solid $green
+        background: #ffffff
+        // background: rgba(255,255,255,.8)
+        gradientWhite()
+        // color: darken($green, 40%)
+
+        box-shadow: 0 0 3px 0 rgba(0,0,0,0.3)
+        width: auto;
+        // border: 1px solid #BBAB98
+        // border: 1px solid rgba(10, 70, 47, .11)
+        // text-shadow: 0 0 2px #000000;
+        // // text-shadow: 0# 0 2px rgba(0,0,0,.5)
+        // box-shadow: 0 0 2px -1px #000000
+        // gradientGreen();
+        // border: 1px solid $green
+        // color: #ffffff
+        // color: darken($green, 20%)
+
+#checkout
+  margin-top: 20px;
+  width: 710px
+  margin-left: -65px
+  padding: 15px
+  .product-image
+    margin-right: 15px
+  .company-name
+    margin: 5px 0 0
+  .product-name
+    productName()
+  .order-items
+    clear: both
+    padding: 10px 0
+    margin-top: 15px
+    background: #f0efeb
+    background: rgba(255,255,255,.6)
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
+    border-radius: 2px
+    width: 746px
+    margin-left: -18px
+    // border-top: 2px solid $lightBrown
+    // border-bottom: 2px solid $lightBrown
+    table
+      width: 100%
+      td
+        vertical-align: middle
+  .deal-details
+    ul
+      margin-bottom: 0
+      float: left
+      li 
+        list-style: none
+        font-size: 13px
+    .options
+      float: right
+  .input.select
+    float: right
+    label
+      font-weight: bold
+      display: none
+  .review-bottom
+    margin-top: 20px
+    .submit,
+    .total
+      float: right
+    .btn.continue
+      margin-top: 0
+      // position: relative
+      // /*color: rgba(255,255,255, .1)*/
+      // font-weight: bold
+      // padding: 0 15px
+      // margin: 0 5px
+      // height: 35px
+      // line-height: 35px
+      // display: inline-block
+      // font-size: 20px
+      // width: auto
+      // // box-shadow: 0 0 2px -1px #000000
+      // btnGreen();
+      // border-radius: 4px
+      &:active
+        top: 1px
+    .total
+      font-size: 24px
+      font-weight: bold
+      margin-right: 15px
+
+      
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Deal extends AppModel {
 
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
@@ -110,8 +111,8 @@ class Deal extends AppModel {
     );
 
     public function beforeSave() {
-        // $this->data['Business']['slug']   = Inflector::slug($this->data['Business']['name']);
-        $this->data['Deal']['slug'] = Inflector::slug($this->data['Deal']['product_name']);
+        // $this->data['Business']['slug']   = Inflector::slug($this->data['Business']['name']);strtolower(Inflector::slug($this->request->data['Business']['name']));
+        $this->data['Deal']['slug'] = strtolower(Inflector::slug($this->data['Deal']['product_name']));
         // debug($this->data);
         return true;
     }
