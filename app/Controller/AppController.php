@@ -161,8 +161,16 @@ class AppController extends Controller {
 
     protected function setUserData() {
         $userModel = ClassRegistry::init('User');
-        $userModel->recursive = -1;
+
+
+        if ($this->Auth->user('user_type') == 'business') {
+          $userModel->Behaviors->attach('Containable', array('recursive' => false));
+          $userModel->contain('Business');
+        } else {
+          $userModel->recursive = -1;
+        }
         $user = $userModel->findById($this->Auth->user('id'));
+        // debug($user);
         if ($user) {
             $this->set('user', $user);    
         } else {
