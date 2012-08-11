@@ -1461,7 +1461,7 @@ body#default.deals.view {
   width: 100%;
 }
 /*~~~~ Deal Page ~~~~*/
-.preview #deal {
+.preview #deal #footer {
   margin-bottom: 120px;
 }
 #deal #main-information {
