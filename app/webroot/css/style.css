@@ -1228,6 +1228,9 @@ body#default.deals.view {
 #default #footer #footer-nav ul li a:visited:hover {
   color: #976027;
 }
+#default.preview #deal #footer {
+  margin-bottom: 120px;
+}
 /*~~ Default Layout - Account Pages ~~*/
 #default #my-account {
   padding: 20px;
@@ -1461,9 +1464,6 @@ body#default.deals.view {
   width: 100%;
 }
 /*~~~~ Deal Page ~~~~*/
-.preview #deal #footer {
-  margin-bottom: 120px;
-}
 #deal #main-information {
   padding: 20px;
 }
