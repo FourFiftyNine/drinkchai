@@ -20,6 +20,13 @@
     array('type' => 'icon'));?>
 
     <?php echo $this->Html->css('style.css'); ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.7.1.min.js'>\x3C/script>")</script>
+    <script src="https://js.stripe.com/v1/"></script>
+    <?php  echo $this->Html->script('libs/tag.dev'); ?>
+    <?php echo $this->Html->css('tag.css'); ?>
+    <?php echo $this->Html->css('themes/stripe.css'); ?>
+
     <?php if ($this->params['controller'] == 'image' && $this->params['action'] == 'manage'): ?>
         <?php
         
@@ -45,7 +52,7 @@
     // echo $this->AssetCompress->includeCss();
 
     if(Configure::read('debug')){
-        echo $this->Html->css('cake.generic'); 
+        // echo $this->Html->css('cake.generic'); 
         // echo $this->Html->script('libs/live');
         echo $this->Html->script('libs/modernizr.custom.min');
       // echo $this->Html->script('libs/live');

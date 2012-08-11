@@ -8,7 +8,7 @@
       <h3 class="product-name"><?php echo $data['Deal']['product_name'] ?></h3>
     </div>
   </div>
-  <?php echo $this->Form->create(array('url' => '/checkout/payment')) ?>
+  <?php echo $this->Form->create(array('url' => '/orders/submit_review')) ?>
   <div class="order-items">
     <table>
       <tr>

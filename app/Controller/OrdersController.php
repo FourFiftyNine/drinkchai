@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::import('Vendor', 'AuthorizeNet/AuthorizeNet');
+App::import('Vendor', 'Stripe/lib/Stripe');
 
 /**
  * Orders Controller
@@ -62,6 +63,28 @@ public $scaffold;
 
     }
 
+    public function submit_review() {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
+            $this->redirect('/checkout/address');
+        } else {
+            $this->request->data = $this->User->read(null, $this->User->id);
+        }
+    }
+
+    public function address() {
+
+    }
+
+    public function submitAddress() {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
+            $this->redirect('/checkout/address');
+        } else {
+            $this->redirect('/checkout/address');
+        }
+    }
+
     public function payment() {
         // debug($this->Session->read());
         // $url = "http://dc.vinyljudge.com/orders/relay_response";
@@ -110,9 +133,38 @@ public $scaffold;
     }
 
     public function confirm() {
-        $this->autoRender = false;
-        // debug($_POST);
-        // debug('confirm'); exit;
+      // set your secret key: remember to change this to your live secret key in production
+      // see your keys here https://manage.stripe.com/account
+      Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
+
+      // get the credit card details submitted by the form
+      $token = $_POST['stripeToken'];
+
+      // create a Customer
+      $customer = Stripe_Customer::create(array(
+        "card" => $token,
+        "description" => "payinguser@example.com")
+      );
+
+      // charge the Customer instead of the card
+      // Stripe_Charge::create(array(
+      //   "amount" => 1000, # amount in cents, again
+      //   "currency" => "usd",
+      //   "customer" => $customer->id)
+      // );
+
+      // save the customer ID in your database so you can use it later
+      // saveStripeCustomerId($user, $customer->id);
+
+      // // later
+      // $customerId = getStripeCustomerId($user);
+
+      // Stripe_Charge::create(array(
+      //     "amount" => 1500, # $15.00 this time
+      //     "currency" => "usd",
+      //     "customer" => $customerId)
+      // );
+
     }
 
     public function quicky() {

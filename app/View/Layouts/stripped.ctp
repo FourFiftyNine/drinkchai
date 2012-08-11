@@ -1,6 +1,6 @@
 <?php echo $this->element('global/doctype'); ?>
 <?php echo $this->element('global/head') ?>
-<body id="<?php echo $this->layout; ?>" <?php echo 'class="' . $this->params['controller'] . ' ' . $this->params['action'] . '"'; ?>>
+<body id="<?php echo $this->layout; ?>" <?php echo 'class="' . $this->params['controller'] . '"'; ?>>
     <div id="main">
         <div class="container">
             <?php echo $this->Html->link(

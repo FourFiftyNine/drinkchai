@@ -1,13 +1,13 @@
 // Thanks to
 // http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/
 // paulirish
-var log = window.log = function () {
-    log.history = log.history || [];
-    log.history.push(arguments);
-    if (this.console) {
-      console.log(Array.prototype.slice.call(arguments));
-    }
-  };
+// var log = window.log = function () {
+//     log.history = log.history || [];
+//     log.history.push(arguments);
+//     if (this.console) {
+//       console.log(Array.prototype.slice.call(arguments));
+//     }
+//   };
 
 var DrinkChai = window.DrinkChai || {};
 

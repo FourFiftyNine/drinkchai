@@ -101,6 +101,8 @@
         array('controller' => 'orders', 'action' => 'index'));
     Router::connect('/checkout/review', 
         array('controller' => 'orders', 'action' => 'review'));
+    Router::connect('/checkout/address', 
+        array('controller' => 'orders', 'action' => 'address'));
     Router::connect('/checkout/payment', 
         array('controller' => 'orders', 'action' => 'payment'));
     Router::connect('/checkout/check_response_code', 

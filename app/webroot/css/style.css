@@ -1889,10 +1889,12 @@ body#default.deals.view {
 #stripped #content {
   margin-top: 20px;
 }
-#stripped input {
+#stripped input[type="text"],
+#stripped input[type="password"] {
   width: 100%;
 }
-#stripped input[type="submit"] {
+#stripped input[type="text"][type="submit"],
+#stripped input[type="password"][type="submit"] {
   margin-top: 15px;
 }
 #stripped section h1,
@@ -1947,17 +1949,19 @@ body#default.deals.view {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #checkout-steps {
   margin-top: 20px;
-  padding: 10px 30px;
+  padding: 10px 15px;
 }
 #checkout-steps ul {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 #checkout-steps ul li {
   list-style: none;
   margin-right: 10px;
   float: left;
   display: block;
-  font-size: 14px;
+  font-size: 13px e;
   height: 35px;
   line-height: 35px;
   font-weight: bold;
@@ -2060,6 +2064,18 @@ body#default.deals.view {
   font-size: 24px;
   font-weight: bold;
   margin-right: 15px;
+}
+#checkout.payment-container #payment-form {
+  width: 300px;
+  margin: 0 auto;
+}
+#checkout.payment-container #payment-form .submit {
+  margin-top: 10px;
+  float: right;
+}
+#checkout.address .left {
+  width: 45%;
+  margin-left: 20px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug
