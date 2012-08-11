@@ -201,7 +201,7 @@ class AppController extends Controller {
     }
 
       // http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/
-    private function dateDiff($time1, $time2, $precision = 6) {
+    protected function dateDiff($time1, $time2, $precision = 6) {
           // If not numeric then convert texts to unix timestamps
           if (!is_int($time1)) {
             $time1 = strtotime($time1);
@@ -270,7 +270,7 @@ class AppController extends Controller {
           // return implode(", ", $times);
     }
 
-    private function getTimeRemainingLabel($timeArray) {
+    protected function getTimeRemainingLabel($timeArray) {
         if(is_array($timeArray)) {
             $timeLeft = '';
             if($timeArray['days']) {
