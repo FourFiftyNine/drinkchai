@@ -73,19 +73,49 @@ public $scaffold;
     }
 
     public function address() {
+      $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
+      $this->set('states', $states);
+      $this->request->data['Address'][0]['firstname'] = $this->Auth->user('firstname');
+      $this->request->data['Address'][1]['firstname'] = $this->Auth->user('firstname');
+      $this->request->data['Address'][0]['lastname'] = $this->Auth->user('lastname');
+      $this->request->data['Address'][1]['lastname'] = $this->Auth->user('lastname');
+      $this->request->data['Address'][0]['user_id'] = $this->Auth->user('id');
+      $this->request->data['Address'][1]['user_id'] = $this->Auth->user('id');
+      if ($this->request->is('post') || $this->request->is('put')) {
+          // $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
 
+          // debug($states); exit;
+        if ($ret = $this->Order->saveAll($this->request->data)) {
+          // debug($this->request->data);
+          // debug($ret); exit;
+          $this->redirect('/checkout/payment');
+        }
+      } else {
+          // $this->redirect('/checkout/address');
+      }
     }
 
-    public function submitAddress() {
+    public function submit_address() {
+        $this->autoRender = false;
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
-            $this->redirect('/checkout/address');
+            // $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
+          if ($ret = $this->Order->saveAll($this->request->data)) {
+            // debug($this->request->data);
+            // debug($ret); exit;
+            $this->redirect('/checkout/payment');
+          }
         } else {
             $this->redirect('/checkout/address');
         }
     }
 
     public function payment() {
+      // TODO make sure most recent
+        $billingAddress = $this->Order->Address->findByUserIdAndType($this->Auth->user('id'), 'billing');
+        // debug($billingAddress);
+        $this->request->data['Address'][0]['firstname'] = $billingAddress['Address']['firstname'];
+        $this->request->data['Address'][0]['lastname'] = $billingAddress['Address']['lastname'];
+
         // debug($this->Session->read());
         // $url = "http://dc.vinyljudge.com/orders/relay_response";
         $time = time();

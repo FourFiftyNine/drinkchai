@@ -1949,7 +1949,8 @@ body#default.deals.view {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #checkout-steps {
   margin-top: 20px;
-  padding: 10px 15px;
+  padding: 15px;
+  padding-left: 40px;
 }
 #checkout-steps ul {
   text-align: center;
@@ -1992,6 +1993,12 @@ body#default.deals.view {
   width: 710px;
   margin-left: -65px;
   padding: 15px;
+}
+#checkout form input[type="text"] {
+  border-width: 2px;
+  padding: 2px 9px;
+  -webkit-box-shadow: 0 0 5px -1px #000 inset;
+  box-shadow: 0 0 5px -1px #000 inset;
 }
 #checkout .product-image {
   margin-right: 15px;
@@ -2040,10 +2047,10 @@ body#default.deals.view {
 #checkout .deal-details .options {
   float: right;
 }
-#checkout .input.select {
+#checkout .input.select#OrderQuantity {
   float: right;
 }
-#checkout .input.select label {
+#checkout .input.select#OrderQuantity label {
   font-weight: bold;
   display: none;
 }
@@ -2065,6 +2072,10 @@ body#default.deals.view {
   font-weight: bold;
   margin-right: 15px;
 }
+#checkout.payment-container {
+  width: 335px;
+  margin: 20px auto;
+}
 #checkout.payment-container #payment-form {
   width: 300px;
   margin: 0 auto;
@@ -2073,9 +2084,34 @@ body#default.deals.view {
   margin-top: 10px;
   float: right;
 }
+#checkout.payment-container #payment-form .input.text {
+  width: 48%;
+  float: left;
+  margin-left: 10px;
+}
+#checkout.payment-container #payment-form .input.text:first-child {
+  margin-left: 0;
+}
+#checkout.payment-container #payment-form payment {
+  margin-top: 20px;
+  clear: both;
+}
+#checkout.address .error-message {
+  height: 30px;
+  top: 24px;
+  line-height: 30px;
+}
 #checkout.address .left {
   width: 45%;
   margin-left: 20px;
+}
+#checkout.address .select select {
+  display: block;
+}
+#checkout.address .submit input.btn {
+  margin-top: 20px;
+  margin-right: 30px;
+  float: right;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

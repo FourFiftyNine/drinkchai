@@ -3,11 +3,132 @@ App::uses('AppModel', 'Model');
 /**
  * Address Model
  *
- * @property Business $Business
- * @property User $User
  * @property User $User
  */
 class Address extends AppModel {
+
+/**
+ * Validation rules
+ *
+ * @var array
+ */
+	public $validate = array(
+		'firstname' => array(
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'lastname' => array(
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'address_one' => array(
+			// 'alphanumeric' => array(
+			// 	'rule' => array('alphanumeric'),
+			// 	//'message' => 'Your custom message here',
+			// 	//'allowEmpty' => false,
+			// 	//'required' => false,
+			// 	//'last' => false, // Stop validation after this rule
+			// 	//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'address_two' => array(
+			// 'alphanumeric' => array(
+			// 	'rule' => array('alphanumeric'),
+			// 	//'message' => 'Your custom message here',
+			// 	// 'allowEmpty' => true,
+			// 	//'required' => false,
+			// 	//'last' => false, // Stop validation after this rule
+			// 	//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
+		),
+		'state' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'zip' => array(
+			'postal' => array(
+				'rule' => array('postal', null, 'us'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'city' => array(
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'user_id' => array(
+		    'rule' => 'checkAuth',
+		    'message' => 'Nice try buddy.',
+		    'on' => 'update'
+		)
+	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -17,64 +138,25 @@ class Address extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Order' => array(
+			'className' => 'Order',
+			'foreignKey' => 'order_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
-/**
- * hasMany associations
- *
- * @var array
- */
-	// public $hasMany = array(
-	// 	'User' => array(
-	// 		'className' => 'User',
-	// 		'foreignKey' => 'address_id',
-	// 		'dependent' => false,
-	// 		'conditions' => '',
-	// 		'fields' => '',
-	// 		'order' => '',
-	// 		'limit' => '',
-	// 		'offset' => '',
-	// 		'exclusive' => '',
-	// 		'finderQuery' => '',
-	// 		'counterQuery' => ''
-	// 	)
-	// );
+	// public $hasOne = array('State');
 
 
-	public $validate = array(
-		'zip' => array(
-	        'notEmpty' => array(
-	          'rule' => 'notEmpty',
-	          'message' => 'This field cannot be left blank'
-	        ),
-	        'maxLength' => array(
-	          'rule' => array('maxLength', 5),          
-	          'message' => 'Must be no larger than 5 digits long.'
-	        ),
-	        'minLength' => array(
-	          'rule' => array('minLength', 5),          
-	          'message' => 'Must be 5 digits long.'
-	        ),
-	        'numeric' => array(        
-	          'rule' => 'numeric',          
-	          'message' => 'Only numbers allowed'
-	        )
-	      ),
-		'user_id' => array(
-		    'rule' => 'checkAuth',
-		    'message' => 'Nice try buddy.',
-		    'on' => 'update'
-		)
-	);
-	
 	function checkAuth() {
 	    $authorized = true;
 	    if(!$this->hasAny(array(
@@ -85,5 +167,3 @@ class Address extends AppModel {
 	    return $authorized;
 	}
 }
-
-

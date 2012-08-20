@@ -29,17 +29,20 @@ class Order extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		)
+	);
+
+	public $hasMany = array(
 		'Address' => array(
 			'className' => 'Address',
-			'foreignKey' => 'shipping_address',
+			'foreignKey' => 'shipping_address_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Address' => array(
 			'className' => 'Address',
-			'foreignKey' => 'billing_address',
+			'foreignKey' => 'billing_address_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

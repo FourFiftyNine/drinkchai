@@ -264,7 +264,6 @@ class AppController extends Controller {
           $count++;
             // }
           }
-       
           // Return string with times
           return $times;
           // return implode(", ", $times);

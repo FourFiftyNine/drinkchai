@@ -1419,7 +1419,8 @@ productName()
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #checkout-steps
   margin-top: 20px;
-  padding: 10px 15px
+  padding: 15px
+  padding-left: 40px
   ul 
     text-align: center
     margin: 0
@@ -1468,6 +1469,11 @@ productName()
   width: 710px
   margin-left: -65px
   padding: 15px
+  form
+    input[type="text"]
+      border-width: 2px
+      padding: 2px 9px
+      box-shadow: 0 0 5px -1px #000000 inset
   .product-image
     margin-right: 15px
   .company-name
@@ -1499,7 +1505,7 @@ productName()
         font-size: 13px
     .options
       float: right
-  .input.select
+  .input.select#OrderQuantity
     float: right
     label
       font-weight: bold
@@ -1532,16 +1538,38 @@ productName()
       margin-right: 15px
 
 #checkout.payment-container
+  width: 335px;
+  margin: 20px auto
   #payment-form
     width: 300px
     margin: 0 auto
     .submit { margin-top: 10px; float: right }
+    .input.text
+      width: 48%
+      float: left
+      margin-left: 10px
+      &:first-child
+        margin-left: 0
+    payment
+      margin-top: 20px
+      clear: both
 
 #checkout.address
+  .error-message
+    height: 30px
+    top: 24px
+    line-height: 30px
+
   .left
     width: 45%
     margin-left: 20px
-
+  .select select
+    display: block
+  .submit
+    input.btn
+      margin-top: 20px
+      margin-right: 30px
+      float: right
       
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
