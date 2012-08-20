@@ -155,8 +155,21 @@ class Address extends AppModel {
 	);
 
 	// public $hasOne = array('State');
+	public $hasOne = array(
+		'State' => array(
+			'className' => 'State',
+			'foreignKey' => 'id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
-
+	public function afterSave($created) {
+		// if ($created) {
+		// 	debug($this->data); exit;
+		// }
+	}
 	function checkAuth() {
 	    $authorized = true;
 	    if(!$this->hasAny(array(

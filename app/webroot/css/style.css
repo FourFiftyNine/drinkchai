@@ -1994,9 +1994,17 @@ body#default.deals.view {
   margin-left: -65px;
   padding: 15px;
 }
+#checkout form .short {
+  width: 75%;
+}
+#checkout form .input {
+  margin-bottom: 5px;
+}
 #checkout form input[type="text"] {
+  font-family: 'Arial', sans-serif;
   border-width: 2px;
-  padding: 2px 9px;
+  padding: 0px 9px 0;
+  line-height: 27px;
   -webkit-box-shadow: 0 0 5px -1px #000 inset;
   box-shadow: 0 0 5px -1px #000 inset;
 }
@@ -2098,15 +2106,28 @@ body#default.deals.view {
 }
 #checkout.address .error-message {
   height: 30px;
-  top: 24px;
+  top: 23px;
+  right: 1px;
   line-height: 30px;
 }
 #checkout.address .left {
   width: 45%;
   margin-left: 20px;
 }
+#checkout.address .select {
+  float: left;
+}
 #checkout.address .select select {
   display: block;
+  margin-top: 4px;
+}
+#checkout.address .input.text.zip {
+  float: left;
+  width: 150px;
+  margin-left: 10px;
+}
+#checkout.address input.zip {
+  width: 100%;
 }
 #checkout.address .submit input.btn {
   margin-top: 20px;

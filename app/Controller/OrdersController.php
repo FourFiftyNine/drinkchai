@@ -79,11 +79,11 @@ public $scaffold;
       $this->request->data['Address'][1]['firstname'] = $this->Auth->user('firstname');
       $this->request->data['Address'][0]['lastname'] = $this->Auth->user('lastname');
       $this->request->data['Address'][1]['lastname'] = $this->Auth->user('lastname');
-      $this->request->data['Address'][0]['user_id'] = $this->Auth->user('id');
-      $this->request->data['Address'][1]['user_id'] = $this->Auth->user('id');
+      debug($this->Order->Address->findAllByUserId($this->Auth->user('id')));
       if ($this->request->is('post') || $this->request->is('put')) {
           // $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
-
+        $this->request->data['Address'][0]['user_id'] = $this->Auth->user('id');
+        $this->request->data['Address'][1]['user_id'] = $this->Auth->user('id');
           // debug($states); exit;
         if ($ret = $this->Order->saveAll($this->request->data)) {
           // debug($this->request->data);
@@ -95,20 +95,6 @@ public $scaffold;
       }
     }
 
-    public function submit_address() {
-        $this->autoRender = false;
-        if ($this->request->is('post') || $this->request->is('put')) {
-            // $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
-          if ($ret = $this->Order->saveAll($this->request->data)) {
-            // debug($this->request->data);
-            // debug($ret); exit;
-            $this->redirect('/checkout/payment');
-          }
-        } else {
-            $this->redirect('/checkout/address');
-        }
-    }
-
     public function payment() {
       // TODO make sure most recent
         $billingAddress = $this->Order->Address->findByUserIdAndType($this->Auth->user('id'), 'billing');
@@ -116,26 +102,26 @@ public $scaffold;
         $this->request->data['Address'][0]['firstname'] = $billingAddress['Address']['firstname'];
         $this->request->data['Address'][0]['lastname'] = $billingAddress['Address']['lastname'];
 
-        // debug($this->Session->read());
-        // $url = "http://dc.vinyljudge.com/orders/relay_response";
-        $time = time();
-        // $url = true;
-        $this->set('postUrl', AuthorizeNetDPM::SANDBOX_URL);
-        $AuthNetHiddenFields['x_login'] = $this->api_login_id;
-        $AuthNetHiddenFields['x_amount'] = '5.99';
-        $AuthNetHiddenFields['x_type'] = 'AUTH_ONLY';
-        $AuthNetHiddenFields['x_fp_sequence'] = $time; // TODO INVOICE #
-        $AuthNetHiddenFields['x_fp_timestamp'] = $time;
-        $AuthNetHiddenFields['x_relay_response'] = "TRUE";
-        $AuthNetHiddenFields['x_relay_url'] = 'http://dc.vinyljudge.com/orders/relay_response';
-
-        $x_fp_hash = AuthorizeNetDPM::getFingerprint($this->api_login_id, $this->transaction_key, $AuthNetHiddenFields['x_amount'], $AuthNetHiddenFields['x_fp_sequence'], $time);
-
-        $AuthNetHiddenFields['x_fp_hash'] = $x_fp_hash;
-
-        $this->set('AuthNetHiddenFields', $AuthNetHiddenFields);
     }
 
+    // public function authNetPayment() {
+    //   $time = time();
+    //   // $url = true;
+    //   $this->set('postUrl', AuthorizeNetDPM::SANDBOX_URL);
+    //   $AuthNetHiddenFields['x_login'] = $this->api_login_id;
+    //   $AuthNetHiddenFields['x_amount'] = '5.99';
+    //   $AuthNetHiddenFields['x_type'] = 'AUTH_ONLY';
+    //   $AuthNetHiddenFields['x_fp_sequence'] = $time; // TODO INVOICE #
+    //   $AuthNetHiddenFields['x_fp_timestamp'] = $time;
+    //   $AuthNetHiddenFields['x_relay_response'] = "TRUE";
+    //   $AuthNetHiddenFields['x_relay_url'] = 'http://dc.vinyljudge.com/orders/relay_response';
+
+    //   $x_fp_hash = AuthorizeNetDPM::getFingerprint($this->api_login_id, $this->transaction_key, $AuthNetHiddenFields['x_amount'], $AuthNetHiddenFields['x_fp_sequence'], $time);
+
+    //   $AuthNetHiddenFields['x_fp_hash'] = $x_fp_hash;
+
+    //   $this->set('AuthNetHiddenFields', $AuthNetHiddenFields);
+    // }
     public function relay_response() {
         $this->autoRender = false;
         $redirect_url = "http://dc.vinyljudge.com/orders/confirm";

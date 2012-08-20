@@ -1470,9 +1470,14 @@ productName()
   margin-left: -65px
   padding: 15px
   form
+    .short {width:75%}
+    .input
+      margin-bottom: 5px
     input[type="text"]
+      font-family: 'Arial', sans-serif;
       border-width: 2px
-      padding: 2px 9px
+      padding: 0px 9px 0
+      line-height: 27px
       box-shadow: 0 0 5px -1px #000000 inset
   .product-image
     margin-right: 15px
@@ -1557,14 +1562,23 @@ productName()
 #checkout.address
   .error-message
     height: 30px
-    top: 24px
+    top: 23px
+    right: 1px
     line-height: 30px
-
   .left
     width: 45%
     margin-left: 20px
-  .select select
-    display: block
+  .select 
+    float: left
+    select
+      display: block
+      margin-top: 4px
+  .input.text.zip
+    float: left
+    width: 150px
+    margin-left: 10px
+  input.zip
+    width: 100%
   .submit
     input.btn
       margin-top: 20px
