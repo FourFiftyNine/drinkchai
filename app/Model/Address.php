@@ -144,16 +144,25 @@ class Address extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Order' => array(
-			'className' => 'Order',
-			'foreignKey' => 'order_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
+	public $hasMany = array(
+		'ShippingAddress' => array(
+			'className' => 'Order',
+			'foreignKey' => 'shipping_address_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'BillingAddress' => array(
+			'className' => 'Order',
+			'foreignKey' => 'billing_address_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+	);
 	// public $hasOne = array('State');
 	public $hasOne = array(
 		'State' => array(

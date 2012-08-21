@@ -78,7 +78,10 @@
       this.$token = $('<input type="hidden">');
       this.$token.attr('name', this.options.tokenName);
       this.$token.val(token);
-      return this.$el.html(this.$token);
+      variaaaa = this.$el.html(this.$token);
+      console.log(variaaaa);
+      return variaaaa;
+
     };
 
     PaymentTag.prototype.setForm = function($form) {
@@ -99,20 +102,23 @@
       if (!Stripe.validateCardNumber(this.$number.val())) {
         valid = false;
         this.handleError({
-          code: 'invalid_number'
+          code: 'invalid_number',
+          message: 'Invalid card number'
         });
       }
       expiry = this.expiryVal();
       if (!Stripe.validateExpiry(expiry.month, expiry.year)) {
         valid = false;
         this.handleError({
-          code: 'expired_card'
+          code: 'expired_card',
+          message: 'Invalid expiration date'
         });
       }
       if (this.options.cvc && !Stripe.validateCVC(this.$cvc.val())) {
         valid = false;
         this.handleError({
-          code: 'invalid_cvc'
+          code: 'invalid_cvc',
+          message: 'Invalid CVC Code'
         });
       }
       if (!valid) {
@@ -132,11 +138,17 @@
         }
       };
       expiry = this.expiryVal();
+      var customerName = $('#BillingAddressFirstname').val() + ' ' + $('#BillingAddressLastname').val();
+      var address_one = $('#BillingAddressAddressOne').val();
+      var zip = $('#BillingAddressZip').val();
       return Stripe.createToken({
         number: this.$number.val(),
         cvc: this.$cvc.val() || null,
         exp_month: expiry.month,
-        exp_year: expiry.year
+        exp_year: expiry.year,
+        name: customerName,
+        address_line1: address_one,
+        address_zip: zip
       }, complete);
     };
 

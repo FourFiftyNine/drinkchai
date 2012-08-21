@@ -22,8 +22,10 @@
     <?php echo $this->Html->css('style.css'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.7.1.min.js'>\x3C/script>")</script>
-    <script src="https://js.stripe.com/v1/"></script>
-    <?php  echo $this->Html->script('libs/tag.dev'); ?>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+    <?php echo $this->Html->script('libs/tag.dev'); ?>
+
     <?php echo $this->Html->css('tag.css'); ?>
     <?php echo $this->Html->css('themes/stripe.css'); ?>
 

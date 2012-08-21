@@ -170,6 +170,7 @@ DrinkChai.common = {
     //     $('.login-box').fadeToggle();
     // })
     UTIL.defaultInputs();
+    // FourFiftyNine.CustomStripePayment.init();
     //   window.fbAsyncInit = function() {
     // FB.init({
     //         appId      : DrinkChai.getFB_APP_ID(), // App ID
@@ -180,5 +181,161 @@ DrinkChai.common = {
     //     });
     // // Additional initialization code here
     // };
+  }
+}
+
+var FourFiftyNine = window.FourFiftyNine || {};
+
+var custPayment = FourFiftyNine.CustomStripePayment = {
+  init: function() {
+    Stripe.setPublishableKey('pk_08sMw2soHqvmWIvVavRRuIfE18zn5');
+    custPayment.bindPaymentForm();
+    custPayment.$paymentForm = $('#payment-form');
+    custPayment.$number = custPayment.$paymentForm.find('.number input');
+
+    custPayment.$paymentForm.delegate('.number input', 'keydown', custPayment.bindFormatNumber);
+    custPayment.$paymentForm.delegate('.number input', 'keyup', custPayment.bindChangeCardType);
+    custPayment.$paymentForm.delegate('input[type=tel]', 'keypress', custPayment.bindRestrictNumeric);
+  },
+  bindPaymentForm: function() {
+    var _stripeResponseHandler = custPayment.stripeResponseHandler;
+    $("#payment-form").submit(function(event) {
+      // console.log('here');
+      // console.log($('.card-number').val());
+        // disable the submit button to prevent repeated clicks
+        $('.submit-button').attr("disabled", "disabled");
+        // createToken returns immediately - the supplied callback submits the form if there are no errors
+        Stripe.createToken({
+            number: $('.card-number').val(),
+            cvc: $('.card-cvc').val(),
+            exp_month: $('.card-expiry-month').val(),
+            exp_year: $('.card-expiry-year').val()
+        }, _stripeResponseHandler);
+        return false; // submit from callback
+    });
+  },
+  stripeResponseHandler: function(status, response) {
+    if (response.error) {
+        // re-enable the submit button
+        $('.submit-button').removeAttr("disabled");
+        // show the errors on the form
+        // custPayment.handleError(response.error);
+        $(".payment-errors").html(response.error.message);
+    } else {
+        var form$ = $("#payment-form");
+        // token contains id, last4, and card type
+        var token = response['id'];
+        // insert the token into the form so it gets submitted to the server
+        form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+        // and submit
+        form$.get(0).submit();
+    }
+  },
+  bindChangeCardType: function(e) {
+    var map, name, type, _ref, cardTypes;
+    cardTypes = {
+      'Visa': 'visa',
+      'American Express': 'amex',
+      'MasterCard': 'mastercard',
+      'Discover': 'discover',
+      'Unknown': 'unknown'
+    };
+    type = Stripe.cardType(custPayment.$number.val());
+    if (!custPayment.$number.hasClass(type)) {
+      _ref = cardTypes;
+      for (name in _ref) {
+        map = _ref[name];
+        custPayment.$number.removeClass(map);
+      }
+      return custPayment.$number.addClass(cardTypes[type]);
+    }
+  },
+  bindFormatNumber: function(e) {
+    var digit, lastDigits, value;
+    digit = String.fromCharCode(e.which);
+    if (!/^\d+$/.test(digit)) {
+      return;
+    }
+    value = custPayment.$number.val();
+    if (Stripe.cardType(value) === 'American Express') {
+      lastDigits = value.match(/^(\d{4}|\d{4}\s\d{6})$/);
+    } else {
+      lastDigits = value.match(/(?:^|\s)(\d{4})$/);
+    }
+    if (lastDigits) {
+      return custPayment.$number.val(value + ' ');
+    }
+  },
+  bindRestrictNumeric: function(e) {
+    var char;
+    if (e.shiftKey || e.metaKey) {
+      return true;
+    }
+    if (e.which === 0) {
+      return true;
+    }
+    char = String.fromCharCode(e.which);
+    return !/[A-Za-z]/.test(char);
+  },
+  handleError: function(err) {
+    if (err.message) {
+       $(".payment-errors").html(err.message);
+    }
+    console.log(err);
+    switch (err.code) {
+      case 'card_declined':
+        custPayment.invalidInput(custPayment.$number);
+        break;
+      case 'invalid_number':
+      case 'incorrect_number':
+        custPayment.invalidInput(custPayment.$number);
+        break;
+      case 'invalid_expiry_month':
+        custPayment.invalidInput(custPayment.$expiryMonth);
+        break;
+      case 'invalid_expiry_year':
+      case 'expired_card':
+        custPayment.invalidInput(custPayment.$expiryYear);
+        break;
+      case 'invalid_cvc':
+        custPayment.invalidInput(custPayment.$cvc);
+    }
+    $('label.invalid:first input').select();
+    // custPayment.trigger('error', err);
+    return typeof console !== "undefined" && console !== null ? console.error('Stripe error:', err) : void 0;
+  },
+  invalidInput: function(input) {
+    console.log(input);
+    input.parent().addClass('invalid');
+    return this.trigger('invalid', [input.attr('name'), input]);
+  },
+  validate: function() {
+    var expiry, valid;
+    valid = true;
+    this.$('div').removeClass('invalid');
+    this.$message.empty();
+    if (!Stripe.validateCardNumber(this.$number.val())) {
+      valid = false;
+      this.handleError({
+        code: 'invalid_number'
+      });
+    }
+    expiry = this.expiryVal();
+    if (!Stripe.validateExpiry(expiry.month, expiry.year)) {
+      valid = false;
+      this.handleError({
+        code: 'expired_card'
+      });
+    }
+    if (this.options.cvc && !Stripe.validateCVC(this.$cvc.val())) {
+      valid = false;
+      this.handleError({
+        code: 'invalid_cvc'
+      });
+    }
+    if (!valid) {
+      this.$('label.invalid:first input').select();
+    }
+    return valid;
   }
 }

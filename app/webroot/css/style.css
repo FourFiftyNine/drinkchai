@@ -2104,6 +2104,9 @@ body#default.deals.view {
   margin-top: 20px;
   clear: both;
 }
+#checkout.payment-container #payment-form .payment-errors {
+  background: $red;
+}
 #checkout.address .error-message {
   height: 30px;
   top: 23px;

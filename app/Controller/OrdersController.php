@@ -41,6 +41,7 @@ public $scaffold;
 
     public function index() {
         $this->Session->write('Order.deal_id', $this->request->data['Deal']['id']);
+        $this->Session->write('Order.user_id', $this->Auth->user('id'));
         if ($this->Auth->loggedIn()) {
             // debug($this->request->data); exit;
             $this->redirect('/checkout/review');
@@ -55,6 +56,8 @@ public $scaffold;
         $this->Order->Deal->contain('Image', 'Business.name');
 
         $dealData = $this->Order->Deal->findById($dealId);
+        $this->Session->write('Deal', $dealData['Deal']);
+        $this->Session->write('Business', $dealData['Business']);
         // debug($dealData);
         $this->setImages($dealData['Image']);
         $this->setDealData($dealData);
@@ -75,19 +78,34 @@ public $scaffold;
     public function address() {
       $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
       $this->set('states', $states);
-      $this->request->data['Address'][0]['firstname'] = $this->Auth->user('firstname');
-      $this->request->data['Address'][1]['firstname'] = $this->Auth->user('firstname');
-      $this->request->data['Address'][0]['lastname'] = $this->Auth->user('lastname');
-      $this->request->data['Address'][1]['lastname'] = $this->Auth->user('lastname');
-      debug($this->Order->Address->findAllByUserId($this->Auth->user('id')));
+      // $sessionShippingAddress = $this->Session->read('ShippingAddress');
+      if($this->Session->check('ShippingAddress') && $this->Session->check('BillingAddress')) {
+        $this->request->data['ShippingAddress'] = $this->Session->read('ShippingAddress');
+        $this->request->data['BillingAddress'] = $this->Session->read('BillingAddress');
+      } else {
+        $this->request->data['ShippingAddress']['firstname'] = $this->Auth->user('firstname');
+        $this->request->data['ShippingAddress']['lastname'] = $this->Auth->user('lastname');
+        $this->request->data['BillingAddress']['firstname'] = $this->Auth->user('firstname');
+        $this->request->data['BillingAddress']['lastname'] = $this->Auth->user('lastname');
+      }
+
+
+
+
+      // debug($this->Order->Address->findAllByUserId($this->Auth->user('id')));
+      // $data = $this->Order->findAllByUserId($this->Auth->user('id'));
+      // // debug($data);
+      // // CONTAIN
+      // $data = $this->Order->User->Address->findAllByUserId($this->Auth->user('id'));
+
+      // debug($data);
       if ($this->request->is('post') || $this->request->is('put')) {
-          // $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
-        $this->request->data['Address'][0]['user_id'] = $this->Auth->user('id');
-        $this->request->data['Address'][1]['user_id'] = $this->Auth->user('id');
-          // debug($states); exit;
-        if ($ret = $this->Order->saveAll($this->request->data)) {
-          // debug($this->request->data);
-          // debug($ret); exit;
+        $this->request->data['ShippingAddress']['user_id'] = $this->Auth->user('id');
+        $this->request->data['BillingAddress']['user_id'] = $this->Auth->user('id');
+
+        if ($ret = $this->Order->saveAll($this->request->data, array('validate' => 'only'))) {
+          $this->Session->write('ShippingAddress', $this->request->data['ShippingAddress']);
+          $this->Session->write('BillingAddress', $this->request->data['BillingAddress']);
           $this->redirect('/checkout/payment');
         }
       } else {
@@ -96,11 +114,11 @@ public $scaffold;
     }
 
     public function payment() {
-      // TODO make sure most recent
-        $billingAddress = $this->Order->Address->findByUserIdAndType($this->Auth->user('id'), 'billing');
-        // debug($billingAddress);
-        $this->request->data['Address'][0]['firstname'] = $billingAddress['Address']['firstname'];
-        $this->request->data['Address'][0]['lastname'] = $billingAddress['Address']['lastname'];
+
+        $this->request->data['BillingAddress']['firstname'] = $this->Session->read('BillingAddress.firstname');
+        $this->request->data['BillingAddress']['lastname'] = $this->Session->read('BillingAddress.lastname');
+        $this->request->data['BillingAddress']['address_one'] = $this->Session->read('BillingAddress.address_one');
+        $this->request->data['BillingAddress']['zip'] = $this->Session->read('BillingAddress.zip');
 
     }
 
@@ -154,20 +172,24 @@ public $scaffold;
       Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
 
       // get the credit card details submitted by the form
-      $token = $_POST['stripeToken'];
+      // $token = $_POST['stripeToken'];
+      // debug($_POST); exit;
+      $token = $this->request->data['stripe_token'];
 
       // create a Customer
-      $customer = Stripe_Customer::create(array(
-        "card" => $token,
-        "description" => "payinguser@example.com")
-      );
+      // $customer = Stripe_Customer::create(array(
+      //   "card" => $token,
+      //   "description" => '',
+      //   "email" => $this->Auth->user('email'))
+      // );
 
       // charge the Customer instead of the card
-      // Stripe_Charge::create(array(
-      //   "amount" => 1000, # amount in cents, again
-      //   "currency" => "usd",
-      //   "customer" => $customer->id)
-      // );
+      $return = Stripe_Charge::create(array(
+        "amount" => 1000, # amount in cents, again
+        "currency" => "usd",
+        "customer" => 'cus_0DbXwlAYQwnvpS')
+      );
+      var_dump($return);
 
       // save the customer ID in your database so you can use it later
       // saveStripeCustomerId($user, $customer->id);
@@ -181,19 +203,5 @@ public $scaffold;
       //     "customer" => $customerId)
       // );
 
-    }
-
-    public function quicky() {
-        $sale = new AuthorizeNetAIM;
-        $sale->amount = "5.99";
-        $sale->card_num = '6011000000000012';
-        $sale->exp_date = '04/15';
-        $response = $sale->authorizeAndCapture();
-        if ($response->approved) {
-            $transaction_id = $response->transaction_id;
-        }
-
-        debug($response);
-        $this->autoRender = false;
     }
 }
