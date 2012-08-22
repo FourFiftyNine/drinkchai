@@ -70,7 +70,7 @@
       this.$cvc = this.$('.cvc input');
       this.$expiryMonth = this.$('.expiry input.expiryMonth');
       this.$expiryYear = this.$('.expiry input.expiryYear');
-      this.$message = this.$('.message');
+      this.$message = this.$('.error').hide();
       return this;
     };
 
@@ -243,7 +243,7 @@
 
     PaymentTag.prototype.handleError = function(err) {
       if (err.message) {
-        this.$message.text(err.message);
+        this.$message.text(err.message).show();
       }
       switch (err.code) {
         case 'card_declined':
@@ -379,7 +379,7 @@
     (function() {
       (function() {
       
-        __out.push('<span class="message"></span>\n\n<div class="number">\n  <label for="paymentNumber">Card number</label>\n\n  <input type="tel" id="paymentNumber" placeholder="4242 4242 4242 4242">\n</div>\n\n');
+        __out.push('<div class="error"></div>\n\n<div class="number">\n  <label for="paymentNumber">Card number</label>\n\n  <input type="tel" id="paymentNumber" placeholder="4242 4242 4242 4242">\n</div>\n\n');
       
         if (this.options.cvc) {
           __out.push('\n  <div class="cvc">\n    <label for="paymentCVC">Security code</label>\n    <input type="tel" id="paymentCVC" placeholder="123" maxlength="4">\n  </div>\n');

@@ -1421,6 +1421,7 @@ productName()
   margin-top: 20px;
   padding: 15px
   padding-left: 40px
+  width: 685px
   ul 
     text-align: center
     margin: 0
@@ -1464,10 +1465,23 @@ productName()
         // color: #ffffff
         // color: darken($green, 20%)
 
+transparentWhite()
+  background: #f0efeb
+  background: rgba(255,255,255,.6)
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
+  border-radius: 2px
+transWhiteSection()
+  clear: both
+  padding: 10px 0
+  margin-top: 15px
+  transparentWhite()
+  width: 746px
+  margin-left: -18px
+
+
 #checkout
   margin-top: 20px;
   width: 710px
-  margin-left: -65px
   padding: 15px
   form
     .short {width:75%}
@@ -1486,21 +1500,15 @@ productName()
   .product-name
     productName()
   .order-items
-    clear: both
-    padding: 10px 0
-    margin-top: 15px
-    background: #f0efeb
-    background: rgba(255,255,255,.6)
-    box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
-    border-radius: 2px
-    width: 746px
-    margin-left: -18px
+    transWhiteSection()
     // border-top: 2px solid $lightBrown
     // border-bottom: 2px solid $lightBrown
     table
       width: 100%
       td
         vertical-align: middle
+        &.deal
+          padding-bottom: 10px
   .deal-details
     ul
       margin-bottom: 0
@@ -1542,32 +1550,17 @@ productName()
       font-weight: bold
       margin-right: 15px
 
-#checkout.payment-container
-  width: 335px;
-  margin: 20px auto
-  #payment-form
-    width: 300px
-    margin: 0 auto
-    .submit { margin-top: 10px; float: right }
-    .input.text
-      width: 48%
-      float: left
-      margin-left: 10px
-      &:first-child
-        margin-left: 0
-    payment
-      margin-top: 20px
-      clear: both
-    .payment-errors
-      background: $red
-
 #checkout.address
+  .no-input-error.error-message
+    position: relative
+    top: -5px
+    border-radius: 4px
   .error-message
     height: 30px
     top: 23px
     right: 1px
     line-height: 30px
-  .left
+  form .left
     width: 45%
     margin-left: 20px
   .select 
@@ -1586,7 +1579,66 @@ productName()
       margin-top: 20px
       margin-right: 30px
       float: right
-      
+
+#checkout.payment-container
+  margin: 20px auto
+  #payment-form
+    width: 300px
+    margin: 0 auto
+    .submit { margin-top: 10px; float: right }
+    .input.text
+      width: 48%
+      float: left
+      margin-left: 10px
+      &:first-child
+        margin-left: 0
+    payment
+      margin-top: 10px
+      clear: both
+    .error
+      background: $error
+      color: white
+      display: block
+      padding: 10px 20px
+      border-radius: 3px
+      display: none
+
+#checkout.confirm
+  table
+    td
+      text-align: center
+    th.deal
+      padding-left: 20px
+    tr .deal
+      text-align: left
+    tr.grand-total-row
+      margin-top: 5px
+      td
+        padding: 18px
+        border-top: 2px solid darken($lightBrown, 8);
+        border-bottom: 2px solid darken($lightBrown, 8);
+        background: lighten($lightBrown, 8);
+      td.grand-total
+        text-align: right
+        font-weight: bold
+        font-size: 18px
+        .grand-total-amount
+          padding-right: 17px
+
+#checkout .review-top .deal-details
+  margin-top: 15px
+  margin-left: 20px
+
+#checkout.address,
+#checkout.payment-container,
+#checkout.confirm
+  .review-top 
+    transWhiteSection()
+    margin-bottom: 20px
+  .product-image
+      margin-left: 20px
+
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

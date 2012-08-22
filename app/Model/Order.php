@@ -21,13 +21,13 @@ class Order extends AppModel {
 	public $belongsTo = array(
 		'ShippingAddress' => array(
 			'className' => 'Address',
-			'conditions' => '',
+			'conditions' => array('ShippingAddress.type' => 'shipping'),
 			'fields' => '',
 			'order' => ''
 		),
 		'BillingAddress' => array(
 			'className' => 'Address',
-			'conditions' => '',
+			'conditions' => array('BillingAddress.type' => 'billing'),
 			'fields' => '',
 			'order' => ''
 		),
@@ -44,6 +44,26 @@ class Order extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
 	);
+
+	/**
+	 * hasOne associations
+	 *
+	 * @var array
+	 */
+		public $hasOne = array(
+			'Billing' => array(
+				'className'  => 'Billing',
+			)
+		);
+
+
+
+	// public function hasAddresses() {
+	// 	$hasAddresses = true;
+	// 	$this->ShippingAddress->hasAny(array())
+
+	// }
+	
 }

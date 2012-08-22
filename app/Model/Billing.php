@@ -75,7 +75,7 @@ class Billing extends AppModel {
  * @var array
  */
 	public $hasOne = array(
-		'Address' => array(
+		'BillingAddress' => array(
 			'className' => 'Address',
 			'foreignKey' => 'id',
 			'conditions' => '',
@@ -96,6 +96,18 @@ class Billing extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'BillingAddress' => array(
+			'className' => 'Address',
+			'foreignKey' => 'address_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
+
+	public function findMostRecentBillingData($userID) {
+		$this->recursive = -1;
+		return $this->find('first', array('conditions' => array('Billing.user_id' => $userID), 'order' => array('modified' => 'desc')));
+	}
 }

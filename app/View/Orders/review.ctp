@@ -1,13 +1,5 @@
 <div id="checkout" class="review canvas">
-  <div class="review-top clearfix">
-    <div class="product-image left">
-      <img width="100" height="100" src="<?php echo $productImage['path_thumb'] ?>" alt="">
-    </div>
-    <div class="product-information left">
-      <h2 class="company-name"><?php echo $data['Business']['name'] ?></h2>
-      <h3 class="product-name"><?php echo $data['Deal']['product_name'] ?></h3>
-    </div>
-  </div>
+  <?php echo $this->element('stripped/checkout_review', array('showDetails' => false)); ?>
   <?php echo $this->Form->create(array('url' => '/orders/submit_review')) ?>
   <div class="order-items">
     <table>

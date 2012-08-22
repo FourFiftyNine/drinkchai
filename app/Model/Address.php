@@ -125,7 +125,7 @@ class Address extends AppModel {
 		),
 		'user_id' => array(
 		    'rule' => 'checkAuth',
-		    'message' => 'Nice try buddy.',
+		    'message' => 'Something went wrong. Please try again.',
 		    'on' => 'update'
 		)
 	);
@@ -180,12 +180,33 @@ class Address extends AppModel {
 		// }
 	}
 	function checkAuth() {
+		// debug($this);
 	    $authorized = true;
 	    if(!$this->hasAny(array(
-	            'Address.id'=>$this->data['Address']['id'], 
-	            'Address.user_id' => $this->data['Address']['user_id']))) {
+	           	$this->alias . '.id'=> $this->data[$this->alias]['id'], 
+	            $this->alias . '.user_id' => $this->data[$this->alias]['user_id']))) {
 	        $authorized = false;         
 	    }
 	    return $authorized;
+	}
+
+	public function beforeSave() {
+		if (!empty($this->data['ShippingAddress'])) {
+			$this->data['ShippingAddress']['type'] = 'shipping';
+		}
+		if (!empty($this->data['BillingAddress'])) {
+			$this->data['BillingAddress']['type'] = 'billing';
+		}
+		return true;
+	}
+	
+	public function findMostRecentBillingAddress($userID) {
+		$this->recursive = -1;
+		return $this->find('first', array('conditions' => array('BillingAddress.user_id' => $userID, 'BillingAddress.type' => 'billing'), 'order' => array('modified' => 'desc')));
+	}
+
+	public function findMostRecentShippingAddress($userID) {
+		$this->recursive = -1;
+		return $this->find('first', array('conditions' => array('ShippingAddress.user_id' => $userID, 'ShippingAddress.type' => 'shipping'), 'order' => array('modified' => 'desc')));
 	}
 }
