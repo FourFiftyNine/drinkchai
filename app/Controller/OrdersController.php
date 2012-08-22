@@ -136,20 +136,27 @@ public $scaffold;
       $dealData = $this->setViewDealCheckoutData();
       $this->set('title_for_layout', 'Address Information - ' . $dealData['Deal']['product_name']);
       $this->set('quantity', $this->Session->read('Order.quantity'));
+
       $billingData = $this->Order->Billing->findMostRecentBillingData($userID);
-      debug($billingData);
+      $this->set('billingFirstname', $billingData['BillingAddress']['firstname']);
+      $this->set('billingLastname', $billingData['BillingAddress']['lastname']);
+      $this->set('cardType', $billingData['Billing']['card_type']);
+      $this->set('lastFour', $billingData['Billing']['card_number_last_four']);
+
       if ($this->request->is('post') || $this->request->is('put')) {
-        $token = $this->request->data['stripe_token'];
+        Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
         $userID = $this->Auth->user('id');
         // create a Customer
-        $customer = Stripe_Customer::create(array(
-          "card" => $token,
-          "description" => '',
-          "email" => $this->Auth->user('email'))
-        );
-        // $this->Order->Billing->
-      } else {
 
+        $stripeCharge = Stripe_Charge::create(array(
+            "amount" => 1200, # $15.00 this time
+            "currency" => "usd",
+            "description" => $dealData['Deal']['id'] . ' - ' . $dealData['Deal']['product_name'],
+            "customer" => $billingData['Billing']['stripe_customer_id'])
+        );
+        // var_dump($stripeCharge);
+      } else {
+        // $this->set();
       }
       // debug(var_dump($customer));
 

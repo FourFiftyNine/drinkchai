@@ -1501,14 +1501,9 @@ transWhiteSection()
     productName()
   .order-items
     transWhiteSection()
+    margin-top: 0
     // border-top: 2px solid $lightBrown
     // border-bottom: 2px solid $lightBrown
-    table
-      width: 100%
-      td
-        vertical-align: middle
-        &.deal
-          padding-bottom: 10px
   .deal-details
     ul
       margin-bottom: 0
@@ -1530,19 +1525,6 @@ transWhiteSection()
       float: right
     .btn.continue
       margin-top: 0
-      // position: relative
-      // /*color: rgba(255,255,255, .1)*/
-      // font-weight: bold
-      // padding: 0 15px
-      // margin: 0 5px
-      // height: 35px
-      // line-height: 35px
-      // display: inline-block
-      // font-size: 20px
-      // width: auto
-      // // box-shadow: 0 0 2px -1px #000000
-      // btnGreen();
-      // border-radius: 4px
       &:active
         top: 1px
     .total
@@ -1603,14 +1585,25 @@ transWhiteSection()
       border-radius: 3px
       display: none
 
-#checkout.confirm
+// CHECKOUT TABLE ONLY
+#checkout
   table
+    width: 100%;
     td
       text-align: center
-    th.deal
-      padding-left: 20px
-    tr .deal
+      vertical-align: middle
+      font-size: 13px
+    th
+      border-bottom: 1px solid $lightBrown;
+    th
+      padding: 0px 18px 5px
+    td
+      padding: 10px 18px
+    .deal-details
       text-align: left
+      padding-left: 25px
+      padding-right: 25px
+      ul { padding: 0; }
     tr.grand-total-row
       margin-top: 5px
       td
@@ -1618,12 +1611,25 @@ transWhiteSection()
         border-top: 2px solid darken($lightBrown, 8);
         border-bottom: 2px solid darken($lightBrown, 8);
         background: lighten($lightBrown, 8);
+      td.billing-info
+        font-size: 13px
+        text-align: left
       td.grand-total
         text-align: right
         font-weight: bold
         font-size: 18px
-        .grand-total-amount
-          padding-right: 17px
+        padding-right: 25px
+#checkout.confirm 
+  td.deal-details 
+    padding-bottom: 10px
+  .total
+    text-align: right
+    padding-right: 25px
+  .purchase-my-deal.disabled
+    box-shadow: none;
+    text-shadow: none;
+    color: #aaa;
+    background: #e2e2e2 !important;
 
 #checkout .review-top .deal-details
   margin-top: 15px

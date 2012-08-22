@@ -17,8 +17,10 @@ var stripped = DrinkChai.stripped = {
 
   init: function() {
   
-
-
+    $(".purchase-my-deal").click(function(e) {
+      $(this).attr("disabled", "disabled").addClass('disabled').val('Purchasing...');
+      $('#OrderConfirmForm').submit();
+    });
 
   }
 }

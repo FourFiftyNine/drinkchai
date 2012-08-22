@@ -2037,15 +2037,7 @@ body#default.deals.view {
   border-radius: 2px;
   width: 746px;
   margin-left: -18px;
-}
-#checkout .order-items table {
-  width: 100%;
-}
-#checkout .order-items table td {
-  vertical-align: middle;
-}
-#checkout .order-items table td.deal {
-  padding-bottom: 10px;
+  margin-top: 0;
 }
 #checkout .deal-details ul {
   margin-bottom: 0;
@@ -2151,31 +2143,63 @@ body#default.deals.view {
   border-radius: 3px;
   display: none;
 }
-#checkout.confirm table td {
+#checkout table {
+  width: 100%;
+}
+#checkout table td {
   text-align: center;
+  vertical-align: middle;
+  font-size: 13px;
 }
-#checkout.confirm table th.deal {
-  padding-left: 20px;
+#checkout table th {
+  border-bottom: 1px solid #d9c6a8;
 }
-#checkout.confirm table tr .deal {
+#checkout table th {
+  padding: 0px 18px 5px;
+}
+#checkout table td {
+  padding: 10px 18px;
+}
+#checkout table .deal-details {
   text-align: left;
+  padding-left: 25px;
+  padding-right: 25px;
 }
-#checkout.confirm table tr.grand-total-row {
+#checkout table .deal-details ul {
+  padding: 0;
+}
+#checkout table tr.grand-total-row {
   margin-top: 5px;
 }
-#checkout.confirm table tr.grand-total-row td {
+#checkout table tr.grand-total-row td {
   padding: 18px;
   border-top: 2px solid #cdb38c;
   border-bottom: 2px solid #cdb38c;
   background: #e5d9c4;
 }
-#checkout.confirm table tr.grand-total-row td.grand-total {
+#checkout table tr.grand-total-row td.billing-info {
+  font-size: 13px;
+  text-align: left;
+}
+#checkout table tr.grand-total-row td.grand-total {
   text-align: right;
   font-weight: bold;
   font-size: 18px;
+  padding-right: 25px;
 }
-#checkout.confirm table tr.grand-total-row td.grand-total .grand-total-amount {
-  padding-right: 17px;
+#checkout.confirm td.deal-details {
+  padding-bottom: 10px;
+}
+#checkout.confirm .total {
+  text-align: right;
+  padding-right: 25px;
+}
+#checkout.confirm .purchase-my-deal.disabled {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: #aaa;
+  background: #e2e2e2 !important;
 }
 #checkout .review-top .deal-details {
   margin-top: 15px;

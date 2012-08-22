@@ -74,15 +74,15 @@ class Billing extends AppModel {
  *
  * @var array
  */
-	public $hasOne = array(
-		'BillingAddress' => array(
-			'className' => 'Address',
-			'foreignKey' => 'id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
+	// public $hasOne = array(
+	// 	'BillingAddress' => array(
+	// 		'className' => 'Address',
+	// 		'foreignKey' => 'id',
+	// 		'conditions' => '',
+	// 		'fields' => '',
+	// 		'order' => ''
+	// 	)
+	// );
 
 /**
  * belongsTo associations
@@ -107,7 +107,9 @@ class Billing extends AppModel {
 	);
 
 	public function findMostRecentBillingData($userID) {
-		$this->recursive = -1;
+		// $this->recursive = -1;
+		$this->Behaviors->attach('Containable', array('recursive' => false));
+		$this->contain('BillingAddress.firstname', 'BillingAddress.lastname');
 		return $this->find('first', array('conditions' => array('Billing.user_id' => $userID), 'order' => array('modified' => 'desc')));
 	}
 }

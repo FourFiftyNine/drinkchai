@@ -1,13 +1,17 @@
 <div id="checkout" class="review canvas">
   <?php echo $this->element('stripped/checkout_review', array('showDetails' => false)); ?>
   <?php echo $this->Form->create(array('url' => '/orders/submit_review')) ?>
+  <h2 class="gradient brown">Select Options</h2>
   <div class="order-items">
     <table>
       <tr>
-        <td>
-          <div class="deal-details clearfix">
+        <th class="deal-details">Deal</th>
+        <th class="price">Price</th>
+        <th class="quantity">Quantity</th>
+      </tr>
+      <tr>
+        <td class="deal-details">
             <?php echo $this->element('global/deal_details'); ?>
-          </div>
         </td>
         <td>
           <?php echo $this->Number->currency($data['Deal']['price']) ?>

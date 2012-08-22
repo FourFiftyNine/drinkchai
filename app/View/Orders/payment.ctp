@@ -1,5 +1,6 @@
 <div id="checkout" class="payment-container canvas">
   <?php echo $this->element('stripped/checkout_review', array('showDetails' => true)); ?>
+  <h2 class="gradient brown">Add Payment Info</h2>
   <form id="payment-form" action="/checkout/payment" class="clearfix" method="post">
     <div class="clearfix">
       <?php 
