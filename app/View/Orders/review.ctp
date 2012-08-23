@@ -1,6 +1,6 @@
 <div id="checkout" class="review canvas">
   <?php echo $this->element('stripped/checkout_review', array('showDetails' => false)); ?>
-  <?php echo $this->Form->create(array('url' => '/orders/submit_review')) ?>
+  <?php echo $this->Form->create(array('url' => '/checkout/review')) ?>
   <h2 class="gradient brown">Select Options</h2>
   <div class="order-items">
     <table>
@@ -24,6 +24,6 @@
   </div>
   <div class="review-bottom clearfix">
     <?php echo $this->Form->end(array('label' => 'Continue', 'class' => 'btn continue gradient green')); ?>
-    <div class="total">Total: <?php echo $this->Number->currency($data['Deal']['price']) ?></div>
+    <div class="total">Total: <?php echo $this->Number->currency($data['Deal']['price'] * $this->data['Order']['quantity']) ?></div>
   </div>
 </div>

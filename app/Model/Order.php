@@ -45,6 +45,13 @@ class Order extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Business' => array(
+			'className' => 'Business',
+			'foreignKey' => 'business_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 	);
 
 	/**

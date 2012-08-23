@@ -25,9 +25,15 @@ public $scaffold;
         parent::beforeFilter();
     }
 
+    // TODO OBSOLETE
     public function index() {
-        $this->Session->write('Order.deal_id', $this->request->data['Deal']['id']);
-        $this->Session->write('Order.user_id', $this->Auth->user('id'));
+        // $this->Session->write('Order.deal_id', $this->request->data['Deal']['id']);
+        // $this->Session->write('Order.user_id', $this->Auth->user('id'));
+        $this->Order->set('deal_id', $this->request->data['Deal']['id']);
+        $this->Order->set('user_id', $this->Auth->user('id'));
+        // if($this->Order->save()) {
+        //   debug('herr');exit;
+        // }
         if ($this->Auth->loggedIn()) {
             // debug($this->request->data); exit;
             $this->redirect('/checkout/review');
@@ -37,22 +43,34 @@ public $scaffold;
     }
 
     public function review() {
+      // debug($this->Session->read('Order.quantity'));
+
       $dealData = $this->setViewDealCheckoutData();
       $this->set('title_for_layout', 'Select Options - ' . $dealData['Deal']['product_name']);
-        // $this->set('data', $dealData);
-
-    }
-
-    public function submit_review() {
-        if ($this->request->is('post') || $this->request->is('put')) {
-            $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
-            $this->redirect('/checkout/address');
-        } else {
-            $this->request->data = $this->User->read(null, $this->User->id);
+      if ($this->request->is('post') || $this->request->is('put')) {
+          $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
+          $this->redirect('/checkout/address');
+      } else {
+          // $this->request->data = $this->User->read(null, $this->User->id);
+        if ($this->Session->check('Order.quantity')) {
+          $this->request->data['Order']['quantity'] = $this->Session->read('Order.quantity');
+          // $this->Session->check('Key.id');
+         // $this->redirect('/checkout/address');
         }
+      }
+
     }
 
     public function address() {
+      $userID = $this->Auth->user('id');
+      if (!$this->Session->check('Order.quantity')) {
+        $this->Session->setFlash('Please select a quantity');
+        $this->redirect('/checkout/review');
+      }
+      if ($this->Order->BillingAddress->hasAny(array('BillingAddress.user_id' => $userID)) && $this->Order->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID))) {
+        $this->redirect('/checkout/payment');
+      }
+
       $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
       $this->set('states', $states);
       $userID = $this->Auth->user('id');
@@ -96,7 +114,7 @@ public $scaffold;
     public function payment() {
       $userID = $this->Auth->user('id');
 
-      if ($this->Order->Billing->hasAny(array('Billing.user_id' => $userID))) {
+      if ($this->Order->Billing->hasAny(array('Billing.user_id' => $userID)) && $this->Session->check('Order.quantity')) {
         $this->redirect('/checkout/confirm');
       }
       $dealData = $this->setViewDealCheckoutData();
@@ -142,18 +160,29 @@ public $scaffold;
       $this->set('billingLastname', $billingData['BillingAddress']['lastname']);
       $this->set('cardType', $billingData['Billing']['card_type']);
       $this->set('lastFour', $billingData['Billing']['card_number_last_four']);
+      $shippingAddress = $this->Order->ShippingAddress->findMostRecentShippingAddress($userID);
+
+      $this->set('shippingAddress', $shippingAddress);
 
       if ($this->request->is('post') || $this->request->is('put')) {
         Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
         $userID = $this->Auth->user('id');
         // create a Customer
-
+      try {
         $stripeCharge = Stripe_Charge::create(array(
             "amount" => 1200, # $15.00 this time
             "currency" => "usd",
             "description" => $dealData['Deal']['id'] . ' - ' . $dealData['Deal']['product_name'],
             "customer" => $billingData['Billing']['stripe_customer_id'])
         );
+      } catch (Exception $e) {
+        // debug($e);
+        // https://stripe.com/docs/api#errors
+        // WHAT TO TEST https://stripe.com/docs/testing
+        echo $e;
+        // debug($e->json_body);
+      }
+
         // var_dump($stripeCharge);
       } else {
         // $this->set();
@@ -182,13 +211,27 @@ public $scaffold;
     }
 
     private function setViewDealCheckoutData() {
-      $dealId = $this->Session->read('Order.deal_id');
+
+      // if ($this->Session->read('Order.deal_id')) {
+      //   $dealID = $this->Session->read('Order.deal_id');
+      // } else if ($this->request->data['Deal']['id']) {
+      //   $dealID = $this->request->data['Deal']['id'];
+      // } else {}
+        // $dealID = 
+      // }
+      // TODO GET WITHOUT SESSION - hidden
+      // $dealId = ($this->Session->read('Order.deal_id') ? $this->Session->read('Order.deal_id') : $this->request->data['Deal']['id'];
+      // if ($this->Session->check('Order.deal_id')) {
+      //   $dealId = $this->Session->read('Order.deal_id');
+      // } else {
+      //   $dealID = $this->Order->Deal->getLiveDealID();
+      // }
+      // // if ($dealId = $this->Session->read('Order.deal_id')
+
       $this->Order->Deal->Behaviors->attach('Containable', array('recursive' => false));
       $this->Order->Deal->contain('Image', 'Business.name');
-
-      $dealData = $this->Order->Deal->findById($dealId);
+      $dealData = $this->Order->Deal->getLiveDeal();
       unset($dealData['Deal']['limit']);
-
       // debug($dealData);
       $this->setImages($dealData['Image']);
       $this->setDealData($dealData);

@@ -139,6 +139,7 @@ class Deal extends AppModel {
         // $this->Business
         // parent::saveAll($data);
     }
+
     public function getDealBySlug($company_slug, $deal_slug) {
         return $this->find('first', array('conditions' => array('Business.slug' => $company_slug, 'Deal.slug' => $deal_slug)));
         
@@ -147,5 +148,15 @@ class Deal extends AppModel {
     public function getDealById($deal_id) {
         return $this->find('first', array('conditions' => array('Deal.id' => $deal_id)));
     }
+
+    public function getLiveDeal() {
+        return $this->find('first', array('conditions' => array('is_live' => 1)));
+    }
+
+    public function getLiveDealID() {
+        $liveDeal = $this->getLiveDeal();
+        return $liveDeal['Deal']['id'];
+    }
+
 
 }

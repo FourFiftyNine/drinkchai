@@ -1,6 +1,6 @@
 <div id="checkout" class="confirm canvas">
     <?php echo $this->element('stripped/checkout_review', array('showDetails' => true)); ?>
-    <?php echo $this->Form->create(array('url' => '/orders/complete')) ?>
+    <?php echo $this->Form->create(array('url' => '/checkout/confirm')) ?>
     <h2 class="gradient brown">Purchase</h2>
     <div class="order-items">
       <table>
@@ -30,10 +30,20 @@
           </td>
           <td class="grand-total" colspan="2">Total: <span class="grand-total-amount"><?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?></span></td>
         </tr>
+        <tr>
+          <td class="shipping-address" colspan="2">
+            <?php $shAdd = $shippingAddress['ShippingAddress']; ?>
+            <strong>Will be Shipped To:</strong> <br /> 
+            <?php echo $shAdd['firstname'] . ' ' . $shAdd['lastname']?> <br />
+            <?php echo $shAdd['address_one'] ?> <br />
+            <?php echo ($shAdd['address_two']) ? $shAdd['address_two'] . '<br />' : '' ?>
+            <?php echo $shAdd['city'] . ', ' . $shAdd['state'] . ' ' . $shAdd['zip'];   ?> <br />
+          </td>
+          <td class="purchase" colspan="2">
+            <?php echo $this->Form->end(array('label' => 'Purchase My Deal', 'class' => 'btn continue gradient green purchase-my-deal')); ?>
+            <br/><strong>Your data is secure and encrypted</strong>
+          </td>
+        </tr>
       </table>
-    </div>
-    <div class="review-bottom clearfix">
-      <?php echo $this->Form->end(array('label' => 'Purchase My Deal', 'class' => 'btn continue gradient green purchase-my-deal')); ?>
-      Your data is secure and encrypted
     </div>
 </div>

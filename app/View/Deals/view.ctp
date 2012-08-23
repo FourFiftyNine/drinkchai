@@ -50,9 +50,12 @@
                 <div class="gradient green price-buy clearfix">
                     <div class="price"><span class="dollar">$</span><?php echo $data['Deal']['price']; ?></div>
                     <?php if($data['Deal']['time_left']): ?>
-                    <?php echo $this->Form->create(array('url' => '/checkout')) ?>
+                    <?php /* FORM IS TOO COMPLEX ?>
+                    <?php echo $this->Form->create(array('url' => '/' . $data['Business']['slug'] . '/' . $data['Deal']['slug'] . '/checkout')) ?>
                     <?php echo $this->Form->input('Deal.id', array('type' => 'hidden', 'value' => $data['Deal']['id'])) ?>
                     <?php echo $this->Form->end(array('label' => 'Buy Now', 'class' => 'btn white buy-now')); ?>
+                    <?php */ ?>
+                    <?php echo $this->Html->link('Buy Now', '/checkout/review', array('class' => 'btn white buy-now')) ?>
                     <?php else: ?>
                     <div class="ended">Deal Has Ended</div>
                     <?php endif; ?>
