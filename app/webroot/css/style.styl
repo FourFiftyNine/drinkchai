@@ -1480,6 +1480,12 @@ transWhiteSection()
 
 
 #checkout
+  h2, h3
+    position: relative
+    left: -18px
+    padding-left:  25px
+    padding-right:  25px
+    margin-bottom: 10px
   margin-top: 20px;
   width: 710px
   padding: 15px
@@ -1520,8 +1526,8 @@ transWhiteSection()
       display: none
   .review-bottom
     margin-top: 20px
-    .submit,
-    .total
+    .total,
+    .submit
       float: right
     .btn.continue
       margin-top: 0
@@ -1532,6 +1538,7 @@ transWhiteSection()
       font-weight: bold
       margin-right: 15px
 
+// ADDRESS
 #checkout.address
   .no-input-error.error-message
     position: relative
@@ -1562,6 +1569,7 @@ transWhiteSection()
       margin-right: 30px
       float: right
 
+// CREDIT CARD SUBMISSION
 #checkout.payment-container
   margin: 20px auto
   #payment-form
@@ -1619,6 +1627,7 @@ transWhiteSection()
         font-weight: bold
         font-size: 18px
         padding-right: 25px
+
 #checkout.confirm 
   td.deal-details 
     padding-bottom: 10px
@@ -1634,7 +1643,20 @@ transWhiteSection()
     text-shadow: none;
     color: #aaa;
     background: #e2e2e2 !important;
-
+  .review-bottom
+    h3
+      margin-top: 0
+    .submit
+      float: none
+    .shipping-address
+      padding: 15px 25px
+      position: relative
+      left: -18px
+      font-size: 12px
+      transparentWhite()
+    .purchase
+      text-align: right
+      padding-right: 20px
 #checkout .review-top .deal-details
   margin-top: 15px
   margin-left: 20px

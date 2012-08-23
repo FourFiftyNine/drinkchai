@@ -179,7 +179,9 @@ public $scaffold;
         // debug($e);
         // https://stripe.com/docs/api#errors
         // WHAT TO TEST https://stripe.com/docs/testing
-        echo $e;
+        // echo $e;
+        // var_dump($e);
+        debug($e);
         // debug($e->json_body);
       }
 

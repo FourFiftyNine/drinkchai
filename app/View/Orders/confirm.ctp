@@ -30,20 +30,21 @@
           </td>
           <td class="grand-total" colspan="2">Total: <span class="grand-total-amount"><?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?></span></td>
         </tr>
-        <tr>
-          <td class="shipping-address" colspan="2">
+      </table>
+    </div>
+
+    <div class="review-bottom clearfix">
+      <h3 class="gradient brown">Shipping</h3 class="gradient brown"> <br /> 
+      <div class="left shipping-address">
             <?php $shAdd = $shippingAddress['ShippingAddress']; ?>
-            <strong>Will be Shipped To:</strong> <br /> 
             <?php echo $shAdd['firstname'] . ' ' . $shAdd['lastname']?> <br />
             <?php echo $shAdd['address_one'] ?> <br />
             <?php echo ($shAdd['address_two']) ? $shAdd['address_two'] . '<br />' : '' ?>
             <?php echo $shAdd['city'] . ', ' . $shAdd['state'] . ' ' . $shAdd['zip'];   ?> <br />
-          </td>
-          <td class="purchase" colspan="2">
-            <?php echo $this->Form->end(array('label' => 'Purchase My Deal', 'class' => 'btn continue gradient green purchase-my-deal')); ?>
-            <br/><strong>Your data is secure and encrypted</strong>
-          </td>
-        </tr>
-      </table>
+      </div>
+      <div class="right purchase">
+        <?php echo $this->Form->end(array('label' => 'Purchase My Deal', 'class' => 'btn continue gradient green purchase-my-deal')); ?>
+        <div><strong>Your data is secure and encrypted</strong></div>
+      </div>
     </div>
 </div>

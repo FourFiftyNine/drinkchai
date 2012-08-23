@@ -1994,6 +1994,14 @@ body#default.deals.view {
   width: 710px;
   padding: 15px;
 }
+#checkout h2,
+#checkout h3 {
+  position: relative;
+  left: -18px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 10px;
+}
 #checkout form .short {
   width: 75%;
 }
@@ -2060,8 +2068,8 @@ body#default.deals.view {
 #checkout .review-bottom {
   margin-top: 20px;
 }
-#checkout .review-bottom .submit,
-#checkout .review-bottom .total {
+#checkout .review-bottom .total,
+#checkout .review-bottom .submit {
   float: right;
 }
 #checkout .review-bottom .btn.continue {
@@ -2206,6 +2214,28 @@ body#default.deals.view {
   text-shadow: none;
   color: #aaa;
   background: #e2e2e2 !important;
+}
+#checkout.confirm .review-bottom h3 {
+  margin-top: 0;
+}
+#checkout.confirm .review-bottom .submit {
+  float: none;
+}
+#checkout.confirm .review-bottom .shipping-address {
+  padding: 15px 25px;
+  position: relative;
+  left: -18px;
+  font-size: 12px;
+  background: #f0efeb;
+  background: rgba(255,255,255,0.6);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+#checkout.confirm .review-bottom .purchase {
+  text-align: right;
+  padding-right: 20px;
 }
 #checkout .review-top .deal-details {
   margin-top: 15px;
