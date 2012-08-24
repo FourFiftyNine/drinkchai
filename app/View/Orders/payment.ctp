@@ -13,8 +13,8 @@
     <payment key="pk_08sMw2soHqvmWIvVavRRuIfE18zn5">
     </payment>
     <!-- <input type="submit" class="btn green gradient" value="Submit"> -->
-    Your data is secure and encrypted
+    
     <?php echo $this->Form->submit('Continue', array('label' => 'Continue', 'class' => 'btn continue gradient green')); ?>
-
+    
   </form>
 </div>

@@ -162,6 +162,14 @@ class Address extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Billing' => array(
+			'className' => 'Billing',
+			'foreignKey' => 'address_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+
 	);
 	// public $hasOne = array('State');
 	public $hasOne = array(
@@ -209,4 +217,31 @@ class Address extends AppModel {
 		$this->recursive = -1;
 		return $this->find('first', array('conditions' => array('ShippingAddress.user_id' => $userID, 'ShippingAddress.type' => 'shipping'), 'order' => array('modified' => 'desc')));
 	}
+
+	public function findDuplicateAddress($data, $userID, $type = null) {
+		if($type) {
+			$key = ucfirst($type) . 'Address';
+		} else {
+			$key = 'Address';
+		}
+		return $this->find('first', array('conditions' => array(
+			$key . '.user_id'     => $userID,
+			$key . '.firstname'   => $data[$key]['firstname'],
+			$key . '.lastname'    => $data[$key]['lastname'],
+			$key . '.address_one' => $data[$key]['address_one'],
+			$key . '.address_two' => $data[$key]['address_two'],
+			$key . '.state'       => $data[$key]['state'],
+			$key . '.zip'         => $data[$key]['zip'],
+			$key . '.city'        => $data[$key]['city'],
+    )));
+	}
+
+	public function findDuplicateBillingAddress($data, $userID) {
+		return $this->findDuplicateAddress($data, $userID, 'billing');
+	}
+	public function findDuplicateShippingAddress($data, $userID) {
+		return $this->findDuplicateAddress($data, $userID, 'shipping');
+	}
+
+
 }

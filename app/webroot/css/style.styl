@@ -56,6 +56,18 @@ btnGreen()
   border-radius: 15px
   box-shadow: 0 0 5px rgba(0,0,0,.8)
 
+btnWhiteEdit()
+  line-height: 21px
+  height: 20px
+  background: white
+  padding: 0 9px
+  font-size: 12px
+  margin-left: 10px
+  position: relative
+  left: 5px
+  top: -2px
+  &:hover
+    border: 1px solid lighten(black, 25%)
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
@@ -259,6 +271,8 @@ transparentPng()
       border: 1px solid #914c5a
       background: #AD5A6B !important
       padding: 0 15px
+    &.edit
+      btnWhiteEdit()
 
 /*~~ Buttons - Green Gradient ~~*/
 .btn
@@ -850,17 +864,7 @@ body#default.deals.view
         h2
           margin: 0
           a
-            line-height: 21px
-            height: 20px
-            background: white
-            padding: 0 9px
-            font-size: 12px
-            margin-left: 10px
-            position: relative
-            left: 5px
-            top: -2px
-            &:hover
-              border: 1px solid lighten(black, 25%)
+            btnWhiteEdit()
       input[type="submit"]
         margin-top: 20px
         width: 100%
@@ -1502,9 +1506,12 @@ transWhiteSection()
   .product-image
     margin-right: 15px
   .company-name
+    left: 0
+    padding: 0
     margin: 5px 0 0
   .product-name
     productName()
+    left: 0
   .order-items
     transWhiteSection()
     margin-top: 0
@@ -1539,7 +1546,10 @@ transWhiteSection()
       margin-right: 15px
 
 // ADDRESS
-#checkout.address
+#checkout.address,
+#checkout.payment-edit
+  h3,h2
+    left: 0
   .no-input-error.error-message
     position: relative
     top: -5px
@@ -1549,6 +1559,7 @@ transWhiteSection()
     top: 23px
     right: 1px
     line-height: 30px
+  .address-form
   form .left
     width: 45%
     margin-left: 20px
@@ -1569,6 +1580,17 @@ transWhiteSection()
       margin-right: 30px
       float: right
 
+#checkout.payment-edit
+  payment
+    width: 300px
+    margin-top: 100px
+    margin-right: 20px
+  .right
+    .submit
+      input
+        margin-right: 20px
+    strong
+      clear: both
 // CREDIT CARD SUBMISSION
 #checkout.payment-container
   margin: 20px auto
@@ -1663,6 +1685,8 @@ transWhiteSection()
 
 #checkout.address,
 #checkout.payment-container,
+#checkout.payment-edit,
+#checkout.shipping-edit,
 #checkout.confirm
   .review-top 
     transWhiteSection()

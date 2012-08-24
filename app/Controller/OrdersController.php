@@ -67,7 +67,9 @@ public $scaffold;
         $this->Session->setFlash('Please select a quantity');
         $this->redirect('/checkout/review');
       }
-      if ($this->Order->BillingAddress->hasAny(array('BillingAddress.user_id' => $userID)) && $this->Order->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID))) {
+      $hasBillingAddress = $this->Order->BillingAddress->hasAny(array('BillingAddress.user_id' => $userID));
+      $hasShippingAddress = $this->Order->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID));
+      if ($hasBillingAddress && $hasShippingAddress) {
         $this->redirect('/checkout/payment');
       }
 
@@ -147,6 +149,64 @@ public $scaffold;
       }
     }
 
+    public function payment_edit()
+    {
+      $userID = $this->Auth->user('id');
+      $billingAddress = $this->Order->BillingAddress->findMostRecentBillingAddress($userID);
+
+      $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
+      $this->set('states', $states);
+
+      $dealData = $this->setViewDealCheckoutData();
+      $this->set('title_for_layout', 'Enter Your Payment Details - ' . $dealData['Deal']['product_name']);
+
+      if ($this->request->is('post') || $this->request->is('put')) {
+        $this->request->data['BillingAddress']['user_id'] = $userID;
+
+        if(false == $this->Order->BillingAddress->findDuplicateBillingAddress($this->request->data, $userID)) {
+          unset($this->request->data['BillingAddress']['id']);
+        } else {
+          // $this->request->data['Billing']['address_id'] = $this->request->data['BillingAddress']['id'];
+          // unset($this->request->data)
+          // $this->Order->BusinessAddress->set(null);
+        }
+
+
+        // create a Customer
+        if (isset($this->request->data['stripe_token'])) {
+          $token = $this->request->data['stripe_token'];
+          if($billingData = $this->Order->Billing->findMostRecentBillingData($userID)) {
+            // debug($billingData); exit;
+            try {
+              Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
+              $customer = Stripe_Customer::retrieve($billingData['Billing']['stripe_customer_id']);
+              $customer->card = $token;
+              $customer->save();
+            } catch (Exception $e) {
+              debug($e);
+              return false;
+            }
+            $this->request->data['Billing']['card_type'] = $customer->active_card->type;
+            $this->request->data['Billing']['user_id'] = $userID;
+            $this->request->data['Billing']['stripe_customer_id'] = $customer->id;
+            $this->request->data['Billing']['card_number_last_four'] = $customer->active_card->last4;
+
+            // NEED TO PICK REQUEST OR FOUND BIZ ADDY.
+            // debug($this->request->data); exit;
+            if($ret = $this->Order->Billing->saveAll($this->request->data)) {
+
+              $this->redirect('/checkout/confirm');
+            } else {
+              debug($ret);
+            }
+          }
+        }
+      } else {
+        $this->request->data['BillingAddress'] = $billingAddress['BillingAddress'];
+      }
+
+    }
+
 
     public function confirm() {
       // set your secret key: remember to change this to your live secret key in production
@@ -222,7 +282,8 @@ public $scaffold;
         // $dealID = 
       // }
       // TODO GET WITHOUT SESSION - hidden
-      // $dealId = ($this->Session->read('Order.deal_id') ? $this->Session->read('Order.deal_id') : $this->request->data['Deal']['id'];
+      // $dealId = ($this->Session->read('Order.deal_id') ?
+      // $this->Session->read('Order.deal_id') : $this->request->data['Deal']['id'];
       // if ($this->Session->check('Order.deal_id')) {
       //   $dealId = $this->Session->read('Order.deal_id');
       // } else {

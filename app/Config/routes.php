@@ -103,8 +103,12 @@
         array('controller' => 'orders', 'action' => 'review'));
     Router::connect('/checkout/address', 
         array('controller' => 'orders', 'action' => 'address'));
+    Router::connect('/checkout/shipping/edit', 
+        array('controller' => 'orders', 'action' => 'shipping_edit'));
     Router::connect('/checkout/payment', 
         array('controller' => 'orders', 'action' => 'payment'));
+    Router::connect('/checkout/payment/edit', 
+        array('controller' => 'orders', 'action' => 'payment_edit'));
     Router::connect('/checkout/check_response_code', 
         array('controller' => 'orders', 'action' => 'check_response_code'));
     Router::connect('/checkout/confirm', 

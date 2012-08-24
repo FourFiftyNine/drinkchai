@@ -26,7 +26,7 @@
         </tr>
         <tr class="grand-total-row">
           <td class="billing-info" colspan="2">
-            Will be charged to <strong><?php echo $billingFirstname . ' ' . $billingLastname ?></strong> on <strong><?php echo $cardType ?></strong> ending in <strong><?php echo $lastFour ?></strong>
+            Will be charged to <strong><?php echo $billingFirstname . ' ' . $billingLastname ?></strong> on <strong><?php echo $cardType ?></strong> ending in <strong><?php echo $lastFour ?> <a class="btn white edit" href="/checkout/payment/edit">change payment</a> </strong>
           </td>
           <td class="grand-total" colspan="2">Total: <span class="grand-total-amount"><?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?></span></td>
         </tr>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="review-bottom clearfix">
-      <h3 class="gradient brown">Shipping</h3 class="gradient brown"> <br /> 
+      <h3 class="gradient brown">Shipping <a class="btn white edit" href="/checkout/shipping/edit">Edit</a></h3 class="gradient brown"> <br /> 
       <div class="left shipping-address">
             <?php $shAdd = $shippingAddress['ShippingAddress']; ?>
             <?php echo $shAdd['firstname'] . ' ' . $shAdd['lastname']?> <br />

@@ -513,6 +513,20 @@ a:active,
   background: #ad5a6b !important;
   padding: 0 15px;
 }
+.btn.white.edit {
+  line-height: 21px;
+  height: 20px;
+  background: #fff;
+  padding: 0 9px;
+  font-size: 12px;
+  margin-left: 10px;
+  position: relative;
+  left: 5px;
+  top: -2px;
+}
+.btn.white.edit:hover {
+  border: 1px solid #404040;
+}
 /*~~ Buttons - Green Gradient ~~*/
 .btn.green.gradient:visited {
   color: #fff;
@@ -2020,6 +2034,8 @@ body#default.deals.view {
   margin-right: 15px;
 }
 #checkout .company-name {
+  left: 0;
+  padding: 0;
   margin: 5px 0 0;
 }
 #checkout .product-name {
@@ -2032,6 +2048,7 @@ body#default.deals.view {
   line-height: 24px;
   border-top: 2px solid #d9c6a8;
   border-bottom: 2px solid #d9c6a8;
+  left: 0;
 }
 #checkout .order-items {
   clear: both;
@@ -2083,41 +2100,68 @@ body#default.deals.view {
   font-weight: bold;
   margin-right: 15px;
 }
-#checkout.address .no-input-error.error-message {
+#checkout.address h3,
+#checkout.payment-edit h3,
+#checkout.address h2,
+#checkout.payment-edit h2 {
+  left: 0;
+}
+#checkout.address .no-input-error.error-message,
+#checkout.payment-edit .no-input-error.error-message {
   position: relative;
   top: -5px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-#checkout.address .error-message {
+#checkout.address .error-message,
+#checkout.payment-edit .error-message {
   height: 30px;
   top: 23px;
   right: 1px;
   line-height: 30px;
 }
-#checkout.address form .left {
+#checkout.address .address-form,
+#checkout.payment-edit .address-form,
+#checkout.address form .left,
+#checkout.payment-edit form .left {
   width: 45%;
   margin-left: 20px;
 }
-#checkout.address .select {
+#checkout.address .select,
+#checkout.payment-edit .select {
   float: left;
 }
-#checkout.address .select select {
+#checkout.address .select select,
+#checkout.payment-edit .select select {
   display: block;
   margin-top: 4px;
 }
-#checkout.address .input.text.zip {
+#checkout.address .input.text.zip,
+#checkout.payment-edit .input.text.zip {
   float: left;
   width: 150px;
   margin-left: 10px;
 }
-#checkout.address input.zip {
+#checkout.address input.zip,
+#checkout.payment-edit input.zip {
   width: 100%;
 }
-#checkout.address .submit input.btn {
+#checkout.address .submit input.btn,
+#checkout.payment-edit .submit input.btn {
   margin-top: 20px;
   margin-right: 30px;
   float: right;
+}
+#checkout.payment-edit payment {
+  width: 300px;
+  margin-top: 100px;
+  margin-right: 20px;
+}
+#checkout.payment-edit .right .submit input {
+  margin-right: 20px;
+}
+#checkout.payment-edit .right strong {
+  clear: both;
 }
 #checkout.payment-container {
   margin: 20px auto;
@@ -2243,6 +2287,8 @@ body#default.deals.view {
 }
 #checkout.address .review-top,
 #checkout.payment-container .review-top,
+#checkout.payment-edit .review-top,
+#checkout.shipping-edit .review-top,
 #checkout.confirm .review-top {
   clear: both;
   padding: 10px 0;
@@ -2259,6 +2305,8 @@ body#default.deals.view {
 }
 #checkout.address .product-image,
 #checkout.payment-container .product-image,
+#checkout.payment-edit .product-image,
+#checkout.shipping-edit .product-image,
 #checkout.confirm .product-image {
   margin-left: 20px;
 }
