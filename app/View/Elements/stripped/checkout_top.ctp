@@ -1,6 +1,6 @@
   <div class="checkout-top clearfix">
     <div class="product-image left">
-      <img width="100" height="100" src="<?php echo $productImage['path_thumb'] ?>" alt="">
+      <img width="100"  src="<?php echo $productImage['path_thumb'] ?>" alt="">
     </div>
     <div class="product-information left">
       <h2 class="company-name"><?php echo $data['Business']['name'] ?></h2>
