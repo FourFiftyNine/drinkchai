@@ -2016,29 +2016,41 @@ body#default.deals.view {
   padding-right: 25px;
   margin-bottom: 10px;
 }
-#checkout form .short {
-  width: 75%;
+#checkout .deal-details ul {
+  margin-bottom: 0;
+  padding-left: 18px;
 }
-#checkout form .input {
-  margin-bottom: 5px;
+#checkout .deal-details ul li {
+  list-style: none;
+  list-style-image: url("/img/bullet_circle.png");
+  font-size: 13px;
 }
-#checkout form input[type="text"] {
-  font-family: 'Arial', sans-serif;
-  border-width: 2px;
-  padding: 0px 9px 0;
-  line-height: 27px;
-  -webkit-box-shadow: 0 0 5px -1px #000 inset;
-  box-shadow: 0 0 5px -1px #000 inset;
+#checkout .deal-details .options {
+  float: right;
 }
-#checkout .product-image {
+#checkout .checkout-top {
+  clear: both;
+  padding: 10px 0;
+  margin-top: 15px;
+  background: #f0efeb;
+  background: rgba(255,255,255,0.6);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  width: 746px;
+  margin-left: -18px;
+}
+#checkout .checkout-top .product-image {
   margin-right: 15px;
+  margin-left: 15px;
 }
-#checkout .company-name {
+#checkout .checkout-top .company-name {
   left: 0;
   padding: 0;
   margin: 5px 0 0;
 }
-#checkout .product-name {
+#checkout .checkout-top .product-name {
   font-family: "News Cycle";
   margin: 5px 0 10px;
   color: #3c2613;
@@ -2049,6 +2061,11 @@ body#default.deals.view {
   border-top: 2px solid #d9c6a8;
   border-bottom: 2px solid #d9c6a8;
   left: 0;
+}
+#checkout .checkout-top .deal-details {
+  margin-left: 30px;
+  position: relative;
+  top: 15px;
 }
 #checkout .order-items {
   clear: both;
@@ -2064,129 +2081,114 @@ body#default.deals.view {
   margin-left: -18px;
   margin-top: 0;
 }
-#checkout .deal-details ul {
-  margin-bottom: 0;
-  float: left;
+#checkout .checkout-bottom {
+  margin-top: 15px;
 }
-#checkout .deal-details ul li {
-  list-style: none;
-  font-size: 13px;
-}
-#checkout .deal-details .options {
+#checkout .checkout-bottom .total {
   float: right;
-}
-#checkout .input.select#OrderQuantity {
-  float: right;
-}
-#checkout .input.select#OrderQuantity label {
-  font-weight: bold;
-  display: none;
-}
-#checkout .review-bottom {
-  margin-top: 20px;
-}
-#checkout .review-bottom .total,
-#checkout .review-bottom .submit {
-  float: right;
-}
-#checkout .review-bottom .btn.continue {
-  margin-top: 0;
-}
-#checkout .review-bottom .btn.continue:active {
-  top: 1px;
-}
-#checkout .review-bottom .total {
   font-size: 24px;
   font-weight: bold;
   margin-right: 15px;
 }
-#checkout.address h3,
-#checkout.payment-edit h3,
-#checkout.address h2,
-#checkout.payment-edit h2 {
-  left: 0;
+#checkout .checkout-bottom .submit {
+  float: right;
 }
-#checkout.address .no-input-error.error-message,
-#checkout.payment-edit .no-input-error.error-message {
-  position: relative;
-  top: -5px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+#checkout form .short {
+  width: 75%;
 }
-#checkout.address .error-message,
-#checkout.payment-edit .error-message {
+#checkout form .input {
+  margin-bottom: 5px;
+}
+#checkout form input[type="text"] {
+  font-family: 'Arial', sans-serif;
+  border-width: 2px;
+  padding: 0px 9px 0;
+  line-height: 27px;
+  -webkit-box-shadow: 0 0 5px -1px #000 inset;
+  box-shadow: 0 0 5px -1px #000 inset;
+}
+#checkout form .select {
+  float: left;
+}
+#checkout form .select select {
+  display: block;
+  margin-top: 4px;
+}
+#checkout form .input.text.zip {
+  float: left;
+  width: 120px;
+  margin-left: 10px;
+}
+#checkout form input.zip {
+  width: 100%;
+}
+#checkout table {
+  width: 100%;
+}
+#checkout table .center-align {
+  text-align: center;
+}
+#checkout table .left-align {
+  text-align: left;
+}
+#checkout table .right-align {
+  text-align: right;
+}
+#checkout table th {
+  border-bottom: 1px solid #d9c6a8;
+  padding: 0 18px 5px;
+}
+#checkout table td {
+  vertical-align: middle;
+  font-size: 13px;
+  padding: 10px 18px;
+  text-align: center;
+}
+#checkout .address-form-half {
+  float: left;
+  width: 48%;
+}
+#checkout .address-form-half .error-message {
   height: 30px;
   top: 23px;
   right: 1px;
   line-height: 30px;
 }
-#checkout.address .address-form,
-#checkout.payment-edit .address-form,
-#checkout.address form .left,
-#checkout.payment-edit form .left {
-  width: 45%;
+#checkout .address-form-half.shipping-address {
   margin-left: 20px;
 }
-#checkout.address .select,
-#checkout.payment-edit .select {
-  float: left;
+#checkout.address h2 {
+  left: 0;
 }
-#checkout.address .select select,
-#checkout.payment-edit .select select {
-  display: block;
-  margin-top: 4px;
+#checkout.shipping-edit .address-form-half {
+  float: none;
+  margin: 0 auto;
 }
-#checkout.address .input.text.zip,
-#checkout.payment-edit .input.text.zip {
-  float: left;
-  width: 150px;
-  margin-left: 10px;
+#checkout.shipping-edit .address-form-half h2 {
+  left: 0;
 }
-#checkout.address input.zip,
-#checkout.payment-edit input.zip {
-  width: 100%;
+#checkout.shipping-edit .address-form-half .checkout-bottom .submit {
+  margin-top: 10px;
 }
-#checkout.address .submit input.btn,
-#checkout.payment-edit .submit input.btn {
-  margin-top: 20px;
-  margin-right: 30px;
-  float: right;
+#checkout.payment-step h2 {
+  left: 0;
 }
-#checkout.payment-edit payment {
-  width: 300px;
-  margin-top: 100px;
-  margin-right: 20px;
-}
-#checkout.payment-edit .right .submit input {
-  margin-right: 20px;
-}
-#checkout.payment-edit .right strong {
-  clear: both;
-}
-#checkout.payment-container {
-  margin: 20px auto;
-}
-#checkout.payment-container #payment-form {
+#checkout.payment-step #payment-form {
   width: 300px;
   margin: 0 auto;
 }
-#checkout.payment-container #payment-form .submit {
-  margin-top: 10px;
-  float: right;
-}
-#checkout.payment-container #payment-form .input.text {
+#checkout.payment-step .input.text {
   width: 48%;
   float: left;
   margin-left: 10px;
 }
-#checkout.payment-container #payment-form .input.text:first-child {
+#checkout.payment-step .input.text:first-child {
   margin-left: 0;
 }
-#checkout.payment-container #payment-form payment {
+#checkout.payment-step payment {
   margin-top: 10px;
-  clear: both;
 }
-#checkout.payment-container #payment-form .error {
+#checkout.payment-step .error {
   background: #d96f50;
   color: #fff;
   display: block;
@@ -2195,62 +2197,17 @@ body#default.deals.view {
   border-radius: 3px;
   display: none;
 }
-#checkout table {
-  width: 100%;
+#checkout.payment-edit .payment-container {
+  float: left;
+  margin-left: 40px;
+  width: 300px;
 }
-#checkout table td {
-  text-align: center;
-  vertical-align: middle;
-  font-size: 13px;
+#checkout.payment-edit .payment-container payment {
+  margin-top: 100px;
+  margin-bottom: 15px;
 }
-#checkout table th {
-  border-bottom: 1px solid #d9c6a8;
-}
-#checkout table th {
-  padding: 0px 18px 5px;
-}
-#checkout table td {
-  padding: 10px 18px;
-}
-#checkout table .deal-details {
-  text-align: left;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-#checkout table .deal-details ul {
-  padding: 0;
-}
-#checkout table tr.grand-total-row {
-  margin-top: 5px;
-}
-#checkout table tr.grand-total-row td {
-  padding: 18px;
-  border-top: 2px solid #cdb38c;
-  border-bottom: 2px solid #cdb38c;
-  background: #e5d9c4;
-}
-#checkout table tr.grand-total-row td.billing-info {
-  font-size: 13px;
-  text-align: left;
-}
-#checkout table tr.grand-total-row td.grand-total {
-  text-align: right;
-  font-weight: bold;
-  font-size: 18px;
-  padding-right: 25px;
-}
-#checkout.confirm td.deal-details {
-  padding-bottom: 10px;
-}
-#checkout.confirm td.shipping-address {
-  text-align: left;
-}
-#checkout.confirm td.purchase {
-  text-align: right;
-}
-#checkout.confirm .total {
-  text-align: right;
-  padding-right: 25px;
+#checkout.payment-edit .payment-container .submit {
+  float: right;
 }
 #checkout.confirm .purchase-my-deal.disabled {
   -webkit-box-shadow: none;
@@ -2259,17 +2216,17 @@ body#default.deals.view {
   color: #aaa;
   background: #e2e2e2 !important;
 }
-#checkout.confirm .review-bottom h3 {
+#checkout.confirm .checkout-bottom h3 {
   margin-top: 0;
 }
-#checkout.confirm .review-bottom .submit {
+#checkout.confirm .submit {
   float: none;
 }
-#checkout.confirm .review-bottom .shipping-address {
+#checkout.confirm .shipping-address {
   padding: 15px 25px;
   position: relative;
   left: -18px;
-  font-size: 12px;
+  font-size: 14px;
   background: #f0efeb;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -2277,38 +2234,36 @@ body#default.deals.view {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-#checkout.confirm .review-bottom .purchase {
+#checkout.confirm .purchase {
   text-align: right;
-  padding-right: 20px;
+  padding-right: 20px n;
 }
-#checkout .review-top .deal-details {
-  margin-top: 15px;
-  margin-left: 20px;
+#checkout.confirm table tr.grand-total-row {
+  margin-top: 5px;
 }
-#checkout.address .review-top,
-#checkout.payment-container .review-top,
-#checkout.payment-edit .review-top,
-#checkout.shipping-edit .review-top,
-#checkout.confirm .review-top {
-  clear: both;
-  padding: 10px 0;
-  margin-top: 15px;
-  background: #f0efeb;
-  background: rgba(255,255,255,0.6);
-  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  width: 746px;
-  margin-left: -18px;
-  margin-bottom: 20px;
+#checkout.confirm table tr.grand-total-row td {
+  padding: 18px;
+  border-top: 2px solid #cdb38c;
+  border-bottom: 2px solid #cdb38c;
+  background: #e5d9c4;
 }
-#checkout.address .product-image,
-#checkout.payment-container .product-image,
-#checkout.payment-edit .product-image,
-#checkout.shipping-edit .product-image,
-#checkout.confirm .product-image {
-  margin-left: 20px;
+#checkout.confirm table tr.grand-total-row td.billing-info {
+  font-size: 13px;
+  text-align: left;
+}
+#checkout.confirm table tr.grand-total-row td.billing-info .charged-to {
+  margin-right: 5px;
+}
+#checkout.confirm table tr.grand-total-row td.billing-info .btn.change-payment.edit.white {
+  top: 0;
+  left: 0;
+  margin-left: 0;
+}
+#checkout.confirm table tr.grand-total-row td.grand-total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  padding-right: 25px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

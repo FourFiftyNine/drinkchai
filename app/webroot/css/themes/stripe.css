@@ -116,6 +116,12 @@ payment .number input.discover, .payment .number input.discover {
 payment .number input.amex, .payment .number input.amex {
   background-image: url(amex.png);
 }
+payment .number input.jcb, .payment .number input.jcb {
+  background-image: url(jcb.png);
+}
+payment .number input.diners, .payment .number input.diners {
+  background-image: url(diners.png);
+}
 
 payment .expiry input, payment .cvc input {
   width: 45px;

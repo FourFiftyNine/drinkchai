@@ -225,6 +225,8 @@
       'American Express': 'amex',
       'MasterCard': 'mastercard',
       'Discover': 'discover',
+      'JCB': 'jcb',
+      'Diners Club': 'diners',
       'Unknown': 'unknown'
     };
 

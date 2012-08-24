@@ -1,9 +1,8 @@
 <div id="checkout" class="payment-edit canvas clearfix">
-  <?php echo $this->element('stripped/checkout_review', array('showDetails' => true)); ?>
+  <?php echo $this->element('stripped/checkout_top', array('showDetails' => true)); ?>
   <?php echo $this->Form->create('User', array('url' => '/checkout/payment/edit')); ?>
   <div class="clearfix">
-    <div class="left">
-
+    <div class="address-form-half">
       <h2 class="gradient brown">Billing Information</h2>
         <?php 
           if ($this->Form->isFieldError('BillingAddress.user_id')):
@@ -23,13 +22,12 @@
           echo $this->Form->input('BillingAddress.zip', array('class' => 'zip address_zip', 'div' => array('class' => 'input text zip')));
         ?>
     </div>
-    <div class="right">
+
+    <div class="payment-container">
       <payment key="pk_08sMw2soHqvmWIvVavRRuIfE18zn5"></payment>
       <?php echo $this->Form->submit('Continue', array('label' => 'Continue', 'class' => 'btn continue gradient green')); ?>
-      <div><strong>Your data is secure and encrypted</strong></div>
+      <div class="data-encrypted"><span class="lock"></span><strong>Your data is secure and encrypted</strong></div>
     </div>
   </div>
-    <!-- <input type="submit" class="btn green gradient" value="Submit"> -->
-
   </form>
 </div>

@@ -28,8 +28,9 @@ class UsersController extends AppController {
         $this->set('title_for_layout', 'My Account - Make a deal, sell lots of Tea');
         $this->User->Address->recursive = -1;
         $addresses = $this->User->Address->findAllByUserId($this->Auth->user('id'));
-        $this->User->Billing->recursive = -1;
-        $billingInfo = $this->User->Billing->findByUserId($this->Auth->user('id'));
+        // $this->User->Billing->recursive = -1;
+        $billingInfo = $this->User->Billing->findMostRecentBillingData($this->Auth->user('id'));
+        // debug($billingInfo);
         $this->set('addresses', $addresses);
         $this->set('billingInfo', $billingInfo);
     }   

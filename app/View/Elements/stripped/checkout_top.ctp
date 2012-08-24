@@ -1,4 +1,4 @@
-  <div class="review-top clearfix">
+  <div class="checkout-top clearfix">
     <div class="product-image left">
       <img width="100" height="100" src="<?php echo $productImage['path_thumb'] ?>" alt="">
     </div>

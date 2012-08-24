@@ -83,10 +83,10 @@
         <div><?php echo $user['User']['email']; ?></div>
       </section>
       <section id="billing-information" class="right">
-        <h2 class="gradient brown">Billing Information<?php echo ($billingInfo['Billing']['name']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : '<a class="btn white" href="/account/billing/add">Add</a>'; ?></h2>
-        <?php if ($billingInfo['Billing']['name']): ?>
+        <h2 class="gradient brown">Billing Information<?php echo ($billingInfo['BillingAddress']['firstname']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : '<a class="btn white" href="/account/billing/add">Add</a>'; ?></h2>
+        <?php if ($billingInfo['BillingAddress']['firstname']): ?>
           <div class="label">Name on Card</div>
-          <div> <?php echo $billingInfo['Billing']['name'] ?></div>
+          <div> <?php echo $billingInfo['BillingAddress']['firstname'] ?></div>
           <div class="label">Card Type</div>
           <div> <?php echo $billingInfo['Billing']['card_type'] ?></div>
           <div class="label">Card Number</div>

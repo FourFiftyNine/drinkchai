@@ -113,6 +113,34 @@ public $scaffold;
       }
     }
 
+    public function shipping_edit($value='') {
+      $userID = $this->Auth->user('id');
+      $shippingAddress = $this->Order->ShippingAddress->findMostRecentShippingAddress($userID);
+
+      $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
+      $this->set('states', $states);
+
+      $dealData = $this->setViewDealCheckoutData();
+      $this->set('title_for_layout', 'Enter Your Payment Details - ' . $dealData['Deal']['product_name']);
+
+      if ($this->request->is('post') || $this->request->is('put')) {
+        $this->request->data['ShippingAddress']['user_id'] = $userID;
+
+        if(false == $this->Order->ShippingAddress->findDuplicateShippingAddress($this->request->data, $userID)) {
+          // TODO test out CREATE();
+          unset($this->request->data['ShippingAddress']['id']);
+          if ($this->Order->ShippingAddress->save($this->request->data)) {
+
+          }
+        }
+        
+        $this->redirect('/checkout/confirm');
+        
+      } else {
+        $this->request->data['ShippingAddress'] = $shippingAddress['ShippingAddress'];
+      }
+    }
+
     public function payment() {
       $userID = $this->Auth->user('id');
 
@@ -166,6 +194,7 @@ public $scaffold;
         if(false == $this->Order->BillingAddress->findDuplicateBillingAddress($this->request->data, $userID)) {
           unset($this->request->data['BillingAddress']['id']);
         } else {
+          $this->request->data['Billing']['address_id'] = $this->request->data['BillingAddress']['id'];
           // $this->request->data['Billing']['address_id'] = $this->request->data['BillingAddress']['id'];
           // unset($this->request->data)
           // $this->Order->BusinessAddress->set(null);
@@ -197,7 +226,7 @@ public $scaffold;
 
               $this->redirect('/checkout/confirm');
             } else {
-              debug($ret);
+  
             }
           }
         }
