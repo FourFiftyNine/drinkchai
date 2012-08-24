@@ -1961,11 +1961,13 @@ body#default.deals.view {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Checkout
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#stripped.orders .container {
+  width: 740px;
+}
 #checkout-steps {
   margin-top: 20px;
   padding: 15px;
   padding-left: 40px;
-  width: 685px;
 }
 #checkout-steps ul {
   text-align: center;
@@ -2005,7 +2007,6 @@ body#default.deals.view {
 }
 #checkout {
   margin-top: 20px;
-  width: 710px;
   padding: 15px;
 }
 #checkout h2,

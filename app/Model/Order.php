@@ -66,6 +66,13 @@ class Order extends AppModel {
 		);
 
 
+	public function hasBillingAddress($userID) {
+		return $this->BillingAddress->hasAny(array('BillingAddress.user_id' => $userID));
+	}
+
+	public function hasShippingAddress($userID) {
+		return $this->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID));
+	}
 
 	// public function hasAddresses() {
 	// 	$hasAddresses = true;

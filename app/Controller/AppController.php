@@ -59,6 +59,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
+        
         // FORCE SSL on all except live deals
 
         if (stristr(env('HTTP_HOST'), '.dev')) { 

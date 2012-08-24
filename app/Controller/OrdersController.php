@@ -43,19 +43,17 @@ public $scaffold;
     }
 
     public function review() {
-      // debug($this->Session->read('Order.quantity'));
-
       $dealData = $this->setViewDealCheckoutData();
+
       $this->set('title_for_layout', 'Select Options - ' . $dealData['Deal']['product_name']);
       if ($this->request->is('post') || $this->request->is('put')) {
           $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
           $this->redirect('/checkout/address');
       } else {
-          // $this->request->data = $this->User->read(null, $this->User->id);
         if ($this->Session->check('Order.quantity')) {
           $this->request->data['Order']['quantity'] = $this->Session->read('Order.quantity');
-          // $this->Session->check('Key.id');
-         // $this->redirect('/checkout/address');
+        } else {
+          $this->request->data['Order']['quantity'] = 1;
         }
       }
 
@@ -67,24 +65,24 @@ public $scaffold;
         $this->Session->setFlash('Please select a quantity');
         $this->redirect('/checkout/review');
       }
-      $hasBillingAddress = $this->Order->BillingAddress->hasAny(array('BillingAddress.user_id' => $userID));
-      $hasShippingAddress = $this->Order->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID));
-      if ($hasBillingAddress && $hasShippingAddress) {
+      
+      // TODO optimize into 1 query (look for count of 2?)
+      if ($this->Order->hasBillingAddress($userID) && $this->Order->hasShippingAddress($userID)) {
         $this->redirect('/checkout/payment');
       }
 
       $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
+
       $this->set('states', $states);
-      $userID = $this->Auth->user('id');
 
       $dealData = $this->setViewDealCheckoutData();
       $this->set('title_for_layout', 'Address Information - ' . $dealData['Deal']['product_name']);
 
 
       if ($this->request->is('post') || $this->request->is('put')) {
-        $this->request->data['ShippingAddress']['user_id'] = $this->Auth->user('id');
-        $this->request->data['BillingAddress']['user_id'] = $this->Auth->user('id');
-
+        $this->request->data['ShippingAddress']['user_id'] = $userID;
+        $this->request->data['BillingAddress']['user_id'] = $userID;
+     
         if ($ret = $this->Order->saveAll($this->request->data, array('validate' => 'only'))) {
           $authorized = $this->Order->ShippingAddress->save($this->request->data, array('validate' => false));
           $this->Order->BillingAddress->save($this->request->data, array('validate' => false));
