@@ -40,7 +40,6 @@ gradientWhite()
   border: 1px solid white
   color: #3C2613
   border-radius: 5px
-  width: 100px
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.36), 0 0 1px 0 rgba(255, 255, 255, 1) inset
   background: white
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 1)), color-stop(100%,rgba(243, 240, 233, 1)))
@@ -229,7 +228,8 @@ transparentPng()
 /*~~ Buttons - White ~~*/
 .btn
   &.white
-    background: url(/img/bullet_circle.png) no-repeat 15px center #ffffff
+    // background: url(/img/bullet_circle.png) no-repeat 15px center #ffffff
+    background: #ffffff
     border-radius: 5px
     border: 1px solid #ccc
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 0 1px 0 rgba(255, 255, 255, 1) inset
@@ -243,9 +243,12 @@ transparentPng()
     padding: 0 40px 0
     text-align: center
     text-shadow: 1px 1px 0px #fff
+    gradientWhite()
     &:hover
-      border: 1px solid #aaa
-      box-shadow: 1px 1px 3px 0 rgba(111, 111, 111, .8)
+      border: 1px solid #bbbbbb
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 0 1px 0 rgba(255, 255, 255, 1) inset
+      // box-shadow: 1px 1px 3px 0 rgba(111, 111, 111, .8)
+      // box-shadow: none;
     &:active
       box-shadow: 0 0 7px rgba(0, 0, 0, .2) inset
     &:visited
@@ -273,7 +276,11 @@ transparentPng()
       padding: 0 15px
     &.edit
       btnWhiteEdit()
-
+.submit .btn.white
+  float: right;
+  margin-top: 15px;
+  min-width: 150px
+  text-align: center;
 /*~~ Buttons - Green Gradient ~~*/
 .btn
   &.green.gradient
@@ -394,6 +401,29 @@ textarea.form-error
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Countdown / Time left
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.time
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
+  margin: 0 auto;
+  width: 220px
+  .label
+    float: left
+    font-size: 20px
+  text-align: center
+  position: relative
+  top: 0px
+  .time-left
+    float: left
+    margin-left: 15px
+    min-height: 32px
+    min-width: 98px
+    gradientWhite()
+    font-size: 22px
+    padding: 0 5px
+    // display: none
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Launch Page
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -618,8 +648,9 @@ textarea.form-error
       display: inline
     .twitter-share-button
       position: relative
-      top: 3px
-      margin-left: -3px
+      top: 4px;
+      // left: 4px;
+      margin-left: -2px
       margin-right: 5px
     #plusone
       position: relative
@@ -729,11 +760,11 @@ textarea.form-error
         border-radius: bottom 4px
         border-bottom: 5px solid $brown
         a
-          width: 95px
-          padding-right: 20px
+          width: 155px
+          padding: 0 0
           font-size: 14px
           font-weight: 500
-          text-align: right
+          text-align: center
           margin-top: 5px
 
 /*~~ Default Layout - Wood H1 Tag ~~*/
@@ -1056,6 +1087,7 @@ productName()
       .twitter-share-button
         position: relative
         top: 2px
+        left: 4px
       #plusone,
       .twitter-share-button,
       .fb-like,
@@ -1142,22 +1174,10 @@ productName()
         .time-lock-status
           width: 250px
           margin: -10px auto 0
-          padding: 20px
+          padding: 20px 20px 15px
           color: #3C2613
           text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
           font-weight: bold
-          .time
-            .label
-              font-size: 20px
-            text-align: center
-            position: relative
-            top: 0px
-            .time-left
-              margin-top: 10px
-              min-height: 32px
-              gradientWhite()
-              font-size: 22px
-              // display: none
           .locked
             background: url(/img/locked.png) no-repeat left center
             height: 37px
@@ -1472,6 +1492,8 @@ transWhiteSection()
     padding-left:  25px
     padding-right:  25px
     margin-bottom: 10px
+  .time.left
+    font-weight: bold
   // For both checkout top, and tables
   .deal-details
     ul

@@ -18,13 +18,6 @@ var dLayout = DrinkChai.defaultLayout = {
 
   init: function() {
     // console.log('here');
-
-    if (($('body').hasClass('view') || $('body').hasClass('preview')) 
-      && !$('.time-left').hasClass('no-time') 
-      && !$('.time-left').hasClass('days-left')) {
-      dLayout.ajaxGetTimeLeft();
-    }
-    
     dLayout.onClickAccountName();
     dLayout.onClickDeleteImage();
     dLayout.onClickSetFeaturedImage();
@@ -147,42 +140,6 @@ var dLayout = DrinkChai.defaultLayout = {
         }
       });
       e.preventDefault();
-    });
-  },
-  ajaxGetTimeLeft: function() {
-    var timeLeft = {};
-    var deal_id = $('.time-left').attr('data-dealid');
-    $.ajax({
-      url: '/deals/get_time_left',
-      type: 'POST',
-      dataType: 'json',
-      data: {deal_id: deal_id},
-      complete: function(xhr, textStatus) {
-        //called when complete
-      },
-      success: function(data, textStatus, xhr) {
-
-        var timeleft = '+' + data.days + 'd +' + data.hours + 'h +' + data.minutes + 'm +' + data.seconds + 's';
-        if (data) {
-          $('.time-left').countdown({
-            until: timeleft, 
-            compact: true,
-            onExpiry: function() {
-              $('.buy-now').replaceWith('<div class="ended">Deal Has Ended</div>');
-              // $('.time-left .no-time'{}
-            },
-            expiryText: 'Deal Has Ended'
-          });
-
-          return data;
-        } else {
-
-        }
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        //called when there is an error
-        // console.log(xhr);
-      }
     });
   }
 }

@@ -107,7 +107,7 @@ $(document).ready(UTIL.loadEvents);
 //         return '331823930171141';
 //     }
 // };
-DrinkChai.common = {
+var common = DrinkChai.common = {
   init: function () {
     var $preventDefaultLinks = $('.ajax-link, .prevent-default');
 
@@ -122,17 +122,6 @@ DrinkChai.common = {
       $(this).removeClass('form-error');
       $(this).find('input').focus();
     })
-    // var xpos = 0;
-    // var animateInterval = setInterval(function () {
-    //     xpos -= 100;
-    //     console.log(xpos);
-    //     $('#flashMessage').css('backgroundPosition', xpos + 'px');
-    // }, 300);
-
-
-    // $('#flashMessage').fadeIn(400, function () {
-    //   $('#flashMessage').delay(4000).fadeOut(400);
-    // });
 
     if ( !$('#flashMessage').hasClass('preview') ) {
       $('#flashMessage').delay(1750).fadeOut(500);
@@ -145,15 +134,6 @@ DrinkChai.common = {
       $('#flashMessage').toggleClass('hover');
     });
 
-    function animateBackground() {
-      // console.log('asda');
-      // console.log($('#flashMessage').filter(':visible'));
-      // if(!$this.filter(':visible')) {
-      //     clearInterval(animateInterval);
-      // }
-    }
-
-
     $('#flashMessage').click(function (e) {
       // e.preventDefault();
       $(this).fadeOut(400);
@@ -164,24 +144,59 @@ DrinkChai.common = {
     });
 
 
-
-    // $('header nav a.login').click(function(e) {
-    //     e.preventDefault();
-    //     $('.login-box').fadeToggle();
-    // })
     UTIL.defaultInputs();
-    // FourFiftyNine.CustomStripePayment.init();
-    //   window.fbAsyncInit = function() {
-    // FB.init({
-    //         appId      : DrinkChai.getFB_APP_ID(), // App ID
-    //         // channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-    //         status     : true, // check login status
-    //         cookie     : true, // enable cookies to allow the server to access the session
-    //         xfbml      : true  // parse XFBML
-    //     });
-    // // Additional initialization code here
-    // };
+
+    var isDealView = false;
+    if($('body').hasClass('view') && $('body').hasClass('deals'))
+      isDealView = true;
+
+    var isCheckout
+      if($('body').hasClass('orders'))
+        isCheckout = true;
+
+    if ((isDealView || isCheckout)
+      && !$('.time-left').hasClass('no-time') 
+      && !$('.time-left').hasClass('days-left')) {
+      common.ajaxGetTimeLeft();
+    }
+  },
+  ajaxGetTimeLeft: function() {
+    var timeLeft = {};
+    var deal_id = $('.time-left').attr('data-dealid');
+    $.ajax({
+      url: '/deals/get_time_left',
+      type: 'POST',
+      dataType: 'json',
+      data: {deal_id: deal_id},
+      complete: function(xhr, textStatus) {
+        //called when complete
+      },
+      success: function(data, textStatus, xhr) {
+
+        var timeleft = '+' + data.days + 'd +' + data.hours + 'h +' + data.minutes + 'm +' + data.seconds + 's';
+        if (data) {
+          $('.time-left').countdown({
+            until: timeleft, 
+            compact: true,
+            onExpiry: function() {
+              $('.buy-now').replaceWith('<div class="ended">Deal Has Ended</div>');
+              // $('.time-left .no-time'{}
+            },
+            expiryText: 'Deal Has Ended'
+          });
+
+          return data;
+        } else {
+
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        //called when there is an error
+        // console.log(xhr);
+      }
+    });
   }
+
 }
 
 var FourFiftyNine = window.FourFiftyNine || {};

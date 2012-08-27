@@ -104,10 +104,16 @@ class AppController extends Controller {
         // debug($this->Auth->user()); exit;
         // BaseFacebook::$CURL_OPTS[CURLOPT_CONNECTTIMEOUT] = 30;
         // debug(BaseFacebook::$CURL_OPTS); exit;
+      // debug($this->Auth->user);
+      // debug($this->facebook->getUser());
+      // debug($this->facebook->getLoginUrl());
+      // debug($this->facebook->api('/me'));
         if(!$this->Auth->user() && $this->facebook->getUser()) {
-
+            debug('here');
             try {
                 $user_profile = $this->facebook->api('/me');
+                // debug($user_profile);
+
             } catch (FacebookApiException $e) {
                 // TODO LOG
                 // echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
@@ -118,10 +124,8 @@ class AppController extends Controller {
                 $return = ClassRegistry::init('User')->facebook_sign_in($user_profile);
             }
             if(isset($return)){
-                // unset($return['User']['password']);
-                // debug($return); exit;
                 if ($this->Auth->login($return['User'])) {
-                    return $this->redirect('/');
+                    return $this->redirect($this->referer());
                 } else {
                     $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
                 }
@@ -141,28 +145,8 @@ class AppController extends Controller {
         }
     }
 
-
-    /**
-     * Refreshes the Auth session
-     * @param string $field
-     * @param string $value
-     * @return void 
-     */
-    private function _refreshAuth($field = '', $value = '') {
-        if (!empty($field) && !empty($value)) { 
-            $this->Session->write($this->Auth->sessionKey .'.'. $field, $value);
-        } else {
-            if (isset($this->User)) {
-                $this->Auth->login($this->User->read(false, $this->Auth->user('id')));
-            } else {
-                $this->Auth->login(ClassRegistry::init('User')->findById($this->Auth->user('id')));
-            }
-        }
-    }
-
     protected function setUserData() {
         $userModel = ClassRegistry::init('User');
-
 
         if ($this->Auth->user('user_type') == 'business') {
           $userModel->Behaviors->attach('Containable', array('recursive' => false));

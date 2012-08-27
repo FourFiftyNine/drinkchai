@@ -7,7 +7,7 @@
    ?>
   <?php if ('business' == $user['User']['user_type']): ?>
     <section id="business-information" class="left">
-      <h2 class="gradient brown">Business Information<a class="btn white" href="/account/edit">Edit</a></h2>
+      <h2 class="gradient brown">Business Information<a class="btn white edit" href="/account/edit">Edit</a></h2>
       <div class="content">
         <div class="label">Business Name</div>
         <div class="text"><?php echo $user['Business']['name']; ?></div>
@@ -41,7 +41,7 @@
         <?php if ($addresses):?>
           <?php foreach ($addresses as $address): ?>
             <section id="business-address" class="right">
-              <h2 class="gradient brown"><?php echo $address['Address']['type']; ?> Address<a class="btn white" href="/account/edit">Edit</a></h2>
+              <h2 class="gradient brown"><?php echo $address['Address']['type']; ?> Address<a class="btn white edit" href="/account/edit">Edit</a></h2>
               <div class="content">
                 <div class="label">Street Address</div>
                 <div class="text"><?php echo $address['Address']['address_one']; ?></div>

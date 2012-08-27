@@ -462,7 +462,7 @@ a:active,
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~ Buttons - White ~~*/
 .btn.white {
-  background: url("/img/bullet_circle.png") no-repeat 15px center #fff;
+  background: #fff;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -478,11 +478,19 @@ a:active,
   padding: 0 40px 0;
   text-align: center;
   text-shadow: 1px 1px 0px #fff;
+  border: 1px solid #fff;
+  color: #3c2613;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f3f0e9));
 }
 .btn.white:hover {
-  border: 1px solid #aaa;
-  -webkit-box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.8);
-  box-shadow: 1px 1px 3px 0 rgba(111,111,111,0.8);
+  border: 1px solid #bbb;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.16), 0 0 1px 0 #fff inset;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.16), 0 0 1px 0 #fff inset;
 }
 .btn.white:active {
   -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.2) inset;
@@ -526,6 +534,12 @@ a:active,
 }
 .btn.white.edit:hover {
   border: 1px solid #404040;
+}
+.submit .btn.white {
+  float: right;
+  margin-top: 15px;
+  min-width: 150px;
+  text-align: center;
 }
 /*~~ Buttons - Green Gradient ~~*/
 .btn.green.gradient:visited {
@@ -668,6 +682,38 @@ textarea.form-error {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Countdown / Time left
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.time {
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
+  margin: 0 auto;
+  width: 220px;
+  text-align: center;
+  position: relative;
+  top: 0px;
+}
+.time .label {
+  float: left;
+  font-size: 20px;
+}
+.time .time-left {
+  float: left;
+  margin-left: 15px;
+  min-height: 32px;
+  min-width: 98px;
+  border: 1px solid #fff;
+  color: #3c2613;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f3f0e9));
+  font-size: 22px;
+  padding: 0 5px;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Launch Page
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -986,8 +1032,8 @@ textarea.form-error {
 }
 #launch .addthis nav .twitter-share-button {
   position: relative;
-  top: 3px;
-  margin-left: -3px;
+  top: 4px;
+  margin-left: -2px;
   margin-right: 5px;
 }
 #launch .addthis nav #plusone {
@@ -1117,11 +1163,11 @@ textarea.form-error {
   border-bottom: 5px solid #5b4830;
 }
 #default #header #main-nav .sub-menu a {
-  width: 95px;
-  padding-right: 20px;
+  width: 155px;
+  padding: 0 0;
   font-size: 14px;
   font-weight: 500;
-  text-align: right;
+  text-align: center;
   margin-top: 5px;
 }
 /*~~ Default Layout - Wood H1 Tag ~~*/
@@ -1531,6 +1577,7 @@ body#default.deals.view {
 #deal #main-information #share .twitter-share-button {
   position: relative;
   top: 2px;
+  left: 4px;
 }
 #deal #main-information #share #plusone,
 #deal #main-information #share .twitter-share-button,
@@ -1633,32 +1680,10 @@ body#default.deals.view {
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
   width: 250px;
   margin: -10px auto 0;
-  padding: 20px;
+  padding: 20px 20px 15px;
   color: #3c2613;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
-}
-#deal #main-information .deal-information .buy-now-container .time-lock-status .time {
-  text-align: center;
-  position: relative;
-  top: 0px;
-}
-#deal #main-information .deal-information .buy-now-container .time-lock-status .time .label {
-  font-size: 20px;
-}
-#deal #main-information .deal-information .buy-now-container .time-lock-status .time .time-left {
-  margin-top: 10px;
-  min-height: 32px;
-  border: 1px solid #fff;
-  color: #3c2613;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  width: 100px;
-  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
-  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
-  background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f3f0e9));
-  font-size: 22px;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status .locked {
   background: url("/img/locked.png") no-repeat left center;
@@ -1996,7 +2021,6 @@ body#default.deals.view {
   color: #3c2613;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  width: 100px;
   -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
   box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
   background: #fff;
@@ -2016,6 +2040,9 @@ body#default.deals.view {
   padding-left: 25px;
   padding-right: 25px;
   margin-bottom: 10px;
+}
+#checkout .time.left {
+  font-weight: bold;
 }
 #checkout .deal-details ul {
   margin-bottom: 0;
