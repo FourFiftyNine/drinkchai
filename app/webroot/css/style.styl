@@ -412,6 +412,7 @@ textarea.form-error
   .label
     float: left
     font-size: 20px
+    line-height: 33px
   text-align: center
   position: relative
   top: 0px
@@ -1072,6 +1073,19 @@ productName()
       text-shadow: 0 0 5px rgba(0, 0, 0, .35)
       .percentage, .off
         font-size: 14px
+    // New share sorta
+    // #share
+    //   overflow: hidden
+    //   max-height: 90px;
+    //   position: relative;
+    //   // right: -140px;
+    //   margin: 25px 0 0 40px;
+    //   #pinterest,
+    //   .fb-like,
+    //   .twitter-share-button
+    //     margin-right: 5px
+    //     float: left
+    // OLD SHARE TO THE RIGHT OF THE PERCENTAGE
     #share
       background: #F0EFEB
       background: rgba(255,255,255,.6)
@@ -1103,7 +1117,12 @@ productName()
         left: 8px
         top: 6px
         position: relative
-
+    #free-shipping
+      font-size: 30px;
+      text-align: center;
+      padding-top: 24px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+      font-weight: bold
     .deal-information
       background: #f0efeb
       background: rgba(255,255,255,.6)
@@ -1151,7 +1170,7 @@ productName()
           list-style-image: url(/img/bullet_circle.png);
       .buy-now-container
         float: right
-        margin: 25px 20px 0 0
+        margin: 15px 20px 0 0
         .price-buy
           height: 60px
           line-height: 60px
@@ -1172,9 +1191,12 @@ productName()
           font-size: 20px
           text-align: center
         .time-lock-status
+          max-height: 157px;
           width: 250px
-          margin: -10px auto 0
-          padding: 20px 20px 15px
+          margin: 10px auto 0
+          padding: 10px 20px
+          border-top: 2px solid $lightBrown
+          border-bottom: 2px solid $lightBrown
           color: #3C2613
           text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
           font-weight: bold
@@ -1508,13 +1530,15 @@ transWhiteSection()
 
   .checkout-top
     transWhiteSection()
+    .time .label {font-size: 13px; line-height: 23px;}
+    .time .time-left {font-size: 17px; min-height 20px; min-width: 70px;}
     .product-image
       margin-right: 15px
       margin-left: 15px
     .company-name
       left: 0
       padding: 0
-      margin: 5px 0 0
+      margin: 0 0 0
     .product-name
       productName()
       left: 0

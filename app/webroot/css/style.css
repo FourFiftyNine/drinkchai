@@ -697,6 +697,7 @@ textarea.form-error {
 .time .label {
   float: left;
   font-size: 20px;
+  line-height: 33px;
 }
 .time .time-left {
   float: left;
@@ -1598,6 +1599,13 @@ body#default.deals.view {
   top: 6px;
   position: relative;
 }
+#deal #main-information #free-shipping {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 24px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
+}
 #deal #main-information .deal-information {
   background: #f0efeb;
   background: rgba(255,255,255,0.6);
@@ -1651,7 +1659,7 @@ body#default.deals.view {
 }
 #deal #main-information .deal-information .buy-now-container {
   float: right;
-  margin: 25px 20px 0 0;
+  margin: 15px 20px 0 0;
 }
 #deal #main-information .deal-information .buy-now-container .price-buy {
   height: 60px;
@@ -1678,9 +1686,12 @@ body#default.deals.view {
   text-align: center;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
+  max-height: 157px;
   width: 250px;
-  margin: -10px auto 0;
-  padding: 20px 20px 15px;
+  margin: 10px auto 0;
+  padding: 10px 20px;
+  border-top: 2px solid #d9c6a8;
+  border-bottom: 2px solid #d9c6a8;
   color: #3c2613;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
@@ -2069,6 +2080,15 @@ body#default.deals.view {
   width: 746px;
   margin-left: -18px;
 }
+#checkout .checkout-top .time .label {
+  font-size: 13px;
+  line-height: 23px;
+}
+#checkout .checkout-top .time .time-left {
+  font-size: 17px;
+  min-height: 20px;
+  min-width: 70px;
+}
 #checkout .checkout-top .product-image {
   margin-right: 15px;
   margin-left: 15px;
@@ -2076,7 +2096,7 @@ body#default.deals.view {
 #checkout .checkout-top .company-name {
   left: 0;
   padding: 0;
-  margin: 5px 0 0;
+  margin: 0 0 0;
 }
 #checkout .checkout-top .product-name {
   font-family: "News Cycle";

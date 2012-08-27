@@ -60,7 +60,7 @@
                     <div class="ended">Deal Has Ended</div>
                     <?php endif; ?>
                 </div>
-                <div class="time-lock-status canvas clearfix">
+                <div class="time-lock-status clearfix">
                     <?php echo $this->element('global/time_left'); ?>
                     <?php /* ?>
                     <div class="right bought-container">
@@ -85,6 +85,7 @@
                     </div>
                     */ ?>
                 </div>
+                <div id="free-shipping">Free Shipping</div>
             </div>
 
         </div>
