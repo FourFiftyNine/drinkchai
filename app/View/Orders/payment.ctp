@@ -10,6 +10,9 @@
       echo $this->Form->input('BillingAddress.zip', array('type' => 'hidden', 'class' => 'address_zip'));
        ?>
     </div>
+    <?php if(isset($card_error)): ?>
+    <div class="no-input-error error-message"><?php echo $card_error; ?></div>
+    <?php endif; ?>
     <payment key="pk_08sMw2soHqvmWIvVavRRuIfE18zn5">
     </payment>    
     <div class="checkout-bottom">

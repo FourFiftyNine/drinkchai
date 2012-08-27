@@ -19,8 +19,15 @@ public $scaffold;
     // public $api_login_id;
     // public $transaction_key;
 
+    private $dealData;
+
     public function beforeFilter() {
         // $this->layout
+        $this->dealData = $this->setViewDealCheckoutData();
+        if ($this->getTimeLeft($this->dealData) == false) {
+          $this->Session->setFlash('Deal is no longer available.');
+          $this->redirect('/deals/view');
+        }
         $this->layout = 'stripped';
         parent::beforeFilter();
     }
@@ -43,7 +50,7 @@ public $scaffold;
     }
 
     public function review() {
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
 
       $this->set('title_for_layout', 'Select Options - ' . $dealData['Deal']['product_name']);
       if ($this->request->is('post') || $this->request->is('put')) {
@@ -75,7 +82,7 @@ public $scaffold;
 
       $this->set('states', $states);
 
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
       $this->set('title_for_layout', 'Address Information - ' . $dealData['Deal']['product_name']);
 
 
@@ -118,7 +125,7 @@ public $scaffold;
       $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
       $this->set('states', $states);
 
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
       $this->set('title_for_layout', 'Enter Your Payment Details - ' . $dealData['Deal']['product_name']);
 
       if ($this->request->is('post') || $this->request->is('put')) {
@@ -145,21 +152,27 @@ public $scaffold;
       if ($this->Order->Billing->hasAny(array('Billing.user_id' => $userID)) && $this->Session->check('Order.quantity')) {
         $this->redirect('/checkout/confirm');
       }
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
       $this->set('title_for_layout', 'Enter Your Payment Details - ' . $dealData['Deal']['product_name']);
 
 
       $billingAddress = $this->Order->BillingAddress->findMostRecentBillingAddress($userID);
 
       if ($this->request->is('post') || $this->request->is('put')) {
-        Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
-        $token = $this->request->data['stripe_token'];
-        // create a Customer
-        $customer = Stripe_Customer::create(array(
-          "card" => $token,
-          "description" => '',
-          "email" => $this->Auth->user('email'))
-        );
+        try {
+          Stripe::setApiKey("sk_08sMJifZ11GeVCl5SIvz6tuTYQGS9");
+          $token = $this->request->data['stripe_token'];
+          // create a Customer
+          $customer = Stripe_Customer::create(array(
+            "card" => $token,
+            "description" => '',
+            "email" => $this->Auth->user('email'))
+          );
+        } catch (Exception $e) {
+          $this->set('card_error', $e->json_body['error']['message']);
+          return false;
+        }
+
         $this->request->data['Billing']['card_type'] = $customer->active_card->type;
         $this->request->data['Billing']['user_id'] = $userID;
         $this->request->data['Billing']['stripe_customer_id'] = $customer->id;
@@ -183,7 +196,7 @@ public $scaffold;
       $states = ClassRegistry::init('State')->find('list', array('fields' => array('State.stateabbr', 'State.statename')));
       $this->set('states', $states);
 
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
       $this->set('title_for_layout', 'Enter Your Payment Details - ' . $dealData['Deal']['product_name']);
 
       if ($this->request->is('post') || $this->request->is('put')) {
@@ -210,7 +223,8 @@ public $scaffold;
               $customer->card = $token;
               $customer->save();
             } catch (Exception $e) {
-              debug($e);
+              // debug($e->json_body['error']['message']);
+              $this->set('card_error', $e->json_body['error']['message']);
               return false;
             }
             $this->request->data['Billing']['card_type'] = $customer->active_card->type;
@@ -238,7 +252,7 @@ public $scaffold;
     public function confirm() {
       // set your secret key: remember to change this to your live secret key in production
       $userID = $this->Auth->user('id');
-      $dealData = $this->setViewDealCheckoutData();
+      $dealData = $this->dealData;
       $this->set('title_for_layout', 'Address Information - ' . $dealData['Deal']['product_name']);
       $this->set('quantity', $this->Session->read('Order.quantity'));
 

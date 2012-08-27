@@ -24,10 +24,13 @@
     </div>
 
     <div class="payment-container">
+      <?php if(isset($card_error)): ?>
+      <div class="no-input-error error-message"><?php echo $card_error; ?></div>
+      <?php endif; ?>
       <payment key="pk_08sMw2soHqvmWIvVavRRuIfE18zn5"></payment>
       <?php echo $this->Form->submit('Continue', array('label' => 'Continue', 'class' => 'btn continue gradient green')); ?>
       <?php echo $this->Html->link('go back', '/checkout/confirm', array('class' => 'btn white edit')) ?>
-      <div class="data-encrypted"><span class="lock"></span><strong>Your data is secure and encrypted</strong></div>
+      <div class="data-encrypted"><span class="lock"><img src="/img/locked.png" /></span><strong>Your data is secure and encrypted</strong></div>
     </div>
   </div>
   </form>

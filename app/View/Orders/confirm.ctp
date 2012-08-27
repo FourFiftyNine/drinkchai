@@ -47,7 +47,7 @@
     </div>
     <div class="right purchase">
       <?php echo $this->Form->end(array('label' => 'Purchase My Deal', 'class' => 'btn continue gradient green purchase-my-deal')); ?>
-      <div class="data-encrypted"><span class="lock"></span><strong>Your data is secure and encrypted</strong></div>
+      <div class="data-encrypted"><span class="lock"><img src="/img/locked.png" /></span><strong>Your data is secure and encrypted</strong></div>
     </div>
   </div>
 </div>

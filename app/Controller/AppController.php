@@ -175,14 +175,18 @@ class AppController extends Controller {
     }
 
     protected function setDealData($data) {
-        $timeArray = $this->dateDiff(time(), $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time']);
-
-        $data['Deal']['time_left'] = $this->getTimeRemainingLabel($timeArray);
+        $data['Deal']['time_left'] = $this->getTimeLeft($data);
         // TODO move this into specific actions
         $this->set('title_for_layout', $data['Deal']['product_name']);
         $this->setImages($data['Image']);
 
         $this->set('data', $data);
+    }
+
+    protected function getTimeLeft($data) {
+      $timeArray = $this->dateDiff(time(), $data['Deal']['end_date'] . ' ' . $data['Deal']['end_time']);
+
+       return $this->getTimeRemainingLabel($timeArray);
     }
 
       // http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/

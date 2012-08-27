@@ -2141,6 +2141,17 @@ body#default.deals.view {
 #checkout .checkout-bottom .submit {
   float: right;
 }
+#checkout .data-encrypted {
+  float: right;
+  margin-top: 10px;
+}
+#checkout .data-encrypted strong {
+  font-size: 14px;
+}
+#checkout .data-encrypted .lock img {
+  height: 20px;
+  margin-right: 10px;
+}
 #checkout form .short {
   width: 75%;
 }
@@ -2192,6 +2203,21 @@ body#default.deals.view {
   padding: 10px 18px;
   text-align: center;
 }
+#checkout.payment-step .error,
+#checkout.payment-edit .error {
+  background: #d96f50;
+  color: #fff;
+  display: block;
+  padding: 10px 20px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: none;
+}
+#checkout .no-input-error {
+  position: relative;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
 #checkout .address-form-half {
   float: left;
   width: 48%;
@@ -2236,26 +2262,22 @@ body#default.deals.view {
 #checkout.payment-step payment {
   margin-top: 10px;
 }
-#checkout.payment-step .error {
-  background: #d96f50;
-  color: #fff;
-  display: block;
-  padding: 10px 20px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: none;
-}
 #checkout.payment-edit .payment-container {
   float: left;
+  margin-top: 60px;
   margin-left: 40px;
   width: 300px;
 }
 #checkout.payment-edit .payment-container payment {
-  margin-top: 100px;
+  margin-top: 40px;
   margin-bottom: 15px;
 }
 #checkout.payment-edit .payment-container .submit {
   float: right;
+}
+#checkout.payment-edit .payment-container .btn.white.edit {
+  margin-top: 10px;
+  margin-left: 0;
 }
 #checkout.confirm .purchase-my-deal.disabled {
   -webkit-box-shadow: none;
