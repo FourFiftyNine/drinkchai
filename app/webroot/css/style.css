@@ -2086,11 +2086,14 @@ body#default.deals.view {
 #checkout .checkout-top .time .label {
   font-size: 13px;
   line-height: 23px;
+  float: left;
 }
 #checkout .checkout-top .time .time-left {
   font-size: 17px;
   min-height: 20px;
   min-width: 70px;
+  float: left;
+  margin-left: 10px;
 }
 #checkout .checkout-top .product-image {
   margin-right: 15px;
