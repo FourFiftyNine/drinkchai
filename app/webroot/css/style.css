@@ -1605,7 +1605,7 @@ body#default.deals.view {
   position: relative;
 }
 #deal #main-information #free-shipping {
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   padding-top: 14px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -1694,7 +1694,7 @@ body#default.deals.view {
   max-height: 157px;
   width: 250px;
   margin: -10px auto 0;
-  padding: 25px 20px 10px;
+  padding: 20px 20px 10px;
   color: #3c2613;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
