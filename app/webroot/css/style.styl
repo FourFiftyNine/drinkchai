@@ -397,6 +397,20 @@ textarea.form-error
   }
 .textarea .error-message
   border-radius: 4px
+
+
+::-webkit-input-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
+:-moz-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
+:-ms-input-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -417,8 +431,8 @@ textarea.form-error
   position: relative
   top: 0px
   .time-left
-    float: left
-    margin-left: 15px
+    // float: left
+    // margin-left: 15px
     min-height: 32px
     min-width: 98px
     gradientWhite()
@@ -1010,12 +1024,6 @@ body#default.deals.view
         margin-top: 60px
       #product-details-container
         clear:both
-        input::-webkit-input-placeholder {
-            text-shadow: none
-        }
-        input:-moz-placeholder {
-            text-shadow: none
-        }
       .delete.deal
         position: absolute
         right: 10px
@@ -1193,10 +1201,10 @@ productName()
         .time-lock-status
           max-height: 157px;
           width: 250px
-          margin: 10px auto 0
-          padding: 10px 20px
-          border-top: 2px solid $lightBrown
-          border-bottom: 2px solid $lightBrown
+          margin: -10px auto 0
+          padding: 25px 20px 10px
+          // border-top: 2px solid $lightBrown
+          // border-bottom: 2px solid $lightBrown
           color: #3C2613
           text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
           font-weight: bold
@@ -1576,7 +1584,8 @@ transWhiteSection()
     font-family: 'Arial', sans-serif;
     border-width: 2px
     padding: 0px 9px 0
-    line-height: 27px
+    text-shadow: none;
+    height: 32px;
     box-shadow: 0 0 5px -1px #000000 inset
   .select 
     float: left
@@ -1711,6 +1720,11 @@ transWhiteSection()
     text-align: right
     padding-right: 20pxn
   // Grand Total and Charge to Section
+  table td.quantity .btn.white.edit
+    margin-left: 0; 
+    margin-top: 5px
+    left: 0
+    top: 0
   table tr.grand-total-row
     margin-top: 5px
     td

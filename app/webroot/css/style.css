@@ -679,6 +679,18 @@ textarea.form-error {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+::-webkit-input-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
+:-moz-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
+:-ms-input-placeholder {
+  text-shadow: none;
+  color: #cecece;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Typography
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -700,8 +712,6 @@ textarea.form-error {
   line-height: 33px;
 }
 .time .time-left {
-  float: left;
-  margin-left: 15px;
   min-height: 32px;
   min-width: 98px;
   border: 1px solid #fff;
@@ -1496,12 +1506,6 @@ body#default.deals.view {
 #default #my-account #edit-deal #product-details-container {
   clear: both;
 }
-#default #my-account #edit-deal #product-details-container input::-webkit-input-placeholder {
-  text-shadow: none;
-}
-#default #my-account #edit-deal #product-details-container input:-moz-placeholder {
-  text-shadow: none;
-}
 #default #my-account #edit-deal .delete.deal {
   position: absolute;
   right: 10px;
@@ -1688,10 +1692,8 @@ body#default.deals.view {
 #deal #main-information .deal-information .buy-now-container .time-lock-status {
   max-height: 157px;
   width: 250px;
-  margin: 10px auto 0;
-  padding: 10px 20px;
-  border-top: 2px solid #d9c6a8;
-  border-bottom: 2px solid #d9c6a8;
+  margin: -10px auto 0;
+  padding: 25px 20px 10px;
   color: #3c2613;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
@@ -2162,7 +2164,8 @@ body#default.deals.view {
   font-family: 'Arial', sans-serif;
   border-width: 2px;
   padding: 0px 9px 0;
-  line-height: 27px;
+  text-shadow: none;
+  height: 32px;
   -webkit-box-shadow: 0 0 5px -1px #000 inset;
   box-shadow: 0 0 5px -1px #000 inset;
 }
@@ -2307,6 +2310,12 @@ body#default.deals.view {
 #checkout.confirm .purchase {
   text-align: right;
   padding-right: 20px n;
+}
+#checkout.confirm table td.quantity .btn.white.edit {
+  margin-left: 0;
+  margin-top: 5px;
+  left: 0;
+  top: 0;
 }
 #checkout.confirm table tr.grand-total-row {
   margin-top: 5px;

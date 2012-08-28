@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
-App::import('Vendor', 'AuthorizeNet/AuthorizeNet');
-App::import('Vendor', 'Stripe/lib/Stripe');
+// App::import('Vendor', 'AuthorizeNet/AuthorizeNet');
+
 
 /**
  * Orders Controller
@@ -18,7 +18,7 @@ public $scaffold;
 
     // public $api_login_id;
     // public $transaction_key;
-
+    public $components = array('Stripe');
     private $dealData;
 
     public function beforeFilter() {

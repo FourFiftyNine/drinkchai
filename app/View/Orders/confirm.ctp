@@ -17,8 +17,8 @@
         <td>
           <?php echo $this->Number->currency($data['Deal']['price']) ?>
         </td>
-        <td>
-          <?php echo $quantity; ?>
+        <td class="quantity">
+          <?php echo $quantity; ?><br /><a class="btn white edit" href="/checkout/review">change</a>
         </td>
         <td class="total right-align">
           <?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?>
