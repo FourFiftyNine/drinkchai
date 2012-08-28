@@ -703,17 +703,18 @@ textarea.form-error {
   margin: 0 auto;
   width: 220px;
   text-align: center;
+  text-align: center;
   position: relative;
   top: 0px;
 }
 .time .label {
-  float: left;
   font-size: 20px;
   line-height: 33px;
 }
 .time .time-left {
+  display: inline-block;
+  text-align: center;
   min-height: 32px;
-  min-width: 98px;
   border: 1px solid #fff;
   color: #3c2613;
   -webkit-border-radius: 5px;
@@ -722,7 +723,7 @@ textarea.form-error {
   box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
   background: #fff;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f3f0e9));
-  font-size: 22px;
+  font-size: 28px;
   padding: 0 5px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -1606,7 +1607,7 @@ body#default.deals.view {
 #deal #main-information #free-shipping {
   font-size: 30px;
   text-align: center;
-  padding-top: 24px;
+  padding-top: 14px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
 }
