@@ -67,6 +67,21 @@ btnWhiteEdit()
   top: -2px
   &:hover
     border: 1px solid lighten(black, 25%)
+
+// Generic Checkout Mixins
+transparentWhite()
+  background: #f0efeb
+  background: rgba(255,255,255,.6)
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
+  border-radius: 2px
+transWhiteSection()
+  clear: both
+  padding: 10px 0
+  margin-top: 15px
+  transparentWhite()
+  width: 746px
+  margin-left: -18px
+
 @import 'import/nib'
 @import 'import/_h5bp'
 // @import 'import/_custom_chosen'
@@ -438,7 +453,7 @@ textarea.form-error
     // margin-left: 15px
     text-align: center
     min-height: 32px
-    // min-width: 98px
+    min-width: 127px
     gradientWhite()
     font-size: 28px
     padding: 0 5px
@@ -1289,18 +1304,18 @@ productName()
           float: left
           margin-right: 20px
 
-/*~~ Default Layout - How it Works ~~*/
+/*~~ Default Layout - How it Works USERS ~~*/
 // TODO turn into stylus?
-#how-it-works
+#how-it-works.users
   column()
-#how-it-works .container
+#how-it-works.users .container
   text-align: center
 
-#how-it-works .divider
+#how-it-works.users .divider
   height: 2px
   background: url(/img/hiw-divider.jpg) repeat-x
 
-#how-it-works header
+#how-it-works.users header
   // background: url(/img/middle_bg_dark.jpg) repeat
   padding-top: 1px
   height: 285px
@@ -1311,7 +1326,7 @@ productName()
   border-top-left-radius: 3px
   border-top-right-radius: 3px
 
-#how-it-works header h2
+#how-it-works.users header h2
   background: url(/img/ribbon-hiw.png) no-repeat
   color: #FFFFFF
   font-size: 58px
@@ -1323,7 +1338,7 @@ productName()
   text-shadow: 2px 2px 0 #ad591b
   width: 552px
 
-#how-it-works header p
+#how-it-works.users header p
   font-size: 27px
   line-height: 34px
   color: #422b15
@@ -1336,15 +1351,15 @@ productName()
   font-size: 31px
   padding-top: 10px
 
-#how-it-works .step
+#how-it-works.users .step
   height: 350px
   // background: url(/img/middle_bg.jpg) repeat
 
-#how-it-works .step.three
+#how-it-works.users .step.three
   padding-bottom: 20px
 
 
-#how-it-works .step .number
+#how-it-works.users .step .number
   float: left
   font-family: sans-serif
   font-size: 432px
@@ -1357,20 +1372,20 @@ productName()
   width: 170px
   line-height: 1.231
 
-.ie7 #how-it-works .step .number
+.ie7 #how-it-works.users .step .number
   color: #C9C3A2
 
-#how-it-works .step .right
+#how-it-works.users .step .right
   width: 520px
   position: relative
   right: 60px
   top: 10px
 
-#how-it-works .step .badge
+#how-it-works.users .step .badge
   display: block
   margin: 20px auto
 
-#how-it-works .step .description
+#how-it-works.users .step .description
   font-family: Arimo, 'News Cycle', arial
   color: #422b15
   text-shadow: 1px 1px 0 #FFFFFF
@@ -1384,7 +1399,7 @@ productName()
   line-height: 30px
 
 
-#how-it-works
+#how-it-works.users
   .step.four
     height: 100px
     border-radius: bottom 3px
@@ -1396,6 +1411,76 @@ productName()
     width: 320px
     font-size: 40px
     line-height: @height
+
+/*~~ Default Layout - How it Works BUSINESSES ~~*/
+#how-it-works.businesses
+  padding: 20px
+  header
+    height: 92px
+    background: url(/img/hiwb-brown-bg.png) repeat-x;
+    column()
+    border-radius: 3px
+    text-align: center
+    h1, h2
+      text-shadow: 1px 1px 1px #000000;
+      margin: 0 
+    h1
+      padding-top: 13px
+      font-size: 25px;
+      color: #efe1c5;
+      font-family: Arimo;
+    h2
+      font-size: 21px;
+      color: #ffffff;
+  #step-titles
+    position: relative
+    margin-top: 20px
+    left: -24px
+    height: 127px
+    width: 968px
+    background: url(/img/hiwb-steps.png) no-repeat;
+    ul
+      margin: 0
+      padding: 0
+      li
+        color: #361d10;
+        float: left
+        font-size: 26px
+        text-shadow: 1px 1px 1px #ffffff
+        list-style: none
+        font-family: 'News Cycle';
+        margin-top: 27px
+        width: 256px
+        text-align: center
+        padding-left: 50px
+        &:first-child
+          padding-left: 75px
+  #step-content
+    ul
+      margin: 0
+      padding: 0
+      li
+        margin-top: -5px
+        list-style: none
+        float: left
+        text-align: center
+        text-shadow: 1px 1px 1px #ffffff
+        width: 256px
+        padding-left: 50px
+        &:first-child
+          width: 257px
+  #sign-up
+    transWhiteSection()
+    width: 550px
+    padding: 20px
+    margin: 20px auto 0
+    h2
+      margin: 0 -25px 10px
+    .fieldset
+      width:48%
+      input
+        width: 100%
+
 /*~~ Default Layout - z-index ~~*/
 #header
   z-index: 2
@@ -1507,19 +1592,7 @@ productName()
         box-shadow: 0 0 3px 0 rgba(0,0,0,0.3)
         width: auto;
 
-// Generic Checkout Mixins
-transparentWhite()
-  background: #f0efeb
-  background: rgba(255,255,255,.6)
-  box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
-  border-radius: 2px
-transWhiteSection()
-  clear: both
-  padding: 10px 0
-  margin-top: 15px
-  transparentWhite()
-  width: 746px
-  margin-left: -18px
+
 
 #checkout
   margin-top: 20px;

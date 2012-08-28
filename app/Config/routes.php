@@ -34,7 +34,7 @@
 
     /****** How It Works ******/
     Router::connect('/businesses/how-it-works', 
-        array('controller' => 'pages', 'action' => 'display', 'how_it_works'));
+        array('controller' => 'pages', 'action' => 'display', 'how_it_works_businesses'));
     Router::connect('/how-it-works', 
         array('controller' => 'pages', 'action' => 'display', 'how_it_works'));
 

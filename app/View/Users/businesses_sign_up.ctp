@@ -50,7 +50,7 @@
                 'type'      => 'password'
             )); ?>
         </div>
-        <?php echo $this->Form->end(array('label' => 'Submit', 'class' => 'btn white')); ?>
+        <?php echo $this->Form->end(array('label' => 'Sign Up', 'class' => 'btn white')); ?>
 
     </section>
 
