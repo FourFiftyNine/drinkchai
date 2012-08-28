@@ -12,9 +12,9 @@
   </section>
   <section id="step-content" class="clearfix">
     <ul>
-      <li>On the day of the sale, buyers come to DrinkChai and purchase your product through our site. You can watch it all unfold, along with some analytics, right from the dashboard.</li>
       <li>Sign up to create a deal on 
 DrinkChai. Our dashboard lets you control the deal - determine how big or small you want your sale to be, add marketing materials, link to reviews and much more.</li>
+      <li>On the day of the sale, buyers come to DrinkChai and purchase your product through our site. You can watch it all unfold, along with some analytics, right from the dashboard.</li>
       <li>Once the deal is done, simply ship out the orders and wait for your check in the mail or a transfer into your PayPal account.</li>
     </ul>
   </section>
