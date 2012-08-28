@@ -1605,9 +1605,9 @@ body#default.deals.view {
   position: relative;
 }
 #deal #main-information #free-shipping {
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  padding-top: 14px;
+  padding-top: 10px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
 }
@@ -1694,10 +1694,15 @@ body#default.deals.view {
   max-height: 157px;
   width: 250px;
   margin: -10px auto 0;
-  padding: 20px 20px 10px;
+  padding: 15px 20px 10px;
   color: #3c2613;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
   font-weight: bold;
+}
+#deal #main-information .deal-information .buy-now-container .time-lock-status .time {
+  width: 100%;
+  border-bottom: 2px solid #d9c6a8;
+  padding-bottom: 15px;
 }
 #deal #main-information .deal-information .buy-now-container .time-lock-status .locked {
   background: url("/img/locked.png") no-repeat left center;
