@@ -33,8 +33,6 @@
     // Router::connect('/about-us', array('controller' => 'pages', 'action' => 'display', 'about_us'));
 
     /****** How It Works ******/
-    Router::connect('/businesses/how-it-works', 
-        array('controller' => 'pages', 'action' => 'display', 'how_it_works_businesses'));
     Router::connect('/how-it-works', 
         array('controller' => 'pages', 'action' => 'display', 'how_it_works'));
 
@@ -42,6 +40,9 @@
     // Business Sign Up
     Router::connect('/businesses/sign-up', 
         array('controller' => 'users', 'action' => 'businesses_sign_up'));
+    Router::connect('/businesses/how-it-works', 
+        array('controller' => 'users', 'action' => 'businesses_sign_up'));
+
 
     // Users Sign Up
     Router::connect('/users/sign-up', 

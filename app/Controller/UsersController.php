@@ -140,9 +140,8 @@ class UsersController extends AppController {
     }
 
     public function businesses_sign_up() {
-        $this->set('title_for_layout', 'Make a deal, sell lots of Tea');
-        $this->layout = 'stripped';
-
+        $this->set('title_for_layout', 'Sell Your Tea');
+        $this->set('loggedIn', $this->Auth->loggedIn());
         if($this->request->is('post')) {
             $this->request->data['Business']['slug'] = strtolower(Inflector::slug($this->request->data['Business']['name']));
             $this->request->data['User']['user_type'] = 'business';

@@ -2005,6 +2005,27 @@ body#default.deals.view {
 #how-it-works.businesses #sign-up .fieldset input {
   width: 100%;
 }
+#how-it-works.businesses #account {
+  clear: both;
+  padding: 10px 0;
+  margin-top: 15px;
+  background: #f0efeb;
+  background: rgba(255,255,255,0.6);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  width: 746px;
+  margin-left: -18px;
+  width: 300px;
+  margin: 20px auto 0;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+}
+#how-it-works.businesses #account a.btn.white {
+  clear: both;
+}
 /*~~ Default Layout - z-index ~~*/
 #header {
   z-index: 2;
