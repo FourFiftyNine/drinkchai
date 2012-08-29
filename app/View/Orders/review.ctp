@@ -17,13 +17,13 @@
           <?php echo $this->Number->currency($data['Deal']['price']) ?>
         </td>
         <td>
-          <?php echo $this->Form->select('quantity', array('1' => '1', '2' => '2'), array('empty' => false)); ?>
+          <?php echo $this->Form->select('quantity', array('1' => '1', '2' => '2'), array('empty' => false, 'data-price' => '12.00')); ?>
         </td>
       </tr>
     </table>
   </div>
   <div class="checkout-bottom clearfix">
     <?php echo $this->Form->end(array('label' => 'Continue', 'class' => 'btn continue gradient green')); ?>
-    <div class="total">Total: <?php echo $this->Number->currency($data['Deal']['price'] * $this->data['Order']['quantity']) ?></div>
+    <div class="total">Total: <span class="dollars"><?php echo $this->Number->currency($data['Deal']['price'] * $this->data['Order']['quantity']) ?></span></div>
   </div>
 </div>

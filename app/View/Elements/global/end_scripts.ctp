@@ -21,6 +21,10 @@
   // '/lib/jquery-file-upload/js/jquery.fileupload-ui.js'
   )); ?>
 
+<?php if ($this->params['controller'] == 'orders' && $this->params['action'] == 'review'): ?>
+  <?php //echo $this->Html->script(array('libs/jquery.formatCurrency-1.4.0.pack')); ?>
+<?php endif; ?>
+
 <!-- <script src="js/vendor/jquery.ui.widget.js"></script>
 <script src="js/jquery.iframe-transport.js"></script>
 <script src="js/jquery.fileupload.js"></script> -->

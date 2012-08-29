@@ -22,6 +22,17 @@ var stripped = DrinkChai.stripped = {
       $('#OrderConfirmForm').submit();
     });
 
+    stripped.bindOrderQuantityChange();
+  },
+  bindOrderQuantityChange: function() {
+    $("#OrderQuantity").change(function(e) {
+      e.preventDefault(); 
+      var price = $(this).attr('data-price');
+      var quantity = $(this).val();
+      var $dollars = $('.total .dollars');
+
+      $dollars.html('$' + (price * quantity).toFixed(2));
+    });
   }
 }
 })( window, jQuery );
