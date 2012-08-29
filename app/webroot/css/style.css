@@ -538,7 +538,7 @@ a:active,
 .submit .btn.white {
   float: right;
   margin-top: 15px;
-  min-width: 150px;
+  min-width: 100px;
   text-align: center;
 }
 /*~~ Buttons - Green Gradient ~~*/
@@ -2023,6 +2023,9 @@ body#default.deals.view {
   padding: 20px;
   text-align: center;
 }
+#how-it-works.businesses #account h3 {
+  margin: 0;
+}
 #how-it-works.businesses #account a.btn.white {
   clear: both;
 }
@@ -2105,6 +2108,19 @@ body#default.deals.view {
 #stripped section#sign-up {
   padding: 10px;
   width: 300px;
+}
+#stripped .login-links {
+  float: left;
+  margin-top: 15px;
+}
+#stripped .login-links a,
+#stripped .login-links a:visited {
+  display: block;
+  font-size: 13px;
+  color: #5b4830;
+}
+#stripped .login-links a:hover {
+  text-decoration: underline;
 }
 #stripped section#business-cta {
   margin-top: 10px;
@@ -2287,7 +2303,8 @@ body#default.deals.view {
 #checkout form .input {
   margin-bottom: 5px;
 }
-#checkout form input[type="text"] {
+#checkout form input[type="text"],
+#checkout form input[type="password"] {
   font-family: 'Arial', sans-serif;
   border-width: 2px;
   padding: 0px 9px 0;
@@ -2333,6 +2350,12 @@ body#default.deals.view {
   padding: 10px 18px;
   text-align: center;
 }
+#checkout .error-message {
+  height: 30px;
+  top: 23px;
+  right: 1px;
+  line-height: 30px;
+}
 #checkout.payment-step .error,
 #checkout.payment-edit .error {
   background: #d96f50;
@@ -2348,15 +2371,14 @@ body#default.deals.view {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
+#checkout.login,
+#checkout.sign-up {
+  width: 610px;
+  margin: 0 auto;
+}
 #checkout .address-form-half {
   float: left;
   width: 48%;
-}
-#checkout .address-form-half .error-message {
-  height: 30px;
-  top: 23px;
-  right: 1px;
-  line-height: 30px;
 }
 #checkout .address-form-half.shipping-address {
   margin-left: 20px;

@@ -98,8 +98,10 @@
     /************************************
     ** Checkout
     ************************************/
-    Router::connect('/checkout', 
-        array('controller' => 'orders', 'action' => 'index'));
+    Router::connect('/checkout/login', 
+        array('controller' => 'orders', 'action' => 'login'));
+    Router::connect('/checkout/signup', 
+        array('controller' => 'orders', 'action' => 'sign_up'));
     Router::connect('/checkout/review', 
         array('controller' => 'orders', 'action' => 'review'));
     Router::connect('/checkout/address', 

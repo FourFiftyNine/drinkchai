@@ -294,7 +294,7 @@ transparentPng()
 .submit .btn.white
   float: right;
   margin-top: 15px;
-  min-width: 150px
+  min-width: 100px
   text-align: center;
 /*~~ Buttons - Green Gradient ~~*/
 .btn
@@ -1488,7 +1488,7 @@ productName()
     padding: 20px
     text-align: center
     h3
-      margin
+      margin: 0
     a.btn.white
       clear: both
 
@@ -1561,6 +1561,15 @@ productName()
   section#sign-up
     padding: 10px
     width: 300px
+  .login-links
+    float: left
+    margin-top: 15px
+    a, a:visited
+      display: block
+      font-size: 13px
+      color: $brown
+    a:hover
+      text-decoration: underline;
   section#business-cta
     margin-top: 10px
     padding: 10px
@@ -1673,7 +1682,8 @@ productName()
   .short {width:75%}
   .input
     margin-bottom: 5px
-  input[type="text"]
+  input[type="text"],
+  input[type="password"]
     font-family: 'Arial', sans-serif;
     border-width: 2px
     padding: 0px 9px 0
@@ -1712,6 +1722,11 @@ productName()
 
 // Checkout Errors
 #checkout
+  .error-message
+    height: 30px
+    top: 23px
+    right: 1px
+    line-height: 30px
   &.payment-step,
   &.payment-edit
     .error
@@ -1728,14 +1743,14 @@ productName()
 // Checkout Review
 // #checkout.review
 
+#checkout.login,
+#checkout.sign-up
+  width: 610px
+  margin: 0 auto
+
 #checkout .address-form-half
   float: left
   width: 48%
-  .error-message
-    height: 30px
-    top: 23px
-    right: 1px
-    line-height: 30px
   &.shipping-address
     margin-left: 20px
 // checkout/address

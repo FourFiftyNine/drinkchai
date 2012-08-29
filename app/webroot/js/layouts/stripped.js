@@ -20,7 +20,21 @@ var stripped = DrinkChai.stripped = {
     $(".purchase-my-deal").click(function(e) {
       $(this).attr("disabled", "disabled").addClass('disabled').val('Purchasing...');
       $('#OrderConfirmForm').submit();
-    });    
+    });
+
+    $('#no_password').click(function(e) {
+      e.preventDefault();
+      $('#login').fadeOut(400, function() {
+        $('#sign-up').fadeIn(400);
+      });
+    });
+
+    $('#have_password').click(function(e) {
+      e.preventDefault();
+      $('#sign-up').fadeOut(400, function() {
+        $('#login').fadeIn(400);
+      });
+    });
 
   }
 }

@@ -25,27 +25,56 @@ public $scaffold;
         // $this->layout
         $this->dealData = $this->setViewDealCheckoutData();
         if ($this->getTimeLeft($this->dealData) == false) {
-          $this->Session->setFlash('Deal is no longer available.');
+          $this->Session->setFlash('Deal is no longer available');
           $this->redirect('/deals/view');
         }
+        $this->Auth->allow('login', 'sign_up');
         $this->layout = 'stripped';
         parent::beforeFilter();
     }
 
-    // TODO OBSOLETE
-    public function index() {
-        // $this->Session->write('Order.deal_id', $this->request->data['Deal']['id']);
-        // $this->Session->write('Order.user_id', $this->Auth->user('id'));
-        $this->Order->set('deal_id', $this->request->data['Deal']['id']);
-        $this->Order->set('user_id', $this->Auth->user('id'));
-        // if($this->Order->save()) {
-        //   debug('herr');exit;
-        // }
-        if ($this->Auth->loggedIn()) {
-            // debug($this->request->data); exit;
-            $this->redirect('/checkout/review');
-        } else {
-            $this->render('/users/signup');
+
+    public function login() {
+      if ($this->Auth->loggedIn()) {
+        $this->redirect('/checkout/review');
+      }
+
+      $this->set('title_for_layout', 'Make a deal, sell lots of Tea');
+
+      if ($this->request->is('post')) {
+          if ($this->Auth->login()) {
+              // debug($this->Auth->user('user_type')); exit;
+              return $this->redirect('/checkout/review');
+          } else {
+              $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
+          }
+      }
+    }
+
+    public function sign_up() {
+        if($this->Auth->loggedIn()){
+            return $this->redirect($this->Auth->redirect());
+        }
+
+        $this->layout = 'stripped';
+        if($this->RequestHandler->isPost()){
+            $this->request->data['User']['user_type'] = 'customer';
+            if ($return = $this->Order->User->saveAll($this->request->data)) {
+                // debug($this->request->data); exit;
+                $email = new CakeEmail('gmail');
+                // $email->template('sign_up')
+                $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
+                    ->to($this->data['User']['email'])
+                    ->subject('Welcome to DrinkChai')
+                    ->send();
+                $this->Auth->login();
+                $this->redirect('/checkout/review');
+            } else {
+                // $errors = $this->User->invalidFields();
+                // if($this->data['User']['password'] != $this->Auth->password($this->data['User']['password_confirm'])){
+                //     $errors['password_confirm'] = "Passwords must match";
+                // }
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-<?php if ($this->params['action'] == 'login'): ?>
+<?php if ($this->params['action'] == 'login' && $this->params['controller'] != 'orders'): ?>
 <div class="already account right"><span>Don't have an account?</span><?php echo $this->Html->link('Sign Up', '/signup', array('class' => 'btn gradient green')); ?>
 </div>
 <?php elseif ($this->params['action'] == 'sign_up'): ?>
