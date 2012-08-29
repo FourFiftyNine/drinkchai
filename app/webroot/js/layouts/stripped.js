@@ -22,20 +22,6 @@ var stripped = DrinkChai.stripped = {
       $('#OrderConfirmForm').submit();
     });
 
-    $('#no_password').click(function(e) {
-      e.preventDefault();
-      $('#login').fadeOut(400, function() {
-        $('#sign-up').fadeIn(400);
-      });
-    });
-
-    $('#have_password').click(function(e) {
-      e.preventDefault();
-      $('#sign-up').fadeOut(400, function() {
-        $('#login').fadeIn(400);
-      });
-    });
-
   }
 }
 })( window, jQuery );

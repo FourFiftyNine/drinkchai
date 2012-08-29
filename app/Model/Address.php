@@ -14,14 +14,14 @@ class Address extends AppModel {
  */
 	public $validate = array(
 		'firstname' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			// 'alphanumeric' => array(
+			// 	'rule' => array('alphanumeric'),
+			// 	//'message' => 'Your custom message here',
+			// 	//'allowEmpty' => false,
+			// 	//'required' => false,
+			// 	//'last' => false, // Stop validation after this rule
+			// 	//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -32,14 +32,14 @@ class Address extends AppModel {
 			),
 		),
 		'lastname' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			// 'alphanumeric' => array(
+			// 	'rule' => array('alphanumeric'),
+			// 	//'message' => 'Your custom message here',
+			// 	//'allowEmpty' => false,
+			// 	//'required' => false,
+			// 	//'last' => false, // Stop validation after this rule
+			// 	//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -106,14 +106,14 @@ class Address extends AppModel {
 			),
 		),
 		'city' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			// 'alphanumeric' => array(
+			// 	'rule' => array('alphanumeric'),
+			// 	//'message' => 'Your custom message here',
+			// 	//'allowEmpty' => false,
+			// 	//'required' => false,
+			// 	//'last' => false, // Stop validation after this rule
+			// 	//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			// ),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
