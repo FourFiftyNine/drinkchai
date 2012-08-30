@@ -13,7 +13,7 @@ App::uses('AppController', 'Controller');
  */
 class OrdersController extends AppController {
 
-    public $components = array('Stripe');
+    public $components = array('Stripe', 'AuthorizeNet');
 
     /**
      * Easy access throughout controller
@@ -95,6 +95,23 @@ class OrdersController extends AppController {
  * @return void
  */
     public function review() {
+        $customerProfileId = $this->AuthorizeNet->createCustomer();
+        $token = $this->AuthorizeNet->getProfilePageRequestToken($customerProfileId);
+        // $this->AuthorizeNet->getCustomerProfile('9237748');
+        //8179647
+        // $ret = $this->AuthorizeNet->createCustomerProfileTransaction(array(
+        //     'amount' => '12.00',
+        //     'customerProfileId' => '9237748',
+        //     'customerPaymentProfileId' => '8179647'
+        // ));
+        // $directResponseFields = explode(",", $ret->xml->directResponse);
+        // debug($directResponseFields);
+        // 8375817 shipping?
+        // $ret = $this->AuthorizeNet->getCustomerPaymentProfile('9237748', '8179647');        
+        // var_dump($ret->xml->directResponse);
+
+        // debug($token);
+        $this->set('hostedProfilePageResponseToken', $token);
         $dealData = $this->dealData;
 
         $this->set('title_for_layout', 'Select Options - ' . $dealData['Deal']['product_name']);

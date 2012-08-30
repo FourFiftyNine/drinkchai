@@ -315,6 +315,28 @@ class AuthorizeNetCIM extends AuthorizeNetRequest
         $this->_xml->addChild("cardCode",$cardCode);
         return $this->_sendRequest();
     }
+
+    public function getHostedProfilePageRequest($customerProfileId,$setting=0)
+    {
+        $this->_constructXml("getHostedProfilePageRequest");
+        $this->_xml->addChild("customerProfileId", $customerProfileId);
+  
+        if(!empty($setting)) {
+             $set_settings_global=$this->_xml->addChild("hostedProfileSettings");
+            foreach($setting as $key=>$val){
+                $set_settings=$set_settings_global->addChild("setting");
+                $set_settings->addChild("settingName",$key);
+                $set_settings->addChild("settingValue",$val);
+                }//end each setting
+            }//end has a setting
+        /*hostedProfileReturnUrl,
+        hostedProfileReturnUrlText,
+        hostedProfileHeadingBgColor,
+        hostedProfilePageBorderVisible,
+        hostedProfileIFrameCommunicatorUrl*/
+
+        return $this->_sendRequest();
+    }
     
      /**
      * @return string

@@ -28,3 +28,22 @@
     <div class="total">Total: <span class="dollars"><?php echo $this->Number->currency($data['Deal']['price'] * $this->data['Order']['quantity']) ?></span></div>
   </div>
 </div>
+
+
+<!-- <button onclick="AuthorizeNetPopup.openEditPaymentPopup('123456')">Edit
+Payment Method</button> -->
+<button onclick="AuthorizeNetPopup.openAddPaymentPopup()">Add a New
+Payment Method</button>
+<form method="post" action="" id="formAuthorizeNetPopup" name="formAuthorizeNetPopup" target="iframeAuthorizeNet" style="display:none;">
+  <input type="hidden" name="Token" value="<?php echo $hostedProfilePageResponseToken ?>" />
+  <input type="hidden" name="PaymentProfileId" value="" />
+  <input type="hidden" name="ShippingAddressId" value="" />
+</form>
+
+<div id="divAuthorizeNetPopup" style="display:none;" class="AuthorizeNetPopupSimpleTheme">
+  <div class="AuthorizeNetPopupOuter">
+    <iframe name="iframeAuthorizeNet" id="iframeAuthorizeNet" src="/empty.html" frameborder="0" scrolling="no"></iframe>
+  </div>
+</div>
+
+<div id="divAuthorizeNetPopupScreen" style="display:none;"></div>
