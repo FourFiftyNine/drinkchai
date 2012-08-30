@@ -22,7 +22,20 @@ var stripped = DrinkChai.stripped = {
       $('#OrderConfirmForm').submit();
     });
 
+    $('#ShippingAddressSameAsBilling').change(function(e) {
+      e.preventDefault();
+      // console.log($(this).is(':checked'));
+      if ($(this).is(':checked')) {
+        $('#shipping-inputs').addClass('hidden');
+        $('#same-shipping-note').removeClass('hidden');
+
+      } else {
+        $('#shipping-inputs').removeClass('hidden');
+        $('#same-shipping-note').addClass('hidden');
+      }
+    });
     stripped.bindOrderQuantityChange();
+
   },
   bindOrderQuantityChange: function() {
     $("#OrderQuantity").change(function(e) {

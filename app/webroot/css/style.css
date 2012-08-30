@@ -2385,6 +2385,9 @@ body#default.deals.view {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
+#checkout.review tr.line-item td {
+  padding-top: 20px;
+}
 #checkout.login,
 #checkout.sign-up {
   width: 610px;
@@ -2399,6 +2402,32 @@ body#default.deals.view {
 }
 #checkout.address h2 {
   left: 0;
+}
+#checkout.address #same-billing-container {
+  display: inline-block;
+  clear: both;
+  position: relative;
+  top: 10px;
+  border: 1px solid #fff;
+  color: #3c2613;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f3f0e9));
+  background: -webkit-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -moz-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -o-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  padding: 10px 20px;
+}
+#checkout.address #same-billing-container .input.checkbox {
+  margin-bottom: 0;
+}
+#checkout.address #same-billing-container label {
+  margin-left: 10px;
 }
 #checkout.shipping-edit .address-form-half {
   float: none;
@@ -2474,6 +2503,9 @@ body#default.deals.view {
   text-align: right;
   padding-right: 20px n;
 }
+#checkout.confirm table tr.line-item td {
+  padding-bottom: 20px;
+}
 #checkout.confirm table td.quantity .btn.white.edit {
   margin-left: 0;
   margin-top: 5px;
@@ -2484,7 +2516,7 @@ body#default.deals.view {
   margin-top: 5px;
 }
 #checkout.confirm table tr.grand-total-row td {
-  padding: 18px;
+  padding: 12px 18px;
   border-top: 2px solid #cdb38c;
   border-bottom: 2px solid #cdb38c;
   background: #e5d9c4;
@@ -2505,7 +2537,6 @@ body#default.deals.view {
   text-align: right;
   font-weight: bold;
   font-size: 18px;
-  padding-right: 25px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

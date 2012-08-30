@@ -1629,6 +1629,7 @@ productName()
     font-weight: bold
   // For both checkout top, and tables
   .deal-details
+    // padding-bottom: 20px
     ul
       margin-bottom: 0
       padding-left: 18px
@@ -1742,7 +1743,10 @@ productName()
     border-radius: 3px
 
 // Checkout Review
-// #checkout.review
+#checkout.review
+  tr.line-item
+    td
+      padding-top: 20px
 
 #checkout.login,
 #checkout.sign-up
@@ -1758,6 +1762,18 @@ productName()
 #checkout.address
   h2
     left: 0
+  #same-billing-container
+    display: inline-block
+    clear: both
+    position: relative
+    top: 10px;
+    gradientWhite()
+    padding: 10px 20px
+    .input.checkbox
+      margin-bottom: 0
+    label
+      margin-left: 10px
+
 
 #checkout.shipping-edit
   .address-form-half
@@ -1829,6 +1845,8 @@ productName()
     text-align: right
     padding-right: 20pxn
   // Grand Total and Charge to Section
+  table tr.line-item td
+    padding-bottom: 20px
   table td.quantity .btn.white.edit
     margin-left: 0; 
     margin-top: 5px
@@ -1837,7 +1855,7 @@ productName()
   table tr.grand-total-row
     margin-top: 5px
     td
-      padding: 18px
+      padding: 12px 18px
       border-top: 2px solid darken($lightBrown, 8);
       border-bottom: 2px solid darken($lightBrown, 8);
       background: lighten($lightBrown, 8);
@@ -1854,7 +1872,7 @@ productName()
       text-align: right
       font-weight: bold
       font-size: 18px
-      padding-right: 25px
+      // padding-right: 25px
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

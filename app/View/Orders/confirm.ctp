@@ -10,9 +10,10 @@
         <th class="quantity">Quantity</th>
         <th class="total right-align">Total</th>
       </tr>
-      <tr>
+      <tr class="line-item">
         <td class="deal-details left-align">
-          <?php echo $this->element('global/deal_details'); ?>
+          <?php //echo $this->element('global/deal_details'); ?>
+          <?php echo $data['Deal']['checkout_line_item']; ?>
         </td>
         <td>
           <?php echo $this->Number->currency($data['Deal']['price']) ?>
