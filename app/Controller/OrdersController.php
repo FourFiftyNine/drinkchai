@@ -101,6 +101,7 @@ class OrdersController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->Session->write('Order.quantity', $this->request->data['Order']['quantity']);
+            $this->Session->write('Order.cartIsLive', true);
 
             $this->redirect('/checkout/address');
         } else {
@@ -110,7 +111,6 @@ class OrdersController extends AppController {
                 $this->request->data['Order']['quantity'] = 1;
             }
         }
-
     }
 
 /**
@@ -122,7 +122,7 @@ class OrdersController extends AppController {
     public function address() {
         $userID = $this->Auth->user('id');
 
-        if (!$this->Session->check('Order.quantity')) {
+        if (!$this->Session->check('Order.quantity') || !$this->Session->read('Order.cartIsLive')) {
             $this->Session->setFlash('Please select a quantity');
             $this->redirect('/checkout/review');
         }
@@ -177,6 +177,8 @@ class OrdersController extends AppController {
  * @return void
  */
     public function shipping_edit($value='') {
+        $this->checkLiveCart();
+
         $userID = $this->Auth->user('id');
         $shippingAddress = $this->Order->ShippingAddress->findMostRecentShippingAddress($userID);
 
@@ -193,6 +195,8 @@ class OrdersController extends AppController {
                 if ($this->Order->ShippingAddress->save($this->request->data)) {
                     $this->redirect('/checkout/confirm');
                 }
+            } else {
+                $this->redirect('/checkout/confirm');
             }
         } else {
             $this->request->data['ShippingAddress'] = $shippingAddress['ShippingAddress'];
@@ -206,6 +210,7 @@ class OrdersController extends AppController {
  * @return void
  */
     public function payment() {
+        $this->checkLiveCart();
         $userID = $this->Auth->user('id');
 
         if ($this->Order->Billing->hasAny(array('Billing.user_id' => $userID)) && $this->Session->check('Order.quantity')) {
@@ -242,6 +247,8 @@ class OrdersController extends AppController {
  * @return void
  */
     public function payment_edit() {
+        $this->checkLiveCart();
+
         $userID = $this->Auth->user('id');
         $billingAddress = $this->Order->BillingAddress->findMostRecentBillingAddress($userID);
 
@@ -293,21 +300,9 @@ class OrdersController extends AppController {
  * @param string $id
  * @return void
  */
-    private function setBillingRequestData($customer) {
-        $userID = $this->Auth->user('id');
-        $this->request->data['Billing']['card_type'] = $customer->active_card->type;
-        $this->request->data['Billing']['user_id'] = $userID;
-        $this->request->data['Billing']['stripe_customer_id'] = $customer->id;
-        $this->request->data['Billing']['card_number_last_four'] = $customer->active_card->last4;
-    }
-
-/**
- * view method
- *
- * @param string $id
- * @return void
- */
     public function confirm() {
+        $this->checkLiveCart();
+
         // set your secret key: remember to change this to your live secret key in production
         $userID = $this->Auth->user('id');
         $dealData = $this->dealData;
@@ -346,11 +341,46 @@ class OrdersController extends AppController {
                 $this->Order->set('deal_id', $dealData['Deal']['id']);
                 $this->Order->set('quantity', $this->Session->read('Order.quantity'));
                 if ($this->Order->save()) {
+                    $this->Session->delete('Order.cartIsLive');
+                    $this->Session->write('Order.id', $this->Order->getLastInsertID());
+                    // $this->Order->getLastInsertID();
                     $this->redirect('/checkout/success');
                 }
 
             }
         }
+    }
+
+    public function success() {
+        if ($this->Session->read('Order.id')) {
+            $this->set('orderID', $this->Session->read('Order.id'));
+            $this->Session->delete('Order.id');
+            $this->Session->delete('Order.quantity');
+        } else {
+            $this->Session->setFlash('Looks like you have completed your order.');
+            $this->redirect('/checkout/review');
+        }
+    }
+
+    private function checkLiveCart() {
+        if (!$this->Session->read('Order.cartIsLive')) {
+           $this->Session->setFlash('Please select a quantity');
+           $this->redirect('/checkout/review');
+       }
+    }
+
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+    private function setBillingRequestData($customer) {
+        $userID = $this->Auth->user('id');
+        $this->request->data['Billing']['card_type'] = $customer->active_card->type;
+        $this->request->data['Billing']['user_id'] = $userID;
+        $this->request->data['Billing']['stripe_customer_id'] = $customer->id;
+        $this->request->data['Billing']['card_number_last_four'] = $customer->active_card->last4;
     }
 
 /**

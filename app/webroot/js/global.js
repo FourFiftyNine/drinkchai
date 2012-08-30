@@ -123,8 +123,11 @@ var common = DrinkChai.common = {
       $(this).find('input').focus();
     })
 
+    // TODO makebetter
     if ( !$('#flashMessage').hasClass('preview') ) {
-      $('#flashMessage').delay(1750).fadeOut(500);
+      setTimeout(function() {
+        $('#flashMessage').fadeOut(500);
+      }, 4400);
     }
 
     

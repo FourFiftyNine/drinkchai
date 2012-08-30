@@ -12,7 +12,7 @@
             <?php echo $this->Session->flash(); ?>
             <!-- User Login -->
             <?php echo $this->element('stripped/navigation'); ?>
-            <?php if ($this->params['controller'] == 'orders'): ?>
+            <?php if ($this->params['controller'] == 'orders' && $this->params['action'] != 'success'): ?>
                 <?php echo $this->element('stripped/checkout_steps'); ?>
             <?php endif; ?>
             <?php echo $content_for_layout; ?>

@@ -384,10 +384,10 @@
         __out.push('<div class="error"></div>\n\n<div class="number">\n  <label for="paymentNumber">Card number</label>\n\n  <input type="tel" id="paymentNumber" placeholder="4242 4242 4242 4242">\n</div>\n\n');
       
         if (this.options.cvc) {
-          __out.push('\n  <div class="cvc">\n    <label for="paymentCVC">Security code</label>\n    <input type="tel" id="paymentCVC" placeholder="123" maxlength="4">\n  </div>\n');
+          __out.push('\n  <div class="cvc">\n    <label for="paymentCVC">Security code</label>\n    <input type="tel" id="paymentCVC" maxlength="3" placeholder="123" maxlength="4">\n  </div>\n');
         }
       
-        __out.push('\n\n<div class="expiry">\n  <label for="paymentExpiryMonth">Expiry date <em>(mm/yy)</em></label>\n\n  <input class="expiryMonth" type="tel" id="paymentExpiryMonth" placeholder="mm">\n  <input class="expiryYear" type="tel" id="paymentExpiryYear" placeholder="yy">\n</div>\n');
+        __out.push('\n\n<div class="expiry">\n  <label for="paymentExpiryMonth">Expiry date <em>(mm/yy)</em></label>\n\n  <input maxlength="2" class="expiryMonth" type="tel" id="paymentExpiryMonth" placeholder="mm">\n  <input class="expiryYear" maxlength="2" type="tel" id="paymentExpiryYear" placeholder="yy">\n</div>\n');
       
       }).call(this);
       

@@ -2403,6 +2403,25 @@ body#default.deals.view {
 #checkout.address h2 {
   left: 0;
 }
+#checkout.address #same-shipping-note {
+  border: 1px solid #fff;
+  color: #3c2613;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.36), 0 0 1px 0 #fff inset;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f3f0e9));
+  background: -webkit-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -moz-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -o-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  background: linear-gradient(top, #fff 0%, #f3f0e9 100%);
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  font-size: 13px;
+}
 #checkout.address #same-billing-container {
   display: inline-block;
   clear: both;
@@ -2537,6 +2556,16 @@ body#default.deals.view {
   text-align: right;
   font-weight: bold;
   font-size: 18px;
+}
+#checkout.success-confirmation {
+  text-align: center;
+}
+#checkout.success-confirmation h2 {
+  margin: 10px 0;
+}
+#checkout.success-confirmation h2,
+#checkout.success-confirmation h3 {
+  left: 0;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug
