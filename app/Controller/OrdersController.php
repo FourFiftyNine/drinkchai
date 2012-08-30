@@ -336,10 +336,6 @@ class OrdersController extends AppController {
                 $this->set('card_error', $e->json_body['error']['message']);
                 return false;
             }
-            // $this->Order->Deal->set('')
-            // $this->request->data
-            // debug($this->request->data);
-            // $this->data[]
             if ($charge->id) {
                 $this->Order->set('user_id', $userID);
                 $this->Order->set('stripe_charge_id', $charge->id);
@@ -349,14 +345,11 @@ class OrdersController extends AppController {
                 $this->Order->set('billing_id', $billingData['Billing']['id']);
                 $this->Order->set('deal_id', $dealData['Deal']['id']);
                 $this->Order->set('quantity', $this->Session->read('Order.quantity'));
-                // debug($this->Order->data);
-                $this->Order->save();
-                // $this->Order->s
+                if ($this->Order->save()) {
+                    $this->redirect('/checkout/success');
+                }
 
-                var_dump($charge->id);
             }
-
-            // debug($charge);
         }
     }
 
