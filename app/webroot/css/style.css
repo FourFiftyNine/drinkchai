@@ -737,6 +737,9 @@ textarea.form-error {
   font-size: 28px;
   padding: 0 5px;
 }
+.time .no-time {
+  margin-top: 10px;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Launch Page
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

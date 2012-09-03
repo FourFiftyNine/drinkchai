@@ -184,6 +184,12 @@ var common = DrinkChai.common = {
             onExpiry: function() {
               $('.buy-now').replaceWith('<div class="ended">Deal Has Ended</div>');
               // $('.time-left .no-time'{}
+              $('.time-left').addClass('no-time');
+              $('.time .label').remove();
+              setTimeout(function() {
+                window.location.reload();
+              }, 1000);
+              
             },
             expiryText: 'Deal Has Ended'
           });

@@ -402,4 +402,10 @@ class OrdersController extends AppController {
         $this->setDealData($dealData);
         return $dealData;
     }
+
+
+    // NORMAL ORDER VIEWS
+    public function view() {
+        $this->layout = 'default';
+    }
 }

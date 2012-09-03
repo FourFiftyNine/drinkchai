@@ -87,7 +87,7 @@
     Router::connect('/account/deals/preview/:id', 
         array('controller' => 'deals', 'action' => 'preview'), array('pass' => array('id')));
     Router::connect('/account/orders', 
-        array('controller' => 'users', 'action' => 'edit'));
+        array('controller' => 'orders', 'action' => 'view'));
 
     // Deals Routes (viewing deals)
     Router::connect('/deals/view', 
