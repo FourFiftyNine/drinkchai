@@ -2151,7 +2151,7 @@ body#default.deals.view {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Checkout
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#stripped.orders .container {
+#stripped.checkout .container {
   width: 740px;
 }
 #checkout-steps {

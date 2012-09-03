@@ -1,7 +1,7 @@
 <div id="checkout" class="login clearfix">
    <section id="login" class="canvas left">
 
-      <?php echo $this->Form->create('Order', array(
+      <?php echo $this->Form->create('Checkout', array(
           'action'  => '/login',
           'class' => 'clearfix',
           'inputDefaults' => array(

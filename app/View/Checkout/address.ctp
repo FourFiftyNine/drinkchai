@@ -20,6 +20,12 @@
           echo $this->Form->input('BillingAddress.zip', array('class' => 'zip', 'div' => array('class' => 'input text zip')));
         ?>
         <div id="same-billing-container">
+          <?php
+         /* echo $this->Form->checkbox('ShippingAddress.same_as_billing', array(
+              'value' => '1',
+          )); */ ?>
+        <!--   <label for="ShippingAddressSameAsBilling">Same as Billing Address?</label> -->
+
           <?php echo $this->Form->input('ShippingAddress.same_as_billing', array('label' => 'Same as Billing Address?', 'type' => 'checkbox')); ?>
         </div>
       </div>

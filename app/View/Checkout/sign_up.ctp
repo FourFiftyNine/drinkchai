@@ -1,6 +1,6 @@
 <div id="checkout" class="sign-up clearfix">
   <section id="sign-up" class="canvas left">
-      <?php echo $this->Form->create('Order', array(
+      <?php echo $this->Form->create('Checkout', array(
           'action'          => '/sign_up',
           'class'           => 'clearfix',
           'default'         => (true != empty($this->params['isAjax'])) ? false : true,

@@ -22,18 +22,8 @@ var stripped = DrinkChai.stripped = {
       $('#OrderConfirmForm').submit();
     });
 
-    $('#ShippingAddressSameAsBilling').change(function(e) {
-      e.preventDefault();
-      // console.log($(this).is(':checked'));
-      if ($(this).is(':checked')) {
-        $('#shipping-inputs').addClass('hidden');
-        $('#same-shipping-note').removeClass('hidden');
-
-      } else {
-        $('#shipping-inputs').removeClass('hidden');
-        $('#same-shipping-note').addClass('hidden');
-      }
-    });
+    stripped.checkShippingAddressIsSameOnLoad();
+    stripped.bindShippingAddressSameCheckbox();
     stripped.bindOrderQuantityChange();
 
   },
@@ -45,6 +35,24 @@ var stripped = DrinkChai.stripped = {
       var $dollars = $('.total .dollars');
 
       $dollars.html('$' + (price * quantity).toFixed(2));
+    });
+  },
+  checkShippingAddressIsSameOnLoad: function() {
+    stripped.checkShippingAddressCheckbox();
+  },
+  checkShippingAddressCheckbox: function() {
+    if ($('#ShippingAddressSameAsBilling').is(':checked')) {
+      $('#shipping-inputs').addClass('hidden');
+      $('#same-shipping-note').removeClass('hidden').show();
+
+    } else {
+      $('#shipping-inputs').removeClass('hidden');
+      $('#same-shipping-note').addClass('hidden').hide();
+    }
+  },
+  bindShippingAddressSameCheckbox: function() {
+    $('#ShippingAddressSameAsBilling').change(function(e) {
+      stripped.checkShippingAddressCheckbox();
     });
   }
 }

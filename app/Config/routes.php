@@ -99,25 +99,25 @@
     ** Checkout
     ************************************/
     Router::connect('/checkout/login', 
-        array('controller' => 'orders', 'action' => 'login'));
+        array('controller' => 'checkout', 'action' => 'login'));
     Router::connect('/checkout/signup', 
-        array('controller' => 'orders', 'action' => 'sign_up'));
+        array('controller' => 'checkout', 'action' => 'sign_up'));
     Router::connect('/checkout/review', 
-        array('controller' => 'orders', 'action' => 'review'));
+        array('controller' => 'checkout', 'action' => 'review'));
     Router::connect('/checkout/address', 
-        array('controller' => 'orders', 'action' => 'address'));
+        array('controller' => 'checkout', 'action' => 'address'));
     Router::connect('/checkout/shipping/edit', 
-        array('controller' => 'orders', 'action' => 'shipping_edit'));
+        array('controller' => 'checkout', 'action' => 'shipping_edit'));
     Router::connect('/checkout/payment', 
-        array('controller' => 'orders', 'action' => 'payment'));
+        array('controller' => 'checkout', 'action' => 'payment'));
     Router::connect('/checkout/payment/edit', 
-        array('controller' => 'orders', 'action' => 'payment_edit'));
+        array('controller' => 'checkout', 'action' => 'payment_edit'));
     Router::connect('/checkout/check_response_code', 
-        array('controller' => 'orders', 'action' => 'check_response_code'));
+        array('controller' => 'checkout', 'action' => 'check_response_code'));
     Router::connect('/checkout/confirm', 
-        array('controller' => 'orders', 'action' => 'confirm'));
+        array('controller' => 'checkout', 'action' => 'confirm'));
     Router::connect('/checkout/success', 
-        array('controller' => 'orders', 'action' => 'success'));
+        array('controller' => 'checkout', 'action' => 'success'));
     // Router::connect('/:slug/deals/create', array('controller' => 'deals', 'action' => 'create'), array('routeClass' => 'SlugRoute'));
 
     // Router::connect('/:slug/deals/edit/:id', array('controller' => 'deals', 'action' => 'edit'), array('routeClass' => 'SlugRoute'));
