@@ -345,6 +345,7 @@ class CheckoutController extends AppController {
                 $this->Order->set('billing_id', $billingData['Billing']['id']);
                 $this->Order->set('deal_id', $dealData['Deal']['id']);
                 $this->Order->set('quantity', $this->Session->read('Order.quantity'));
+                $this->Order->set('status_id', 34); // 34 = purchased
                 if ($this->Order->save()) {
                     $this->Session->delete('Order.cartIsLive');
                     $this->Session->write('Order.id', $this->Order->getLastInsertID());

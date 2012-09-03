@@ -86,8 +86,6 @@
     //     array('controller' => 'deals', 'action' => 'delete'), array('pass' => array('id')));
     Router::connect('/account/deals/preview/:id', 
         array('controller' => 'deals', 'action' => 'preview'), array('pass' => array('id')));
-    Router::connect('/account/orders', 
-        array('controller' => 'orders', 'action' => 'view'));
 
     // Deals Routes (viewing deals)
     Router::connect('/deals/view', 
@@ -125,7 +123,14 @@
 
     // Router::connect('/:slug', array('controller' => 'deals', 'action' => 'index'), array('routeClass' => 'SlugRoute'));
 
-
+    /************************************
+    ** Orders (Move into account)
+    ************************************/
+    // TODO use ACCOUNT prefix? (account_index)
+    Router::connect('/account/orders', 
+        array('controller' => 'orders', 'action' => 'index'));
+    Router::connect('/account/orders/view/:id', 
+        array('controller' => 'orders', 'action' => 'view'), array('pass' => array('id')));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

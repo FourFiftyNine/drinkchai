@@ -52,6 +52,20 @@ class Order extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Billing' => array(
+			'className' => 'Billing',
+			'foreignKey' => 'billing_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Status' => array(
+			'className' => 'Status',
+			'foreignKey' => 'status_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 	);
 
 	/**
@@ -59,11 +73,11 @@ class Order extends AppModel {
 	 *
 	 * @var array
 	 */
-		public $hasOne = array(
-			'Billing' => array(
-				'className'  => 'Billing',
-			)
-		);
+		// public $hasOne = array(
+		// 	'Billing' => array(
+		// 		'className'  => 'Billing',
+		// 	)
+		// );
 
 
 	public function hasBillingAddress($userID) {
@@ -73,6 +87,15 @@ class Order extends AppModel {
 	public function hasShippingAddress($userID) {
 		return $this->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID));
 	}
+
+	public function findOrderList($userID) {
+	    // $this->recursive = -1;
+	    $this->Behaviors->attach('Containable', array('recursive' => false));
+	    $this->contain('Deal.product_name', 'Deal.price', 'Status');
+	    return $this->find('all', array('conditions' => array('Order.user_id' => $userID), 'order' => array('modified' => 'desc')));
+	}
+
+	// public function 
 
 	// public function hasAddresses() {
 	// 	$hasAddresses = true;

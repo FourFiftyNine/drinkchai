@@ -274,7 +274,7 @@ transparentPng()
       line-height: 30px
       height: 30px
       font-size: 14px
-      padding: 0 10px 0 30px
+      padding: 0 10px 0 10px
       text-align: right
     &.large
       font-size: 24px
@@ -919,7 +919,8 @@ body#default.deals.view
     &.edit-address, 
     &.create-deal, 
     &.deals-index,
-    &.edit-deal
+    &.edit-deal,
+    &.order-history
       section
         background-color: #F3F1EA
         background-color: rgba(255,255,255,.6)
@@ -984,48 +985,6 @@ body#default.deals.view
     #my-deals
       .no-deals
         text-align: center
-      table
-        margin-top: 20px
-        width: 100%
-        thead
-          background: lighten($brown, 20)
-          th
-            border-bottom: 3px solid $darkBrown
-            color: #ffffff
-            text-shadow: #424242 0 0 3px
-            font-size: 20px
-            text-align:left
-            margin: 0 10px
-            padding: 10px
-            &.first
-              border-radius: top left 3px
-            &.last
-              text-align: right
-              border-radius: top right 3px
-        td,th
-          &.status
-            text-align: center
-            width: 100px
-        td
-          font-size: 18px
-          border-right: 1px solid $darkBrown
-          font-weight: bold
-          text-shadow: #424242 0 0 2px
-          padding: 0 10px
-          line-height: 61px
-          height: 35px
-          &.actions
-            border-right: 0
-            width: 250px
-            text-align: right
-            .delete
-              position: relative
-              top: -1px
-
-        tr.even
-          background-color: #e5ded5
-        tr.odd
-          background-color: darken(#e5ded5, 5)
     #edit-deal
       position: relative
       form
@@ -1064,8 +1023,72 @@ body#default.deals.view
           img
             width: 100%
 
+// TABLE DEFAULT VALUES for Dasboard
+#default #my-account
+  table
+    margin-top: 20px
+    width: 100%
+    thead
+      background: lighten($brown, 20)
+      th
+        border-bottom: 3px solid $darkBrown
+        color: #ffffff
+        text-shadow: #424242 0 0 3px
+        font-size: 20px
+        text-align:left
+        margin: 0 10px
+        padding: 10px
+        &.first
+          border-radius: top left 3px
+        &.last
+          text-align: right
+          border-radius: top right 3px
+    td,th
+      &.status
+        text-align: center
+        width: 100px
+      &.cost
+        text-align: center
+    td
+      font-size: 18px
+      border-right: 1px solid $darkBrown
+      font-weight: bold
+      text-shadow: #424242 0 0 2px
+      padding: 0 10px
+      line-height: 61px
+      height: 35px
+      &.actions
+        border-right: 0
+        width: 220px
+        text-align: right
+        .delete
+          position: relative
+          top: -1px
 
+    tr.even
+      background-color: #e5ded5
+    tr.odd
+      background-color: darken(#e5ded5, 5)
 
+#default #my-account.order-history
+  #my-orders
+    // margin-top: 10px
+    table
+      margin-top: 10px
+      width: 100%
+      td.actions
+        width: 150px
+      td.date
+        width: 105px
+        font-size: 14px
+        color: #848484
+        // font-weight: normal
+        text-shadow: none
+
+#default #my-account.order-view
+  #my-order h1
+    font-size: 30px
+    border-bottom: 3px solid $brown
 /*~~~~ Deal Page ~~~~*/
 productName()
   font-family: "News Cycle"

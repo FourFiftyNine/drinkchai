@@ -154,9 +154,10 @@ var common = DrinkChai.common = {
       isDealView = true;
 
     var isCheckout
-      if($('body').hasClass('orders'))
+      if($('body').hasClass('checkout'))
         isCheckout = true;
 
+    // TODO daysleft? Should this be ignored?
     if ((isDealView || isCheckout)
       && !$('.time-left').hasClass('no-time') 
       && !$('.time-left').hasClass('days-left')) {

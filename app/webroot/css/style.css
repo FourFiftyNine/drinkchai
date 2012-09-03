@@ -508,7 +508,7 @@ a:active,
   line-height: 30px;
   height: 30px;
   font-size: 14px;
-  padding: 0 10px 0 30px;
+  padding: 0 10px 0 10px;
   text-align: right;
 }
 .btn.white.large {
@@ -1334,7 +1334,8 @@ body#default.deals.view {
 #default #my-account.edit-address section,
 #default #my-account.create-deal section,
 #default #my-account.deals-index section,
-#default #my-account.edit-deal section {
+#default #my-account.edit-deal section,
+#default #my-account.order-history section {
   background-color: #f3f1ea;
   background-color: rgba(255,255,255,0.6);
   border: 1px solid #eae2c9;
@@ -1349,14 +1350,16 @@ body#default.deals.view {
 #default #my-account.edit-address section h2,
 #default #my-account.create-deal section h2,
 #default #my-account.deals-index section h2,
-#default #my-account.edit-deal section h2 {
+#default #my-account.edit-deal section h2,
+#default #my-account.order-history section h2 {
   margin: 0;
 }
 #default #my-account.dashboard section h2 a,
 #default #my-account.edit-address section h2 a,
 #default #my-account.create-deal section h2 a,
 #default #my-account.deals-index section h2 a,
-#default #my-account.edit-deal section h2 a {
+#default #my-account.edit-deal section h2 a,
+#default #my-account.order-history section h2 a {
   line-height: 21px;
   height: 20px;
   background: #fff;
@@ -1371,14 +1374,16 @@ body#default.deals.view {
 #default #my-account.edit-address section h2 a:hover,
 #default #my-account.create-deal section h2 a:hover,
 #default #my-account.deals-index section h2 a:hover,
-#default #my-account.edit-deal section h2 a:hover {
+#default #my-account.edit-deal section h2 a:hover,
+#default #my-account.order-history section h2 a:hover {
   border: 1px solid #404040;
 }
 #default #my-account.dashboard input[type="submit"],
 #default #my-account.edit-address input[type="submit"],
 #default #my-account.create-deal input[type="submit"],
 #default #my-account.deals-index input[type="submit"],
-#default #my-account.edit-deal input[type="submit"] {
+#default #my-account.edit-deal input[type="submit"],
+#default #my-account.order-history input[type="submit"] {
   margin-top: 20px;
   width: 100%;
 }
@@ -1427,66 +1432,6 @@ body#default.deals.view {
 }
 #default #my-account #my-deals .no-deals {
   text-align: center;
-}
-#default #my-account #my-deals table {
-  margin-top: 20px;
-  width: 100%;
-}
-#default #my-account #my-deals table thead {
-  background: #9e7d53;
-}
-#default #my-account #my-deals table thead th {
-  border-bottom: 3px solid #422a11;
-  color: #fff;
-  text-shadow: #424242 0 0 3px;
-  font-size: 20px;
-  text-align: left;
-  margin: 0 10px;
-  padding: 10px;
-}
-#default #my-account #my-deals table thead th.first {
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -o-border-top-left-radius: 3px;
-  -ms-border-top-left-radius: 3px;
-  border-top-left-radius: 3px;
-}
-#default #my-account #my-deals table thead th.last {
-  text-align: right;
-  -moz-border-radius-topright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -o-border-top-right-radius: 3px;
-  -ms-border-top-right-radius: 3px;
-  border-top-right-radius: 3px;
-}
-#default #my-account #my-deals table td.status,
-#default #my-account #my-deals table th.status {
-  text-align: center;
-  width: 100px;
-}
-#default #my-account #my-deals table td {
-  font-size: 18px;
-  border-right: 1px solid #422a11;
-  font-weight: bold;
-  text-shadow: #424242 0 0 2px;
-  padding: 0 10px;
-  line-height: 61px;
-  height: 35px;
-}
-#default #my-account #my-deals table td.actions {
-  border-right: 0;
-  width: 250px;
-  text-align: right;
-}
-#default #my-account #my-deals table td.actions .delete {
-  position: relative;
-  top: -1px;
-}
-#default #my-account #my-deals table tr.even {
-  background-color: #e5ded5;
-}
-#default #my-account #my-deals table tr.odd {
-  background-color: #dbd2c5;
 }
 #default #my-account #edit-deal {
   position: relative;
@@ -1541,6 +1486,87 @@ body#default.deals.view {
 }
 #default #my-account #edit-deal .image-container .image img {
   width: 100%;
+}
+#default #my-account table {
+  margin-top: 20px;
+  width: 100%;
+}
+#default #my-account table thead {
+  background: #9e7d53;
+}
+#default #my-account table thead th {
+  border-bottom: 3px solid #422a11;
+  color: #fff;
+  text-shadow: #424242 0 0 3px;
+  font-size: 20px;
+  text-align: left;
+  margin: 0 10px;
+  padding: 10px;
+}
+#default #my-account table thead th.first {
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -o-border-top-left-radius: 3px;
+  -ms-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#default #my-account table thead th.last {
+  text-align: right;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -o-border-top-right-radius: 3px;
+  -ms-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+#default #my-account table td.status,
+#default #my-account table th.status {
+  text-align: center;
+  width: 100px;
+}
+#default #my-account table td.cost,
+#default #my-account table th.cost {
+  text-align: center;
+}
+#default #my-account table td {
+  font-size: 18px;
+  border-right: 1px solid #422a11;
+  font-weight: bold;
+  text-shadow: #424242 0 0 2px;
+  padding: 0 10px;
+  line-height: 61px;
+  height: 35px;
+}
+#default #my-account table td.actions {
+  border-right: 0;
+  width: 220px;
+  text-align: right;
+}
+#default #my-account table td.actions .delete {
+  position: relative;
+  top: -1px;
+}
+#default #my-account table tr.even {
+  background-color: #e5ded5;
+}
+#default #my-account table tr.odd {
+  background-color: #dbd2c5;
+}
+#default #my-account.order-history #my-orders table {
+  margin-top: 10px;
+  width: 100%;
+}
+#default #my-account.order-history #my-orders table td.actions {
+  width: 150px;
+}
+#default #my-account.order-history #my-orders table td.date {
+  width: 105px;
+  font-size: 14px;
+  color: #848484;
+  text-shadow: none;
+}
+#default #my-account.order-view #my-order h1 {
+  font-size: 30px;
+  border-bottom: 3px solid #5b4830;
 }
 /*~~~~ Deal Page ~~~~*/
 #deal #main-information {
