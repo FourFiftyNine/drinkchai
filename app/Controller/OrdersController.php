@@ -17,10 +17,15 @@ class OrdersController extends AppController {
     public $helpers = array('time');
 
     // NORMAL ORDER VIEWS
-    public function index() {
+    public function index($id = null) {
         // $this->Order->recursive = -1;
       // CONTAINERABLE 
-        $return = $this->Order->findOrderList($this->Auth->user('id'));
+        if ($this->Auth->user('user_type') == 'business') {
+            $return = $this->Order->findAllByDealIdAndBusinessId($id, $this->Auth->user('id'));
+        } else {
+            $return = $this->Order->findCustomerOrderList($this->Auth->user('id'));
+        }
+        
         // debug($return);
         $this->set('orders', $return);
     }
@@ -38,6 +43,7 @@ class OrdersController extends AppController {
             $orderData = $this->Order->read();
             // debug($orderData);
             $dealData = $this->Order->Deal->findById($orderData['Deal']['id']);
+            $orderData['Business'] = $dealData['Business'];
             // debug($dealData);
             // if (!$this->DCAuth->businessOwnsDeal($orderData)) {
             //     $this->Session->setFlash('No way jose, not your deal.');
@@ -45,6 +51,7 @@ class OrdersController extends AppController {
             // }
             // debug($dealData);
             // $billingData = $this->Order->Billing->findMostRecentBillingData($userID);
+            $this->request->data['Order']['id'] = $id;
             $this->set('quantity', $orderData['Order']['quantity']);
             $this->set('billingFirstname', $orderData['BillingAddress']['firstname']);
             $this->set('billingLastname', $orderData['BillingAddress']['lastname']);
@@ -58,21 +65,19 @@ class OrdersController extends AppController {
             $this->setDealData($dealData);
             $this->set('data', $orderData);
 
-            // if ($this->request->is('post') || $this->request->is('put')) {
-            //     $this->setBusinessData($dealData);
-            //     unset($this->request->data['Image']);
-            //     if ($ret = $this->Deal->saveAll($this->request->data)) {
-            //         $this->Session->setFlash(__('Your deal has been saved'));
-            //     } else {
-            //         $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
-            //     }
-            //     // TODO Use $ret?
-            //     // $this->request->data = $this->Deal->read();
+            if ($this->request->is('post') || $this->request->is('put')) {
 
-            // } else {
-            //     // $this->request->data = $dealData;
-            // }
-            // $this->setImages($this->request->data['Image']);
+                if ($ret = $this->Order->save($this->request->data, array('validate' => 'only'))) {
+                    $this->request->data['Order']['status_id'] = 45;
+                    $this->Order->save($this->request->data, array('validate' => false));
+                    $this->Session->setFlash(__('Your deal has been saved'));
+                } else {
+                    $this->Session->setFlash(__('The deal could not be saved. Please, try again.'));
+                }
+              
+            } else {
+                $this->request->data['Order']['tracking_number'] = $orderData['Order']['tracking_number'];
+            }
 
         }
 }

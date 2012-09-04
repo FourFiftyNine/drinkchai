@@ -131,6 +131,8 @@
         array('controller' => 'orders', 'action' => 'index'));
     Router::connect('/account/orders/view/:id', 
         array('controller' => 'orders', 'action' => 'view'), array('pass' => array('id')));
+    Router::connect('/account/deals/:id/orders', 
+        array('controller' => 'orders', 'action' => 'index'), array('pass' => array('id')));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

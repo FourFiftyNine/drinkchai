@@ -21,7 +21,7 @@
         <?php if ('business' == $user['User']['user_type']): ?>
             <li><?php echo $this->Html->activeLink('Dashboard', '/account'); ?></li>
             <li><?php echo $this->Html->activeLink('My Deals', '/account/deals'); ?></li>
-            <li><?php echo $this->Html->activeLink('My Orders', '/account/create'); ?></li>
+            <!-- <li><?php echo $this->Html->activeLink('My Orders', '/account/create'); ?></li> -->
             <li><?php echo $this->Html->activeLink('Edit Business', '/account/edit'); ?></li>
         <?php elseif ('admin' == $user['User']['user_type']): ?>
             

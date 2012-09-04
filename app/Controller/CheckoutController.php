@@ -339,13 +339,13 @@ class CheckoutController extends AppController {
             if ($charge->id) {
                 $this->Order->set('user_id', $userID);
                 $this->Order->set('stripe_charge_id', $charge->id);
-                $this->Order->set('business_id', $dealData['Deal']['business_id']);
+                $this->Order->set('business_id', $dealData['Deal']['user_id']);
                 $this->Order->set('shipping_address_id', $shippingAddress['ShippingAddress']['id']);
                 $this->Order->set('billing_address_id', $billingData['Billing']['address_id']);
                 $this->Order->set('billing_id', $billingData['Billing']['id']);
                 $this->Order->set('deal_id', $dealData['Deal']['id']);
                 $this->Order->set('quantity', $this->Session->read('Order.quantity'));
-                $this->Order->set('status_id', 34); // 34 = purchased
+                $this->Order->set('status_id', 35); // 34 = purchased
                 if ($this->Order->save()) {
                     $this->Session->delete('Order.cartIsLive');
                     $this->Session->write('Order.id', $this->Order->getLastInsertID());
@@ -400,7 +400,7 @@ class CheckoutController extends AppController {
         // TODO set Session, then check and if not found do below.
 
         $this->Order->Deal->Behaviors->attach('Containable', array('recursive' => false));
-        $this->Order->Deal->contain('Image', 'Business.name');
+        $this->Order->Deal->contain('Image', 'Business.name', 'Status');
         $dealData = $this->Order->Deal->getLiveDeal();
         unset($dealData['Deal']['limit']);
         // debug($dealData);

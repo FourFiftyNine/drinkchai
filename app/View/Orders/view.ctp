@@ -5,7 +5,7 @@
   * Business User Top, Normal User Below
   **/
    ?>
-  <?php if ('business' == $user['User']['user_type']): ?>
+  <?php if (false/*'business' == $user['User']['user_type']*/): ?>
     <section id="my-order">
       
     </section>
@@ -72,7 +72,31 @@
          <div class="label">City, State Zip</div>
          <div><?php echo $shAdd['city'] . ', ' . $shAdd['state'] . ' ' . $shAdd['zip'];   ?></div>
        </section>
-       <section id="billing-information" class="left">
+       <section id="tracking-information" class="clearfix left">
+        <h2 class="gradient brown">Tracking Information</h2>
+        <?php if ('business' == $user['User']['user_type']): ?>
+
+          <?php echo $this->Form->create('Order'); ?>
+          <?php echo $this->Form->input('id') ?>
+          <?php $carriers = array('UPS' => 'UPS', 'USPS' => 'USPS', 'Fedex' => 'Fedex'); ?>
+          <?php echo $this->Form->input('Order.shipping_carrier', array('options' => $carriers, 'empty' => false)); ?> 
+          <?php echo $this->Form->input('Order.tracking_number'); ?> 
+
+          <?php echo $this->Form->end(array('label' => 'Save Tracking Number', 'class' => 'btn white')); ?>
+        <?php else: ?>
+          <?php if ($data['Status']['status'] == 'shipped'): ?>
+          <div class="label">Shipping Carrier</div>
+          <div><?php echo $data['Order']['shipping_carrier'] ?></div>
+          <div class="label">Tracking Number</div>
+          <div><?php echo $data['Order']['tracking_number']; ?></div>
+          <?php else: ?>
+            <div class="label">Shipping Status</div>
+            <div>Order has not yet shipped.</div>
+          <?php endif; ?>
+        <?php endif; ?>
+
+       </section>
+       <section id="billing-information" class="right">
          <h2 class="gradient brown">Payment Information</h2>
          <?php if ($data['BillingAddress']['firstname']): ?>
            <div class="label">Name on Card</div>

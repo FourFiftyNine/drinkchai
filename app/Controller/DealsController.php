@@ -24,10 +24,26 @@ class DealsController extends AppController {
  * @return void
  */
     public function index(){
-        $this->Deal->recursive = -1;
+        // $this->Deal->recursive = -1;
+        // debug($this->Auth->user('id'));
         $return = $this->Deal->findAllByUserId($this->Auth->user('id'));
+        $liveDeal       = array();
+        $draftDeals     = array();
+        $completedDeals = array();
+        foreach($return as $deal) {
+            if ($deal['Status']['status'] == 'live') {
+                $liveDeal[] = $deal;
+            } else if ($deal['Status']['status'] == 'draft') {
+                $draftDeals[] = $deal;
+            } else if ($deal['Status']['status'] == 'completed') {
+                $completedDeals[] = $deal;
+            }
+        }
+        $this->set('liveDeal', $liveDeal);
+        $this->set('draftDeals', $draftDeals);
+        $this->set('completedDeals', $completedDeals);
         // debug($return);
-        $this->set('deals', $return);
+        // $this->set('deals', $return);
     }
 
     public function preview($id = null)
@@ -78,6 +94,7 @@ class DealsController extends AppController {
            
             $this->Deal->create();
             unset($this->request->data['Image']);
+            $this->request->data['Deal']['status_id'] = 17;
             if ($this->Deal->saveAll($this->request->data)) {
                 $this->Session->setFlash(__('The deal has been saved'));
                 $this->redirect(array('action' => 'index'));

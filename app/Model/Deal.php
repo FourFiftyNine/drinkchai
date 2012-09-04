@@ -30,7 +30,14 @@ class Deal extends AppModel {
             'conditions' => '',
             'fields' => '',
             'order' => ''
-        )
+        ),
+        'Status' => array(
+            'className' => 'Status',
+            'foreignKey' => 'status_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
 	);
 
 /**
@@ -149,8 +156,12 @@ class Deal extends AppModel {
         return $this->find('first', array('conditions' => array('Deal.id' => $deal_id)));
     }
 
+    // public function getLiveDeal() {
+    //     return $this->find('first', array('conditions' => array('is_live' => 1)));
+    // }
+
     public function getLiveDeal() {
-        return $this->find('first', array('conditions' => array('is_live' => 1)));
+        return $this->find('first', array('conditions' => array('Status.status' => 'live')));
     }
 
     public function getLiveDealID() {

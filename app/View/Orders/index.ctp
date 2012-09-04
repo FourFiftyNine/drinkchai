@@ -7,7 +7,32 @@
    ?>
   <?php if ('business' == $user['User']['user_type']): ?>
     <section id="my-orders">
-      
+      <table cellpadding="0" cellspacing="0">
+        <thead class="">
+          <th class="first date">Date</th>
+          <th class="item">Customer</th>
+          <th class="status">Status</th>
+          <th class="cost">Total</th>
+          <th class="last manage" >View Deal</th>
+        </thead>
+        <?php
+          $i = 0;
+          foreach ($orders as $order): ?>
+            <?php if( $order['Status']['status'] == 'deleted') { continue; } ?>
+            <tr class="<?php echo ($i%2) ? 'odd' : 'even'; ?>">
+              <td class="date"><?php echo $this->Time->format('M jS, Y', $order['Order']['modified']) ?></td>
+
+              <td><?php echo $order['User']['firstname'] . ' ' . $order['User']['lastname']; ?></td>
+              <td class="status"><?php echo $order['Status']['status']; ?></td>
+              <td class="cost"><?php echo $this->Number->currency($order['Deal']['price'] * $order['Order']['quantity']); ?></td>
+              <td class="actions">
+                <?php // echo $this->Html->link(__('Add Images'), '/account/deals/edit/' . $order['Order']['id'] . 'images/manage', array('class' => 'btn white small')); ?>
+                <?php echo $this->Html->link(__('View Order Details'), '/account/orders/view/' . $order['Order']['id'], array('class' => 'btn white small')); ?>
+              </td>
+            </tr>
+            <?php $i++; ?>
+          <?php endforeach; ?>
+        </table>
     </section>
   <?php else: ?> <?php // @CUSTOMERS ?>
     <section id="my-orders">

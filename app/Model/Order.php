@@ -12,7 +12,11 @@ class Order extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+	public $validate = array(
+        'tracking_number' => array(
+            'rule' => 'notEmpty'
+        ),
+    	);
 /**
  * belongsTo associations
  *
@@ -88,7 +92,7 @@ class Order extends AppModel {
 		return $this->ShippingAddress->hasAny(array('ShippingAddress.user_id' => $userID));
 	}
 
-	public function findOrderList($userID) {
+	public function findCustomerOrderList($userID) {
 	    // $this->recursive = -1;
 	    $this->Behaviors->attach('Containable', array('recursive' => false));
 	    $this->contain('Deal.product_name', 'Deal.price', 'Status');
