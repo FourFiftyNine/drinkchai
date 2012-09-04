@@ -38,7 +38,8 @@ class DCEmailComponent extends Component {
     public function sendLaunchEmail($emailAddress) {
         $this->email->to($emailAddress)
             ->subject('🍵 Welcome to DrinkChai')
-            ->send("DrinkChai.com is a place where you can ");
+            ->template('launch')
+            ->send();
     }
 
     public function sendUserSignUpEmail($emailAddress) {

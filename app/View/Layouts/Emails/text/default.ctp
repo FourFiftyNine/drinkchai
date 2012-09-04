@@ -17,5 +17,3 @@
  */
 ?>
 <?php echo $content_for_layout;?>
-
-Please click here to unsubscribe?

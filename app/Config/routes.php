@@ -35,7 +35,10 @@
     /****** How It Works ******/
     Router::connect('/how-it-works', 
         array('controller' => 'pages', 'action' => 'display', 'how_it_works'));
-
+    Router::connect('/terms', 
+        array('controller' => 'pages', 'action' => 'display', 'terms_of_use'));
+    Router::connect('/privacy_policy', 
+        array('controller' => 'pages', 'action' => 'display', 'privacy_policy'));
     /****** Sign Up / Login ******/
     // Business Sign Up
     Router::connect('/businesses/sign-up', 

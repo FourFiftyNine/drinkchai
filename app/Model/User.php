@@ -17,15 +17,15 @@ class User extends AppModel {
  *
  * @var array
  */
-	// public $belongsTo = array(
-	// 	'Address' => array(
-	// 		'className' => 'Address',
-	// 		'foreignKey' => 'address_id',
-	// 		'conditions' => '',
-	// 		'fields' => '',
-	// 		'order' => ''
-	// 	)
-	// );
+	public $belongsTo = array(
+        'Status' => array(
+            'className' => 'Status',
+            'foreignKey' => 'status_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
+	);
 
 /**
  * hasMany associations
@@ -114,6 +114,10 @@ class User extends AppModel {
                 'rule'              => 'isUnique',
                 'message'           => 'Email already in use.'
             ),
+            'isUniqueRule' => array(
+                'rule'           => 'customUnique',
+                'message'        => 'Email already in use',
+            ),
             'isEmail'           => array(
                 'rule'              => 'email',
                 'message'           => 'Please supply a valid email address.'
@@ -193,6 +197,19 @@ class User extends AppModel {
         return $matchedCurrentPassword;
     }
 
+    public function customUnique() {
+        $this->recursive = -1;
+        $return = $this->findByEmail($this->data['User']['email']);
+        if (!$return) {
+            return true;
+        } else if ($return['User']['user_type'] == 'subscriber') {
+            $this->data['User']['id'] = $return['User']['id'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function matchingNewPasswords() {
         if($this->data['User']['change_password'] == $this->data['User']['change_password_confirm']){
             return true;
@@ -213,8 +230,14 @@ class User extends AppModel {
     }
 
     public function facebook_sign_in ($facebookUser){
-        $existingUser = $this->find('first', array('conditions' => array('User.facebook_id' => $facebookUser['id'])));
-        // debug($existingUser); exit;
+        // $existingUser = $this->find('first', array('conditions' => array(
+        //     'User.facebook_id' => $facebookUser['id'], 
+        //     'OR' => 'User.email' => $facebookUser['email'])
+        // ));
+        $existingUser = $this->find('first', array('conditions' => array('OR' => array(
+            array('User.facebook_id' => $facebookUser['id']),
+            array('User.email' => $facebookUser['email'])
+        ))));
         $this->id = $existingUser['User']['id'];
         if($existingUser){
             $this->updateFacebookUser($facebookUser);
@@ -244,6 +267,8 @@ class User extends AppModel {
         $data['User']['facebook_id']      = $facebookUser['id'];
         $data['User']['password']         = AuthComponent::password($this->generatePassword());
         $data['User']['user_type']        = 'customer';
+        $verifiedID = $this->Status->findByStatus('verified');
+        $data['User']['status_id']        = $verifiedID['Status']['id'];
         return $data;
     }
     private function generatePassword ($length = 8){ 

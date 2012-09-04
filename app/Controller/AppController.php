@@ -109,7 +109,7 @@ class AppController extends Controller {
       // debug($this->facebook->getLoginUrl());
       // debug($this->facebook->api('/me'));
         if(!$this->Auth->user() && $this->facebook->getUser()) {
-            debug('here');
+            // debug('here');
             try {
                 $user_profile = $this->facebook->api('/me');
                 // debug($user_profile);

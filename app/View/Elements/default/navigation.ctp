@@ -18,6 +18,7 @@
                 <?php if (isset($user['User']) && 'business' == $user['User']['user_type']): ?>
                     <li><?php echo $this->Html->link('Businesses - How It Works', '/businesses/how-it-works', array('escape' => false)); ?></li>
                 <?php elseif ($this->request->url != 'businesses/how-it-works'): ?>
+                    <li><?php echo $this->Html->link('Are you a Business?', '/businesses/how-it-works', array('escape' => false)); ?></li>
                     <li><?php echo $this->Html->link('How It Works', '/how-it-works', array('escape' => false)); ?></li>
                 <?php endif; ?>
                 <?php if(isset($user['User'])): ?>
@@ -69,8 +70,8 @@
                         <button class="sign-in-with-facebook">Sign In with Facebook</button>
                     </div>
                     */ ?>
-                    <li><?php echo $this->Html->link('Login', '/users/login', array('escape' => false, 'class' => 'login')); ?></li>
-                    <li><?php echo $this->Html->link('Sign Up', '/users/sign-up', array('escape' => false, 'class' => '')); ?></li>
+<!--                     <li><?php echo $this->Html->link('Login', '/users/login', array('escape' => false, 'class' => 'login')); ?></li>
+                    <li><?php echo $this->Html->link('Sign Up', '/users/sign-up', array('escape' => false, 'class' => '')); ?></li> -->
                     <?php //echo $this->element('login_box'); ?>
                 <?php endif; ?>
             </ul>
@@ -98,10 +99,17 @@
         <aside class="green-tag">
             <?php echo $this->Html->link(
             $this->Html->image('tag_facebook.png', array('alt'=> __('We help you find and buy tea. DrinkChai.com', true), 'border' => '0', 'class' => 'logo')),
-            '/', 
-            array('escape' => false, 'class' => 'facebook')
+            'https://www.facebook.com/pages/DrinkChai/239368896145935', 
+            array('escape' => false, 'class' => 'facebook', 'target' => '_blank')
             ); 
             ?>
+            <?php echo $this->Html->link(
+            $this->Html->image('tag_twitter.png', array('alt'=> __('We help you find and buy tea. DrinkChai.com', true), 'border' => '0', 'class' => 'logo')),
+            'https://twitter.com/drink_chai', 
+            array('escape' => false, 'class' => 'twitter', 'target' => '_blank')
+            ); 
+            ?>
+
         </aside>
     </div>
 </header>

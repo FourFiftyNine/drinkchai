@@ -11,15 +11,15 @@
       <span class="copyright">Copyright <?php echo date('Y') ?> DrinkChai, Inc.</span>
       <nav id="footer-nav">
         <ul>
-          <li>
+<!--           <li>
             <?php echo $this->Html->link('Current Deal', '/'); ?>
-          </li>
+          </li> -->
           <li>
             <?php echo $this->Html->link('Do You Sell Tea?', '/businesses/how-it-works'); ?>
           </li>
-          <li>
+<!--           <li>
             <?php echo $this->Html->link('Account', '/account'); ?>
-          </li>
+          </li> -->
           <li>
             <?php echo $this->Html->link('About Us', '/about-us'); ?>
           </li>
@@ -27,7 +27,7 @@
             <?php echo $this->Html->link('Terms and Conditions', '/terms'); ?>
           </li>
           <li>
-            <?php echo $this->Html->link('Privacy Policy', '/privacy'); ?>
+            <?php echo $this->Html->link('Privacy Policy', '/privacy_policy'); ?>
           </li>
         </ul>
       </nav>

@@ -348,10 +348,12 @@ a:active,
   top: -5px;
 }
 .green-tag:hover {
-  top: 2px;
+  top: 0px;
 }
 .green-tag .facebook,
 .green-tag .twitter {
+  position: absolute;
+  left: 18px;
   cursor: pointer;
 }
 .green-tag .facebook:hover,
@@ -365,12 +367,12 @@ a:active,
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  position: relative;
-  left: -5;
-  left: -3px;
 }
-.green-tag .facebook img {
-  top: 76px;
+.green-tag .facebook {
+  top: 75px;
+}
+.green-tag .twitter {
+  top: 115px;
 }
 #launch .green-tag {
   right: 10px;
@@ -2632,6 +2634,26 @@ body#default.deals.view {
 #checkout.success-confirmation h2,
 #checkout.success-confirmation h3 {
   left: 0;
+}
+#privacy-policy,
+#terms-of-use,
+#about-us {
+  padding: 20px;
+}
+#privacy-policy h2,
+#terms-of-use h2,
+#about-us h2 {
+  font-size: 17px;
+}
+#about-us h1 {
+  font-size: 40px;
+  padding: 0 20px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0;
+}
+#about-us p {
+  font-size: 20px;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug

@@ -18,7 +18,7 @@
     <article class="right">
       <?php echo $this->Html->image('hiw-badge-two.png', array('alt'=> __('How it Works', true), 'class' => 'badge')) ?>
       <?php echo $this->Html->image('ribbon-share-deal.png', array('alt'=> __('How it Works', true), 'class' => 'ribbon')) ?>
-      <p class="description">If you can get <strong>two</strong> of your friends to buy the deal, yours is free.</p>
+      <p class="description">Share the deal with your friends.</p>
     </article>
   </section>
   <div class="divider">&nbsp;</div>
