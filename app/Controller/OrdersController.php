@@ -14,7 +14,7 @@ App::uses('AppController', 'Controller');
 class OrdersController extends AppController {
 
     public $components = array('Stripe');
-    public $helpers = array('time');
+    public $helpers = array('Time');
 
     // NORMAL ORDER VIEWS
     public function index($id = null) {

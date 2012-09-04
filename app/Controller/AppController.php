@@ -78,7 +78,13 @@ class AppController extends Controller {
                 'appId'  => '305067682888921',
                 'secret' => 'ced3eed874557855df68aa74074b577a',
             ));
-            Configure::write('debug', 2); 
+            Configure::write('debug', 2);
+        } else if (stristr(env('HTTP_HOST'), 'staging.drinkchai.com')) {
+          $this->facebook = new Facebook(array(
+              'appId'  => '177508139051900',
+              'secret' => '49d38471a4408fa9a6ae6dead76557db',
+          ));
+          Configure::write('debug', 0);
         } else if (stristr(env('HTTP_HOST'), 'drinkchai.com')) {
           $this->facebook = new Facebook(array(
               'appId'  => '331823930171141',
