@@ -1,5 +1,5 @@
 <div id="checkout" class="review canvas">
-  <?php echo $this->element('stripped/checkout_top', array('showDetails' => false)); ?>
+  <?php echo $this->element('stripped/checkout_top', array('showDetails' => true)); ?>
   <?php echo $this->Form->create(array('url' => '/checkout/review')) ?>
   <h2 class="gradient brown">Select Options</h2>
   <div class="order-items">

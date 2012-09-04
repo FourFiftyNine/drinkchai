@@ -1559,7 +1559,7 @@ body#default.deals.view {
   width: 150px;
 }
 #default #my-account.order-history #my-orders table td.date {
-  width: 105px;
+  width: 110px;
   font-size: 14px;
   color: #848484;
   text-shadow: none;
@@ -1567,6 +1567,28 @@ body#default.deals.view {
 #default #my-account.order-view #my-order h1 {
   font-size: 30px;
   border-bottom: 3px solid #5b4830;
+}
+#default #my-account.order-view .checkout-top {
+  left: 0;
+  margin-left: 0;
+}
+#default #my-account.order-view .order-items {
+  left: 0;
+  margin-left: 0;
+}
+#default #my-account.order-view .order-items table {
+  margin-top: 0;
+}
+#default #my-account.order-view .order-items table td {
+  height: 40px;
+  line-height: 40px;
+  border: 0;
+  font-size: 14px;
+  font-weight: normal;
+  text-shadow: none;
+}
+#default #my-account.order-view .order-items td.grand-total {
+  font-weight: bold;
 }
 /*~~~~ Deal Page ~~~~*/
 #deal #main-information {
@@ -2023,6 +2045,7 @@ body#default.deals.view {
   padding: 10px 0;
   margin-top: 15px;
   background: #f0efeb;
+  background: url("/img/transparent-white.png") repeat;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -2048,6 +2071,7 @@ body#default.deals.view {
   padding: 10px 0;
   margin-top: 15px;
   background: #f0efeb;
+  background: url("/img/transparent-white.png") repeat;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -2240,23 +2264,24 @@ body#default.deals.view {
 #checkout .time.left {
   font-weight: bold;
 }
-#checkout .deal-details ul {
+#checkout .time.left .options {
+  float: right;
+}
+.deal-details ul {
   margin-bottom: 0;
   padding-left: 18px;
 }
-#checkout .deal-details ul li {
+.deal-details ul li {
   list-style: none;
   list-style-image: url("/img/bullet_circle.png");
   font-size: 13px;
 }
-#checkout .deal-details .options {
-  float: right;
-}
-#checkout .checkout-top {
+.checkout-top {
   clear: both;
   padding: 10px 0;
   margin-top: 15px;
   background: #f0efeb;
+  background: url("/img/transparent-white.png") repeat;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -2265,28 +2290,28 @@ body#default.deals.view {
   width: 746px;
   margin-left: -18px;
 }
-#checkout .checkout-top .time .label {
+.checkout-top .time .label {
   font-size: 13px;
   line-height: 23px;
   float: left;
 }
-#checkout .checkout-top .time .time-left {
+.checkout-top .time .time-left {
   font-size: 17px;
   min-height: 20px;
   min-width: 70px;
   float: left;
   margin-left: 10px;
 }
-#checkout .checkout-top .product-image {
+.checkout-top .product-image {
   margin-right: 15px;
   margin-left: 15px;
 }
-#checkout .checkout-top .company-name {
+.checkout-top .company-name {
   left: 0;
   padding: 0;
   margin: 0 0 0;
 }
-#checkout .checkout-top .product-name {
+.checkout-top .product-name {
   font-family: "News Cycle";
   margin: 5px 0 10px;
   color: #3c2613;
@@ -2298,16 +2323,17 @@ body#default.deals.view {
   border-bottom: 2px solid #d9c6a8;
   left: 0;
 }
-#checkout .checkout-top .deal-details {
+.checkout-top .deal-details {
   margin-left: 30px;
   position: relative;
   top: 15px;
 }
-#checkout .order-items {
+.order-items {
   clear: both;
   padding: 10px 0;
   margin-top: 15px;
   background: #f0efeb;
+  background: url("/img/transparent-white.png") repeat;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -2317,26 +2343,26 @@ body#default.deals.view {
   margin-left: -18px;
   margin-top: 0;
 }
-#checkout .checkout-bottom {
+.checkout-bottom {
   margin-top: 15px;
 }
-#checkout .checkout-bottom .total {
+.checkout-bottom .total {
   float: right;
   font-size: 24px;
   font-weight: bold;
   margin-right: 15px;
 }
-#checkout .checkout-bottom .submit {
+.checkout-bottom .submit {
   float: right;
 }
-#checkout .data-encrypted {
+.data-encrypted {
   float: right;
   margin-top: 10px;
 }
-#checkout .data-encrypted strong {
+.data-encrypted strong {
   font-size: 14px;
 }
-#checkout .data-encrypted .lock img {
+.data-encrypted .lock img {
   height: 20px;
   margin-right: 10px;
 }
@@ -2371,23 +2397,29 @@ body#default.deals.view {
 #checkout form input.zip {
   width: 100%;
 }
-#checkout table {
+#checkout table,
+.order-view table {
   width: 100%;
 }
-#checkout table .center-align {
+#checkout table .center-align,
+.order-view table .center-align {
   text-align: center;
 }
-#checkout table .left-align {
+#checkout table .left-align,
+.order-view table .left-align {
   text-align: left;
 }
-#checkout table .right-align {
+#checkout table .right-align,
+.order-view table .right-align {
   text-align: right;
 }
-#checkout table th {
+#checkout table th,
+.order-view table th {
   border-bottom: 1px solid #d9c6a8;
   padding: 0 18px 5px;
 }
-#checkout table td {
+#checkout table td,
+.order-view table td {
   vertical-align: middle;
   font-size: 13px;
   padding: 10px 18px;
@@ -2541,6 +2573,7 @@ body#default.deals.view {
   left: -18px;
   font-size: 14px;
   background: #f0efeb;
+  background: url("/img/transparent-white.png") repeat;
   background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);

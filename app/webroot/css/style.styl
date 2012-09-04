@@ -72,6 +72,7 @@ btnWhiteEdit()
 // Generic Checkout Mixins
 transparentWhite()
   background: #f0efeb
+  background: url(/img/transparent-white.png) repeat;
   background: rgba(255,255,255,.6)
   box-shadow: 0 0 3px 0 rgba(0,0,0,.3)
   border-radius: 2px
@@ -1079,7 +1080,7 @@ body#default.deals.view
       td.actions
         width: 150px
       td.date
-        width: 105px
+        width: 110px
         font-size: 14px
         color: #848484
         // font-weight: normal
@@ -1089,6 +1090,23 @@ body#default.deals.view
   #my-order h1
     font-size: 30px
     border-bottom: 3px solid $brown
+  .checkout-top
+    left: 0
+    margin-left: 0
+  .order-items
+    left: 0
+    margin-left: 0
+    table
+     margin-top: 0
+     td
+      height: 40px
+      line-height: 40px
+      border: 0
+      font-size: 14px
+      font-weight: normal;
+      text-shadow: none;
+    td.grand-total
+      font-weight: bold;
 /*~~~~ Deal Page ~~~~*/
 productName()
   font-family: "News Cycle"
@@ -1652,20 +1670,20 @@ productName()
     margin-bottom: 10px
   .time.left
     font-weight: bold
-  // For both checkout top, and tables
-  .deal-details
-    // padding-bottom: 20px
-    ul
-      margin-bottom: 0
-      padding-left: 18px
-      li 
-        list-style: none
-        list-style-image: url(/img/bullet_circle.png);
-        font-size: 13px
     .options
       float: right
 
-  .checkout-top
+.deal-details
+  // padding-bottom: 20px
+  ul
+    margin-bottom: 0
+    padding-left: 18px
+    li 
+      list-style: none
+      list-style-image: url(/img/bullet_circle.png);
+      font-size: 13px
+
+.checkout-top
     transWhiteSection()
     .time .label {font-size: 13px; line-height: 23px; float: left;}
     .time .time-left {font-size: 17px; min-height 20px; min-width: 70px; float: left; margin-left: 10px;}
@@ -1730,7 +1748,8 @@ productName()
     width: 100%
 
 // Checkout Table
-#checkout table
+#checkout table,
+.order-view table
   width: 100%
   .center-align
     text-align: center

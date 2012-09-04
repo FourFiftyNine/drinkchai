@@ -18,7 +18,7 @@
        <div class="order-items">
          <table>
            <tr>
-             <th class="deal-details left-align">Deal</th>
+             <th class="deal-details left-align">Item</th>
              <th class="price">Price</th>
              <th class="quantity">Quantity</th>
              <th class="total right-align">Total</th>
@@ -39,17 +39,27 @@
              </td>
            </tr>
            <tr class="grand-total-row">
-             <td class="billing-info" colspan="3">
-               <span class="charged-to"><?php ///debug($this->viewVars) ?>
-                 Will be charged to <strong><?php echo $billingFirstname . ' '; ?></strong> on <strong><?php echo $cardType ?></strong> ending in <strong><?php echo $lastFour ?></strong>
-               </span>
-             </td>
-             <td class="grand-total" colspan="1">Total: <span class="grand-total-amount"><?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?></span></td>
+            <td colspan="3"></td>
+             <td class="grand-total right-align" colspan="1">Total: <span class="grand-total-amount"><?php echo $this->Number->currency($data['Deal']['price'] * $quantity); ?></span></td>
            </tr>
          </table>
        </div>
-       <section id="shipping-information" class="right">
-         <h2 class="gradient brown">Shipping Information</h2>
+       <section id="billing-information" class="right">
+         <h2 class="gradient brown">Billing Address</h2>
+         <?php $billAdd = $billingAddress; ?>
+         <div class="label">Name</div>
+         <div><?php echo $billAdd['firstname'] . ' ' . $billAdd['lastname']?></div>
+         <div class="label">Address One</div>
+         <div><?php echo $billAdd['address_one'] ?></div>
+         <?php if ($billAdd['address_two']): ?>
+           <div class="label">Address Two</div>
+           <div><?php echo $billAdd['address_two']; ?></div>
+        <?php endif; ?>
+         <div class="label">City, State Zip</div>
+         <div><?php echo $billAdd['city'] . ', ' . $billAdd['state'] . ' ' . $billAdd['zip'];   ?></div>
+       </section>
+       <section id="shipping-information" class="left">
+         <h2 class="gradient brown">Shipping Address</h2>
          <?php $shAdd = $shippingAddress['ShippingAddress']; ?>
          <div class="label">Name</div>
          <div><?php echo $shAdd['firstname'] . ' ' . $shAdd['lastname']?></div>
@@ -63,7 +73,7 @@
          <div><?php echo $shAdd['city'] . ', ' . $shAdd['state'] . ' ' . $shAdd['zip'];   ?></div>
        </section>
        <section id="billing-information" class="left">
-         <h2 class="gradient brown">Billing Information</h2>
+         <h2 class="gradient brown">Payment Information</h2>
          <?php if ($data['BillingAddress']['firstname']): ?>
            <div class="label">Name on Card</div>
            <div> <?php echo $data['BillingAddress']['firstname'] ?></div>

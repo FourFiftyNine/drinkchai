@@ -53,6 +53,7 @@ class OrdersController extends AppController {
             // $shippingAddress = $this->Order->ShippingAddress->findMostRecentShippingAddress($userID);
 
             $this->set('shippingAddress', $orderData);
+            $this->set('billingAddress', $orderData['BillingAddress']);
 
             $this->setDealData($dealData);
             $this->set('data', $orderData);
