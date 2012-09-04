@@ -27,6 +27,10 @@
           )); ?>
 
         </section>
+        <div class="login-links">
+          <?php echo $this->Html->link("Forgot Password?",array('controller'=>'users', 'action'=>'forgot_password')); ?>
+          <?php echo $this->Html->link("I don't have a password", '/signup'); ?>
+        </div>
         <?php echo $this->Form->end(array('label' => 'Login', 'class' => 'btn white')); ?>
     </section>
 

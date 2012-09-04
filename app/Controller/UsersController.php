@@ -51,10 +51,7 @@ class UsersController extends AppController {
             throw new NotFoundException(__('Invalid user'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['User']['id'] = $this->User->id;
-            // foreach ($this->request->data['Address'] as $key => $address) {
-            //     $this->request->data['Address'][$key]['user_id'] = $this->Auth->user('id');
-            // }
+            $this->request->data['User']['id'] = $this->Auth->user('id');
 
             if ($this->User->saveAll($this->request->data)) {
 
@@ -71,9 +68,10 @@ class UsersController extends AppController {
 
 
     public function launch() {
-        $this->User->Deal->recursive = -1;
-        $dealIsLive = $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
-        if($this->Auth->loggedIn() /*|| $this->Cookie->read('email_submitted')*/){
+        // $this->User->Deal->recursive = -1;
+        // $dealIsLive = $this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)));
+        $dealIsLive = $this->User->Deal->getLiveDeal();
+        if (($this->Auth->loggedIn() || $this->Cookie->read('email_submitted')) && $dealIsLive) {
             if ($this->User->Deal->find('first', array('conditions' => array('Deal.is_live' => true)))) {
                 $this->redirect('/deals/view');
             } else {
@@ -81,6 +79,12 @@ class UsersController extends AppController {
                 $this->redirect('/account');
             }
             
+        } else {
+            if ($this->Cookie->read('email_submitted')) {
+                $this->set('alreadySubmitted', true);
+            } else {
+                $this->set('alreadySubmitted', false);
+            }
         }
         $this->set('deal_is_live', $dealIsLive);
         $this->layout = 'launch';
@@ -121,20 +125,11 @@ class UsersController extends AppController {
         if($this->RequestHandler->isPost()){
             $this->request->data['User']['user_type'] = 'customer';
             if ($return = $this->User->saveAll($this->request->data)) {
-                // debug($this->request->data); exit;
-                $email = new CakeEmail('gmail');
-                // $email->template('sign_up')
-                $email->from(array('team@drinkchai.com' => 'DrinkChai.com'))
-                    ->to($this->data['User']['email'])
-                    ->subject('Welcome to DrinkChai')
-                    ->send();
+
+                // TODO Send Email
+
                 $this->Auth->login();
                 $this->redirect(array('controller' => 'deals', 'action' => 'view'));
-            } else {
-                // $errors = $this->User->invalidFields();
-                // if($this->data['User']['password'] != $this->Auth->password($this->data['User']['password_confirm'])){
-                //     $errors['password_confirm'] = "Passwords must match";
-                // }
             }
         }
     }
@@ -146,12 +141,7 @@ class UsersController extends AppController {
             $this->request->data['Business']['slug'] = strtolower(Inflector::slug($this->request->data['Business']['name']));
             $this->request->data['User']['user_type'] = 'business';
             if($return = $this->User->saveAll($this->request->data)){
-                // $email = new CakeEmail('gmail');
-                // $email->from(array('me@example.com' => 'My Site'))
-                //     ->to('sessa@drinkchai.com')
-                //     ->subject('About')
-                //     ->send('My message');
-
+                // TODO Send Email
                 $this->Auth->login();
                 $this->redirect('/account');
             } else {
@@ -170,7 +160,6 @@ class UsersController extends AppController {
 
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                // debug($this->Auth->user('user_type')); exit;
                 return $this->redirect($this->Auth->redirect());
             } else {
                 $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');

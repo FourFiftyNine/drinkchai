@@ -46,6 +46,7 @@
 
 </aside>
 <section class="ajax-content" id="home-content">
+    <?php if ($alreadySubmitted == false): ?>
     <section class="submit">
         <hgroup>
             <h1>
@@ -71,7 +72,26 @@
             <button class="submit-email"></button>
             <?php echo $this->Form->end(); ?>
     </section>
-    <section class="thankyou">
+    <?php else: ?>
+        <section>
+            <hgroup>
+                <h3>Looks like you have already submitted your e-mail address.</h3>
+                <h3>We will let you know when one of our awesome deals launches.</h3>
+            </hgroup>
+            <?php echo $this->Html->link(
+                $this->Html->image('emblem_large.png', array('alt'=> __('We help you find and buy tea. DrinkChai.com', true), 'border' => '0')),
+                    '/',
+                    array('escape' => false, 'class' => 'logo')
+                    );
+            ?>
+            <div id="twitter-share-container">
+    <!--             <textarea class="share shadow-inset">Awesome tea deals at DrinkChai.com</textarea>
+                <a id="twitter-share" href="http://twitter.com/share">Tweet</a> -->
+                <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none" data-hashtags="drinkchai">Tweet</a>
+            </div>
+        </section>-
+    <?php endif; ?>
+    <section  class="thankyou">
         <hgroup>
             <h2>Thank You.</h2>
             <h3>We will let you know when one of our awesome deals launches.</h3>

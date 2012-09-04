@@ -39,6 +39,8 @@
         array('controller' => 'pages', 'action' => 'display', 'terms_of_use'));
     Router::connect('/privacy_policy', 
         array('controller' => 'pages', 'action' => 'display', 'privacy_policy'));
+    Router::connect('/about-us', 
+        array('controller' => 'pages', 'action' => 'display', 'about_us'));
     /****** Sign Up / Login ******/
     // Business Sign Up
     Router::connect('/businesses/sign-up', 

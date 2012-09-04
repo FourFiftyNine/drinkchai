@@ -41,8 +41,12 @@
       'value'       => '',
       'type'        => 'password'
     )); ?>
+    <div class="login-links">
+      <?php echo $this->Html->link("I Have an Account. <br /> Login", '/login', array('id' => 'have_password', 'escape' => false )); ?>
+    </div>
     <?php echo $this->Form->end(array('label' => 'Sign Up', 'div' => array('class' => (true != empty($this->params['isAjax'])) ? 'sign-up ajax-submit' : 'sign-up submit'), 'class' => 'btn white')); ?>
-    
+    <div id="agreement">By registering you agree to the <?php echo $this->Html->link('Terms and Conditions', '/terms', array('target' => 'blank')); ?> and <?php echo $this->Html->link('Privacy Policy', '/privacy_policy', array('target' => 'blank')) ?></div>
+
     </section>
 
     <section id="facebook-login" class="canvas right">

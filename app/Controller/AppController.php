@@ -79,8 +79,12 @@ class AppController extends Controller {
                 'secret' => 'ced3eed874557855df68aa74074b577a',
             ));
             Configure::write('debug', 2); 
-        } else {
-            Configure::write('debug', 2); 
+        } else if (stristr(env('HTTP_HOST'), 'drinkchai.com')) {
+          $this->facebook = new Facebook(array(
+              'appId'  => '331823930171141',
+              'secret' => '1a1686858b26bb3dd32b58039fff5d93',
+          ));
+            Configure::write('debug', 0); 
         }
         if($this->RequestHandler->isAjax()) {
             Configure::write('debug', 0);

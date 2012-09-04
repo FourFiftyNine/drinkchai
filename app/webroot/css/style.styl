@@ -161,7 +161,7 @@ transparentPng()
   right: -90px
   top: -5px
   &:hover
-    top: 0px
+    top: -2px
   .facebook, .twitter
     position: absolute
     left: 18px
@@ -519,7 +519,7 @@ textarea.form-error
           position: relative
         #UserEmail
           background-image: none
-          background-color: rgba(255,255,255, .55)
+          background-color: rgba(255,255,255, .78)
           font-size: 24px
           padding: 10px
           position: relative
@@ -529,7 +529,7 @@ textarea.form-error
           transition: width .75s 0s ease-in-out
           &:focus,&.typed
             transition: width .75s 0s ease-in-out
-            width: 425px
+            width: 455px
         button.submit-email
           background-color: #ffffff
           background-image: url(/img/button_cup.gif)
@@ -877,7 +877,7 @@ body#default.deals.view
         padding: 0 10px
         transition: background .3s .1s linear
         &.active, &:hover
-          background: #ffffff
+          background: #bfe1d0
           background: rgba(255,255,255, .4)
           transition: background .3s .1s linear
   #footer
@@ -1608,6 +1608,9 @@ productName()
   section#sign-up
     padding: 10px
     width: 300px
+    #agreement
+      font-size: 12px
+      margin-top: 20px
   .login-links
     float: left
     margin-top: 15px
@@ -1940,16 +1943,62 @@ productName()
   padding: 20px
   h2
     font-size: 17px
-
-#about-us
   h1
     font-size: 40px
     padding: 0 20px
     height: 60px
     line-height: 60px
     margin: 0
+
+#about-us
   p
     font-size: 20px
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Error Pages (404)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body#error {
+background: url(/img/bg-404-bw.png) no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  behavior: url(/js/libs/pie/PIE.htc);
+}
+
+.no-backgroundsize body#error{
+  background: url(/img/bg-404-bw.png) repeat-x center center fixed;
+}
+
+body#error #content {
+  width: 100%;
+  display: inline-block;
+  padding: 30px;
+  margin: 10px auto;
+  text-align: center;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+       -o-border-radius: 5px;
+          border-radius: 5px;
+}
+body#error p.error
+  font-size: 30px;
+  text-shadow: rgba(0,0,0,.5) 1px 1px 1px;
+  margin: 0;
+  margin-top: 10px;
+  strong
+    color: white
+
+body#error .go-home
+  font-size: 25px
+  margin-top: 20px
+
+body#error h2 { font-size: 80px; margin: 0; color: white;}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

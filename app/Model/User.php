@@ -109,14 +109,11 @@ class User extends AppModel {
                 'rule'              => 'notEmpty',
                 'required'          => true,
                 'message'           => 'This field cannot be left blanks'// TODO MESSAGE
-            ),   
-            'isUniqueRule'      => array(
-                'rule'              => 'isUnique',
-                'message'           => 'Email already in use.'
             ),
             'isUniqueRule' => array(
                 'rule'           => 'customUnique',
                 'message'        => 'Email already in use',
+                'on'             => 'create'
             ),
             'isEmail'           => array(
                 'rule'              => 'email',

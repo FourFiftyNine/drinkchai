@@ -169,5 +169,7 @@ class Deal extends AppModel {
         return $liveDeal['Deal']['id'];
     }
 
+    // public function isLiveDeal()
+
 
 }

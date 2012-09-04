@@ -68,12 +68,6 @@
         <?php endif; ?>
 
   <?php else: ?> <?php // @CUSTOMERS ?>
-      <?php /* if($user['User']['facebook_id']): ?>
-        <aside id="picture-container">
-          <div class="picture-border"></div>
-          <?php echo $this->Html->image('http://graph.facebook.com/' . $user['User']['facebook_id'] . '/picture?type=large', array('class' => 'profile-picture')); ?>
-        </aside>
-      <?php endif; */ ?>
       <section id="personal-information" class="left">
         <h2 class="gradient brown">Personal Information<a class="btn white" href="/account/edit">Edit</a></h2>
         <div class="label">name</div>
@@ -83,7 +77,7 @@
         <div><?php echo $user['User']['email']; ?></div>
       </section>
       <section id="billing-information" class="right">
-        <h2 class="gradient brown">Billing Information<?php echo ($billingInfo['BillingAddress']['firstname']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : '<a class="btn white" href="/account/billing/add">Add</a>'; ?></h2>
+        <h2 class="gradient brown">Payment Information<?php echo ($billingInfo['BillingAddress']['firstname']) ? '<a class="btn white" href="/account/billing/edit">Edit</a>' : /*'<a class="btn white" href="/account/billing/add">Add</a>'*/''; ?></h2>
         <?php if ($billingInfo['BillingAddress']['firstname']): ?>
           <div class="label">Name on Card</div>
           <div> <?php echo $billingInfo['BillingAddress']['firstname'] ?></div>
@@ -92,9 +86,10 @@
           <div class="label">Card Number</div>
           <div>xxxx xxxx xxxx <?php echo $billingInfo['Billing']['card_number_last_four']; ?></div>
         <?php else: ?>
-          <p>No billing information</p>
+          <p>No payment information</p>
         <?php endif; ?>
       </section>
+      <?php /* ?>
       <section id="email-notifications" class="left">
         <h2 class="gradient brown">Email Notifications</h2>
         <div class="label">name</div>
@@ -103,5 +98,6 @@
         <div class="label">email</div>
         <div><?php echo $user['User']['email']; ?></div>
       </section>
+      */ ?>
   <?php endif; ?>
 </article>

@@ -29,7 +29,9 @@ class CheckoutController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         // TODO - best place for this?
+
         Inflector::rules('plural', array('uninflected' => array('checkout')));
+
         $this->dealData = $this->setViewDealCheckoutData();
         $this->layout = 'stripped';
 
@@ -402,6 +404,10 @@ class CheckoutController extends AppController {
         $this->Order->Deal->Behaviors->attach('Containable', array('recursive' => false));
         $this->Order->Deal->contain('Image', 'Business.name', 'Status');
         $dealData = $this->Order->Deal->getLiveDeal();
+        if (!$dealData) {
+            $this->Session->setFlash('Currently there is not a deal');
+            $this->redirect('/account');
+        }
         unset($dealData['Deal']['limit']);
         // debug($dealData);
         $this->setImages($dealData['Image']);

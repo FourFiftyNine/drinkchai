@@ -348,7 +348,7 @@ a:active,
   top: -5px;
 }
 .green-tag:hover {
-  top: 0px;
+  top: -2px;
 }
 .green-tag .facebook,
 .green-tag .twitter {
@@ -806,7 +806,7 @@ textarea.form-error {
 }
 #launch .container #home-content form#UserLaunchSubmitForm #UserEmail {
   background-image: none;
-  background-color: rgba(255,255,255,0.55);
+  background-color: rgba(255,255,255,0.78);
   font-size: 24px;
   padding: 10px;
   position: relative;
@@ -826,7 +826,7 @@ textarea.form-error {
   -o-transition: width 0.75s 0s ease-in-out;
   -ms-transition: width 0.75s 0s ease-in-out;
   transition: width 0.75s 0s ease-in-out;
-  width: 425px;
+  width: 455px;
 }
 #launch .container #home-content form#UserLaunchSubmitForm button.submit-email {
   background-color: #fff;
@@ -1280,7 +1280,7 @@ body#default.deals.view {
 }
 #default nav#account li a.active,
 #default nav#account li a:hover {
-  background: #fff;
+  background: #bfe1d0;
   background: rgba(255,255,255,0.4);
   -webkit-transition: background 0.3s 0.1s linear;
   -moz-transition: background 0.3s 0.1s linear;
@@ -2177,6 +2177,10 @@ body#default.deals.view {
   padding: 10px;
   width: 300px;
 }
+#stripped section#sign-up #agreement {
+  font-size: 12px;
+  margin-top: 20px;
+}
 #stripped .login-links {
   float: left;
   margin-top: 15px;
@@ -2645,6 +2649,8 @@ body#default.deals.view {
 #about-us h2 {
   font-size: 17px;
 }
+#privacy-policy h1,
+#terms-of-use h1,
 #about-us h1 {
   font-size: 40px;
   padding: 0 20px;
@@ -2654,6 +2660,55 @@ body#default.deals.view {
 }
 #about-us p {
   font-size: 20px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/** Error Pages (404)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body#error {
+  background: url("/img/bg-404-bw.png") no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  behavior: url("/js/libs/pie/PIE.htc");
+}
+.no-backgroundsize body#error {
+  background: url("/img/bg-404-bw.png") repeat-x center center fixed;
+}
+body#error #content {
+  width: 100%;
+  display: inline-block;
+  padding: 30px;
+  margin: 10px auto;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+body#error p.error {
+  font-size: 30px;
+  text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
+  margin: 0;
+  margin-top: 10px;
+}
+body#error p.error strong {
+  color: #fff;
+}
+body#error .go-home {
+  font-size: 25px;
+  margin-top: 20px;
+}
+body#error h2 {
+  font-size: 80px;
+  margin: 0;
+  color: #fff;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Debug
