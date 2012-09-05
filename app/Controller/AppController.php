@@ -19,7 +19,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-App::import('Vendor', 'Facebook', array('file' => 'facebook' . DS . 'src' . DS . 'facebook.php'));
+App::import('Vendor', 'Facebook', array('file' => 'facebook' . DS . 'src' . DS . 'Facebook.php'));
 App::import('Model', 'Business');
 App::uses('Controller', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
