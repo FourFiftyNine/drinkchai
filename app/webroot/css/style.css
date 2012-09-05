@@ -554,6 +554,13 @@ a.btn:visited {
 .btn.white.edit:hover {
   border: 1px solid #404040;
 }
+.no-boxshadow .btn.white {
+  border-color: #ddd;
+}
+.no-boxshadow .btn.white:hover {
+  border-color: #d0d0d0;
+  background-color: #e6e6e6;
+}
 .submit .btn.white {
   float: right;
   margin-top: 15px;
