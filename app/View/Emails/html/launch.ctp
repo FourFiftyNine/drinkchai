@@ -8,4 +8,4 @@ Thanks,
 
 The DrinkChai Team
 <a href="mailto:team@drinkchai.com">team@drinkchai.com</a>
-<a href="http://drinkchai.com">DrinkChai.com</a>
+<a href="https://drinkchai.com">DrinkChai.com</a>

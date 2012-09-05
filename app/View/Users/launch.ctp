@@ -26,7 +26,7 @@
 <section id="bubble-shares" class="addthis">
     <nav class="shadow-inset">
         <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false" data-href="https://www.facebook.com/pages/DrinkChai/239368896145935"></div>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="http://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="https://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
         <span id="plusone">
             <g:plusone size="tall"></g:plusone>
         </span>
