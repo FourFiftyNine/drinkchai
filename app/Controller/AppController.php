@@ -187,7 +187,7 @@ class AppController extends Controller {
     protected function setDealData($data) {
         $data['Deal']['time_left'] = $this->getTimeLeft($data);
         // TODO move this into specific actions
-        $this->set('title_for_layout', $data['Deal']['product_name']);
+        $this->set('title_for_layout', $data['Business']['name'] . ' - ' . $data['Deal']['product_name']);
         $this->setImages($data['Image']);
 
         $this->set('data', $data);
