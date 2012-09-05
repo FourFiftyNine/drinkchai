@@ -137,15 +137,24 @@ class UsersController extends AppController {
     public function businesses_sign_up() {
         $this->set('title_for_layout', 'Sell Your Tea');
         $this->set('loggedIn', $this->Auth->loggedIn());
-        if($this->request->is('post')) {
-            $this->request->data['Business']['slug'] = strtolower(Inflector::slug($this->request->data['Business']['name']));
-            $this->request->data['User']['user_type'] = 'business';
-            if($return = $this->User->saveAll($this->request->data)){
-                // TODO Send Email
-                $this->Auth->login();
-                $this->redirect('/account');
-            } else {
-                
+        $this->set('businessSignedUp', false);
+
+        if ($this->Cookie->read('businessSignedUp')) {
+            $this->set('businessSignedUp', true);
+        } else {
+            if($this->request->is('post')) {
+                $this->request->data['Business']['slug'] = strtolower(Inflector::slug($this->request->data['Business']['name']));
+                $this->request->data['User']['user_type'] = 'business';
+                if($return = $this->User->saveAll($this->request->data)){
+                    // TODO Send Email
+                    $this->Cookie->write('businessSignedUp', true);
+                    $this->set('businessSignedUp', true);
+                    // TODO Re-enable
+                    // $this->Auth->login();
+                    // $this->redirect('/account');
+                } else {
+                    
+                }
             }
         }
     }

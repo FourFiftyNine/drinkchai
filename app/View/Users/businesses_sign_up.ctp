@@ -24,6 +24,10 @@ DrinkChai. Our dashboard lets you control the deal - determine how big or small 
     <br />
       <?php echo $this->Html->link("Go To Your Account", '/account', array('class' => 'btn white')); ?>
   </section>
+  <?php elseif ($businessSignedUp): ?>
+    <div id="account">
+      <p>Thank you for signing up.  We will review your information and be in touch within 1 business day.</p>
+    </div>
   <?php else: ?>
   <section id="sign-up" class="clearfix">
     <h2 class="gradient brown">Sign Up Now</h2>
