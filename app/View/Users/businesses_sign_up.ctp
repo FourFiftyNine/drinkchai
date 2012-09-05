@@ -27,6 +27,7 @@ DrinkChai. Our dashboard lets you control the deal - determine how big or small 
   <?php elseif ($businessSignedUp): ?>
     <div id="account">
       <p>Thank you for signing up.  We will review your information and be in touch within 1 business day.</p>
+      <p>If you'd like to contact us directly please email us at <a href="mailto:team@drinkchai.com">team@drinkchai.com</a></p>
     </div>
   <?php else: ?>
   <section id="sign-up" class="clearfix">

@@ -131,12 +131,22 @@ ul
 a,
 a:visited
   text-decoration: none
+  color: $brown
+  font-weight: bold
+  text-decoration: underline
 a:active
   position: relative
   top: 1px
 
+a:hover
+  color: $green
+
 a, a:hover, a:active, :focus
   outline: 0
+
+nav a,
+nav a:visited
+  text-decoration: none
 
 /*~~ General - Columns ~~*/
 transparentPng()
@@ -762,6 +772,7 @@ textarea.form-error
           line-height: 55px
           margin-top: 5px
           margin-left: -1px
+          font-weight: normal
           &:hover
             color: #B96919
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.12)

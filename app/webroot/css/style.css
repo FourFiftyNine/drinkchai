@@ -316,16 +316,26 @@ ul li {
 a,
 a:visited {
   text-decoration: none;
+  color: #5b4830;
+  font-weight: bold;
+  text-decoration: underline;
 }
 a:active {
   position: relative;
   top: 1px;
+}
+a:hover {
+  color: #9fd6c2;
 }
 a,
 a:hover,
 a:active,
 :focus {
   outline: 0;
+}
+nav a,
+nav a:visited {
+  text-decoration: none;
 }
 /*~~ General - Columns ~~*/
 .canvas {
@@ -1136,6 +1146,7 @@ textarea.form-error {
   line-height: 55px;
   margin-top: 5px;
   margin-left: -1px;
+  font-weight: normal;
 }
 #default #header #main-nav >ul>li >a:hover,
 #default #header #main-nav >ul>li >a:visited:hover {
