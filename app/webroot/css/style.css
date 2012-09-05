@@ -972,6 +972,9 @@ textarea.form-error {
   border-radius: 30px;
   padding: 0 25px;
 }
+.ie7 #launch .ajax-content {
+  padding-top: 200px;
+}
 /*~~ Laucnh Page - Shadow Inset Boxes ~~*/
 .shadow-inset {
   border: 1px solid rgba(255,255,255,0.15);
@@ -1215,6 +1218,9 @@ textarea.form-error {
   text-align: center;
   margin-top: 5px;
 }
+.ie7 #default #content {
+  padding-top: 80px;
+}
 /*~~ Default Layout - Wood H1 Tag ~~*/
 #default .company-logo {
   max-width: 330px;
@@ -1318,9 +1324,10 @@ body#default.deals.view {
 #default #footer #footer-nav {
   display: inline-block;
   float: right;
+  width: 450px;
 }
 #default #footer #footer-nav ul li {
-  display: inline-block;
+  float: left;
   font-size: 13px;
   margin: 0 7px;
 }
@@ -1927,6 +1934,7 @@ body#default.deals.view {
 }
 #how-it-works.users .step {
   height: 350px;
+  position: relative;
 }
 #how-it-works.users .step.three {
   padding-bottom: 20px;
@@ -1937,13 +1945,10 @@ body#default.deals.view {
   font-size: 432px;
   color: #c9bfa0;
   color: rgba(201,191,160,0.5);
-  position: relative;
-  bottom: 90px;
+  position: absolute;
   left: 40px;
-  margin-right: 50px;
+  top: -125px;
   height: 330px;
-  width: 170px;
-  line-height: 1.231;
 }
 .ie7 #how-it-works.users .step .number {
   color: #c9c3a2;
@@ -2701,7 +2706,7 @@ body#error {
 body#error #content {
   width: 100%;
   display: inline-block;
-  padding: 30px;
+  padding: 30px 0px;
   margin: 10px auto;
   text-align: center;
   -webkit-border-radius: 5px;

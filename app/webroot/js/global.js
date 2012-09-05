@@ -111,8 +111,13 @@ var common = DrinkChai.common = {
   init: function () {
     var $preventDefaultLinks = $('.ajax-link, .prevent-default');
 
-    if (!UTIL.M.bgsizecover || !UTIL.M.backgroundsize) {
-      $.backstretch("../../img/tea_leaves.jpg", {speed: 0});
+    if (!UTIL.M.backgroundsize) {
+      if ($('body#error').length) {
+        $.backstretch("../../img/bg-404-bw.png", {speed: 0});
+      } else {
+        $.backstretch("../../img/tea_leaves.jpg", {speed: 0});
+      }
+      
     }
 
     $('input, textarea').live('focus', function () {
