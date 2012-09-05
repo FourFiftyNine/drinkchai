@@ -6,6 +6,10 @@
     theAppId = '305067682888921';
   } else if (hostname == 'drinkchai.dev' || hostname == 'www.drinkchai.dev') {
     theAppId = '259510874070364';
+  } else if (hostname == 'staging.drinkchai.com') {
+    theAppId = '177508139051900';
+  } else if (hostname == 'drinkchai.com') {
+    theAppId = '331823930171141';
   }
   window.fbAsyncInit = function() {
     FB.init({
