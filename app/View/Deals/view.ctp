@@ -121,8 +121,8 @@
             <section class="canvas bottom">
                 <h3 class="gradient green"><span>The Fine Print</span></h3>
                 <ul class="rules">
-                    <li>Maximum 1 offer per customer</li>
-                    <li>Offer is immediately redeemed once deal is unlocked</li>
+                    <li>Maximum 4 offers per customer.</li>
+                    <li>All orders are final.</li>
                 </ul>
             </section>
             <?php /*
