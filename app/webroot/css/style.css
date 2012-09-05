@@ -1236,9 +1236,10 @@ textarea.form-error {
   margin: 0;
   top: -5px;
   text-shadow: rgba(255,255,255,0.3) 1px 1px 0px;
-}
-#default .company-logo img {
-  height: 145px;
+/*
+    img
+      height: 145px
+    */
 }
 #default .wood {
   width: 416px;
