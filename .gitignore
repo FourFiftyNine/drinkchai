@@ -1,6 +1,7 @@
 /app/Config/database.php
 /app/Config/email.php
 /app/Config/Scheme/*
+/app/tmp
 /app/Console-2.1
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
@@ -13,5 +14,6 @@ tmp/*
 app/webroot/.htaccess
 app/webroot/files/uploads/*
 config/database.php
+app/tmp/*
 app/config/database.php
 !empty
