@@ -14,7 +14,7 @@ class DealsController extends AppController {
 
     public function beforeFilter(){
         parent::beforeFilter();
-        $this->Auth->allow('view', 'get_time_left');
+        $this->Auth->allow('view', 'get_time_left', 'demo');
         // $this->Auth->allow('index',  'view', 'delete', 'edit');
     }
 
@@ -79,6 +79,13 @@ class DealsController extends AppController {
         } else {
             throw new NotFoundException('Sorry, could not find that deal?');
         }
+    }
+
+    public function demo() {
+        $status = $this->Deal->Status->findByStatus('flagged');
+        // debug($status['Status']['id']);
+        $this->setDealData($this->Deal->findByStatusId($status['Status']['id']));
+        $this->render('view');
     }
 
 /**

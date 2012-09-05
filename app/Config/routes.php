@@ -97,6 +97,8 @@
         array('controller' => 'deals', 'action' => 'view'));
     Router::connect('/deals/:company/:deal', 
         array('controller' => 'deals', 'action' => 'view'));
+    Router::connect('/deals/demo', 
+        array('controller' => 'deals', 'action' => 'demo'));
 
     /************************************
     ** Checkout

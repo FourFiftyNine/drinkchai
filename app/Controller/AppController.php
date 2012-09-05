@@ -72,7 +72,7 @@ class AppController extends Controller {
             //     // $this->Security->requireSecure();
             //     $this->Security->blackHoleCallback = 'forceSSL';
             // }
-            Configure::write('debug', 0); 
+            Configure::write('debug', 2); 
         } else if (stristr(env('HTTP_HOST'), 'dc.vinyljudge.com')) { 
             $this->facebook = new Facebook(array(
                 'appId'  => '305067682888921',
