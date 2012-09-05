@@ -1,7 +1,7 @@
 /app/Config/database.php
 /app/Config/email.php
 /app/Config/Scheme/*
-/app/tmp
+# /app/tmp
 /app/Console-2.1
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
@@ -10,10 +10,10 @@
 /dist
 .DS_Store
 /tags
-tmp/*
+# tmp/*
 app/webroot/.htaccess
 app/webroot/files/uploads/*
 config/database.php
-app/tmp/*
+# app/tmp/*
 app/config/database.php
 !empty
