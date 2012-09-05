@@ -32,7 +32,7 @@ class DCEmailComponent extends Component {
     private $email;
 
     public function startup() {
-        $this->email = new CakeEmail('gmail');
+        $this->email = new CakeEmail('sendgrid');
         $this->email->from(array('team@drinkchai.com' => 'DrinkChai.com'));
     }
     public function sendLaunchEmail($emailAddress) {
