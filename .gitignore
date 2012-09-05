@@ -11,6 +11,7 @@
 .DS_Store
 /tags
 # tmp/*
+app/tmp/logs/*
 app/webroot/.htaccess
 app/webroot/files/uploads/*
 config/database.php
