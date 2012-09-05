@@ -55,7 +55,11 @@
                     <?php echo $this->Form->input('Deal.id', array('type' => 'hidden', 'value' => $data['Deal']['id'])) ?>
                     <?php echo $this->Form->end(array('label' => 'Buy Now', 'class' => 'btn white buy-now')); ?>
                     <?php */ ?>
-                    <?php echo $this->Html->link('Buy Now', '/checkout/login', array('class' => 'btn white buy-now')) ?>
+                    <?php if ($this->params['action'] == 'demo'): ?>
+                        <div class="btn white buy-now">Buy Now</div>
+                    <?php else: ?>
+                        <?php echo $this->Html->link('Buy Now', '/checkout/login', array('class' => 'btn white buy-now')) ?>
+                    <?php endif; ?>
                     <?php else: ?>
                     <div class="ended">Deal Has Ended</div>
                     <?php endif; ?>
