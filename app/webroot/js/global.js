@@ -111,6 +111,10 @@ var common = DrinkChai.common = {
   init: function () {
     var $preventDefaultLinks = $('.ajax-link, .prevent-default');
 
+    if (!UTIL.M.bgsizecover || !UTIL.M.backgroundsize) {
+      $.backstretch("../../img/tea_leaves.jpg", {speed: 0});
+    }
+
     $('input, textarea').live('focus', function () {
       $(this).siblings('.error-message').fadeOut(500);
       $(this).removeClass('form-error');

@@ -589,10 +589,9 @@ body {
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
-  behavior: url("/js/libs/pie/PIE.htc");
 }
 .no-backgroundsize {
-  background: url("/img/tea_leaves.jpg") repeat-x center center fixed;
+  background: none;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /** Inputs
@@ -616,7 +615,6 @@ textarea {
   box-shadow: 0 0 10px rgba(0,0,0,0.61) inset;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  behavior: url("/js/libs/pie/PIE.htc");
 }
 .text input:focus,
 .password input:focus,
@@ -1930,6 +1928,7 @@ body#default.deals.view {
   float: left;
   font-family: sans-serif;
   font-size: 432px;
+  color: #c9bfa0;
   color: rgba(201,191,160,0.5);
   position: relative;
   bottom: 90px;
