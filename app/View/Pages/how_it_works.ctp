@@ -30,8 +30,10 @@
       <p class="description">Sit back and wait for the manufacturer to mail the tea to your doorstep. No vouchers to print or redeem. It's that simple. </p>
     </div>
   </section>
+  <?php /* ?>
   <div class="divider">&nbsp;</div>
   <section class="step four container clearfix sign-up">
     <?php echo $this->Html->link('Sign Up Now', '/users/sign-up', array('class' => 'btn gradient green')) ?>
   </section>
+  */ ?>
 </article>

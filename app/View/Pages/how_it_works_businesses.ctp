@@ -70,7 +70,5 @@ DrinkChai. Our dashboard lets you control the deal - determine how big or small 
         )); ?>
     </div>
     <?php echo $this->Form->end(array('label' => 'Submit', 'class' => 'btn white')); ?>
-
-
   </section>
 </article>
