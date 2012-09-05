@@ -4,7 +4,7 @@
         <!-- <li><?php echo $this->Html->link('About Us', '/about-us', array('id' => 'about-us', 'class' => 'ajax-link')); ?></li> -->
         <li><?php echo $this->Html->link('How It Works', '/how-it-works'); ?></li>
         <!-- <li><?php echo $this->Html->link('Businesses', '/businesses', array('id' => 'businesses', 'class' => 'ajax-link')); ?></li> -->
-        <li><?php echo $this->Html->link('Are you a tea seller?', '/businesses/how-it-works'); ?></li>
+        <li><?php echo $this->Html->link('Do you sell tea?', '/businesses/how-it-works'); ?></li>
         <?php if($deal_is_live):  ?>
         <!-- <li><?php echo $this->Html->link('Current Deal', '/deals/view');?></li> -->
         <?php endif; ?>
@@ -17,10 +17,12 @@
         <?php endif; ?>
     </ul>
 </nav>
+<?php /* 
 <section class="shadow-inset" id="a-business">
     <label for="">Do you sell tea?</label>
     <?php echo $this->Html->link('Click Here', '/businesses/how-it-works', array('class' => 'btn white')); ?>
 </section>
+*/ ?>
 <section id="bubble-shares" class="addthis">
     <nav class="shadow-inset">
         <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false" data-href="https://www.facebook.com/pages/DrinkChai/239368896145935"></div>

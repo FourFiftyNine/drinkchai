@@ -33,11 +33,12 @@
                                     <li><?php echo $this->Html->link('Logout', '/users/logout', array('escape' => false, 'class' => 'logout btn white')); ?></li>
                             </ul>
                         </nav>
-                        
                     </li>
                 <?php else: ?>
+                <?php /* ?>
                     <li><?php echo $this->Html->link('Login', '/users/login', array('escape' => false, 'class' => 'login')); ?></li>
                     <li><?php echo $this->Html->link('Sign Up', '/users/sign-up', array('escape' => false, 'class' => '')); ?></li>
+                */ ?>
                 <?php endif; ?>
             </ul>
             <div class="sub-menu">
