@@ -334,7 +334,9 @@ a:active,
   outline: 0;
 }
 nav a,
-nav a:visited {
+nav a:visited,
+a.btn,
+a.btn:visited {
   text-decoration: none;
 }
 /*~~ General - Columns ~~*/
