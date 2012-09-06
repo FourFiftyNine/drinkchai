@@ -7,10 +7,10 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <meta property="fb:app_id" content="331823930171141" />
     <meta property="fb:admins" content="1410801" />
-    <meta property="og:title" content="DrinkChai.com - <?php echo $title_for_layout; ?>"/>
-    <meta property="og:url" content="http://drinkchai.com"/>
+    <meta property="og:title" content="<?php echo $title_for_layout . ' - DrinkChai.com'; ?>"/>
+    <meta property="og:url" content="<?php echo Router::url( $this->here, true ); ?>"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="http://drinkchai.com/img/emblem_large.png" />
+    <!-- <meta property="og:image" content="http://drinkchai.com/img/emblem_large.png" /> -->
     <meta property="og:site_name" content="DrinkChai"/>
     <meta property="og:description"
           content="DrinkChai brings you the best handpicked teas at a great price, delivered right to your door."/>
@@ -18,7 +18,6 @@
     'favicon.ico',
     '/favicon.ico',
     array('type' => 'icon'));?>
-
     <?php echo $this->Html->css('style.css'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.7.1.min.js'>\x3C/script>")</script>
