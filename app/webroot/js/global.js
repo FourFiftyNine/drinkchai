@@ -114,6 +114,8 @@ var common = DrinkChai.common = {
     if (!UTIL.M.backgroundsize) {
       if ($('body#error').length) {
         $.backstretch("../../img/bg-404-bw.png", {speed: 0});
+      } else if ($('body#default.deals').length) {
+        $.backstretch('../../img/bg-tea-kettle.jpg');
       } else {
         $.backstretch("../../img/tea_leaves.jpg", {speed: 0});
       }

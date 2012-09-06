@@ -1262,14 +1262,11 @@ textarea.form-error {
 }
 /*~~~~ Account Pages - Navigation ~~~~*/
 body#default.deals.preview,
-body#default.deals.view {
+body#default.deals.view,
+body#default.deals.demo {
   background: url("/img/bg-tea-kettle.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
-}
-.ie7 body#default.deals.view,
-.ie8 body#default.deals.preview {
-  background: url("/img/bg-tea-kettle.jpg") repeat center center fixed;
 }
 #default header a.create-a-deal {
   float: right;

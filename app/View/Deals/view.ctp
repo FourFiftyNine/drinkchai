@@ -22,7 +22,7 @@
             </div>
             <div id="share" class="">
                 <div class="fb-like" data-send="false" data-layout="box_count" data-width="" data-show-faces="false"></div>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-url="http://drinkchai.com" data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-text="Get great Tea deals at " data-via="drink_chai" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical"></a>
                 <div id="pinterest">
                     <a href="http://pinterest.com/pin/create/button/?url=<?php echo $this->Html->url(null, true); ?>&media=<?php echo Router::url('/', true) ?>img/test-deal-image.png" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
                 </div>
